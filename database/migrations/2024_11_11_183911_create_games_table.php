@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id('id_game');
-            $table->foreignId('id_publisher')->constrained('publishers')->onDelete('cascade');
+            $table->unsignedBigInteger('id_publisher'); // Cria a coluna manualmente
+            $table->foreign('id_publisher') // Define a chave estrangeira
+            ->references('id_publisher') // Aponta para 'id_publisher' em 'publishers'
+            ->on('publishers')
+                ->onDelete('cascade');
             $table->string('category', 50);
             $table->decimal('price', 10, 2);
             $table->string('name', 255);

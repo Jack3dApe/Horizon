@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('publishers', function (Blueprint $table) {
-            $table->id('id_publisher');
+            $table->id('id_publisher'); // Mantém 'id_publisher' como chave primária
             $table->string('name', 100);
             $table->integer('numOfGames')->default(0);
             $table->string('email', 100)->unique();
