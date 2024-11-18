@@ -9,4 +9,10 @@ class Support_Ticket extends Model
 {
     /** @use HasFactory<\Database\Factories\SupportTicketFactory> */
     use HasFactory;
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
 }

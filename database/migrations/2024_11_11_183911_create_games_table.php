@@ -12,10 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_game');
+            $table->foreignId('id_publisher')->constrained('publishers')->onDelete('cascade');
+            $table->string('category', 50);
+            $table->decimal('price', 10, 2);
+            $table->string('name', 255);
+            $table->enum('rating', [
+                'Overwhelmingly Positive', 'Very Positive', 'Positive',
+                'Mostly Positive', 'Mixed', 'Mostly Negative',
+                'Negative', 'Very Negative', 'Overwhelmingly Negative'
+            ])->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('publishers', function (Blueprint $table) {
-            $table->id('id_publisher');
-            $table->string('name', 100);
-            $table->integer('numOfGames')->default(0);
-            $table->string('email', 100)->unique();
+        Schema::create('payment_details', function (Blueprint $table) {
+            $table->id('id_payment');
+            $table->foreignId('id_order')->constrained('order_details')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('publishers');
+        Schema::dropIfExists('payment_details');
     }
 };

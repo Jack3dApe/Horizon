@@ -9,4 +9,10 @@ class Publisher extends Model
 {
     /** @use HasFactory<\Database\Factories\PublisherFactory> */
     use HasFactory;
+
+    public function games(): HasMany
+    {
+        return $this->hasMany(Game::class, 'id_publisher');
+    }
+
 }

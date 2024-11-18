@@ -12,10 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_review');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_game')->constrained('games')->onDelete('cascade');
+            $table->boolean('is_positive');
+            $table->text('description')->nullable();
+            $table->date('review_date');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

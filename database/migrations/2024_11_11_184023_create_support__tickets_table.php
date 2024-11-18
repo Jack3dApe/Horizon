@@ -11,11 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('support__tickets', function (Blueprint $table) {
-            $table->id();
+        Schema::create('support_tickets', function (Blueprint $table) {
+            $table->id('id_ticket');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->text('issue_description');
+            $table->enum('status', ['Open', 'In Progress', 'Closed'])->default('Open');
+            $table->date('creation_date');
+            $table->date('resolution_date')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
