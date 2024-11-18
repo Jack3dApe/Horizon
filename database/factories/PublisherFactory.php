@@ -17,7 +17,9 @@ class PublisherFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->company,
+            'numOfGames' => $this->faker->numberBetween(1, 50),
+            'email' => $this->faker->unique()->safeEmail,
         ];
     }
 }

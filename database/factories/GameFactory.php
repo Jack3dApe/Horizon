@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Publisher;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
@@ -17,15 +18,14 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_publisher' => Publisher::factory(),
+            'id_publisher' => Publisher::factory(), // Cria um Publisher automaticamente
             'category' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 5, 100),
             'name' => $this->faker->sentence(3),
             'rating' => $this->faker->randomElement([
                 'Overwhelmingly Positive', 'Very Positive', 'Positive',
-                'Mixed', 'Negative', 'Overwhelmingly Negative'
+                'Mixed', 'Negative', 'Overwhelmingly Negative',
             ]),
         ];
     }
-
 }

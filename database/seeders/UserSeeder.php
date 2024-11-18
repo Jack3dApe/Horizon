@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Review;
+use App\Models\User;
 
-class ReviewSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     use WithoutModelEvents;
 
@@ -15,7 +15,7 @@ class ReviewSeeder extends Seeder
      */
     public function run(): void
     {
-        // Cria 30 reviews usando a factory
-        Review::factory()->count(30)->create();
+        // Gera 10 usuários fictícios usando a Factory
+        User::factory()->count(10)->create();
     }
 }
