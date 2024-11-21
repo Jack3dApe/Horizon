@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Insira os dados do novo tipo de obra</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Alerta para mensagem de sucesso -->
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+                        Success
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Alerta para mensagem de erro geral -->
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="display: none;">
+                        General Error
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <form action="#" method="POST">
+                        <input type="hidden" name="_token" value="SUA_CSRF_TOKEN_AQUI">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label required">Nome do Tipo de Obra</label>
+                            <input type="text" id="nome" name="nome" class="form-control" value="" required>
+                            <div class="invalid-feedback" style="display: none;">Mensagem de erro específica do campo nome</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <textarea id="descricao" name="descricao" class="form-control" rows="4" required></textarea>
+                            <div class="invalid-feedback" style="display: none;">Mensagem de erro específica do campo descrição</div>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <a href="#" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
