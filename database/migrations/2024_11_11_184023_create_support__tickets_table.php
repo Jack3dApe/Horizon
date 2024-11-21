@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('support_tickets', function (Blueprint $table) {
             $table->id('id_ticket');
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->foreignId('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->text('issue_description');
             $table->enum('status', ['Open', 'In Progress', 'Closed'])->default('Open');
             $table->date('creation_date');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Support_Ticket>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SupportTicket>
  */
 class SupportTicketFactory extends Factory
 {

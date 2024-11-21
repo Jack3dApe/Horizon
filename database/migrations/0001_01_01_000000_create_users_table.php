@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id('id_user'); // id_user como PRIMARY KEY com auto incremento
             $table->string('username', 50); // Campo username com VARCHAR(50)
-            $table->string('password', 50); // Campo password com VARCHAR(50)
+            $table->string('password', 255); // Campo password com VARCHAR(50)
             $table->string('email', 100); // Campo email com VARCHAR(100)
-            $table->string('phone', 15)->nullable(); // Campo phone com VARCHAR(15) e opcional
+            $table->string('phone', 20)->nullable(); // Campo phone com VARCHAR(15) e opcional
             $table->integer('purchases')->default(0); // Campo purchases com valor default 0
             $table->string('profile_pic', 250)->nullable(); // Campo profile_pic com VARCHAR(250) e opcional
             $table->enum('role', ['client', 'admin']); // Campo role como ENUM
