@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a href="/tipo_obras/create" class="btn btn-primary">Create New Category</a>
+            <div class="card mt-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="">ID</th>
+                            <th>Nome</th>
+                            <th class="d-none d-md-table-cell">Descrição</th>
+                            <th class="w-auto text-end">Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Livro</td>
+                            <td class="d-none d-md-table-cell">Descrição do Livro</td>
+                            <td class="text-end">
+                                <a href="/tipo_obras/1" class="btn btn-info"><i class="ti ti-eye"></i></a>
+                                <a href="/tipo_obras/1/edit" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <form action="/tipo_obras/1" method="POST" style="display: inline">
+                                    <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
