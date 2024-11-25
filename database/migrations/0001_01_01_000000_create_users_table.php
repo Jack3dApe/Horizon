@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone', 20)->nullable(); // Campo phone com VARCHAR(15) e opcional
             $table->integer('purchases')->default(0); // Campo purchases com valor default 0
             $table->string('profile_pic', 250)->nullable(); // Campo profile_pic com VARCHAR(250) e opcional
-            $table->enum('role', ['client', 'admin']); // Campo role como ENUM
+            $table->enum('role', ['clients', 'admin']); // Campo role como ENUM
             $table->boolean('is_2fa_enabled')->default(false); // Campo is_2fa_enabled com valor default FALSE
             $table->timestamps(); // Campos created_at e updated_at
         });

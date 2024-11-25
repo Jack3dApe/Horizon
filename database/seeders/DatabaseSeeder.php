@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             GameSeeder::class,
             ReviewSeeder::class,
             SupportTicketSeeder::class,
+            GenreSeeder::class,
         ]);
     }
 }

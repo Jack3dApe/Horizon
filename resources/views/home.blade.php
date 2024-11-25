@@ -1,4 +1,4 @@
-@extends('layouts.guest.base')
+@extends('layouts.guests.base')
 
 @section('content')
     <!-- <section> close ============================-->
