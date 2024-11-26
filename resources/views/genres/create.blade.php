@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Tipo de Obra')
+@section('title','Criar um novo Genre de Obra')
 
 @section('content')
     <div class="container">
@@ -29,10 +29,10 @@
                         @endif
 
 
-                        <form action="{{route('tipos.store')}}" method="POST">
+                        <form action="{{route('genres.store')}}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="nome" class="form-label required">Nome do Tipo de Obra</label>
+                                <label for="nome" class="form-label required">Nome do Genre de Obra</label>
                                 <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{old('nome')}}" >
                                 @error('nome')
                                 <div class="invalid-feedback" >{{$message}}</div>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a href="{{route('tipos.index')}}" class="btn btn-secondary">Cancelar</a>
+                                <a href="{{route('genres.index')}}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

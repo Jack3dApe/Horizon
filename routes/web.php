@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\TipoObraController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('admin.dashboard');
 })->name('home');
 
 Route::get('/admin/dashboard', function () {

@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title', 'Editar o Tipo de Obra')
+@section('title', 'Editar o Genre de Obra')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Editar Tipo de Obra</h4>
+                        <h4>Editar Genre de Obra</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de erro geral -->
@@ -23,24 +23,24 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('tipos.update', $tipo->id) }}" method="POST">
+                        <form action="{{ route('genres.update', $genre->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
                                 <label for="id" class="form-label required">ID</label>
-                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $tipo->id }}" readonly>
+                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id }}" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="nome" class="form-label required">Nome do Tipo de Obra</label>
-                                <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome', $tipo->nome) }}" required>
+                                <label for="nome" class="form-label required">Nome do Genre de Obra</label>
+                                <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome', $genre->nome) }}" required>
                                 @error('nome')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Descrição</label>
-                                <textarea id="descricao" name="descricao" class="form-control @error('descricao') is-invalid @enderror" rows="4" required>{{ old('descricao', $tipo->descricao) }}</textarea>
+                                <textarea id="descricao" name="descricao" class="form-control @error('descricao') is-invalid @enderror" rows="4" required>{{ old('descricao', $genre->descricao) }}</textarea>
                                 @error('descricao')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

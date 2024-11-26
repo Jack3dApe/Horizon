@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do Tipo de Obra')
+@section('title','Detalhes do Genre de Obra')
 
 @section('content')
     <div class="container">
@@ -15,12 +15,12 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{$tipo->id}}] {{$tipo->nome}}</h3>
-                        <p>{{$tipo->descricao}}</p>
+                        <h3>[#{{$genre->id}}] {{$genre->nome}}</h3>
+                        <p>{{$genre->descricao}}</p>
                     </div>
                 </div>
-                <a href="{{route('tipos.index')}}" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
-                <a href="{{route('tipos.edit',$tipo)}}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                <a href="{{route('genres.index')}}" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
+                <a href="{{route('genres.edit',$genre)}}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
             </div>
         </div>
     </div>
