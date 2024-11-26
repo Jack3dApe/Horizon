@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title', 'Editar o Genre de Obra')
+@section('title', 'Edit')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Editar Genre de Obra</h4>
+                        <h4>Edite genre</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de erro geral -->
@@ -32,22 +32,16 @@
                                 <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id }}" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="nome" class="form-label required">Nome do Genre de Obra</label>
+                                <label for="nome" class="form-label required">Name of the genre</label>
                                 <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome', $genre->nome) }}" required>
                                 @error('nome')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="descricao" class="form-label">Descrição</label>
-                                <textarea id="descricao" name="descricao" class="form-control @error('descricao') is-invalid @enderror" rows="4" required>{{ old('descricao', $genre->descricao) }}</textarea>
-                                @error('descricao')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                                <a href="{{ url()->previous()}}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Apply changes</button>
+                                <a href="{{ url()->previous()}}" class="btn btn-secondary">Cancel</a>
                             </div>
                         </form>
                     </div>

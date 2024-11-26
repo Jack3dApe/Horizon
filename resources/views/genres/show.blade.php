@@ -19,8 +19,8 @@
                         <p>{{$genre->descricao}}</p>
                     </div>
                 </div>
-                <a href="{{route('genres.index')}}" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
-                <a href="{{route('genres.edit',$genre)}}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                <a href="{{route('genres.index')}}" class="btn btn-secondary mt-3">Show all genres</a>
+                <a href="{{route('genres.edit',$genre)}}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</a>
             </div>
         </div>
     </div>

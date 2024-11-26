@@ -15,7 +15,7 @@
 
     <link rel="manifest" href="{{asset('icons/site.webmanifest')}}">
 
-    <title>Mediateca-Admin</title>
+    <title>Horizon-Admin</title>
     <!-- CSS files -->
     @vite(['resources/sass/app.scss']);
 </head>
@@ -30,7 +30,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href=".">
-                    <img src="{{asset('imgs/logo-mediateca.png')}}" width="110" height="110" alt="Mediateca">
+                    <img src="{{asset('imgs/logo_horizon.png')}}" width="110" height="110" alt="Horizon">
                 </a>
             </h1>
 
@@ -44,7 +44,7 @@
                                 <i class="ti ti-logout fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Sair
+                                Exit
                             </span>
                         </a>
                     </li>
@@ -59,22 +59,23 @@
                             </span>
                         </a>
                     </li>
-                    <!-- Obras Section -->
+                    <!-- Games Section -->
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
                            data-bs-auto-close="false" role="button" aria-expanded="false">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-book fs-5"></i>
+                                <i class="ti ti-device-gamepad-2"></i>
                             </span>
                             <span class="nav-link-title">
-                               Obras
+                               Games
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item active" href="{{route('genres.index')}}">Genres de Obras</a>
-                            <a class="dropdown-item active" href="{{route('publishers.index')}}">Autores</a>
+                            <a class="dropdown-item active" href="{{route('genres.index')}}">Genres</a>
+                            <a class="dropdown-item active" href="{{route('publishers.index')}}">Publishers</a>
 
-                            <!-- Outros links para Obras podem ser adicionados aqui -->
+
+                            <!-- Outros links para Genres podem ser adicionados aqui -->
                         </div>
                     </li>
                     <!-- Admin Section -->
@@ -103,7 +104,7 @@
                                 <i class="ti ti-user fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Cliente
+                                Client
                             </span>
                         </a>
                         <div class="dropdown-menu">
@@ -123,7 +124,7 @@
                 <div class="row g-2 align-items-center">
                     <div class="col">
                         <!-- Page pre-title -->
-                        <div class="page-pretitle">Admin - Nome ....</div>
+                        <div class="page-pretitle">Admin - Name ....</div>
                         <h2 class="page-title">@yield('title')</h2>
                     </div>
                     <!-- Page title actions -->
@@ -146,7 +147,7 @@
             <div class="container-xl"></div>
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col">
-                    <p>ATEC - TPSI1223 - Todos os direitos reservados</p>
+                    <p></p>
                 </div>
             </div>
         </footer>

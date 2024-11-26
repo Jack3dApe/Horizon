@@ -6,16 +6,15 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="{{route('genres.create')}}" class="btn btn-primary">Criar Novo Tipo</a>
+                <a href="{{route('genres.create')}}" class="btn btn-primary">Create new genre</a>
                 <div class="card mt-4">
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th class="">ID</th>
-                                <th>Nome</th>
-                                <th class="d-none d-md-table-cell">Descrição</th>
-                                <th class="w-auto text-end">Ações</th>
+                                <th>Name</th>
+                                <th class="w-auto text-end">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
