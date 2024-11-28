@@ -18,6 +18,8 @@ Route::get('/client/dashboard', function () {
 
 Route::resource('genres', \App\Http\Controllers\GenreController::class);
 
+Route::resource('users', \App\Http\Controllers\UserController::class);
+
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
 

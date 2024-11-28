@@ -75,13 +75,32 @@
                             <a class="dropdown-item active" href="{{route('publishers.index')}}">Publishers</a>
 
 
-                            <!-- Outros links para Genres podem ser adicionados aqui -->
+
                         </div>
                     </li>
-                    <!-- Admin Section -->
 
 
-                    <!-- Cliente Section -->
+                    <!-- Users Sesction -->
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
+                           data-bs-auto-close="false" role="button" aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-users"></i>
+                            </span>
+                            <span class="nav-link-title">
+                               Users
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item active" href="{{route('users.index')}}">Accounts</a>
+                            <a class="dropdown-item active" href="{{route('reviews.index')}}">Reviews</a>
+
+
+
+                        </div>
+                    </li>
+
+                    <!-- Other Section -->
 
                 </ul>
             </div>
