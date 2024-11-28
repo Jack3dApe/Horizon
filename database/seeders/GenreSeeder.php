@@ -13,6 +13,29 @@ class GenreSeeder extends Seeder
      */
     public function run(): void
     {
-        Genre::factory()->count(10)->create();
+        $genres = [
+            ['name' => 'RPG'],
+            ['name' => 'MMO'],
+            ['name' => 'FPS'],
+            ['name' => 'Strategy'],
+            ['name' => 'Adventure'],
+            ['name' => 'Simulation'],
+            ['name' => 'Horror'],
+            ['name' => 'Platformer'],
+            ['name' => 'Puzzle'],
+            ['name' => 'Racing'],
+            ['name' => 'Sports'],
+            ['name' => 'Fighting'],
+            ['name' => 'Stealth'],
+            ['name' => 'Music'],
+            ['name' => 'Survival']
+        ];
+
+        foreach ($genres as $genre) {
+            Genre::create($genre);
+        }
+
+        #Genre::factory()->count(10)->create();
     }
 }
+
