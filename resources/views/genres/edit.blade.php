@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Edite genre</h4>
+                        <h4>Edit genre</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de erro geral -->
@@ -23,18 +23,18 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('genres.update', $genre->id) }}" method="POST">
+                        <form action="{{ route('genres.update', $genre->id_genres) }}" method="POST">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
                                 <label for="id" class="form-label required">ID</label>
-                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id }}" readonly>
+                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id_genres }}" readonly>
                             </div>
                             <div class="mb-3">
-                                <label for="nome" class="form-label required">Name of the genre</label>
-                                <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome', $genre->nome) }}" required>
-                                @error('nome')
+                                <label for="name" class="form-label required">Name of the genre</label>
+                                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $genre->name) }}" required>
+                                @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

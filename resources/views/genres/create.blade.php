@@ -7,9 +7,6 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Make a new genre</h4>
-                    </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
@@ -32,15 +29,15 @@
                         <form action="{{route('genres.store')}}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="nome" class="form-label required">Insert the name of the genre</label>
-                                <input type="text" id="nome" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{old('nome')}}" >
-                                @error('nome')
+                                <label for="name" class="form-label required">Insert the name of the genre</label>
+                                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" >
+                                @error('name')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
 
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{route('genres.index')}}" class="btn btn-secondary">Cancel</a>
                             </div>
                         </form>

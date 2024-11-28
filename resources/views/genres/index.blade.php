@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de genre de Obras')
+@section('title','Genres list')
 
 @section('content')
     <div class="container">
@@ -21,12 +21,12 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($genres as $genre)
                                 <tr>
-                                    <td>{{$genre->id}}</td>
-                                    <td>{{$genre->nome}}</td>
+                                    <td>{{$genre->id_genres}}</td>
+                                    <td>{{$genre->name}}</td>
                                     <td class="text-end">
 
                                         <a href="{{route('genres.show',$genre)}}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{route('genres.edit',$genre)}}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('genres.edit',$genre)}}" class="btn btn-warning"><i class="ti ti-pencil" aria-hidden="true"></i></a>
                                         <form action="{{route('genres.destroy',$genre)}}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf

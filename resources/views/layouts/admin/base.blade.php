@@ -79,39 +79,10 @@
                         </div>
                     </li>
                     <!-- Admin Section -->
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
-                           data-bs-auto-close="false" role="button" aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-settings fs-5"></i>
-                            </span>
-                            <span class="nav-link-title">
-                                Admin
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item active" href="">Dashboard</a>
-                            <a class="dropdown-item" href="">Dashboard2</a>
-                            <!-- Outros links para Admin podem ser adicionados aqui -->
-                        </div>
-                    </li>
+
 
                     <!-- Cliente Section -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#client-menu" data-bs-toggle="dropdown"
-                           data-bs-auto-close="false" role="button" aria-expanded="false">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-user fs-5"></i>
-                            </span>
-                            <span class="nav-link-title">
-                                Client
-                            </span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Dashboard</a>
-                            <!-- Outros links para Cliente podem ser adicionados aqui -->
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </div>

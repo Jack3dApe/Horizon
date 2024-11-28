@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Genre extends Model
 {
     /** @use HasFactory<\Database\Factories\GenreFactory> */
-    use HasFactory, softDeletes;
+    use HasFactory;
 
     protected $fillable = ['name'];
     protected $table = 'genres';
