@@ -18,7 +18,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($genres as $genre)
                                 <tr>
                                     <td>{{$genre->id_genres}}</td>

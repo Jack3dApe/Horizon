@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\TipoObraController;
+use \App\Http\Controllers\PublisherController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -19,5 +19,5 @@ Route::get('/client/dashboard', function () {
 Route::resource('genres', \App\Http\Controllers\GenreController::class);
 
 
-Route::resource('publishers', \App\Http\Controllers\PublisherController::class)
-    ->parameters(['publishers' => 'publisher']);
+Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
+

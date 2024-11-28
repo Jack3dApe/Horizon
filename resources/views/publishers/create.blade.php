@@ -1,17 +1,14 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar autor')
+@section('title','Create Publisher')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Criar Novo Autor</h4>
-                    </div>
                     <div class="card-body">
-                        <!-- Alerta para mensagem de erro geral -->
+                        <!-- Alert for general error messages -->
                         @if($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <ul>
@@ -25,20 +22,24 @@
                         <form action="{{route('publishers.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="nome" class="form-label">Nome do Autor</label>
-                                <input type="text" id="nome" name="nome" class="form-control" required>
+                                <label for="name" class="form-label">Publisher Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="biografia" class="form-label">Biografia</label>
-                                <textarea id="biografia" name="biografia" class="form-control" rows="4"></textarea>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="foto" class="form-label">Foto</label>
-                                <input type="file" id="foto" name="foto" class="form-control">
+                                <label for="numOfGames" class="form-label">Number of Games</label>
+                                <input type="number" id="numOfGames" name="numOfGames" class="form-control" min="0">
+                            </div>
+                            <div class="mb-3">
+                                <label for="dateOfEstablishment" class="form-label">Date of Establishment</label>
+                                <input type="date" id="dateOfEstablishment" name="dateOfEstablishment" class="form-control">
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a href="{{route('publishers.index')}}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="{{route('publishers.index')}}" class="btn btn-secondary">Cancel</a>
                             </div>
                         </form>
                     </div>
@@ -48,3 +49,24 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlert = document.getElementById('success-alert');//
+            if (successAlert) {
+                setTimeout(function() {
+                    // Adiciona a classe 'fade' e remove a classe 'show' para iniciar a transição de fechamento
+                    successAlert.classList.remove('show');
+                    successAlert.classList.add('fade');
+
+                    // Remove o elemento do DOM depois da transição
+                    setTimeout(function() {
+                        successAlert.remove();
+                    }, 500); // Ajuste o tempo conforme o efeito 'fade'
+                }, 3000); // Fecha o alerta após 3 segundos
+            }
+        });
+    </script>
+
+@endpush

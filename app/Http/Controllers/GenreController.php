@@ -48,7 +48,7 @@ class GenreController extends Controller
             $genre=new Genre($validated);
             $genre->save();
             //dd($genre);
-            return redirect(route('genres.create'))->with('success',"Genre registered with success! [#{$genre->id}]");
+            return redirect(route('genres.index'))->with('success',"Genre registered with success! [#{$genre->id}]");
 
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error'=>"Error while creating Genre!"])->withInput();
