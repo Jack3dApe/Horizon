@@ -30,7 +30,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href=".">
-                    <img src="{{asset('icons/place_holder_icon.png')}}" width="110" height="110" alt="Horizon">
+                    <img src="{{asset('imgs/logo_horizon.png')}}" width="200" height="200" alt="Horizon">
                 </a>
             </h1>
 
