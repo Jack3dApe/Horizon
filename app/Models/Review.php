@@ -12,7 +12,7 @@ class Review extends Model
 
     protected $primaryKey = 'id_review';
 
-    public function user(): BelongsTo
+    /*public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_user');
     }
@@ -20,6 +20,13 @@ class Review extends Model
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class, 'id_game');
-    }
+    }*/
 
+    protected $fillable = [
+        //'id_user',
+        //'id_game',
+        'is_positive',
+        'description',
+        'review_date',
+    ];
 }
