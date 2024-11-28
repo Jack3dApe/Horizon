@@ -43,7 +43,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            /
+
                             <div class="mb-3">
                                 <label for="email" class="form-label required">Email</label>
                                 <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $publisher->email) }}" required>
@@ -51,7 +51,6 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            */
 
                             <div class="mb-3">
                                 <label for="dateOfEstablishment" class="form-label">Date of Establishment</label>

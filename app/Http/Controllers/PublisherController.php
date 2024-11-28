@@ -4,29 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PublisherController extends Controller
 {
-    protected $rules = [
-        'name' => 'required|string|max:100',
-        'numOfGames' => 'nullable|integer|min:0',
-        'email' => 'required|email|max:100| unique:publishers,email,:id_publisher',
-        'dateOfEstablishment' => 'nullable|date',
-    ];
-
-    protected $messages = [
-        'name.required' => 'The publisher name is required.',
-        'name.string' => 'The publisher name must be a string.',
-        'name.max' => 'The publisher name cannot exceed 100 characters.',
-        'numOfGames.integer' => 'The number of games must be an integer.',
-        'numOfGames.min' => 'The number of games cannot be negative.',
-        'email.required' => 'The email address is required.',
-        'email.email' => 'The email address must be valid.',
-        'email.max' => 'The email address cannot exceed 100 characters.',
-        'email.unique' => 'The email address has already been taken.',
-        'dateOfEstablishment.date' => 'The date of establishment must be a valid date.',
-    ];
-
     public function index(Request $request)
     {
         return view('publishers.index', ["publishers" => Publisher::paginate(10)->withQueryString()]);
@@ -69,15 +50,37 @@ class PublisherController extends Controller
 
     public function update(Request $request, Publisher $publisher)
     {
-        $validated = $request->validate($this->rules,$this->messages);
-        try{
+             $rules = [
+                'name' => 'required|string|max:100',
+                'numOfGames' => 'nullable|integer|min:0',
+                'email' => ['required', 'email','max:100',
+                Rule::unique('publishers', 'email')->ignore($publisher->id_publisher, 'id_publisher'),
+            ],
+            'dateOfEstablishment' => 'nullable|date',
+        ];
+
+        $messages = [
+            'name.required' => 'The publisher name is required.',
+            'name.string' => 'The publisher name must be a string.',
+            'name.max' => 'The publisher name cannot exceed 100 characters.',
+            'numOfGames.integer' => 'The number of games must be an integer.',
+            'numOfGames.min' => 'The number of games cannot be negative.',
+            'email.required' => 'The email address is required.',
+            'email.email' => 'The email address must be valid.',
+            'email.max' => 'The email address cannot exceed 100 characters.',
+            'email.unique' => 'The email address has already been taken.',
+            'dateOfEstablishment.date' => 'The date of establishment must be a valid date.',
+        ];
+
+        $validated = $request->validate($rules, $messages);
+
+        try {
             $publisher->update($validated);
             $publisher->save();
-            //session()->put(['success'=>5]);
-            return redirect(route('publisher.show',$publisher))->with(['success','Publisher Altered Successfully']);//session()->flash('')
 
-        }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error'=>"Error altering data! MSG:{$e->getMessage()}"])->withInput();
+            return redirect(route('publishers.show', $publisher))->with('success', 'Publisher Altered Successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => "Error altering data! MSG: {$e->getMessage()}"])->withInput();
         }
     }
 
@@ -87,5 +90,4 @@ class PublisherController extends Controller
 
         return redirect()->route('publishers.index')->with('success', 'Publisher deleted successfully.');
     }
-
 }

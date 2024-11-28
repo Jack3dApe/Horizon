@@ -62,7 +62,7 @@
                                 <a href="{{ route('publishers.show', $publisher) }}" class="btn btn-info">
                                     <i class="ti ti-eye"></i>
                                 </a>
-                                <a href="{{ route('publishers.update', $publisher->id_publisher) }}" class="btn btn-warning">
+                                <a href="{{ route('publishers.edit', $publisher->id_publisher) }}" class="btn btn-warning">
                                     <i class="ti ti-pencil" aria-hidden="true"></i>
                                 </a>
                                 <form action="{{ route('publishers.destroy', $publisher->id_publisher) }}" method="POST"
