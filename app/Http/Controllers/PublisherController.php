@@ -54,7 +54,7 @@ class PublisherController extends Controller
                 'name' => 'required|string|max:100',
                 'numOfGames' => 'nullable|integer|min:0',
                 'email' => ['required', 'email','max:100',
-                Rule::unique('publishers', 'email')->ignore($publisher->id_publisher, 'id_publisher'),
+                Rule::unique('publishers', 'email')->ignore($publisher),
             ],
             'dateOfEstablishment' => 'nullable|date',
         ];
