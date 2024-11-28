@@ -22,7 +22,7 @@
 <body class="layout-fluid">
 <div class="page">
     <!-- Sidebar -->
-    <aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
+    <aside class="navbar navbar-vertical navbar-expand-lg custom-sidebar" data-bs-theme="dark">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu"
                     aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href=".">
-                    <img src="{{asset('imgs/logo_horizon.png')}}" width="110" height="110" alt="Horizon">
+                    <img src="{{asset('icons/place_holder_icon.png')}}" width="110" height="110" alt="Horizon">
                 </a>
             </h1>
 
@@ -100,9 +100,18 @@
                         </div>
                     </li>
 
-                    <!-- Other Section -->
+                    <!-- Theme Section -->
+
 
                 </ul>
+            </div>
+            <div class="theme-toggle mt-auto mb-4 px-3 d-flex justify-content-center">
+                <button class="btn nav-link p-0 me-3" id="light-mode-toggle">
+                    <i class="ti ti-sun fs-3" title="Light Mode"></i>
+                </button>
+                <button class="btn nav-link p-0" id="dark-mode-toggle">
+                    <i class="ti ti-moon fs-3" title="Dark Mode"></i>
+                </button>
             </div>
         </div>
     </aside>

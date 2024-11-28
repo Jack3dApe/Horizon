@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class UserControler extends Controller
 {
@@ -33,7 +37,7 @@ class UserControler extends Controller
             'email' => 'required|email|unique:users,email|max:100',
             'password' => 'required|string|min:8|max:255',
             'phone' => 'nullable|string|max:20',
-            'profile_pic' => 'nullable|string|max:250',
+            'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'role' => 'required|in:clients,admin',
             'is_2fa_enabled' => 'boolean'
         ]);
@@ -74,10 +78,10 @@ class UserControler extends Controller
     {
         $validated = $request->validate([
             'username' => 'required|string|max:50',
-            'email' => 'required|email|unique:users,email,' . $user->id_user, // Supostamente ignora o user atual ao tentar editar
+            'email' => 'required|email|unique:users,email,' . $user->id_user, // Supostamente ignora o user atual ao tentar editar o mail
             'password' => 'nullable|string|min:8|max:255',
             'phone' => 'nullable|string|max:20',
-            'profile_pic' => 'nullable|string|max:250',
+            'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'role' => 'required|in:clients,admin',
             'is_2fa_enabled' => 'boolean'
         ]);
@@ -86,7 +90,7 @@ class UserControler extends Controller
         $user->email = $validated['email'];
 
         if (!empty($validated['password'])) {
-            $user->password = Hash::make($validated['password']); // Cena pra encriptar a senha
+            $user->password = Hash::make($validated['password']); // encriptar a senha
         }
 
         $user->phone = $validated['phone'] ?? null;
@@ -103,7 +107,7 @@ class UserControler extends Controller
      */
     public function destroy(User $user)
     {
-        // Remove o usuário
+        // Remove o user
         $user->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }

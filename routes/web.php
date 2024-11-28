@@ -3,6 +3,8 @@
 use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PublisherController;
+use \App\Http\Controllers\UserControler;
+use \App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
     return view('admin.dashboard');
@@ -18,8 +20,9 @@ Route::get('/client/dashboard', function () {
 
 Route::resource('genres', \App\Http\Controllers\GenreController::class);
 
-Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('users', \App\Http\Controllers\UserControler::class);
 
+Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
 

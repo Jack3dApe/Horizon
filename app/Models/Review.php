@@ -10,6 +10,8 @@ class Review extends Model
     /** @use HasFactory<\Database\Factories\ReviewFactory> */
     use HasFactory;
 
+    protected $primaryKey = 'id_review';
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_user');

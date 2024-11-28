@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void //Ver se dá push
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id('id_user'); // id_user como PRIMARY KEY com auto incremento
