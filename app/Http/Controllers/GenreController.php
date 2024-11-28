@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Publisher;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -25,7 +26,7 @@ class GenreController extends Controller
         //$genres=Genre::all();
         //dd($genres);
         //return view('genres.index',compact($genres));
-        return view('genres.index',['genres'=>Genre::all()]);
+        return view('genres.index', ["genres" => Genre::paginate(10)->withQueryString()]);
     }
 
     /**

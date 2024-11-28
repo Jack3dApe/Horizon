@@ -39,7 +39,9 @@
                     </div>
                 </div>
             </div>
-
+        <div class="card-footer d-flex align-items-center">
+            {{$genres->links('layouts.admin.parts.paginationGenre',['genres'=>$genres])}}
+        </div>
         </div>
     </div>
 @endsection
