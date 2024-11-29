@@ -1,7 +1,7 @@
 import './bootstrap';
 import '@tabler/core/src/js/tabler.js';
 
-//Javascript proprio global
+//Scrpit do tema
 
 document.addEventListener('DOMContentLoaded', function () {
     const sidebar = document.getElementById('sidebar');

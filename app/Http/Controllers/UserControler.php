@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Validation\Rule;
 
 
 class UserControler extends Controller
@@ -78,7 +78,9 @@ class UserControler extends Controller
     {
         $validated = $request->validate([
             'username' => 'required|string|max:50',
-            'email' => 'required|email|unique:users,email,' . $user->id_user, // Supostamente ignora o user atual ao tentar editar o mail
+            'email' => ['required', 'email', 'max:100',
+                Rule::unique('users', 'email')->ignore($user->id_user, 'id_user')
+            ],
             'password' => 'nullable|string|min:8|max:255',
             'phone' => 'nullable|string|max:20',
             'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

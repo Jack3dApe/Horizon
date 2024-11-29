@@ -5,9 +5,6 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Edit Review</h4>
-                    </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de erro geral -->
                         @if($errors->any())
