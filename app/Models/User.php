@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, softDeletes;
 
     protected $primaryKey = 'id_user';
 
@@ -67,7 +68,7 @@ class User extends Authenticatable
      */
     public function games(): BelongsToMany
     {
-        return $this->belongsToMany(Game::class, 'owns', 'id_user', 'id_game');
+        return $this->belongsToMany(Game::class, 'games_users', 'id_user', 'id_game');
     }
 
     /**

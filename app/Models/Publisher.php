@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Publisher extends Model
 {
     /** @use HasFactory<\Database\Factories\PublisherFactory> */
-    use HasFactory;
+    use HasFactory, softDeletes;
 
     protected $fillable = ['name', 'numOfGames', 'email', 'dateOfEstablishment'];
     protected $primaryKey = 'id_publisher';

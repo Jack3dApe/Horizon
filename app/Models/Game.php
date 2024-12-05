@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Game extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -47,7 +48,7 @@ class Game extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'owns', 'id_game', 'id_user');
+        return $this->belongsToMany(User::class, 'games_users', 'id_game', 'id_user');
     }
 
     /**
@@ -56,5 +57,10 @@ class Game extends Model
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class, 'id_game');
+    }
+
+    public function genres(): BelongsToMany
+    {
+        return $this->belongsToMany(Genre::class, 'games_genres', 'id_game', 'id_genre');
     }
 }

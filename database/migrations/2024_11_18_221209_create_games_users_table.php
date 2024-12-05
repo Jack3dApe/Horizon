@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genres', function (Blueprint $table) {
-            $table->id('id_genre');
-            $table->string('name', length: 50)->unique();
-            $table->timestamps();
+        Schema::create('games_users', function (Blueprint $table) {
+            $table->foreignId('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreignId('id_game')->references('id_game')->on('games')->onDelete('cascade');
+            $table->primary(['id_user', 'id_game']);
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('genres');
+        Schema::dropIfExists('games_users');
     }
 };

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SupportTicket extends Model
 {
     /** @use HasFactory<\Database\Factories\SupportTicketFactory> */
-    use HasFactory;
+    use HasFactory, softDeletes;
 
     protected $fillable = [
         'id_user',
