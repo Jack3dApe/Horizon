@@ -14,13 +14,14 @@
 
     <link rel="manifest" href="{{asset('icons/site.webmanifest')}}">
 
-    <title>Mediateca</title>
+    <title>Horizon</title>
     <!-- CSS files -->
     @vite(['resources/sass/guests.scss'])
 </head>
 <body>
 <main class="main" id="top">
 
+    @include('layouts.guests.parts.navbarGuest')
 
     @include('layouts.guests.parts.menu')
     @yield('content')

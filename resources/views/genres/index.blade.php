@@ -24,7 +24,6 @@
                                     <td>{{$genre->name}}</td>
                                     <td class="text-end">
 
-                                        <a href="{{route('genres.show',$genre)}}" class="btn btn-info "><i class="ti ti-eye"></i></a>
                                         <a href="{{ route('genres.edit',$genre)}}" class="btn btn-warning"><i class="ti ti-pencil" aria-hidden="true"></i></a>
                                         <form action="{{route('genres.destroy',$genre)}}" method="POST" style="display: inline" >
                                             @method('DELETE')

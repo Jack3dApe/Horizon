@@ -7,7 +7,7 @@ use \App\Http\Controllers\UserControler;
 use \App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
-    return view('admin.dashboard');
+    return view('home');
 })->name('home');
 
 Route::get('/admin/dashboard', function () {
@@ -18,7 +18,7 @@ Route::get('/client/dashboard', function () {
     return view('client.dashboard');
 });
 
-Route::resource('genres', \App\Http\Controllers\GenreController::class);
+Route::resource('genres', \App\Http\Controllers\GenreController::class)->except(['show']);
 
 Route::resource('users', \App\Http\Controllers\UserControler::class);
 
