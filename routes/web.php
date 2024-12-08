@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PublisherController;
 use \App\Http\Controllers\UserControler;
 use \App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
     return view('home');
@@ -14,9 +16,28 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/client/dashboard', function () {
-    return view('client.dashboard');
+Route::get('/clients/dashboard', function () {
+    return view('clients.dashboard');
+})->name('clients.dashboard');
+
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
 });
+
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
+
+Route::get('/register', [RegisterController::class, 'showSignup'])->name('register.form')
+    ->middleware('guest');
+
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+
+
 
 Route::resource('genres', \App\Http\Controllers\GenreController::class)->except(['show']);
 
