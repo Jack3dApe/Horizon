@@ -38,7 +38,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 
 
-
+//Resources
 Route::resource('genres', \App\Http\Controllers\GenreController::class)->except(['show']);
 
 Route::resource('users', \App\Http\Controllers\UserControler::class);

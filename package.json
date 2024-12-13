@@ -23,6 +23,7 @@
         "@tabler/core": "^1.0.0-beta21",
         "@tabler/icons": "^3.22.0",
         "@tabler/icons-webfont": "^3.22.0",
+        "elegant-icons": "^0.0.1",
         "tabler": "^1.0.0-alpha.8"
     }
 }

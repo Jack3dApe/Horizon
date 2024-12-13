@@ -21,6 +21,7 @@
 <body>
 <main class="main" id="top">
 
+
     @include('layouts.guests.parts.navbarGuest')
 
     @include('layouts.guests.parts.menu')
