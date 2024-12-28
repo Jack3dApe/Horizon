@@ -28,11 +28,23 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Role:</label>
-                            <p>{{ ucfirst($user->role) }}</p>
+                            <p>{{ $user->getRoleNames()->join(', ') }}</p>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">2FA Enabled:</label>
                             <p>{{ $user->is_2fa_enabled ? 'Yes' : 'No' }}</p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status:</label>
+                            <p>
+                                @if($user->status === 'Active')
+                                    <span class="text-success">{{ $user->status }}</span>
+                                @elseif($user->status === 'Suspended')
+                                    <span class="text-warning">{{ $user->status }}</span>
+                                @else
+                                    <span class="text-danger">{{ $user->status }}</span>
+                                @endif
+                            </p>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Profile Picture:</label>

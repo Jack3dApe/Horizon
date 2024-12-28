@@ -59,13 +59,14 @@
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
-                                    <option value="clients" {{ $user->role == 'clients' ? 'selected' : '' }}>Client</option>
-                                    <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                                    <option value="clients" {{ $user->hasRole('clients') ? 'selected' : '' }}>Client</option>
+                                    <option value="admin" {{ $user->hasRole('admin') ? 'selected' : '' }}>Admin</option>
                                 </select>
                                 @error('role')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
 
                             <div class="mb-3">
                                 <label for="is_2fa_enabled" class="form-label">2FA Enabled</label>
@@ -74,6 +75,18 @@
                                     <option value="1" {{ $user->is_2fa_enabled ? 'selected' : '' }}>Yes</option>
                                 </select>
                                 @error('is_2fa_enabled')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select id="status" name="status" class="form-control @error('status') is-invalid @enderror">
+                                    <option value="Active" {{ $user->status === 'Active' ? 'selected' : '' }}>Active</option>
+                                    <option value="Suspended" {{ $user->status === 'Suspended' ? 'selected' : '' }}>Suspended</option>
+                                    <option value="Banned" {{ $user->status === 'Banned' ? 'selected' : '' }}>Banned</option>
+                                </select>
+                                @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

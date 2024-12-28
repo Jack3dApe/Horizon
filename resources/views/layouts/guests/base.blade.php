@@ -16,7 +16,7 @@
 
     <title>Horizon</title>
     <!-- CSS files -->
-    @vite(['resources/sass/guests.scss'])
+    @vite(['resources/sass/guest.scss'])
 </head>
 <body>
 <main class="main" id="top">
@@ -29,6 +29,6 @@
 
 </main>
 <!-- Libs JS -->
-@vite(['resources/js/guests.js'])
+@vite(['resources/js/guest.js'])
 </body>
 </html>

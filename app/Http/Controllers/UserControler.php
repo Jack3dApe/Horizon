@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 
 
 class UserControler extends Controller
@@ -24,7 +25,8 @@ class UserControler extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -48,9 +50,12 @@ class UserControler extends Controller
         $user->password = Hash::make($validated['password']);
         $user->phone = $validated['phone'] ?? null;
         $user->profile_pic = $validated['profile_pic'] ?? null;
-        $user->role = $validated['role'];
+        #$user->role = $validated['role'];
         $user->is_2fa_enabled = $validated['is_2fa_enabled'] ?? false;
+        $user->status = 'Active';
         $user->save();
+
+        $user->assignRole($validated['role']);
 
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
@@ -76,6 +81,8 @@ class UserControler extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $statusOptions = ['Active', 'Suspended', 'Banned'];
+
         $validated = $request->validate([
             'username' => 'required|string|max:50',
             'email' => ['required', 'email', 'max:100',
@@ -85,6 +92,7 @@ class UserControler extends Controller
             'phone' => 'nullable|string|max:20',
             'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'role' => 'required|in:clients,admin',
+            'status' => ['required', Rule::in($statusOptions)],
             'is_2fa_enabled' => 'boolean'
         ]);
 
@@ -97,9 +105,12 @@ class UserControler extends Controller
 
         $user->phone = $validated['phone'] ?? null;
         $user->profile_pic = $validated['profile_pic'] ?? null;
-        $user->role = $validated['role'];
+        #$user->role = $validated['role'];
         $user->is_2fa_enabled = $validated['is_2fa_enabled'] ?? false;
+        $user->status = $validated['status'];
         $user->save();
+
+        $user->syncRoles($validated['role']);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully');
     }

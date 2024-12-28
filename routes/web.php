@@ -14,11 +14,12 @@ Route::get('/', function () {
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-});
+})->middleware(['auth', 'role:admin'])->name('admin.dashboard');
+
 
 Route::get('/clients/dashboard', function () {
     return view('clients.dashboard');
-})->name('clients.dashboard');
+})->middleware('auth')->name('clients.dashboard');
 
 
 

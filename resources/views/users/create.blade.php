@@ -44,8 +44,9 @@
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select id="role" name="role" class="form-control" required>
-                                    <option value="clients">Client</option>
-                                    <option value="admin">Admin</option>
+                                    @foreach($roles as $role)
+                                        <option value="{{ $role->name }}">{{ ucfirst($role->name) }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="text-end">

@@ -100,6 +100,21 @@
                         </div>
                     </li>
 
+                    <!-- Logout Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-logout fs-5"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                Log Out
+                            </span>
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+
                     <!-- Theme Section -->
 
 

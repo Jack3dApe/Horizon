@@ -28,8 +28,9 @@ class User extends Authenticatable
         'phone',
         'purchases',
         'profile_pic',
-        'role',
+        #'role',
         'is_2fa_enabled',
+        'status'
     ];
 
     /**
