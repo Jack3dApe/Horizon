@@ -23,13 +23,13 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('genres.update', $genre->id_genres) }}" method="POST">
+                        <form action="{{ route('genres.update', $genre->id_genre) }}" method="POST">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
                                 <label for="id" class="form-label required">ID</label>
-                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id_genres }}" readonly>
+                                <input type="text" id="id" name="id" class="form-control bg-light" value="{{ $genre->id_genre }}" readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label required">Name of the genre</label>

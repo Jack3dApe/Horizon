@@ -14,7 +14,7 @@ class Genre extends Model
 
     protected $fillable = ['name'];
     protected $table = 'genres';
-    protected $primaryKey = 'id_genres';
+    protected $primaryKey = 'id_genre';
 
 
 

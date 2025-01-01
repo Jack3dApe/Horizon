@@ -11,10 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('genres', function (Blueprint $table) {
-            $table->id('id_genre');
-            $table->string('name', length: 50)->unique();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
             $table->softDeletes();
         });
     }
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('genres');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 };

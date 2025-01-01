@@ -73,11 +73,10 @@
                                         class="ti ti-eye"></i></a>
                                 <a href="{{ route('users.edit', $user->id_user) }}" class="btn btn-warning"><i
                                         class="ti ti-pencil" aria-hidden="true"></i></a>
-                                <form action="{{ route('users.destroy', $user->id_user) }}" method="POST"
-                                      style="display:inline;">
+                                <form action="{{ route('users.destroy', $user->id_user) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to soft delete this user?')">
                                         <i class="ti ti-trash"></i>
                                     </button>
                                 </form>

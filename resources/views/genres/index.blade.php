@@ -20,7 +20,7 @@
                             <tbody>
                             @foreach($genres as $genre)
                                 <tr>
-                                    <td>{{$genre->id_genres}}</td>
+                                    <td>{{$genre->id_genre}}</td>
                                     <td>{{$genre->name}}</td>
                                     <td class="text-end">
 

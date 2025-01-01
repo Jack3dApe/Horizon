@@ -99,4 +99,25 @@ class GenreController extends Controller
         return redirect(route('genres.index'));
 
     }
+
+    public function deleted()
+    {
+        $genres = Genre::onlyTrashed()->paginate(10);
+        return view('softdeletes.genres.deleted', compact('genres'));
+    }
+
+    public function restore($id)
+    {
+        $genre = Genre::withTrashed()->findOrFail($id);
+        $genre->restore();
+        return redirect()->route('genres.deleted')->with('success', 'Genre restored successfully.');
+    }
+
+    public function forceDelete($id)
+    {
+        $genre = Genre::withTrashed()->findOrFail($id);
+        $genre->forceDelete();
+        return redirect()->route('genres.deleted')->with('success', 'Genre permanently deleted.');
+    }
+
 }

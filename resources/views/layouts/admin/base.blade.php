@@ -80,7 +80,7 @@
                     </li>
 
 
-                    <!-- Users Sesction -->
+                    <!-- Users Section -->
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
                            data-bs-auto-close="false" role="button" aria-expanded="false">
@@ -99,7 +99,29 @@
 
                         </div>
                     </li>
+                    <!-- Restore Section -->
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
+                           data-bs-auto-close="false" role="button" aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-users"></i>
+                            </span>
+                            <span class="nav-link-title">
+                               Restore/Final-Delete
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item active" href="{{route('users.deleted')}}">Accounts</a>
+                            <a class="dropdown-item active" href="{{route('reviews.deleted')}}">Reviews</a>
+                            <a class="dropdown-item active" href="{{route('support_tickets.deleted')}}">Support Tickets</a>
+                            <a class="dropdown-item active" href="{{route('publishers.deleted')}}">Publishers</a>
+                            <a class="dropdown-item active" href="{{route('games.deleted')}}">Games</a>
+                            <a class="dropdown-item active" href="{{route('genres.deleted')}}">Genres</a>
 
+
+
+                        </div>
+                    </li>
                     <!-- Logout Link -->
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

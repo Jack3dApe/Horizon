@@ -90,4 +90,25 @@ class PublisherController extends Controller
 
         return redirect()->route('publishers.index')->with('success', 'Publisher deleted successfully.');
     }
+
+    public function deleted()
+    {
+        $publishers = Publisher::onlyTrashed()->paginate(10);
+        return view('softdeletes.publishers.deleted', compact('publishers'));
+    }
+
+    public function restore($id)
+    {
+        $publisher = Publisher::withTrashed()->findOrFail($id);
+        $publisher->restore();
+        return redirect()->route('publishers.deleted')->with('success', 'Publisher restored successfully.');
+    }
+
+    public function forceDelete($id)
+    {
+        $publisher = Publisher::withTrashed()->findOrFail($id);
+        $publisher->forceDelete();
+        return redirect()->route('publishers.deleted')->with('success', 'Publisher permanently deleted.');
+    }
+
 }

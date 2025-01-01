@@ -15,6 +15,7 @@ return new class extends Migration
             $table->foreignId('id_genre')->references('id_genre')->on('genres')->onDelete('cascade');
             $table->foreignId('id_game')->references('id_game')->on('games')->onDelete('cascade');
             $table->primary(['id_genre', 'id_game']);
+            $table->timestamps();
         });
     }
 
