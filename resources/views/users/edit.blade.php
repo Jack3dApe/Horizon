@@ -96,7 +96,7 @@
                                 <input type="file" id="profile_pic" name="profile_pic" class="form-control @error('profile_pic') is-invalid @enderror">
                                 @if($user->profile_pic)
                                     <div class="mt-2">
-                                        <img src="{{ asset('storage/'.$user->profile_pic) }}" alt="User Profile Picture" width="100">
+                                        <img src="{{ asset($user->profile_pic) }}" alt="User Profile Picture" width="100" style="border-radius: 15%;">
                                     </div>
                                 @endif
                                 @error('profile_pic')

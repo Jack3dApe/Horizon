@@ -49,7 +49,7 @@
                         <div class="mb-3">
                             <label class="form-label">Profile Picture:</label>
                             <div>
-                                <img src="{{ $user->profile_pic ? asset('storage/' . $user->profile_pic) : asset('imgs/noProfilePic.jpg') }}" alt="User Profile Picture" width="150">
+                                <img src="{{ $user->profile_pic ? asset($user->profile_pic) : asset('imgs/noProfilePic.jpg') }}" alt="User Profile Picture" width="150" style="border-radius: 15%;">
                             </div>
                         </div>
                         <div class="text-end">
