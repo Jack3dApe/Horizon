@@ -20,10 +20,16 @@ class Game extends Model
      */
     protected $fillable = [
         'id_publisher',
-        'category',
+        'genre',
         'price',
         'name',
         'rating',
+        'icon',
+        'banner',
+        'screenshot_1',
+        'screenshot_2',
+        'screenshot_3',
+        'screenshot_4'
     ];
 
     /**
@@ -63,4 +69,44 @@ class Game extends Model
     {
         return $this->belongsToMany(Genre::class, 'games_genres', 'id_game', 'id_genre');
     }
+
+    public function calculateRating($positiveReviews, $totalReviews)
+    {
+        if ($totalReviews === 0) {
+            return 'No Reviews';
+        }
+
+        $positivePercentage = ($positiveReviews / $totalReviews) * 100;
+
+        if ($totalReviews >= 500) {
+            if ($positivePercentage >= 95) {
+                return 'Overwhelmingly Positive';
+            } elseif ($positivePercentage >= 80) {
+                return 'Very Positive';
+            }
+        } elseif ($totalReviews >= 50) {
+            if ($positivePercentage >= 80) {
+                return 'Very Positive';
+            } elseif ($positivePercentage >= 70) {
+                return 'Mostly Positive';
+            }
+        } else { // 10-49 reviews
+            if ($positivePercentage >= 80) {
+                return 'Positive';
+            } elseif ($positivePercentage >= 70) {
+                return 'Mostly Positive';
+            }
+        }
+
+        if ($positivePercentage >= 40) {
+            return 'Mixed';
+        } elseif ($positivePercentage >= 20) {
+            return 'Mostly Negative';
+        } elseif ($positivePercentage >= 5) {
+            return 'Very Negative';
+        }
+
+        return 'Overwhelmingly Negative';
+    }
+
 }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('password', 255); // Campo password com VARCHAR(50)
             $table->string('email', 100); // Campo email com VARCHAR(100)
             $table->string('phone', 20)->nullable(); // Campo phone com VARCHAR(15) e opcional
-            $table->integer('purchases')->default(0); // Campo purchases com valor default 0
             $table->string('profile_pic', 250)->nullable(); // Campo profile_pic com VARCHAR(250) e opcional
             #$table->enum('role', ['clients', 'admin']); // Campo role como ENUM
             $table->boolean('is_2fa_enabled')->default(false); // Campo is_2fa_enabled com valor default FALSE

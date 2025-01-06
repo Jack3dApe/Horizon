@@ -23,7 +23,6 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make('password'),
             'phone' => $this->faker->phoneNumber,
-            'purchases' => $this->faker->numberBetween(0, 100),
             'profile_pic' => $this->faker->imageUrl(),
             #'role' => $this->faker->randomElement(['clients', 'admin']),
             'is_2fa_enabled' => $this->faker->boolean,

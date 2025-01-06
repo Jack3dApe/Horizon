@@ -2,13 +2,13 @@
 @section('title', 'Signup')
 @section('content')
 
-    <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
+    <section class="normal-breadcrumb" style="background-image: url('{{ asset('imgs/frontend/banner.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
                         <h2>Sign Up</h2>
-                        <p>Welcome to the official Anime blog.</p>
+                        <p>Welcome to Horizon.</p>
                     </div>
                 </div>
             </div>
@@ -65,8 +65,6 @@
                         <h3>Login With:</h3>
                         <ul>
                             <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With Facebook</a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google"></i> Sign in With Google</a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i> Sign in With Twitter</a></li>
                         </ul>
                     </div>
                 </div>

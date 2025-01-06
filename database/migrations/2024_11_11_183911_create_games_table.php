@@ -26,6 +26,14 @@ return new class extends Migration
                 'Mostly Positive', 'Mixed', 'Mostly Negative',
                 'Negative', 'Very Negative', 'Overwhelmingly Negative'
             ])->nullable();
+
+            $table->string('icon')->nullable();
+            $table->string('banner')->nullable();
+            $table->string('screenshot_1')->nullable();
+            $table->string('screenshot_2')->nullable();
+            $table->string('screenshot_3')->nullable();
+            $table->string('screenshot_4')->nullable();
+
             $table->timestamps();
         });
     }

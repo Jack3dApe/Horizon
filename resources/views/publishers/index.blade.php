@@ -11,14 +11,6 @@
         <div class="card">
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
-                    <div class="text-secondary">
-                        Show
-                        <div class="mx-2 d-inline-block">
-                            <input type="text" class="form-control form-control-sm" value="10" size="3"
-                                   aria-label="Number of entries">
-                        </div>
-                        Records
-                    </div>
                     <div class="ms-auto text-secondary">
                         Search:
                         <div class="ms-2 d-inline-block">
@@ -31,8 +23,7 @@
                 <table class="table card-table table-vcenter text-nowrap datatable">
                     <thead>
                     <tr>
-                        <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox"
-                                               aria-label="Select all"></th>
+                        <th class="w-1"></th>
                         <th class="w-1">ID</th>
                         <th>Name</th>
                         <th>Number of Games</th>

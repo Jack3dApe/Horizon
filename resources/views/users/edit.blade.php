@@ -49,14 +49,6 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="purchases" class="form-label">Purchases</label>
-                                <input type="number" id="purchases" name="purchases" class="form-control @error('purchases') is-invalid @enderror" value="{{ old('purchases', $user->purchases) }}" min="0">
-                                @error('purchases')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
                                     <option value="clients" {{ $user->hasRole('clients') ? 'selected' : '' }}>Client</option>

@@ -2,13 +2,14 @@
 @section('title', 'Login')
 @section('content')
 
-    <section class="normal-breadcrumb set-bg" data-setbg="img/normal-breadcrumb.jpg">
+
+    <section class="normal-breadcrumb" style="background-image: url('{{ asset('imgs/frontend/banner.jpg') }}');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
                         <h2>Login</h2>
-                        <p>Welcome to the official Anime blog.</p>
+                        <p>Welcome to Horizon</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +26,9 @@
                             @csrf
                             <div class="input__item">
                                 <input type="text" name="email" placeholder="Email address" value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
-                                <span class="icon_mail"></span>
+                                <span>
+                                    <i class="icon_mail"></i>
+                                </span>
                                 @error('email')
                                 <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
                                 @enderror
@@ -59,8 +62,6 @@
                             <span>or</span>
                             <ul>
                                 <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With Facebook</a></li>
-                                <li><a href="#" class="google"><i class="fa fa-google"></i> Sign in With Google</a></li>
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i> Sign in With Twitter</a></li>
                             </ul>
                         </div>
                     </div>

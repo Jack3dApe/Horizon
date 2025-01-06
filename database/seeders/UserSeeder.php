@@ -31,7 +31,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'email' => 'admin@admin.com',
             'phone' => '999888777',
-            'purchases' => 0,
 
             'is_2fa_enabled' => false,
             'status' => 'Active',
@@ -43,7 +42,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'email' => 'client@client.com',
             'phone' => '999888777',
-            'purchases' => 10,
 
             'is_2fa_enabled' => false,
             'status' => 'Active',
