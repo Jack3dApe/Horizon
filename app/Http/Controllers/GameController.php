@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\Game;
 
@@ -149,6 +150,15 @@ class GameController extends Controller
         $game->forceDelete();
         return redirect()->route('games.deleted')->with('success', 'Game permanently deleted.');
     }
+
+    public function gamesByGenre($genreId)
+    {
+        $genre = Genre::findOrFail($genreId);
+        $games = $genre->games()->paginate(10);
+
+        return view('layouts.guests.gamesByGenre.index', compact('genre', 'games'));
+    }
+
 
 
 }

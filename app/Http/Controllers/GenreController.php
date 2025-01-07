@@ -120,4 +120,9 @@ class GenreController extends Controller
         return redirect()->route('genres.deleted')->with('success', 'Genre permanently deleted.');
     }
 
+    public function listAllGenres() {
+        $genres = Genre::all();
+        return view('genres.list', compact('genres'));
+    }
+
 }

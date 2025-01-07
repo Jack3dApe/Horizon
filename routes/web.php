@@ -64,6 +64,11 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
     Route::delete('/genres/{id}/force-delete', [GenreController::class, 'forceDelete'])->name('genres.forceDelete');
 });
 
+Route::get('/genres/all', [GenreController::class, 'listAllGenres'])->name('genres.listAll');
+
+
+Route::get('/genres/{genre}/games', [GameController::class, 'gamesByGenre'])->name('genres.games');
+
 
 //Resources
 Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
