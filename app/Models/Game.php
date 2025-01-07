@@ -18,6 +18,9 @@ class Game extends Model
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'id_game';
+
     protected $fillable = [
         'id_publisher',
         'genre',

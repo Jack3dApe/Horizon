@@ -49,20 +49,20 @@
                         <tr>
                             <td><input class="form-check-input m-0 align-middle" type="checkbox"
                                        aria-label="Select game"></td>
-                            <td>{{ $game->id }}</td>
+                            <td>{{ $game->id_game }}</td>
                             <td>{{ $game->title }}</td>
                             <td>{{ $game->genre->name ?? 'N/A' }}</td>
                             <td>{{ $game->publisher->name ?? 'N/A' }}</td>
                             <td>{{ $game->deleted_at->format('m/d/Y') }}</td>
                             <td class="text-end">
                                 {{-- Restore Button --}}
-                                <form action="{{ route('games.restore', $game->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('games.restore', $game->id_game) }}" method="POST" style="display:inline;">
                                     @csrf
                                     <button type="submit" class="btn btn-success">Restore</button>
                                 </form>
 
                                 {{-- Force Delete Button --}}
-                                <form action="{{ route('games.forceDelete', $game->id) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('games.forceDelete', $game->id_game) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Permanently delete this game?')">Force Delete</button>
