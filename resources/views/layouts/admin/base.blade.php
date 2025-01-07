@@ -163,7 +163,7 @@
             <div class="container-xl"></div>
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col">
-                    <p>H</p>
+                    <p></p>
                 </div>
             </div>
         </footer>

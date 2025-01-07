@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const genreName = selectedOption.getAttribute('data-name');
 
         if (genreId) {
-            if (document.querySelector(`input[value="${genreId}"]`)) {
+            if (document.querySelector(`input[type="hidden"][value="${genreId}"]`)) {
                 alert('This genre is already added.');
                 return;
             }
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             genreGroup.innerHTML = `
                 <input type="text" class="form-control" value="${genreName}" readonly>
-                <input type="hidden" name="genres[]" value="${genreId}">
+                <input type="hidden" name="genre[]" value="${genreId}">
                 <button type="button" class="btn btn-danger remove-genre">
                     <i class="ti ti-minus"></i>
                 </button>

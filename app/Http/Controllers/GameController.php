@@ -28,7 +28,6 @@ class GameController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'id_publisher' => 'required|exists:publishers,id_publisher',
-            'genre' => 'required|array',
             'price' => 'required|numeric|min:0',
             'rating' => 'nullable|in:Overwhelmingly Positive,Very Positive,Positive,Mostly Positive,Mixed,Mostly Negative,Negative,Very Negative,Overwhelmingly Negative',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -57,7 +56,7 @@ class GameController extends Controller
 
         $game = Game::create($validated);
 
-        $game->genres()->sync($request->genres);
+        $game->genres()->sync($request->input('genres'));
 
         return redirect()->route('games.index')->with('success', 'Game created successfully.');
     }
@@ -77,7 +76,6 @@ class GameController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'id_publisher' => 'required|exists:publishers,id_publisher',
-            'genre' => 'required|string|max:50',
             'price' => 'required|numeric|min:0',
             'rating' => 'nullable|in:Overwhelmingly Positive,Very Positive,Positive,Mostly Positive,Mixed,Mostly Negative,Negative,Very Negative,Overwhelmingly Negative',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

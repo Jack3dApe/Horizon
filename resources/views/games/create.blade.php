@@ -76,7 +76,7 @@
                                             <select id="genre-selector" class="form-control">
                                                 <option value="" selected disabled>-- Select Genre --</option>
                                                 @foreach($genres as $genre)
-                                                    <option id="genre" name="genre" value="{{ $genre->id_genre }}" data-name="{{ $genre->name }}">{{ $genre->name }}</option>
+                                                    <option value="{{ $genre->id_genre }}" data-name="{{ $genre->name }}">{{ $genre->name }}</option>
                                                 @endforeach
                                             </select>
                                             <button type="button" id="add-genre" class="btn btn-success">

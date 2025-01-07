@@ -61,7 +61,7 @@
                                         class="ti ti-eye"></i></a>
                                 <a href="{{ route('games.edit', $game->id_game) }}" class="btn btn-warning"><i
                                         class="ti ti-pencil" aria-hidden="true"></i></a>
-                                <form action="{{ route('games.destroy', $game->id_game) }}" method="POST" style="display:inline;">
+                                <form action="{{ route('games.deleted', $game->id_game) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to soft delete this game?')">

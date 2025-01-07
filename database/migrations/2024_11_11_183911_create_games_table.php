@@ -18,7 +18,6 @@ return new class extends Migration
             ->references('id_publisher') // Aponta para 'id_publisher' em 'publishers'
             ->on('publishers')
                 ->onDelete('cascade');
-            $table->string('genre', 50);
             $table->decimal('price', 10, 2);
             $table->string('name', 255);
             $table->enum('rating', [
