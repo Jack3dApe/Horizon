@@ -48,7 +48,7 @@ class RegisterController extends Controller
             $user->username = $validated['username'];
             $user->email = $validated['email'];
             $user->password = Hash::make($validated['password']); // Hash da senha
-            $user->role = 'clients'; // Definir role padrão
+            $user->assignRole('clients'); // Definir role "clients" pelo Spatie
             $user->save();
 
             // Autenticar o usuário após o registro
