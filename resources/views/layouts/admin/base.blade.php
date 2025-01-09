@@ -48,6 +48,19 @@
                             </span>
                         </a>
                     </li>
+
+                    <!-- Admin Overview -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.overview') }}">
+                            <span  class="nav-link-icon d-md-none d-lg-inline-block"  >
+                                <i class="ti ti-planet fs-5" style="color: #A6BCBC;"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                Overview
+                            </span>
+                        </a>
+                    </li>
+
                     <!-- Games Section -->
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
@@ -63,9 +76,6 @@
                             <a class="dropdown-item active" href="{{route('genres.index')}}">Genres</a>
                             <a class="dropdown-item active" href="{{route('publishers.index')}}">Publishers</a>
                             <a class="dropdown-item active" href="{{route('games.index')}}">All Games</a>
-
-
-
                         </div>
                     </li>
 
@@ -84,9 +94,6 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item active" href="{{route('users.index')}}">Accounts</a>
                             <a class="dropdown-item active" href="{{route('reviews.index')}}">Reviews</a>
-
-
-
                         </div>
                     </li>
                     <!-- Restore Section -->
@@ -107,27 +114,8 @@
                             <a class="dropdown-item active" href="{{route('publishers.deleted')}}">Publishers</a>
                             <a class="dropdown-item active" href="{{route('games.deleted')}}">Games</a>
                             <a class="dropdown-item active" href="{{route('genres.deleted')}}">Genres</a>
-
-
-
                         </div>
                     </li>
-                    <!-- Logout Link -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-logout fs-5" style="color: #A6BCBC;"></i>
-                            </span>
-                            <span class="nav-link-title">
-                                Log Out
-                            </span>
-                        </a>
-                        <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-
-
                 </ul>
             </div>
         </div>
@@ -136,21 +124,25 @@
     <div class="page-wrapper">
         {{--Page Header --}}
         <div class="page-header d-print-none">
-            <div class="container-xl">
-                <div class="row g-2 align-items-center">
-                    <div class="col">
-                        <!-- Page pre-title -->
-                        <div class="page-pretitle">Admin - Name ....</div>
-                        <h2 class="page-title">@yield('title')</h2>
-                    </div>
-                    <!-- Page title actions -->
-                    <div class="col-auto ms-auto d-print-none">
-                        <div class="btn-list">
-                            {{--Botões de açao da página--}}
+            <div class="d-flex align-items-center justify-content-between mx-3">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <!-- Page pre-title -->
+                            <div class="page-pretitle">Admin - Name ....</div>
+                            <h2 class="page-title">@yield('title')</h2>
+                        </div>
+                        <!-- Page title actions -->
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                {{--Botões de açao da página--}}
+                            </div>
                         </div>
                     </div>
                 </div>
+                <x-user-profile-dropdown />
             </div>
+
         </div>
         {{--Page Body--}}
         <div class="page-body">
