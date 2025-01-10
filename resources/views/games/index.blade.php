@@ -45,7 +45,9 @@
                             <td><a href="{{ route('games.show', $game->id_game) }}" class="text-reset"
                                    tabindex="-1">{{ $game->name }}</a></td>
                             <td>{{ $game->publisher->name ?? 'Not Available' }}</td>
-                            <td>{{ $game->genre }}</td>
+                            <td>
+                                <x-game-genres :genres="$game->genres" />
+                            </td>
                             <td>${{ number_format($game->price, 2) }}</td>
                             <td>{{ $game->rating ?? 'Not Rated' }}</td>
                             <td>

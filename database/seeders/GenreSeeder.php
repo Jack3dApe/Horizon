@@ -15,8 +15,6 @@ class GenreSeeder extends Seeder
     {
         $genres = [
             ['name' => 'RPG'],
-            ['name' => 'MMO'],
-            ['name' => 'FPS'],
             ['name' => 'Strategy'],
             ['name' => 'Adventure'],
             ['name' => 'Simulation'],
@@ -28,7 +26,9 @@ class GenreSeeder extends Seeder
             ['name' => 'Fighting'],
             ['name' => 'Stealth'],
             ['name' => 'Music'],
-            ['name' => 'Survival']
+            ['name' => 'Survival'],
+            ['name' => 'MMO'],
+            ['name' => 'FPS']
         ];
 
         foreach ($genres as $genre) {

@@ -77,7 +77,6 @@ Route::resource('users', \App\Http\Controllers\UserControler::class);
 
 Route::resource('games', \App\Http\Controllers\GameController::class);
 
-
 Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);

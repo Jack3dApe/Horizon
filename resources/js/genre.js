@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             genreGroup.innerHTML = `
                 <input type="text" class="form-control" value="${genreName}" readonly>
-                <input type="hidden" name="genre[]" value="${genreId}">
+                <input type="hidden" name="genres[]" value="${genreId}">
                 <button type="button" class="btn btn-danger remove-genre">
                     <i class="ti ti-minus"></i>
                 </button>
