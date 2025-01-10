@@ -31,7 +31,6 @@
                         <th>Genre</th>
                         <th>Price</th>
                         <th>Rating</th>
-                        <th>Icon</th>
                         <th>Release Date</th>
                         <th class="text-end">Actions</th>
                     </tr>
@@ -50,14 +49,8 @@
                             </td>
                             <td>${{ number_format($game->price, 2) }}</td>
                             <td>{{ $game->rating ?? 'Not Rated' }}</td>
-                            <td>
-                                @if($game->icon)
-                                    <img src="{{ asset('storage/'.$game->icon) }}" alt="Icon" width="50">
-                                @else
-                                    <span class="text-secondary">No Icon</span>
-                                @endif
-                            </td>
-                            <td>{{ $game->created_at->format('m/d/Y') }}</td>
+
+                            <td>{{ $game->release_date->format('m/d/Y') }}</td>
                             <td class="text-end">
                                 <a href="{{ route('games.show', $game->id_game) }}" class="btn btn-info"><i
                                         class="ti ti-eye"></i></a>

@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             PublisherSeeder::class,
-            //GameSeeder::class,
-            ReviewSeeder::class,
             //SupportTicketSeeder::class,
             GenreSeeder::class,
+            GameSeeder::class,
+            ReviewSeeder::class,
         ]);
     }
 }

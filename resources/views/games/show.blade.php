@@ -13,18 +13,23 @@
                             <div class="col-md-4 text-center">
                                 <div class="mb-4">
                                     @if($game->icon)
-                                        <img src="{{ asset('storage/' . $game->icon) }}" alt="Game Icon" class="img-thumbnail" width="100">
+                                        <img src="{{ asset('icons/' . $game->icon) }}" alt="Game Icon" class="img-thumbnail" width="100">
                                     @else
                                         <p class="text-secondary">No Icon Available</p>
                                     @endif
                                 </div>
                                 <div class="mb-4">
                                     @if($game->banner)
-                                        <img src="{{ asset('storage/' . $game->banner) }}" alt="Game Banner" class="img-thumbnail" width="300">
+                                        <img src="{{ asset('imgs/banners/' . $game->banner) }}" alt="Game Banner" class="img-thumbnail" width="300">
                                     @else
                                         <p class="text-secondary">No Banner Available</p>
                                     @endif
                                 </div>
+                                @if($game->grid)
+                                    <img src="{{ asset('imgs/grids/' . $game->grid) }}" alt="Game Grid" class="img-thumbnail" width="150">
+                                @else
+                                    <p class="text-secondary">No Icon Available</p>
+                                @endif
                             </div>
 
                             <!-- Coluna do Texto -->

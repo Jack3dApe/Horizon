@@ -28,10 +28,11 @@ return new class extends Migration
             $table->date('release_date');
             $table->string('icon')->nullable();
             $table->string('banner')->nullable();
-            $table->string('screenshot_1')->nullable();
-            $table->string('screenshot_2')->nullable();
-            $table->string('screenshot_3')->nullable();
-            $table->string('screenshot_4')->nullable();
+            $table->string('grid')->nullable();
+            //$table->string('screenshot_1')->nullable();
+            //$table->string('screenshot_2')->nullable();
+            //$table->string('screenshot_3')->nullable();
+            //$table->string('screenshot_4')->nullable();
 
             $table->timestamps();
         });

@@ -29,7 +29,7 @@
                                         <label for="icon" class="form-label">Game Icon</label>
                                         <input type="file" id="icon" name="icon" class="form-control">
                                         @if($game->icon)
-                                            <img src="{{ asset('storage/' . $game->icon) }}" alt="Icon" class="img-thumbnail mt-2" width="100">
+                                            <img src="{{ asset('icons/' . $game->icon) }}" alt="Icon" class="img-thumbnail mt-2" width="100">
                                         @endif
                                     </div>
                                     <div class="mb-3">
@@ -39,16 +39,12 @@
                                             <img src="{{ asset('storage/' . $game->banner) }}" alt="Banner" class="img-thumbnail mt-2" width="100">
                                         @endif
                                     </div>
-                                    @for ($i = 1; $i <= 4; $i++)
-                                        <div class="mb-3">
-                                            <label for="screenshot_{{ $i }}" class="form-label">Screenshot {{ $i }}</label>
-                                            <input type="file" id="screenshot_{{ $i }}" name="screenshot_{{ $i }}" class="form-control">
-                                            @php $screenshot = "screenshot_{$i}"; @endphp
-                                            @if($game->$screenshot)
-                                                <img src="{{ asset('storage/' . $game->$screenshot) }}" alt="Screenshot {{ $i }}" class="img-thumbnail mt-2" width="100">
-                                            @endif
-                                        </div>
-                                    @endfor
+
+                                    <div class="mb-3">
+                                        <label for="grid" class="form-label">Grid</label>
+                                        <input type="file" id="grid" name="grid" class="form-control">
+                                    </div>
+
                                 </div>
 
                                 <!-- Inputs de texto-->

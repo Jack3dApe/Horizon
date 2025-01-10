@@ -30,10 +30,11 @@ class Game extends Model
         'release_date',
         'icon',
         'banner',
-        'screenshot_1',
-        'screenshot_2',
-        'screenshot_3',
-        'screenshot_4'
+        'grid',
+        //'screenshot_1',
+        //'screenshot_2',
+        //'screenshot_3',
+        //'screenshot_4'
     ];
 
     /**
