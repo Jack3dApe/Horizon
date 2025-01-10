@@ -72,6 +72,10 @@ Route::get('/genres/all', [GenreController::class, 'listAllGenres'])->name('genr
 Route::get('/genres/{genre}/games', [GameController::class, 'gamesByGenre'])->name('genres.games');
 
 
+Route::get('/games/{game}/mainpage', [GameController::class, 'show'])->name('games.show.mainpage');
+
+
+
 //Resources
 Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
 

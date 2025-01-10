@@ -78,7 +78,7 @@ class GameController extends Controller
 
     public function update(Request $request, Game $game)
     {
-        dd($request->all());
+        //dd($request->all());
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
