@@ -23,7 +23,9 @@ Route::get('/clients/dashboard', function () {
     return view('clients.dashboard');
 })->middleware('auth')->name('clients.dashboard');
 
-
+Route::get('/admin/overview', function () {
+    return view('adminoverview.show');
+})->middleware(['auth', 'role:admin'])->name('admin.overview');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');

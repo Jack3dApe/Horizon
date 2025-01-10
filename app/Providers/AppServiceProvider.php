@@ -3,7 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\User;
+use App\Models\Game;
 use App\Models\Genre;
+use App\Models\Publisher;
+use App\Models\Review;
+use App\Observers\ModelObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +29,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.guests.parts.navbarGuest', function ($view) {
             $view->with('genres', Genre::all());
         });
+
+        User::observe(ModelObserver::class);
+        Game::observe(ModelObserver::class);
+        Genre::observe(ModelObserver::class);
+        Publisher::observe(ModelObserver::class);
+        Review::observe(ModelObserver::class);
     }
 }

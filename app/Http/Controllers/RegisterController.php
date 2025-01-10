@@ -22,7 +22,7 @@ class RegisterController extends Controller
         'email.required' => 'The email field is required.',
         'email.unique' => 'This email is already in use.',
         'password.required' => 'The password field is required.',
-        'password.min' => 'The password must be at least 6 characters.',
+        'password.min' => 'The password must be at least 8 characters.',
         'password.confirmed' => 'Passwords do not match.',
     ];
 

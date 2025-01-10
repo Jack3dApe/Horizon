@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'email' => 'admin@admin.com',
             'phone' => '999888777',
-
+            'profile_pic' => 'imgs/user_profile_pics/1735933774_admin_profile_pic.jpg',
             'is_2fa_enabled' => false,
             'status' => 'Active',
         ]);
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'email' => 'client@client.com',
             'phone' => '999888777',
-
+            'profile_pic' => 'imgs/user_profile_pics/1735933845_client_profile_pic.png',
             'is_2fa_enabled' => false,
             'status' => 'Active',
         ]);
