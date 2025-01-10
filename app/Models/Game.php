@@ -27,6 +27,7 @@ class Game extends Model
         'price',
         'name',
         'rating',
+        'release_date',
         'icon',
         'banner',
         'screenshot_1',
@@ -42,6 +43,7 @@ class Game extends Model
      */
     protected $casts = [
         'price' => 'decimal:2',
+        'release_date' => 'date',
     ];
 
     /**

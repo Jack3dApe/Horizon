@@ -25,7 +25,7 @@ return new class extends Migration
                 'Mostly Positive', 'Mixed', 'Mostly Negative',
                 'Negative', 'Very Negative', 'Overwhelmingly Negative'
             ])->nullable();
-
+            $table->date('release_date');
             $table->string('icon')->nullable();
             $table->string('banner')->nullable();
             $table->string('screenshot_1')->nullable();

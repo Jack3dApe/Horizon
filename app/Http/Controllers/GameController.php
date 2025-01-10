@@ -30,6 +30,7 @@ class GameController extends Controller
             'genres' => 'required|array',
             'price' => 'required|numeric|min:0',
             'rating' => 'nullable|in:Overwhelmingly Positive,Very Positive,Positive,Mostly Positive,Mixed,Mostly Negative,Negative,Very Negative,Overwhelmingly Negative',
+            'release_date' => 'required|date',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
@@ -77,7 +78,7 @@ class GameController extends Controller
 
     public function update(Request $request, Game $game)
     {
-        //dd($request->all());
+        dd($request->all());
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -85,6 +86,7 @@ class GameController extends Controller
             'genres' => 'required|array',
             'price' => 'required|numeric|min:0',
             'rating' => 'nullable|in:Overwhelmingly Positive,Very Positive,Positive,Mostly Positive,Mixed,Mostly Negative,Negative,Very Negative,Overwhelmingly Negative',
+            'release_date' => 'required|date',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
