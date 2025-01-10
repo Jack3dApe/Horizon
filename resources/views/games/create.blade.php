@@ -25,32 +25,40 @@
                                 <!-- Imagens -->
                                 <div class="col-md-4">
                                     <div class="mb-3">
-                                        <label for="icon" class="form-label">Game Icon</label>
+                                        <label for="icon" class="form-label">Icon</label>
                                         <input type="file" id="icon" name="icon" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="banner" class="form-label">Game Banner</label>
+                                        <label for="banner" class="form-label">Banner</label>
                                         <input type="file" id="banner" name="banner" class="form-control">
                                     </div>
+
                                     <div class="mb-3">
+                                        <label for="grid" class="form-label">Grid</label>
+                                        <input type="file" id="grid" name="grid" class="form-control">
+                                    </div>
+                                    <!-- Screenshots (Comentado por agora) -->
+                                    <!--
+                                     <div class="mb-3">
                                         <label for="screenshot_1" class="form-label">Screenshot 1</label>
                                         <input type="file" id="screenshot_1" name="screenshot_1" class="form-control">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="screenshot_2" class="form-label">Screenshot 2</label>
-                                        <input type="file" id="screenshot_2" name="screenshot_2" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="screenshot_3" class="form-label">Screenshot 3</label>
-                                        <input type="file" id="screenshot_3" name="screenshot_3" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="screenshot_4" class="form-label">Screenshot 4</label>
-                                        <input type="file" id="screenshot_4" name="screenshot_4" class="form-control">
-                                    </div>
-                                </div>
+                                   <div class="mb-3">
+                                       <label for="screenshot_2" class="form-label">Screenshot 2</label>
+                                       <input type="file" id="screenshot_2" name="screenshot_2" class="form-control">
+                                   </div>
+                                   <div class="mb-3">
+                                       <label for="screenshot_3" class="form-label">Screenshot 3</label>
+                                       <input type="file" id="screenshot_3" name="screenshot_3" class="form-control">
+                                   </div>
+                                   <div class="mb-3">
+                                       <label for="screenshot_4" class="form-label">Screenshot 4</label>
+                                       <input type="file" id="screenshot_4" name="screenshot_4" class="form-control">
+                                   </div>
+                                   -->
+                               </div>
 
-                                <!-- Inputs de texto-->
+                               <!-- Inputs de texto-->
                                 <div class="col-md-8">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Game Name</label>

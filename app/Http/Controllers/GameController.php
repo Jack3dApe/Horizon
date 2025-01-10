@@ -33,10 +33,11 @@ class GameController extends Controller
             'release_date' => 'required|date',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|',
-            'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_4' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|',
+            //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_4' => 'nullable|image|mimes:jpeg,png,jpg,gif',
 
         ]);
 
@@ -46,6 +47,10 @@ class GameController extends Controller
 
         if ($request->hasFile('banner')) {
             $validated["banner"] = $request->file('banner')->store('imgs/banners', 'public');
+        }
+
+        if ($request->hasFile('grid')) {
+            $validated["grid"] = $request->file('grid')->store('imgs/grids', 'public');
         }
 
 
@@ -73,7 +78,7 @@ class GameController extends Controller
         $publishers = \App\Models\Publisher::all();
         $genres = \App\Models\Genre::all();
 
-        return view('games.create', compact('publishers', 'genres'));
+        return view('games.edit', compact('game', 'publishers', 'genres'));
     }
 
     public function update(Request $request, Game $game)
@@ -89,10 +94,11 @@ class GameController extends Controller
             'release_date' => 'required|date',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'screenshot_4' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            //'screenshot_4' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->hasFile('icon')) {
@@ -101,6 +107,10 @@ class GameController extends Controller
 
         if ($request->hasFile('banner')) {
             $validated["banner"] = $request->file('banner')->store('imgs/banners', 'public');
+        }
+
+        if ($request->hasFile('grid')) {
+            $validated["grid"] = $request->file('grid')->store('imgs/grids', 'public');
         }
 
         for ($i = 1; $i <= 4; $i++) {

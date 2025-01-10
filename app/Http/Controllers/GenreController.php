@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class GenreController extends Controller
 {

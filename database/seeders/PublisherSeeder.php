@@ -17,21 +17,22 @@ class PublisherSeeder extends Seeder
     {
 
         $publishers = [
-            ['name' => 'Capcom', 'numOfGames' => 45, 'email' => 'contact@capcom.com'],
-            ['name' => 'FromSoftware', 'numOfGames' => 12, 'email' => 'info@fromsoftware.jp'],
-            ['name' => 'Nintendo', 'numOfGames' => 50, 'email' => 'support@nintendo.com'],
-            ['name' => 'Ubisoft', 'numOfGames' => 38, 'email' => 'contact@ubisoft.com'],
-            ['name' => 'EA', 'numOfGames' => 47, 'email' => 'help@ea.com'],
-            ['name' => 'Activision', 'numOfGames' => 25, 'email' => 'support@activision.com'],
-            ['name' => 'Square Enix', 'numOfGames' => 33, 'email' => 'contact@square-enix.com'],
-            ['name' => 'Rockstar Games', 'numOfGames' => 15, 'email' => 'info@rockstargames.com'],
-            ['name' => 'Bethesda', 'numOfGames' => 20, 'email' => 'support@bethesda.net'],
-            ['name' => 'Blizzard', 'numOfGames' => 18, 'email' => 'help@blizzard.com'],
-            ['name' => 'Sega', 'numOfGames' => 30, 'email' => 'contact@sega.com'],
-            ['name' => 'Konami', 'numOfGames' => 40, 'email' => 'support@konami.com'],
-            ['name' => 'CD Projekt Red', 'numOfGames' => 8, 'email' => 'info@cdprojektred.com'],
-            ['name' => 'Bandai Namco', 'numOfGames' => 35, 'email' => 'contact@bandainamco.com'],
-            ['name' => 'Sony Interactive', 'numOfGames' => 50, 'email' => 'support@sonyinteractive.com'],
+            ['name' => 'Capcom', 'email' => 'contact@capcom.com'],
+            ['name' => 'FromSoftware', 'email' => 'info@fromsoftware.jp'],
+            ['name' => 'Nintendo', 'email' => 'support@nintendo.com'],
+            ['name' => 'Ubisoft', 'email' => 'contact@ubisoft.com'],
+            ['name' => 'EA', 'email' => 'help@ea.com'],
+            ['name' => 'Activision', 'email' => 'support@activision.com'],
+            ['name' => 'Square Enix', 'email' => 'contact@square-enix.com'],
+            ['name' => 'Rockstar Games', 'email' => 'info@rockstargames.com'],
+            ['name' => 'Bethesda', 'email' => 'support@bethesda.net'],
+            ['name' => 'Blizzard', 'email' => 'help@blizzard.com'],
+            ['name' => 'Sega', 'email' => 'contact@sega.com'],
+            ['name' => 'Konami', 'email' => 'support@konami.com'],
+            ['name' => 'CD Projekt Red', 'email' => 'info@cdprojektred.com'],
+            ['name' => 'Bandai Namco', 'email' => 'contact@bandainamco.com'],
+            ['name' => 'Sony Interactive', 'email' => 'support@sonyinteractive.com'],
+            ['name' => 'Valve', 'email' => 'support@valvesoftware.com'],
         ];
 
         foreach ($publishers as $publisher) {

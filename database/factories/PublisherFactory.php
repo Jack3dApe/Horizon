@@ -18,7 +18,7 @@ class PublisherFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
-            'numOfGames' => $this->faker->numberBetween(1, 50),
+            //numOfGames' => $this->faker->numberBetween(1, 50),
             'email' => $this->faker->unique()->safeEmail,
         ];
     }
