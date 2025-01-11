@@ -163,6 +163,11 @@ class GameController extends Controller
         return view('layouts.guests.gamesByGenre.index', compact('genre', 'games'));
     }
 
+    public function showGame(Game $game)
+    {
+        return view('layouts.guests.gameDetails.show', compact('game'));
+    }
+
 
 
 }

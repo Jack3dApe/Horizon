@@ -27,6 +27,7 @@
     @include('layouts.guests.parts.menu')
     @yield('content')
 
+    @include('layouts.guests.parts.footerGuest')
 </main>
 <!-- Libs JS -->
 @vite(['resources/js/guest.js'])

@@ -72,7 +72,7 @@ Route::get('/genres/all', [GenreController::class, 'listAllGenres'])->name('genr
 Route::get('/genres/{genre}/games', [GameController::class, 'gamesByGenre'])->name('genres.games');
 
 
-Route::get('/games/{game}/mainpage', [GameController::class, 'show'])->name('games.show.mainpage');
+Route::get('/games/{game}/mainpage', [GameController::class, 'showGame'])->name('games.show.mainpage');
 
 
 

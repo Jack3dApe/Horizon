@@ -1,30 +1,6 @@
 @extends('layouts.guests.base')
 @section('title', 'Games By Genre')
 @section('content')
-    <div class="container">
-        @if($games->count() > 0)
-            <div class="row">
-                @foreach($games as $game)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="{{ asset('storage/'.$game->icon) }}" class="card-img-top" alt="{{ $game->name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $game->name }}</h5>
-                                <p class="card-text">${{ $game->price }}</p>
-                                <a href="{{ route('games.show.mainpage', ['game' => $game->id_game]) }}" class="btn btn-primary">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div class="mt-3">
-                {{ $games->links() }}
-            </div>
-        @else
-            <p>No games found in this genre.</p>
-        @endif
-    </div>
-
     <section class="product-page spad">
         <div class="container">
             <div class="row">
@@ -50,11 +26,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
+                            @if($games->count() > 0)
                                 @foreach($games as $game)
-                                    <x-game-container :game="$game" />
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <x-game-container :game="$game" />
+                                    </div>
                                 @endforeach
-                            </div>
+                            @else
+                                <p>No games found in this genre.</p>
+                            @endif
                         </div>
                     </div>
                     <div class="product__pagination">
