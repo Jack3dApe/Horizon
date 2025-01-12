@@ -9,6 +9,7 @@ use \App\Http\Controllers\GameController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PasswordRecoveryController;
 
 Route::get('/', function () {
     return view('home');
@@ -30,6 +31,7 @@ Route::get('/admin/overview', function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
+    Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])
@@ -40,6 +42,13 @@ Route::get('/register', [RegisterController::class, 'showSignup'])->name('regist
     ->middleware('guest');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+Route::get('forgot-password', [LoginController::class, 'forgotPassword'])->name('password.request');
+Route::post('password-recovery', [PasswordRecoveryController::class, 'recover'])->name('password.recovery');
+Route::get('password/reset/{token}', [LoginController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [LoginController::class, 'resetPassword'])->name('password.update');
+
+
 
 Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
     Route::get('/users', [UserControler::class, 'deleted'])->name('users.deleted');

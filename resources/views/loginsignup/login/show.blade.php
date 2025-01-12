@@ -45,7 +45,7 @@
                         @if($errors->has('error'))
                             <p style="color: red;">{{ $errors->first('error') }}</p>
                         @endif
-                        <a href="#" class="forget_pass">Forgot Your Password?</a>
+                        <a href="{{ route('password.request') }}" class="forget_pass">Forgot Your Password?</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
