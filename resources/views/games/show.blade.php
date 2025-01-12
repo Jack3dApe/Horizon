@@ -56,12 +56,18 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Rating:</label>
-                                    <p>{{ $game->rating ?? 'Not Rated' }}</p>
+                                    <p><x-game-rating :game="$game" /></p>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Release Date:</label>
                                     <p>{{ $game->release_date ? $game->release_date->format('d/m/Y') : 'Not Available' }}</p>
                                 </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Description:</label>
+                                    <p>{{ $game->description ?? 'No description available.' }}</p>
+                                </div>
+
                             </div>
                         </div>
 

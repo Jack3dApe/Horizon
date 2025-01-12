@@ -129,7 +129,7 @@
                     <div class="row g-2 align-items-center">
                         <div class="col">
                             <!-- Page pre-title -->
-                            <div class="page-pretitle">Admin - Name ....</div>
+                            <div class="page-pretitle">Admin - {{ auth()->user()->username }}</div>
                             <h2 class="page-title">@yield('title')</h2>
                         </div>
                         <!-- Page title actions -->

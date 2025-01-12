@@ -1,6 +1,22 @@
 @extends('layouts.guests.base')
 @section('title', 'Games By Genre')
 @section('content')
+
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{route('home')}}">Categories</a>
+                        <span>{{ $genre->name }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <section class="product-page spad">
         <div class="container">
             <div class="row">

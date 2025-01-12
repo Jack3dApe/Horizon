@@ -21,10 +21,10 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        // $games = Game::all();
-        // $users = User::all();
-        // return view('reviews.create', compact('games', 'users'));
-        return view('reviews.create'); // Comentei o resto para n fazer ligacoes entree tabelas ainda
+        $games = Game::all();
+        $users = User::all();
+        return view('reviews.create', compact('games', 'users'));
+        return view('reviews.create');
     }
 
     /**
@@ -33,8 +33,8 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            // 'id_user' => 'required|exists:users,id_user',
-            // 'id_game' => 'required|exists:games,id_game',
+            'id_user' => 'required|exists:users,id_user',
+            'id_game' => 'required|exists:games,id_game',
             'is_positive' => 'required|boolean',
             'description' => 'nullable|string|max:5000',
             'review_date' => 'required|date',
@@ -59,9 +59,9 @@ class ReviewController extends Controller
     public function edit(Review $review)
     {
         {
-            // $games = Game::all();
-            // $users = User::all();
-            // return view('reviews.edit', compact('review', 'games', 'users'));
+            $games = Game::all();
+            $users = User::all();
+            return view('reviews.edit', compact('review', 'games', 'users'));
             return view('reviews.edit', compact('review')); // Comentei o resto para n fazer ligacoes entree tabelas ainda
         }
     }
@@ -72,8 +72,8 @@ class ReviewController extends Controller
     public function update(Request $request, Review $review)
     {
         $validated = $request->validate([
-            //'id_user' => 'required|exists:users,id_user',
-            //'id_game' => 'required|exists:games,id_game',
+            'id_user' => 'required|exists:users,id_user',
+            'id_game' => 'required|exists:games,id_game',
             'is_positive' => 'required|boolean',
             'description' => 'nullable|string|max:5000',
             'review_date' => 'required|date',

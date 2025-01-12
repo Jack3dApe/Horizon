@@ -25,6 +25,7 @@
     @include('layouts.guests.parts.navbarGuest')
 
     @include('layouts.guests.parts.menu')
+
     @yield('content')
 
     @include('layouts.guests.parts.footerGuest')

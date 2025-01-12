@@ -16,7 +16,6 @@
                         <div class="anime__details__text">
                             <div class="anime__details__title">
                                 <h3>{{ $game->name }}</h3>
-                                <span>フェイト／ステイナイト, Feito／sutei naito</span>
                             </div>
                             <div class="anime__details__rating">
                                 <div class="rating">
@@ -28,10 +27,7 @@
                                 </div>
                                 <span>1.029 Votes</span>
                             </div>
-                            <p>Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
-                                their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
-                                never to be seen again. But her mother’s last words send Hina on a quest to find a
-                                legendary hero from the Waste War - the fabled Ace!</p>
+                            <p>{{ $game ->description }}</p>
                             <div class="anime__details__widget">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
@@ -40,9 +36,8 @@
                                             <li><span>Publisher:</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
                                             <li><span>Release Date:</span> {{ $game->release_date->format('d/m/Y') }}</li>
                                             <li><span>Genre:</span>
-                                                    @foreach($game->genres as $genre)
-                                                        {{ $genre->name }}
-                                                    @endforeach
+                                                <x-game-genres :genres="$game->genres" />
+
                                             </li>
                                         </ul>
                                     </div>

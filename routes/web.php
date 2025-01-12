@@ -11,8 +11,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
-    return view('home');
+    $gamesCarrousel = App\Models\Game::with('genres')->orderBy('release_date', 'desc')->take(3)->get();
+    return view('home', compact('gamesCarrousel'));
 })->name('home');
+
+//Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');

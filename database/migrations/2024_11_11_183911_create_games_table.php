@@ -20,15 +20,11 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->decimal('price', 10, 2);
             $table->string('name', 255);
-            $table->enum('rating', [
-                'Overwhelmingly Positive', 'Very Positive', 'Positive',
-                'Mostly Positive', 'Mixed', 'Mostly Negative',
-                'Negative', 'Very Negative', 'Overwhelmingly Negative'
-            ])->nullable();
             $table->date('release_date');
             $table->string('icon')->nullable();
             $table->string('banner')->nullable();
             $table->string('grid')->nullable();
+            $table->text('description')->nullable();
             //$table->string('screenshot_1')->nullable();
             //$table->string('screenshot_2')->nullable();
             //$table->string('screenshot_3')->nullable();

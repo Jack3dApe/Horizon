@@ -34,6 +34,7 @@ class GameController extends Controller
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'description' => 'nullable|string|max:1000',
             //screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif|',
             //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
@@ -95,6 +96,7 @@ class GameController extends Controller
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'description' => 'nullable|string|max:1000',
             //'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
@@ -162,6 +164,7 @@ class GameController extends Controller
 
         return view('layouts.guests.gamesByGenre.index', compact('genre', 'games'));
     }
+
 
     public function showGame(Game $game)
     {

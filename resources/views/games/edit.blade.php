@@ -36,13 +36,16 @@
                                         <label for="banner" class="form-label">Game Banner</label>
                                         <input type="file" id="banner" name="banner" class="form-control">
                                         @if($game->banner)
-                                            <img src="{{ asset('storage/' . $game->banner) }}" alt="Banner" class="img-thumbnail mt-2" width="100">
+                                            <img src="{{ asset('imgs/banners/' . $game->banner) }}" alt="Banner" class="img-thumbnail mt-2" width="300">
                                         @endif
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="grid" class="form-label">Grid</label>
                                         <input type="file" id="grid" name="grid" class="form-control">
+                                        @if($game->grid)
+                                            <img src="{{ asset('imgs/grids/' . $game->grid) }}" alt="Grid" class="img-thumbnail mt-2" width="200">
+                                        @endif
                                     </div>
 
                                 </div>
@@ -95,6 +98,12 @@
                                         <label for="price" class="form-label">Price</label>
                                         <input type="number" step="0.01" id="price" name="price" class="form-control" value="{{ old('price', $game->price) }}" required>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea id="description" name="description" class="form-control" rows="5" placeholder="Enter game description"></textarea>
+                                    </div>
+
                                     <div class="mb-3">
                                         <label for="release_date" class="form-label">Release Date</label>
                                         <input type="date" id="release_date" name="release_date" class="form-control" value="{{ old('release_date', $game->release_date ? $game->release_date->format('Y-m-d') : '' ) }}" required>

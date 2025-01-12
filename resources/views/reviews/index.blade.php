@@ -4,20 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3 d-flex justify-content-end">
-                <a href="{{ route('reviews.create') }}" class="btn btn-primary">Create New Review</a>
             </div>
         </div>
 
         <div class="card">
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
-                    <div class="text-secondary">
-                        Show
-                        <div class="mx-2 d-inline-block">
-                            <input type="text" class="form-control form-control-sm" value="10" size="3" aria-label="Number of entries">
-                        </div>
-                        Records
-                    </div>
+
                     <div class="ms-auto text-secondary">
                         Search:
                         <div class="ms-2 d-inline-block">
@@ -33,7 +26,6 @@
                         <th class="w-1">ID</th>
                         <th>User</th>
                         <th>Game</th>
-                        <th>Review Description</th>
                         <th>Rating</th>
                         <th>Review Date</th>
                         <th class="text-end">Actions</th>
@@ -43,16 +35,15 @@
                     @foreach($reviews as $review)
                         <tr>
                             <td><span class="text-secondary">{{ $review->id_review }}</span></td>
-                            {{--}}<td>{{ $review->user->username }}</td> {{--}}
-                            {{--}}<td>{{ $review->game->title }}</td> {{--}}
-                            <td>{{ $review->id_user }}</td>
-                            <td>{{ $review->id_game }}</td>
-                            <td>{{ Str::limit($review->description, 50) }}</td>
-                            <td>{{ $review->is_positive ? 'Positive' : 'Negative' }}</td>
+                            <td>{{ $review->user->username }}</td>
+                            <td>{{ $review->game->name }}</td>
+                            <td class="{{ $review->is_positive ? 'text-success' : 'text-danger' }}">
+                                {{ $review->is_positive ? 'Positive' : 'Negative' }}
+                            </td>
+
                             <td>{{ \Carbon\Carbon::parse($review->review_date)->format('d/m/Y') }}</td>
                             <td class="text-end">
                                 <a href="{{ route('reviews.show', $review->id_review) }}" class="btn btn-info"><i class="ti ti-eye"></i></a>
-                                <a href="{{ route('reviews.edit', $review->id_review) }}" class="btn btn-warning"><i class="ti ti-pencil" aria-hidden="true"></i></a>
                                 <form action="{{ route('reviews.destroy', $review->id_review) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

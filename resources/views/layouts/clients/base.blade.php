@@ -15,7 +15,7 @@
 
     <link rel="manifest" href="{{asset('icons/site.webmanifest')}}">
 
-    <title>Horizon-Admin</title>
+    <title>Horizon-Client</title>
     <!-- CSS files -->
     @vite(['resources/sass/app.scss']);
 </head>
@@ -103,7 +103,6 @@
             </div>
         </footer>
     </div>
-</div>
 <!-- Libs JS -->
 @vite(['resources/js/app.js']);
 </body>

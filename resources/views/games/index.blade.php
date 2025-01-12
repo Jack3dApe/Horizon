@@ -48,7 +48,7 @@
                                 <x-game-genres :genres="$game->genres" />
                             </td>
                             <td>${{ number_format($game->price, 2) }}</td>
-                            <td>{{ $game->rating ?? 'Not Rated' }}</td>
+                            <td><x-game-rating :game="$game" /></td>
 
                             <td>{{ $game->release_date->format('m/d/Y') }}</td>
                             <td class="text-end">

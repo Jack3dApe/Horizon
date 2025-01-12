@@ -22,10 +22,6 @@ class GameFactory extends Factory
             'category' => $this->faker->word,
             'price' => $this->faker->randomFloat(2, 5, 100),
             'name' => $this->faker->sentence(3),
-            'rating' => $this->faker->randomElement([
-                'Overwhelmingly Positive', 'Very Positive', 'Positive',
-                'Mixed', 'Negative', 'Overwhelmingly Negative',
-            ]),
         ];
     }
 }

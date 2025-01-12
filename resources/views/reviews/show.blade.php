@@ -14,12 +14,12 @@
                             <p>{{ $review->id_review }}</p>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">User ID:</label>
-                            <p>{{ $review->id_user ?? 'N/A' }}</p>
+                            <label class="form-label">User:</label>
+                            <p>{{ $review->user->username ?? 'N/A' }}</p>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Game ID:</label>
-                            <p>{{ $review->id_game ?? 'N/A' }}</p>
+                            <label class="form-label">Game:</label>
+                            <p>{{ $review->game->name ?? 'N/A' }}</p>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Rating:</label>

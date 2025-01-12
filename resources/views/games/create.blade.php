@@ -93,11 +93,16 @@
                                         </div>
                                     </div>
 
-
                                     <div class="mb-3">
                                         <label for="price" class="form-label">Price</label>
                                         <input type="number" step="0.01" id="price" name="price" class="form-control" required>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Description</label>
+                                        <textarea id="description" name="description" class="form-control" rows="5" placeholder="Enter game description"></textarea>
+                                    </div>
+
                                     <div class="mb-3">
                                         <label for="release_date" class="form-label">Release Date</label>
                                         <input type="date" id="release_date" name="release_date" class="form-control" required>
