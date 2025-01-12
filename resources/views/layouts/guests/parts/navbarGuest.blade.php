@@ -47,6 +47,21 @@
                 <div class="header__right">
                     <a href="#" class="search-switch"><span class="icon_search"></span></a>
                     <a href="{{ route('login') }}"><span class="icon_profile"></span></a>
+                    @auth
+                        @if(auth()->user()->hasRole('admin'))
+                            <a href="{{ route('admin.dashboard') }}"><span class="icon_desktop"></span></a>
+                        @endif
+                    @endauth
+                    @auth
+                        @if(auth()->user()->hasRole('clients'))
+                            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" style="background: none; border: none; color: white;">
+                                    <span class="icon_error-triangle_alt"></span>
+                                </button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>
