@@ -55,7 +55,9 @@ class RegisterController extends Controller
             auth()->login($user);
 
             // Redirecionar para o dashboard do cliente
-            return redirect()->route('clients.dashboard')->with('success', "Account created successfully!");
+            //return redirect()->route('clients.dashboard')->with('success', "Account created successfully!");
+
+            return redirect()->route('home');
 
         } catch (\Exception $e) {
             // Em caso de erro, retorna à página de registro
