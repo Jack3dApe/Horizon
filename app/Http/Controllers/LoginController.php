@@ -38,7 +38,8 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard');
             }
 
-            return redirect()->intended(route('clients.dashboard'));
+            //return redirect()->intended(route('clients.dashboard'));
+            return redirect()->intended(route('home'));
         }
 
         // Falha no login
