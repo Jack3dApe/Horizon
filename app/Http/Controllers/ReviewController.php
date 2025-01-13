@@ -62,7 +62,7 @@ class ReviewController extends Controller
             $games = Game::all();
             $users = User::all();
             return view('reviews.edit', compact('review', 'games', 'users'));
-            return view('reviews.edit', compact('review')); // Comentei o resto para n fazer ligacoes entree tabelas ainda
+            return view('reviews.edit', compact('review'));
         }
     }
 

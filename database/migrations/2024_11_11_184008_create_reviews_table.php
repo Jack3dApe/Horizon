@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_user')->references('id_user')->on('users')->onDelete('cascade');
             $table->foreignId('id_game')->references('id_game')->on('games')->onDelete('cascade');
             $table->boolean('is_positive');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->date('review_date');
             $table->timestamps();
         });

@@ -24,8 +24,8 @@ class ReviewFactory extends Factory
             'id_user' => User::inRandomOrder()->first()->id_user,
             'id_game' => Game::inRandomOrder()->first()->id_game,
             'is_positive' => $this->faker->boolean(70),
-            'description' => $this->faker->optional()->paragraph(),
-            'review_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
+            'description' => $this->faker->paragraph(),
+            'review_date' => $this->faker->dateTimeBetween('-4 years', 'now'),
             'created_at' => now(),
             'updated_at' => now(),
         ];

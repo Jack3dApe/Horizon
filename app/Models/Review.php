@@ -34,4 +34,9 @@ class Review extends Model
         'description',
         'review_date',
     ];
+
+    protected $casts = [
+        'review_date' => 'datetime',
+    ];
+
 }
