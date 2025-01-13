@@ -18,14 +18,18 @@
                                 <h3>{{ $game->name }}</h3>
                             </div>
                             <div class="anime__details__rating">
-                                <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                <div class="progress" style="height: 25px; width: 100%;">
+                                    <div
+                                        class="progress-bar"
+                                        role="progressbar"
+                                        style="width: {{ $game->rating_percentage }}%;"
+                                        aria-valuenow="{{ $game->rating_percentage }}"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100">
+                                        {{ $game->rating_percentage }}%
+                                    </div>
                                 </div>
-                                <span>1.029 Votes</span>
+                                <span><x-game-reviews-count :game="$game" /> Reviews</span>
                             </div>
                             <p>{{ $game ->description }}</p>
                             <div class="anime__details__widget">

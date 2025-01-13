@@ -29,7 +29,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
-                <a href=".">
+                <a href="{{ route('home') }}">
                     <img src="{{asset('imgs/logo_horizon_text2.png')}}" width="200" height="200" alt="Horizon">
                 </a>
             </h1>
