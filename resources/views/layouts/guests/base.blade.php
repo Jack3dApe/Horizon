@@ -18,8 +18,8 @@
     <!-- CSS files -->
     @vite(['resources/sass/guest.scss'])
 </head>
-<body>
-<main class="main" id="top">
+<body style="min-height: 100vh; display: flex; flex-direction: column">
+<main class="main" id="top" style="flex-grow: 1">
 
 
     @include('layouts.guests.parts.navbarGuest')
@@ -28,8 +28,9 @@
 
     @yield('content')
 
-    @include('layouts.guests.parts.footerGuest')
 </main>
+@include('layouts.guests.parts.footerGuest')
+
 <!-- Libs JS -->
 @vite(['resources/js/guest.js'])
 </body>

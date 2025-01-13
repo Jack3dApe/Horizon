@@ -20,7 +20,14 @@
                             <div class="anime__details__rating">
                                 <div class="progress" style="height: 25px; width: 100%;">
                                     <div
-                                        class="progress-bar"
+                                        class="progress-bar
+                                        @if ($game->rating_percentage >= 75)
+                                            bg-success
+                                        @elseif ($game->rating_percentage >= 50)
+                                            bg-warning
+                                        @else
+                                            bg-danger
+                                        @endif"
                                         role="progressbar"
                                         style="width: {{ $game->rating_percentage }}%;"
                                         aria-valuenow="{{ $game->rating_percentage }}"
