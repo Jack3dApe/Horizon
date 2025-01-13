@@ -5,3 +5,13 @@
     text-align: center;
 }
 
+.btn-red {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+}
+
+.btn-red:hover {
+    background-color: #e04343;
+    color: #fff;
+}

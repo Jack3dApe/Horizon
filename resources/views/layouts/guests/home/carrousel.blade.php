@@ -27,7 +27,7 @@
                                 <!-- Nome do Jogo -->
                                 <h2 class="text-white fw-bold mb-3" style="font-size: 2.5rem;">{{ $game->name }}</h2>
                                 <!-- Botão "See Details" -->
-                                <a href="{{ route('games.show.mainpage', $game->id_game) }}" class="btn btn-primary btn-lg fw-bold">
+                                <a href="{{ route('games.show.mainpage', $game->id_game) }}" class="btn btn-red btn-lg fw-bold">
                                     See Details <i class="fa fa-angle-right"></i>
                                 </a>
 
