@@ -96,7 +96,9 @@ class GameController extends Controller
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'description' => 'nullable|string|max:1000',
+
             //'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
@@ -113,6 +115,10 @@ class GameController extends Controller
 
         if ($request->hasFile('grid')) {
             $validated["grid"] = $request->file('grid')->store('imgs/grids', 'public');
+        }
+
+        if ($request->hasFile('logo')) {
+            $validated["logo"] = $request->file('logo')->store('imgs/logos', 'public');
         }
 
         for ($i = 1; $i <= 4; $i++) {

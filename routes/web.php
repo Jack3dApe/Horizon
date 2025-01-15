@@ -12,9 +12,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PasswordRecoveryController;
 
 Route::get('/', function () {
-    $gamesCarrousel = App\Models\Game::with('genres')->orderBy('release_date', 'desc')->take(3)->get();
+    $gamesCarrousel = App\Models\Game::with('genres')->inRandomOrder()->take(10)->get();
     return view('home', compact('gamesCarrousel'));
 })->name('home');
+
 
 //Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 

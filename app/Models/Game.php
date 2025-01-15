@@ -31,6 +31,7 @@ class Game extends Model
         'icon',
         'banner',
         'grid',
+        'logo',
         'description'
         //'screenshot_1',
         //'screenshot_2',

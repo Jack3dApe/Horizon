@@ -37,6 +37,11 @@
                                         <label for="grid" class="form-label">Grid</label>
                                         <input type="file" id="grid" name="grid" class="form-control">
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="logo" class="form-label">Logo</label>
+                                        <input type="file" id="logo" name="logo" class="form-control">
+                                    </div>
                                     <!-- Screenshots (Comentado por agora) -->
                                     <!--
                                      <div class="mb-3">

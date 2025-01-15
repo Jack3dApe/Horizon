@@ -25,11 +25,22 @@
                                         <p class="text-secondary">No Banner Available</p>
                                     @endif
                                 </div>
-                                @if($game->grid)
-                                    <img src="{{ asset('imgs/grids/' . $game->grid) }}" alt="Game Grid" class="img-thumbnail" width="150">
-                                @else
-                                    <p class="text-secondary">No Icon Available</p>
-                                @endif
+
+                                <div class="mb-4">
+                                    @if($game->grid)
+                                        <img src="{{ asset('imgs/grids/' . $game->grid) }}" alt="Game Grid" class="img-thumbnail" width="150">
+                                    @else
+                                        <p class="text-secondary">No Icon Available</p>
+                                    @endif
+                                </div>
+
+                                <div class="mb-4">
+                                    @if($game->logo)
+                                        <img src="{{ asset('imgs/logos/' . $game->logo) }}" alt="Game Logo" class="img-thumbnail" width="150">
+                                    @else
+                                        <p class="text-secondary">No Logo Available</p>
+                                    @endif
+                                </div>
                             </div>
 
                             <!-- Coluna do Texto -->

@@ -48,6 +48,14 @@
                                         @endif
                                     </div>
 
+                                    <div class="mb-3">
+                                        <label for="logo" class="form-label">Logo</label>
+                                        <input type="file" id="logo" name="logo" class="form-control">
+                                        @if($game->grid)
+                                            <img src="{{ asset('imgs/logos/' . $game->logo) }}" alt="Logo" class="img-thumbnail mt-2" width="200">
+                                        @endif
+                                    </div>
+
                                 </div>
 
                                 <!-- Inputs de texto-->

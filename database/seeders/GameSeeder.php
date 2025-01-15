@@ -27,6 +27,7 @@ class GameSeeder extends Seeder
                 'icon' => 'resident_evil_4.png',
                 'banner' => 'resident_evil_4.png',
                 'grid' => 'resident_evil_4.png',
+                'logo' => 'resident_evil_4.png',
                 'genres' => ['Horror', 'Adventure', 'Survival']
             ],
             [
@@ -38,6 +39,7 @@ class GameSeeder extends Seeder
                 'icon' => 'street_fighter_5.png',
                 'banner' => 'street_fighter_5.png',
                 'grid' => 'street_fighter_5.png',
+                'logo' => 'street_fighter_5.png',
                 'genres' => ['Fighting', 'Multiplayer', 'Sports']
             ],
             [
@@ -49,6 +51,7 @@ class GameSeeder extends Seeder
                 'icon' => 'devil_may_cry_5.png',
                 'banner' => 'devil_may_cry_5.png',
                 'grid' => 'devil_may_cry_5.png',
+                'logo' => 'devil_may_cry_5.png',
                 'genres' => ['Action', 'Adventure', 'Hack and Slash']
             ],
             [
@@ -60,6 +63,7 @@ class GameSeeder extends Seeder
                 'icon' => 'sekiro.png',
                 'banner' => 'sekiro.png',
                 'grid' => 'sekiro.png',
+                'logo' => 'sekiro.png',
                 'genres' => ['Action', 'Adventure', 'RPG', 'Stealth']
             ],
             [
@@ -71,6 +75,7 @@ class GameSeeder extends Seeder
                 'icon' => 'elden_ring.png',
                 'banner' => 'elden_ring.png',
                 'grid' => 'elden_ring.png',
+                'logo' => 'elden_ring.png',
                 'genres' => ['RPG', 'Adventure', 'Action', 'Open World']
             ],
             [
@@ -82,6 +87,7 @@ class GameSeeder extends Seeder
                 'icon' => 'bloodborne.png',
                 'banner' => 'bloodborne.png',
                 'grid' => 'bloodborne.png',
+                'logo' => 'bloodborne.png',
                 'genres' => ['RPG', 'Adventure', 'Horror', 'Action']
             ],
 
@@ -95,6 +101,7 @@ class GameSeeder extends Seeder
                 'icon' => 'super_mario_odyssey.png',
                 'banner' => 'super_mario_odyssey.png',
                 'grid' => 'super_mario_odyssey.png',
+                'logo' => 'super_mario_odyssey.png',
                 'genres' => ['Adventure', 'Platformer', 'Puzzle']
             ],
             [
@@ -106,6 +113,7 @@ class GameSeeder extends Seeder
                 'icon' => 'zelda_ocarina.png',
                 'banner' => 'zelda_ocarina.png',
                 'grid' => 'zelda_ocarina.png',
+                'logo' => 'zelda_ocarina.png',
                 'genres' => ['Adventure', 'Puzzle', 'RPG']
             ],
             [
@@ -117,6 +125,7 @@ class GameSeeder extends Seeder
                 'icon' => 'pokemon_red_blue.png',
                 'banner' => 'pokemon_red_blue.png',
                 'grid' => 'pokemon_red_blue.png',
+                'logo' => 'pokemon_red_blue.png',
                 'genres' => ['RPG', 'Adventure', 'Strategy']
             ],
             [
@@ -128,6 +137,7 @@ class GameSeeder extends Seeder
                 'icon' => 'far_cry_5.png',
                 'banner' => 'far_cry_5.png',
                 'grid' => 'far_cry_5.png',
+                'logo' => 'far_cry_5.png',
                 'genres' => ['FPS', 'Adventure', 'Open World', 'RPG']
             ],
             [
@@ -139,6 +149,7 @@ class GameSeeder extends Seeder
                 'icon' => 'watch_dogs_2.png',
                 'banner' => 'watch_dogs_2.png',
                 'grid' => 'watch_dogs_2.png',
+                'logo' => 'watch_dogs_2.png',
                 'genres' => ['Adventure', 'Open World', 'Action', 'Stealth']
             ],
             [
@@ -150,6 +161,7 @@ class GameSeeder extends Seeder
                 'icon' => 'rainbow_six_siege.png',
                 'banner' => 'rainbow_six_siege.png',
                 'grid' => 'rainbow_six_siege.png',
+                'logo' => 'rainbow_six_siege.png',
                 'genres' => ['FPS', 'Strategy', 'Multiplayer', 'Stealth']
             ],
 
@@ -163,6 +175,7 @@ class GameSeeder extends Seeder
                 'icon' => 'battlefield_2042.png',
                 'banner' => 'battlefield_2042.png',
                 'grid' => 'battlefield_2042.png',
+                'logo' => 'battlefield_2042.png',
                 'genres' => ['FPS', 'Strategy', 'Action']
             ],
             [
@@ -174,6 +187,7 @@ class GameSeeder extends Seeder
                 'icon' => 'sims_4.png',
                 'banner' => 'sims_4.png',
                 'grid' => 'sims_4.png',
+                'logo' => 'sims_4.png',
                 'genres' => ['Simulation', 'Strategy', 'Open World']
             ],
             [
@@ -185,6 +199,7 @@ class GameSeeder extends Seeder
                 'icon' => 'apex_legends.png',
                 'banner' => 'apex_legends.png',
                 'grid' => 'apex_legends.png',
+                'logo' => 'apex_legends.png',
                 'genres' => ['FPS', 'Battle Royale', 'Action', 'Multiplayer']
             ],
             [
@@ -196,6 +211,7 @@ class GameSeeder extends Seeder
                 'icon' => 'monster_hunter_world.png',
                 'banner' => 'monster_hunter_world.png',
                 'grid' => 'monster_hunter_world.png',
+                'logo' => 'monster_hunter_world.png',
                 'genres' => ['RPG', 'Adventure']
             ],
             [
@@ -207,6 +223,7 @@ class GameSeeder extends Seeder
                 'icon' => 'dark_souls_3.png',
                 'banner' => 'dark_souls_3.png',
                 'grid' => 'dark_souls_3.png',
+                'logo' => 'dark_souls_3.png',
                 'genres' => ['RPG', 'Adventure', 'Horror']
             ],
             [
@@ -218,6 +235,7 @@ class GameSeeder extends Seeder
                 'icon' => 'zelda_botw.png',
                 'banner' => 'zelda_botw.png',
                 'grid' => 'zelda_botw.png',
+                'logo' => 'zelda_botw.png',
                 'genres' => ['Adventure', 'Puzzle']
             ],
             [
@@ -229,6 +247,7 @@ class GameSeeder extends Seeder
                 'icon' => 'ac_valhalla.png',
                 'banner' => 'ac_valhalla.png',
                 'grid' => 'ac_valhalla.png',
+                'logo' => 'ac_valhalla.png',
                 'genres' => ['Adventure', 'RPG', 'Stealth']
             ],
 
