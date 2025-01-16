@@ -33,6 +33,7 @@ class GenreSeeder extends Seeder
             ['name' => 'Hack and Slash'],
             ['name' => 'Battle Royale'],
             ['name' => 'Card Games'],
+            ['name' => 'Indie'],
         ];
 
         foreach ($genres as $genre) {

@@ -251,6 +251,219 @@ class GameSeeder extends Seeder
                 'genres' => ['Adventure', 'RPG', 'Stealth']
             ],
 
+            [
+                'name' => 'Celeste',
+                'description' => 'Help Madeline survive her inner demons on her journey to the top of Celeste Mountain. This precision platformer features challenging levels, a heartfelt story, and unique mechanics.',
+                'id_publisher' => Publisher::where('name', 'Matt Makes Games')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2018-01-25',
+                'icon' => 'celeste.png',
+                'banner' => 'celeste.png',
+                'grid' => 'celeste.png',
+                'logo' => 'celeste.png',
+                'genres' => ['Platformer', 'Indie', 'Adventure']
+            ],
+
+            [
+                'name' => 'Portal 2',
+                'description' => 'Solve mind-bending puzzles and uncover the mysteries of Aperture Science in this critically acclaimed first-person puzzle-platform game. Use the portal gun to navigate and manipulate the environment.',
+                'id_publisher' => Publisher::where('name', 'Valve')->first()->id_publisher,
+                'price' => 9.99,
+                'release_date' => '2011-04-18',
+                'icon' => 'portal2.png',
+                'banner' => 'portal2.png',
+                'grid' => 'portal2.png',
+                'logo' => 'portal2.png',
+                'genres' => ['Puzzle', 'Platformer']
+            ],
+
+            [
+                'name' => 'Forza Horizon 5',
+                'description' => 'Explore the vibrant and ever-evolving landscapes of Mexico in the ultimate open-world racing game. With a dynamic weather system and hundreds of cars, Forza Horizon 5 offers endless driving thrills.',
+                'id_publisher' => Publisher::where('name', 'Microsoft')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2021-11-09',
+                'icon' => 'forza5.png',
+                'banner' => 'forza5.png',
+                'grid' => 'forza5.png',
+                'logo' => 'forza5.png',
+                'genres' => ['Racing', 'Simulation']
+            ],
+
+            [
+                'name' => 'Chrono Cross',
+                'description' => 'Chrono Cross is a classic RPG that takes players on a journey across parallel dimensions. Experience a deep storyline, innovative battle mechanics, and memorable characters in this timeless adventure.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2000-08-15',
+                'icon' => 'chrono_cross.png',
+                'banner' => 'chrono_cross.png',
+                'grid' => 'chrono_cross.png',
+                'logo' => 'chrono_cross.png',
+                'genres' => ['RPG', 'Adventure', 'Classic']
+            ],
+
+            [
+                'name' => 'Persona 5',
+                'description' => 'Persona 5 is a critically acclaimed JRPG that follows the story of the Phantom Thieves as they fight corruption in modern Tokyo. With a unique blend of life simulation and dungeon crawling, this game is a masterpiece of storytelling and style.',
+                'id_publisher' => Publisher::where('name', 'Atlus')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2016-09-15',
+                'icon' => 'persona_5.png',
+                'banner' => 'persona_5.png',
+                'grid' => 'persona_5.png',
+                'logo' => 'persona_5.png',
+                'genres' => ['RPG', 'Adventure', 'Simulation']
+            ],
+
+            [
+                'name' => 'Slay the Spire',
+                'description' => 'Slay the Spire is a roguelike deck-building game where players craft unique decks, encounter strange creatures, and discover powerful relics. Climb the spire in this challenging and addictive adventure.',
+                'id_publisher' => Publisher::where('name', 'MegaCrit')->first()->id_publisher,
+                'price' => 24.99,
+                'release_date' => '2019-01-23',
+                'icon' => 'slay_the_spire.png',
+                'banner' => 'slay_the_spire.png',
+                'grid' => 'slay_the_spire.png',
+                'logo' => 'slay_the_spire.png',
+                'genres' => ['RPG', 'Card Games', 'Puzzle']
+            ],
+
+            [
+                'name' => 'Darkest Dungeon',
+                'description' => 'Darkest Dungeon is a challenging gothic roguelike RPG where players recruit and train a team of flawed heroes. Explore twisted dungeons, fight horrific monsters, and manage the ever-looming threat of stress and madness.',
+                'id_publisher' => Publisher::where('name', 'Red Hook Studios')->first()->id_publisher,
+                'price' => 24.99,
+                'release_date' => '2016-01-19',
+                'icon' => 'darkest_dungeon.png',
+                'banner' => 'darkest_dungeon.png',
+                'grid' => 'darkest_dungeon.png',
+                'logo' => 'darkest_dungeon.png',
+                'genres' => ['RPG', 'Horror', 'Indie', 'Card Games']
+            ],
+
+            [
+                'name' => 'Total War: Warhammer 3',
+                'description' => 'Total War: Warhammer 3 is an epic strategy game that combines turn-based empire building with massive real-time battles. Choose your faction and lead your armies to victory in the climactic finale of the trilogy.',
+                'id_publisher' => Publisher::where('name', 'Sega')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2022-02-17',
+                'icon' => 'total_war_warhammer_3.png',
+                'banner' => 'total_war_warhammer_3.png',
+                'grid' => 'total_war_warhammer_3.png',
+                'logo' => 'total_war_warhammer_3.png',
+                'genres' => ['Strategy', 'Simulation', 'RPG']
+            ],
+
+            [
+                'name' => 'Rocket League',
+                'description' => 'Rocket League is a high-octane hybrid of arcade-style soccer and vehicular mayhem. Score incredible goals and pull off insane saves in this physics-based multiplayer phenomenon.',
+                'id_publisher' => Publisher::where('name', 'Psyonix')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2015-07-07',
+                'icon' => 'rocket_league.png',
+                'banner' => 'rocket_league.png',
+                'grid' => 'rocket_league.png',
+                'logo' => 'rocket_league.png',
+                'genres' => ['Sports', 'Action']
+            ],
+            [
+                'name' => 'Beat Saber',
+                'description' => 'Beat Saber is a VR rhythm game where you slash to the beat of adrenaline-pumping music. Use lightsabers to cut through obstacles and test your reflexes in this immersive experience.',
+                'id_publisher' => Publisher::where('name', 'Beat Games')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2019-05-21',
+                'icon' => 'beat_saber.png',
+                'banner' => 'beat_saber.png',
+                'grid' => 'beat_saber.png',
+                'logo' => 'beat_saber.png',
+                'genres' => ['Sports', 'Music', 'Indie']
+            ],
+            [
+                'name' => 'Skate 3',
+                'description' => 'Skate 3 takes skateboarding simulation to the next level with a massive open-world, advanced trick system, and multiplayer modes. Build your skate team and leave your mark on the city.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2010-05-11',
+                'icon' => 'skate_3.png',
+                'banner' => 'skate_3.png',
+                'grid' => 'skate_3.png',
+                'logo' => 'skate_3.png',
+                'genres' => ['Sports', 'Simulation']
+            ],
+
+            [
+                'name' => 'Need for Speed: Most Wanted',
+                'description' => 'Need for Speed: Most Wanted combines thrilling police chases with intense street racing. Outrun the law and rival racers in this action-packed installment of the NFS franchise.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2005-11-15',
+                'icon' => 'nfs_most_wanted.png',
+                'banner' => 'nfs_most_wanted.png',
+                'grid' => 'nfs_most_wanted.png',
+                'logo' => 'nfs_most_wanted.png',
+                'genres' => ['Racing', 'Action']
+            ],
+
+            [
+                'name' => 'Super Smash Bros. Ultimate',
+                'description' => 'Super Smash Bros. Ultimate brings together every character from the franchise for the ultimate showdown. Battle it out with friends or online in this iconic crossover fighting game.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2018-12-07',
+                'icon' => 'smash_bros_ultimate.png',
+                'banner' => 'smash_bros_ultimate.png',
+                'grid' => 'smash_bros_ultimate.png',
+                'logo' => 'smash_bros_ultimate.png',
+                'genres' => ['Fighting', 'Multiplayer', 'Party']
+            ],
+            [
+                'name' => 'Guilty Gear Strive',
+                'description' => 'Guilty Gear Strive is a fast-paced, stylish fighting game with beautifully animated visuals and a deep, engaging combat system. Perfect for both casual players and hardcore competitors.',
+                'id_publisher' => Publisher::where('name', 'Arc System Works')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2021-06-11',
+                'icon' => 'guilty_gear_strive.png',
+                'banner' => 'guilty_gear_strive.png',
+                'grid' => 'guilty_gear_strive.png',
+                'logo' => 'guilty_gear_strive.png',
+                'genres' => ['Fighting', 'Multiplayer', 'Arcade']
+            ],
+            [
+                'name' => 'Mortal Kombat X',
+                'description' => 'Mortal Kombat X offers visceral, brutal combat with iconic characters and new gameplay mechanics. Test your skills in cinematic story modes and online multiplayer battles.',
+                'id_publisher' => Publisher::where('name', 'NetherRealm Studios')->first()->id_publisher,
+                'price' => 49.99,
+                'release_date' => '2015-04-14',
+                'icon' => 'mortal_kombat_x.png',
+                'banner' => 'mortal_kombat_x.png',
+                'grid' => 'mortal_kombat_x.png',
+                'logo' => 'mortal_kombat_x.png',
+                'genres' => ['Fighting', 'Action']
+            ],
+            [
+                'name' => 'Marvel vs. Capcom 2',
+                'description' => 'Marvel vs. Capcom 2 is a classic fighting game that brings together heroes from the Marvel universe and Capcom franchises in epic 3-on-3 battles.',
+                'id_publisher' => Publisher::where('name', 'Capcom')->first()->id_publisher,
+                'price' => 14.99,
+                'release_date' => '2000-03-30',
+                'icon' => 'marvel_vs_capcom_2.png',
+                'banner' => 'marvel_vs_capcom_2.png',
+                'grid' => 'marvel_vs_capcom_2.png',
+                'logo' => 'marvel_vs_capcom_2.png',
+                'genres' => ['Fighting', 'Action']
+            ],
+
+
+
+
+
+
+
+
+
+
+
 
 
         ];

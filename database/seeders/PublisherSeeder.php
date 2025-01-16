@@ -33,6 +33,23 @@ class PublisherSeeder extends Seeder
             ['name' => 'Bandai Namco', 'email' => 'contact@bandainamco.com'],
             ['name' => 'Sony Interactive', 'email' => 'support@sonyinteractive.com'],
             ['name' => 'Valve', 'email' => 'support@valvesoftware.com'],
+            ['name' => 'Matt Makes Games', 'email' => 'mattmakesgames@support.com'],
+            ['name' => 'Microsoft', 'email' => 'info@microsoft.com'],
+            ['name' => 'Atlus', 'email' => 'info@atlus.com'],
+            ['name' => 'Red Hook Studios', 'email' => 'info@aredhookstudios.com'],
+            ['name' => 'Psyonix', 'email' => 'info@psyonix.com'],
+            ['name' => 'Beat Games', 'email' => 'info@beatgames.com'],
+            ['name' => 'Arc System Works', 'email' => 'info@arc.com'],
+            ['name' => 'NetherRealm Studios', 'email' => 'info@netherrealm.com'],
+            ['name' => 'MegaCrit', 'email' => 'info@MegaCrit.com'],
+
+
+
+
+
+
+
+
         ];
 
         foreach ($publishers as $publisher) {
