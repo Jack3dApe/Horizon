@@ -25,7 +25,8 @@ return new class extends Migration
             $table->string('banner')->nullable();
             $table->string('grid')->nullable();
             $table->string('logo')->nullable();
-            $table->text('description')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_pt')->nullable();
             //$table->string('screenshot_1')->nullable();
             //$table->string('screenshot_2')->nullable();
             //$table->string('screenshot_3')->nullable();

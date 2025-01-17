@@ -37,6 +37,7 @@
                                     </div>
                                 </div>
                                 <span><x-game-reviews-count :game="$game" /> Reviews</span>
+                                <x-language-switch />
                             </div>
                             <p>{{ $game ->description }}</p>
                             <div class="anime__details__widget">

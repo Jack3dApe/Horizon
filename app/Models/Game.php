@@ -32,7 +32,8 @@ class Game extends Model
         'banner',
         'grid',
         'logo',
-        'description'
+        'description_en',
+        'description_pt'
         //'screenshot_1',
         //'screenshot_2',
         //'screenshot_3',
@@ -85,6 +86,12 @@ class Game extends Model
         $positiveReviews = $this->reviews()->where('is_positive', true)->count();
 
         return $totalReviews > 0 ? round(($positiveReviews / $totalReviews) * 100) : 0;
+    }
+
+    public function getDescriptionAttribute()
+    {
+        $locale = app()->getLocale();
+        return $this->{'description_' . $locale} ?? null;
     }
 
 

@@ -108,8 +108,13 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="description" class="form-label">Description</label>
-                                        <textarea id="description" name="description" class="form-control" rows="5" placeholder="Enter game description"></textarea>
+                                        <label for="description_en" class="form-label">Description (English)</label>
+                                        <textarea id="description_en" name="description_en" class="form-control" rows="5" placeholder="Enter game description in English"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="description_pt" class="form-label">Description (Portuguese)</label>
+                                        <textarea id="description_pt" name="description_pt" class="form-control" rows="5" placeholder="Enter game description in Portuguese"></textarea>
                                     </div>
 
                                     <div class="mb-3">

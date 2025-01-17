@@ -47,6 +47,8 @@ Route::get('/register', [RegisterController::class, 'showSignup'])->name('regist
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
+Route::get('/switch-language/{locale}', [App\Http\Controllers\LanguageController::class, 'switchLanguage'])->name('switch.language');
+
 Route::get('forgot-password', [LoginController::class, 'forgotPassword'])->name('password.request');
 Route::post('password-recovery', [PasswordRecoveryController::class, 'recover'])->name('password.recovery');
 Route::get('password/reset/{token}', [LoginController::class, 'showResetForm'])->name('password.reset');
