@@ -2,6 +2,9 @@
     <a href="{{ route('games.show.mainpage', ['game' => $game->id_game]) }}" class="game-link">
         <div class="product__item">
             <div class="product__item__pic set-bg" style="background-image: url('{{ $game->grid ? asset('imgs/grids/' . $game->grid) : asset('imgs/default-game.jpg') }}');">
+                <div class="ep">
+                    {{ $game->price == 0 ? 'Free to Play' : '€' . number_format($game->price, 2) }}
+                </div>
                 <div class="comment"><i class="fa fa-comments"></i> <x-game-reviews-count :game="$game" />
                 </div>
                 <div class="view"><i class="fa fa-eye"></i> {{ $game->views ?? 0 }}</div>

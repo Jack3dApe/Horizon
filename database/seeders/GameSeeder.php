@@ -125,6 +125,7 @@ class GameSeeder extends Seeder
                 'genres' => ['Adventure', 'Puzzle', 'RPG']
             ],
             [
+<<<<<<< HEAD
                 'name' => 'Pokemon Red and Blue',
                 'description_en' => 'Relive the adventure that started it all with Pokémon Red and Blue. Explore the Kanto region, capture and train a wide array of Pokémon, and battle your way to become the Pokémon Champion. With its addictive gameplay and iconic creatures, this classic RPG set the foundation for a beloved franchise that has captured the hearts of fans around the world.',
                 'description_pt' => 'Revive a aventura que deu início a tudo com Pokémon Red e Blue. Explora a região de Kanto, captura e treina uma ampla variedade de Pokémon e luta para te tornares no Campeão Pokémon. Com a sua jogabilidade viciante e criaturas icónicas, este clássico RPG estabeleceu as bases para uma franquia amada que conquistou os corações dos fãs em todo o mundo.',
@@ -138,6 +139,8 @@ class GameSeeder extends Seeder
                 'genres' => ['RPG', 'Adventure', 'Strategy']
             ],
             [
+=======
+>>>>>>> 63d6de3477178c90e26401e183e931ec2a2caf67
                 'name' => 'Far Cry 5',
                 'description_en' => 'Far Cry 5 invites you to fight for freedom in the sprawling open world of Hope County, Montana. As a new deputy, you’ll take on the fanatical Eden’s Gate cult in a story filled with explosive action, rich characters, and breathtaking environments. With dynamic gameplay, cooperative multiplayer, and endless exploration, this game delivers a thrilling FPS experience.',
                 'description_pt' => 'Far Cry 5 convida-te a lutar pela liberdade no vasto mundo aberto de Hope County, Montana. Como um novo delegado, enfrentarás o culto fanático Eden’s Gate numa história repleta de ação explosiva, personagens ricos e cenários deslumbrantes. Com uma jogabilidade dinâmica, multijogador cooperativo e exploração sem fim, este jogo oferece uma experiência emocionante de FPS.',
