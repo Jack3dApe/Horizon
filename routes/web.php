@@ -10,10 +10,14 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PasswordRecoveryController;
+use Carbon\Carbon;
+use App\Models\Game;
 
 Route::get('/', function () {
-    $gamesCarrousel = App\Models\Game::with('genres')->inRandomOrder()->take(10)->get();
+    // Pega 10 jogos alearoios
+    $gamesCarrousel = Game::with('genres')->inRandomOrder()->take(10)->get();
     return view('home', compact('gamesCarrousel'));
+
 })->name('home');
 
 

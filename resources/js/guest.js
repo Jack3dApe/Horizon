@@ -1,6 +1,7 @@
 import './bootstrap';
 import './theme.js'
 import './bootstrap-navbar.js'
+import './top-games.js'
 
 //Carrousel
 import { tns } from 'tiny-slider/src/tiny-slider';

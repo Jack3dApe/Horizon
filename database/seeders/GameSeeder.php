@@ -117,18 +117,6 @@ class GameSeeder extends Seeder
                 'genres' => ['Adventure', 'Puzzle', 'RPG']
             ],
             [
-                'name' => 'Pokemon Red and Blue',
-                'description' => 'Relive the adventure that started it all with Pokémon Red and Blue. Explore the Kanto region, capture and train a wide array of Pokémon, and battle your way to become the Pokémon Champion. With its addictive gameplay and iconic creatures, this classic RPG set the foundation for a beloved franchise that has captured the hearts of fans around the world.',
-                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
-                'price' => 39.99,
-                'release_date' => '1996-02-27',
-                'icon' => 'pokemon_red_blue.png',
-                'banner' => 'pokemon_red_blue.png',
-                'grid' => 'pokemon_red_blue.png',
-                'logo' => 'pokemon_red_blue.png',
-                'genres' => ['RPG', 'Adventure', 'Strategy']
-            ],
-            [
                 'name' => 'Far Cry 5',
                 'description' => 'Far Cry 5 invites you to fight for freedom in the sprawling open world of Hope County, Montana. As a new deputy, you’ll take on the fanatical Eden’s Gate cult in a story filled with explosive action, rich characters, and breathtaking environments. With dynamic gameplay, cooperative multiplayer, and endless exploration, this game delivers a thrilling FPS experience.',
                 'id_publisher' => Publisher::where('name', 'Ubisoft')->first()->id_publisher,

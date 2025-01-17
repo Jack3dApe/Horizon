@@ -3,5 +3,5 @@
 
 @section('content')
     @include('layouts.guests.home.carrousel', ['gamesCarrousel' => $gamesCarrousel])
-
+    <x-top-games />
 @endsection
