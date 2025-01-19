@@ -36,18 +36,24 @@
                                         {{ $game->rating_percentage }}%
                                     </div>
                                 </div>
-                                <span><x-game-reviews-count :game="$game" /> Reviews</span>
-                                <x-language-switch />
+                                <span><x-game-reviews-count :game="$game" /> {{__('messages.reviews')}}</span>
                             </div>
                             <p>{{ $game ->description }}</p>
                             <div class="anime__details__widget">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Price:</span> {{ $game->price }}$</li>
-                                            <li><span>Publisher:</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
-                                            <li><span>Release Date:</span> {{ $game->release_date->format('d/m/Y') }}</li>
-                                            <li><span>Genre:</span>
+                                            <li>
+                                                <span>{{__('messages.price')}}</span>
+                                                @if(app()->getLocale() == 'en')
+                                                    {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
+                                                @elseif(app()->getLocale() == 'pt')
+                                                    {{ $game->price == 0 ? 'Free to Play' : '€' . number_format($game->price, 2) }}
+                                                @endif
+                                            </li>
+                                            <li><span>{{__('messages.publisher')}}</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
+                                            <li><span>{{__('messages.release')}}</span> {{ $game->release_date->format('d/m/Y') }}</li>
+                                            <li><span>{{__('messages.genre')}}</span>
                                                 <x-game-genres :genres="$game->genres" />
 
                                             </li>
@@ -57,8 +63,8 @@
                                 </div>
                             </div>
                             <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Add To Wishlist</a>
-                                <a href="#" class="follow-btn" style="background-color: green"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> {{__('messages.addwishlist')}}</a>
+                                <a href="#" class="follow-btn" style="background-color: green"><i class="fa fa-shopping-cart"></i> {{__('messages.buynow')}}</a>
                             </div>
                         </div>
                     </div>

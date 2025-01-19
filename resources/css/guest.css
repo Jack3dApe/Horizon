@@ -26,3 +26,46 @@
     pointer-events: none;
 }
 
+.language-switch {
+    margin-top: -7px;
+    position: relative;
+}
+
+.language-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 25%;
+    transform: translateX(-50%);
+    padding: 0;
+    width: auto;
+    min-width: unset;
+    background-color: transparent;
+    border: none;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.language-switch:hover .language-dropdown {
+    display: flex;
+}
+
+.language-dropdown .dropdown-item {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.language-dropdown .dropdown-item img {
+    width: 30px;
+    height: 20px;
+}
+
+.language-dropdown .dropdown-item:hover {
+    background-color: transparent;
+}

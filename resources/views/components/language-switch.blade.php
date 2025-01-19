@@ -87,13 +87,49 @@
 </style>
 -->
 
+<div class="language-switch d-flex align-items-center">
+    <a href="#" class="dropdown-toggle d-flex align-items-center no-default-arrow">
+        @if(app()->getLocale() === 'en')
+            <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg" alt="English">
+        @elseif(app()->getLocale() === 'pt')
+            <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/PT.svg" alt="Portuguese">
+        @endif
+    </a>
+    <ul class="dropdown-menu language-dropdown p-0" style="display: none;">
+        <li>
+            <a href="{{ route('switch.language', 'en') }}" class="dropdown-item text-center">
+                <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg" alt="English">
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('switch.language', 'pt') }}" class="dropdown-item text-center">
+                <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/PT.svg" alt="Portuguese">
+            </a>
+        </li>
+    </ul>
+</div>
 
-<div class="dropdown">
+<script>
+    document.addEventListener('click', function (event) {
+        const dropdown = document.querySelector('.language-dropdown');
+        const switcher = document.querySelector('.language-switch');
+
+        // Se clicar fora do dropdown e do switcher, esconda
+        if (!switcher.contains(event.target)) {
+            dropdown.style.display = 'none';
+        } else {
+            // Caso contrário, mostre o dropdown
+            dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+        }
+    });
+</script>
+
+<!--
     <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="languageMenu" data-bs-toggle="dropdown" aria-expanded="false">
         @if(app()->getLocale() === 'en')
             <img
-                alt="United Kingdom"
-                src="http://purecatamphetamine.github.io/country-flag-icons/3x2/UK.svg"/>
+                alt="Grand Britain"
+                src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg"/>
 
         @elseif(app()->getLocale() === 'pt')
             <img
@@ -117,4 +153,5 @@
             </a>
         </li>
     </ul>
-</div>
+
+-->

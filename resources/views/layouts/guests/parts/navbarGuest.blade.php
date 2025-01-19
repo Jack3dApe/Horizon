@@ -13,25 +13,27 @@
                 <div class="header__nav">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="{{ route('home') }}">Homepage</a></li>
+                            <li class="active"><a href="{{ route('home') }}">{{__('messages.homepage')}}</a></li>
                             <li>
-                                <a href="#">Genres <span class="arrow_carrot-down"></span></a>
+                                <a href="#">{{__('messages.genres')}} <span class="arrow_carrot-down"></span></a>
                                 <ul class="dropdown">
                                     @foreach($genres as $genre)
                                         <li><a href="{{ route('genres.games', $genre->id_genre) }}">{{ $genre->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Support</a></li>
+                            <li><a href="#">{{__('messages.aboutus')}}</a></li>
+                            <li><a href="#">{{__('messages.support')}}</a></li>
+
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="col-lg-2">
-                <div class="header__right">
+                <div class="header__right d-flex align-items-center justify-content-end">
                     <a href="#" class="search-switch"><span class="icon_search"></span></a>
                     <a href="{{ route('login') }}"><span class="icon_profile"></span></a>
+
                     @auth
                         @if(auth()->user()->hasRole('admin'))
                             <a href="{{ route('admin.dashboard') }}"><span class="icon_desktop"></span></a>
@@ -47,6 +49,7 @@
                             </form>
                         @endif
                     @endauth
+                    <x-language-switch />
                 </div>
             </div>
         </div>
