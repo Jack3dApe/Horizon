@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Wishlist;
 
 class GameController extends Controller
 {
@@ -175,6 +176,8 @@ class GameController extends Controller
 
     public function showGame(Game $game)
     {
+        $isWishlisted = auth()->check() && Wishlist::where('id_user', auth()->id())->where('id_game', $game->id_game)->exists();
+
         return view('layouts.guests.gameDetails.show', compact('game'));
     }
 

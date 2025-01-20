@@ -10,7 +10,7 @@
     <div class="my-slider">
         @foreach($gamesCarrousel as $game)
             <div class="slider-item" style="position: relative;">
-                <a href="{{ route('games.show.mainpage', $game->id_game) }}">
+                <a href="{{ route('games.show.mainpage', ['game' => $game->id_game]) }}">
 
                     <div class="hero__items text-white d-flex flex-column justify-content-center align-items-start p-4" style="background-image: url('{{ asset('imgs/banners/' . $game->banner) }}'); background-size: cover; background-position: center; height: 500px;">
                         <div class="container h-100 d-flex align-items-end">

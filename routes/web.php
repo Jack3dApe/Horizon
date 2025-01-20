@@ -13,6 +13,7 @@ use App\Http\Controllers\PasswordRecoveryController;
 use Carbon\Carbon;
 use App\Models\Game;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -49,7 +50,11 @@ Route::middleware('guest')->group(function () {
 });
 
 //Rotas para a wishlist
-Route::post('/wishlist/{game}/toggle', [WishlistController::class, 'toggleWishlist'])->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/wishlist/{id_game}/toggle', [WishlistController::class, 'toggleWishlist'])
+        ->name('wishlist.toggle');
+});
 
 
 
@@ -116,4 +121,6 @@ Route::resource('games', \App\Http\Controllers\GameController::class);
 Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
+
+
 

@@ -32,43 +32,54 @@ import { gsap } from "gsap";
 document.addEventListener('DOMContentLoaded', function () {
     const wishlistBtn = document.getElementById('wishlist-btn');
     const heartIcon = document.getElementById('heart-icon');
-    const gameId = wishlistBtn.dataset.gameId;
 
     wishlistBtn.addEventListener('click', () => {
-        // Faz o toggle da wishlist
-        fetch(`/wishlist/${gameId}/toggle`, {
-            method: 'POST',
+        const id_game = wishlistBtn.getAttribute('data-id-game');
+        const toggleUrl = `/wishlist/${id_game}/toggle`;
+
+        // Verifica se o usuário está autenticado
+        fetch('/check-auth', {
+            method: 'GET',
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 'Content-Type': 'application/json',
             },
         })
-            .then(response => {
-                if (response.redirected) {
-                    // Redireciona para login se o usuário não está autenticado
-                    window.location.href = response.url;
+            .then(response => response.json())
+            .then(data => {
+                if (!data.authenticated) {
+                    // Manda para o login se n tiver logado
+                    window.location.href = '/login';
                     return;
                 }
-                return response.json();
+
+                // altera o estado da wishlist
+                fetch(toggleUrl, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ id_game })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'added') {
+                            heartIcon.classList.replace('fa-heart-o', 'fa-heart');
+                            wishlistBtn.innerHTML = 'Wishlisted';
+                            gsap.fromTo(heartIcon, { scale: 0.8 }, { scale: 1.2, duration: 0.3 });
+                        } else if (data.status === 'removed') {
+                            heartIcon.classList.replace('fa-heart', 'fa-heart-o');
+                            wishlistBtn.innerHTML = 'Add to Wishlist';
+                            gsap.to(heartIcon, { scale: 1, duration: 0.2 });
+                        }
+                    })
+                    .catch(error => console.error('Error toggling wishlist:', error));
             })
-            .then(data => {
-                if (data.status === 'added') {
-                    // Atualiza o botão para "adicionado"
-                    heartIcon.classList.replace('fa-heart-o', 'fa-heart');
-                    wishlistBtn.textContent = 'Wishlisted';
-                    gsap.fromTo(heartIcon, { scale: 0.8 }, { scale: 1.2, duration: 0.3 });
-                } else if (data.status === 'removed') {
-                    // Atualiza o botão para "removido"
-                    heartIcon.classList.replace('fa-heart', 'fa-heart-o');
-                    wishlistBtn.textContent = 'Add to Wishlist';
-                    gsap.to(heartIcon, { scale: 1, duration: 0.2 });
-                }
-            })
-            .catch(error => {
-                console.error('Error toggling wishlist:', error);
-            });
+            .catch(error => console.error('Error checking authentication:', error));
     });
 });
+
 
 
 

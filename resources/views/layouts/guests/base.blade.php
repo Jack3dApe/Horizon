@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-    <meta name="csrf-token" content="{{ csrf_token() }}">     {{--Adicionei pq o chat dise talvez tenha q ser removido se der problemas --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}"> {{--Adicionei para o butao da wishlist --}}
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="shortcut icon" href="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('icons/favicon-16x16.png')}}">

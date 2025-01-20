@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\User;
+use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -18,28 +19,13 @@ class WishlistController extends Controller
         return view('wishlist.index', compact('games'));
     }
 
-
-
-    public function show($gameId)
+    public function toggleWishlist($id_game)
     {
-        $game = Game::with('genres')->findOrFail($gameId);
 
-        // Verifica se o jogo está na wishlist do usuário autenticado
-        $isWishlisted = false;
-        if (Auth::check()) {
-            $isWishlisted = Auth::user()->wishlists->contains($gameId);
-        }
-
-        return view('layouts.guests.gameDetails.show', compact('game', 'isWishlisted'));
-    }
-
-
-    public function toggleWishlist($gameId)
-    {
-        $userId = auth()->id();
+        $id_user = auth()->id();
 
         // Ve se o jogo está na wishlist
-        $wishlist = Wishlist::where('id_user', $userId)->where('id_game', $gameId)->first();
+        $wishlist = Wishlist::where('id_user', $id_user)->where('id_game', $id_game)->first();
 
         if ($wishlist) {
             // Remove o jogo da wishlist
@@ -48,11 +34,12 @@ class WishlistController extends Controller
         } else {
             // Adiciona o jogo à wishlist
             Wishlist::create([
-                'id_user' => $userId,
-                'id_game' => $gameId,
+                'id_user' => $id_user,
+                'id_game' => $id_game,
             ]);
             return response()->json(['status' => 'added']);
         }
+
     }
 
 }
