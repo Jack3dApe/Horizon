@@ -125,22 +125,6 @@ class GameSeeder extends Seeder
                 'genres' => ['Adventure', 'Puzzle', 'RPG']
             ],
             [
-<<<<<<< HEAD
-                'name' => 'Pokemon Red and Blue',
-                'description_en' => 'Relive the adventure that started it all with Pokémon Red and Blue. Explore the Kanto region, capture and train a wide array of Pokémon, and battle your way to become the Pokémon Champion. With its addictive gameplay and iconic creatures, this classic RPG set the foundation for a beloved franchise that has captured the hearts of fans around the world.',
-                'description_pt' => 'Revive a aventura que deu início a tudo com Pokémon Red e Blue. Explora a região de Kanto, captura e treina uma ampla variedade de Pokémon e luta para te tornares no Campeão Pokémon. Com a sua jogabilidade viciante e criaturas icónicas, este clássico RPG estabeleceu as bases para uma franquia amada que conquistou os corações dos fãs em todo o mundo.',
-                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
-                'price' => 39.99,
-                'release_date' => '1996-02-27',
-                'icon' => 'pokemon_red_blue.png',
-                'banner' => 'pokemon_red_blue.png',
-                'grid' => 'pokemon_red_blue.png',
-                'logo' => 'pokemon_red_blue.png',
-                'genres' => ['RPG', 'Adventure', 'Strategy']
-            ],
-            [
-=======
->>>>>>> 63d6de3477178c90e26401e183e931ec2a2caf67
                 'name' => 'Far Cry 5',
                 'description_en' => 'Far Cry 5 invites you to fight for freedom in the sprawling open world of Hope County, Montana. As a new deputy, you’ll take on the fanatical Eden’s Gate cult in a story filled with explosive action, rich characters, and breathtaking environments. With dynamic gameplay, cooperative multiplayer, and endless exploration, this game delivers a thrilling FPS experience.',
                 'description_pt' => 'Far Cry 5 convida-te a lutar pela liberdade no vasto mundo aberto de Hope County, Montana. Como um novo delegado, enfrentarás o culto fanático Eden’s Gate numa história repleta de ação explosiva, personagens ricos e cenários deslumbrantes. Com uma jogabilidade dinâmica, multijogador cooperativo e exploração sem fim, este jogo oferece uma experiência emocionante de FPS.',
@@ -153,6 +137,7 @@ class GameSeeder extends Seeder
                 'logo' => 'far_cry_5.png',
                 'genres' => ['FPS', 'Adventure', 'Open World', 'RPG']
             ],
+
             [
                 'name' => 'Watch Dogs 2',
                 'description_en' => 'Dive into the vibrant streets of San Francisco in Watch Dogs 2, a game that combines hacking, action, and open-world exploration. Play as Marcus Holloway, a skilled hacker working with the DedSec collective to expose corruption and take down a powerful surveillance system. With its rich narrative, fun gadgets, and cooperative multiplayer, Watch Dogs 2 redefines open-world adventures.',
@@ -491,6 +476,109 @@ class GameSeeder extends Seeder
                 'logo' => 'marvel_vs_capcom_2.png',
                 'genres' => ['Fighting', 'Action']
             ],
+
+            [
+                'name' => 'PUBG: Battlegrounds',
+                'description_en' => 'Play PUBG: BATTLEGROUNDS for free. Land on strategic locations, loot weapons and supplies, and survive to become the last team standing across various, diverse Battlegrounds.',
+                'description_pt' => 'Jogue PUBG: BATTLEGROUNDS gratuitamente. Pouse em locais estratégicos, colete armas e suprimentos e sobreviva para ser a última equipe de pé em diversos campos de batalha.',
+                'id_publisher' => Publisher::where('name', 'KRAFTON')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2017-12-21',
+                'icon' => 'pubg_battlegrounds.png',
+                'banner' => 'pubg_battlegrounds.png',
+                'grid' => 'pubg_battlegrounds.png',
+                'logo' => 'pubg_battlegrounds.png',
+                'genres' => ['Survival', 'Battle Royale']
+            ],
+
+            [
+                'name' => 'Warframe',
+                'description_en' => 'Awaken as an unstoppable warrior and battle alongside your friends in this story-driven free-to-play online action game.',
+                'description_pt' => 'Desperte como um guerreiro imparável e lute ao lado de seus amigos neste jogo de ação online gratuito e guiado pela história.',
+                'id_publisher' => Publisher::where('name', 'Digital Extremes')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2013-03-25',
+                'icon' => 'warframe.png',
+                'banner' => 'warframe.png',
+                'grid' => 'warframe.png',
+                'logo' => 'warframe.png',
+                'genres' => ['Action', 'MMO', 'Stealth']
+            ],
+
+            [
+                'name' => 'Baldur\'s Gate 3',
+                'description_en' => 'Baldur\'s Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons & Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power.',
+                'description_pt' => 'Baldur\'s Gate 3 é um RPG baseado em história e em grupos, ambientado no universo de Dungeons & Dragons, onde suas escolhas moldam uma história de companheirismo e traição, sobrevivência e sacrifício, e a atração pelo poder absoluto.',
+                'id_publisher' => Publisher::where('name', 'Larian Studios')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2023-08-03',
+                'icon' => 'baldurs_gate_3.png',
+                'banner' => 'baldurs_gate_3.png',
+                'grid' => 'baldurs_gate_3.png',
+                'logo' => 'baldurs_gate_3.png',
+                'genres' => ['RPG', 'Adventure', 'Indie']
+            ],
+
+            [
+                'name' => 'Balatro',
+                'description_en' => 'Balatro is a hypnotically satisfying deckbuilder where you play illegal poker hands, discover game-changing jokers, and trigger adrenaline-pumping, outrageous combos.',
+                'description_pt' => 'Balatro é um construtor de baralhos hipnoticamente satisfatório onde você joga mãos de pôquer ilegais, descobre curingas que mudam o jogo e desencadeia combos emocionantes e absurdos.',
+                'id_publisher' => Publisher::where('name', 'Playstack')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2024-02-20',
+                'icon' => 'balatro.png',
+                'banner' => 'balatro.png',
+                'grid' => 'balatro.png',
+                'logo' => 'balatro.png',
+                'genres' => ['Card Games', 'Indie']
+            ],
+
+            [
+                'name' => 'Black Desert',
+                'description_en' => 'Played by over 20 million Adventurers, Black Desert Online is an open-world, action MMORPG. Experience intense, action-packed combat, battle massive world bosses, and train in professions such as fishing, trading, crafting, and cooking.',
+                'description_pt' => 'Jogado por mais de 20 milhões de aventureiros, Black Desert Online é um MMORPG de ação em mundo aberto. Experimente combates intensos, enfrente chefes gigantes e treine em profissões como pesca, comércio, artesanato e culinária.',
+                'id_publisher' => Publisher::where('name', 'Pearl Abyss')->first()->id_publisher,
+                'price' => 9.99,
+                'release_date' => '2017-05-24',
+                'icon' => 'black_desert.png',
+                'banner' => 'black_desert.png',
+                'grid' => 'black_desert.png',
+                'logo' => 'black_desert.png',
+                'genres' => ['MMO', 'Action', 'RPG']
+            ],
+
+            [
+                'name' => 'Factorio',
+                'description_en' => 'Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don’t really like you.',
+                'description_pt' => 'Factorio é um jogo sobre construir e criar fábricas automatizadas para produzir itens de complexidade crescente em um mundo 2D infinito. Use sua imaginação para projetar sua fábrica, combine elementos simples em estruturas engenhosas e proteja-a das criaturas que não gostam muito de você.',
+                'id_publisher' => Publisher::where('name', 'Wube Software LTD.')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2020-08-14',
+                'icon' => 'factorio.png',
+                'banner' => 'factorio.png',
+                'grid' => 'factorio.png',
+                'logo' => 'factorio.png',
+                'genres' => ['Simulation', 'Survival']
+
+            ],
+
+            [
+                'name' => 'DayZ',
+                'description_en' => 'How long can you survive a post-apocalyptic world? A land overrun with an infected "zombie" population, where you compete with other survivors for limited resources. Will you team up with strangers and stay strong together? Or play as a lone wolf to avoid betrayal? This is DayZ – this is your story.',
+                'description_pt' => 'Por quanto tempo você pode sobreviver em um mundo pós-apocalíptico? Uma terra infestada por uma população infectada de "zumbis", onde você compete com outros sobreviventes por recursos limitados. Você vai se unir a estranhos e permanecer forte juntos? Ou vai jogar como um lobo solitário para evitar traições? Este é o DayZ – esta é a sua história.',
+                'id_publisher' => Publisher::where('name', 'Bohemia Interactive')->first()->id_publisher,
+                'price' => 44.99,
+                'release_date' => '2018-12-13',
+                'icon' => 'dayz.png',
+                'banner' => 'dayz.png',
+                'grid' => 'dayz.png',
+                'logo' => 'dayz.png',
+                'genres' => ['Survival', 'Horror']
+            ],
+
+
+
+
 
 
 

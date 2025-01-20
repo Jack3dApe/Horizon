@@ -14,7 +14,11 @@
                 @foreach ($topGames as $timeframe => $games)
                     <div class="filter__gallery__item {{ $timeframe }}" style="{{ $timeframe === 'day' ? '' : 'display:none;' }}">
                         @foreach ($games as $game)
+
                             <div class="product__sidebar__view__item set-bg mix" style="background-image: url('{{ asset('imgs/banners/' . $game->banner) }}')">
+                                <div class="ep">
+                                    {{ $game->price == 0 ? 'Free to Play' : '€' . number_format($game->price, 2) }}
+                                </div>
                                 <h5><a href="{{ route('games.show.mainpage', $game->id_game) }}">{{ $game->name }}</a></h5>
                             </div>
                         @endforeach

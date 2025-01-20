@@ -81,6 +81,12 @@ class User extends Authenticatable
         return $this->hasMany(Review::class, 'id_user');
     }
 
+    public function wishlist()
+    {
+        return $this->belongsToMany(Game::class, 'wishlists', 'id_user', 'id_game');
+    }
+
+
     /**
      * Relationship: User has many support tickets.
      */

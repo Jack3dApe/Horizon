@@ -42,6 +42,13 @@ class PublisherSeeder extends Seeder
             ['name' => 'Arc System Works', 'email' => 'info@arc.com'],
             ['name' => 'NetherRealm Studios', 'email' => 'info@netherrealm.com'],
             ['name' => 'MegaCrit', 'email' => 'info@MegaCrit.com'],
+            ['name' => 'KRAFTON', 'email' => 'info@krafton.com'],
+            ['name' => 'Digital Extremes', 'email' => 'info@de.com'],
+            ['name' => 'Pearl Abyss', 'email' => 'info@pearlabyss.com'],
+            ['name' => 'Bohemia Interactive', 'email' => 'info@bohemiainteractive.com'],
+            ['name' => 'Larian Studios', 'email' => 'contact@larianstudios.com'],
+            ['name' => 'Playstack', 'email' => 'contact@playstack.com'],
+            ['name' => 'Wube Software LTD.', 'email' => 'contact@wubesoftware.com'],
 
 
 

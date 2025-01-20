@@ -26,3 +26,13 @@
     pointer-events: none;
 }
 
+
+/*Css do coracao da para dar wishlist */
+#heart-icon {
+    transition: color 0.3s ease-in-out;
+}
+#heart-icon.fa-heart {
+    color: white;
+}
+
+

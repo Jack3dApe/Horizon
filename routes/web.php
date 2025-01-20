@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PasswordRecoveryController;
 use Carbon\Carbon;
 use App\Models\Game;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -19,6 +20,11 @@ Route::get('/', function () {
     return view('home', compact('gamesCarrousel'));
 
 })->name('home');
+
+// Ve se o user esta logado
+Route::get('/check-auth', function () {
+    return response()->json(['authenticated' => Auth::check()]);
+});
 
 
 //Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
@@ -41,6 +47,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
 });
+
+//Rotas para a wishlist
+Route::post('/wishlist/{game}/toggle', [WishlistController::class, 'toggleWishlist'])->middleware('auth');
+
+
 
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout')
