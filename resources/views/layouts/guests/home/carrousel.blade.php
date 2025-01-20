@@ -37,7 +37,7 @@
                         <div class="position-absolute bottom-0 end-0 mb-3" style="margin-right: 30px;">
                             <a href="{{ route('games.show.mainpage', $game->id_game) }}"
                                class="btn btn-red btn-lg fw-bold">
-                                See Details <i class="fa fa-angle-right"></i>
+                                {{__('messages.seedetails')}} <i class="fa fa-angle-right"></i>
                             </a>
                         </div>
                     </div>

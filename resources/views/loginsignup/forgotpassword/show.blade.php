@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Password Recovery</h2>
-                        <p>Welcome to Horizon</p>
+                        <h2>{{__('messages.passrecovery')}}</h2>
+                        <p>{{__('messages.welcome')}}</p>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login__form">
-                        <h3>Password Recovery</h3>
+                        <h3>{{__('messages.passrecovery')}}</h3>
 
                         @if(session('success'))
                             <div class="alert alert-success">
@@ -38,20 +38,20 @@
                         <form action="{{ route('password.recovery') }}" method="POST">
                             @csrf
                             <div class="input__item">
-                                <input type="text" name="email" placeholder="Email address" value="{{ old('email') }}">
+                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}">
                                 <span>
                                     <i class="icon_mail"></i>
                                 </span>
                             </div>
-                            <button type="submit" class="site-btn">Request Password</button>
+                            <button type="submit" class="site-btn">{{__('messages.requestpassword')}}</button>
                         </form>
-                        <a href="{{ route('login') }}" class="forget_pass">Cancel</a>
+                        <a href="{{ route('login') }}" class="forget_pass">{{__('messages.cancel')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="login__register">
-                        <h3>Don’t Have An Account?</h3>
-                        <a href="{{ route('register') }}" class="primary-btn">Register Now</a>
+                        <h3>{{__('messages.noaccount')}}</h3>
+                        <a href="{{ route('register') }}" class="primary-btn">{{__('messages.registernow')}}</a>
                     </div>
                 </div>
             </div>

@@ -12,9 +12,9 @@
             <div class="col-lg-6">
                 <div class="footer__nav">
                     <ul>
-                        <li class="active"><a href="{{ route('home') }}">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li class="active"><a href="{{ route('home') }}">{{__('messages.homepage')}}</a></li>
+                        <li><a href="#">{{__('messages.aboutus')}}</a></li>
+                        <li><a href="#">{{__('messages.support')}}</a></li>
                     </ul>
                 </div>
             </div>

@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>Login</h2>
-                        <p>Welcome to Horizon</p>
+                        <h2>{{__('messages.login')}}</h2>
+                        <p>{{__('messages.welcome')}}</p>
                     </div>
                 </div>
             </div>
@@ -21,11 +21,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="login__form">
-                        <h3>Login</h3>
+                        <h3>{{__('messages.login')}}</h3>
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="input__item">
-                                <input type="text" name="email" placeholder="Email address" value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
+                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
                                 <span>
                                     <i class="icon_mail"></i>
                                 </span>
@@ -34,24 +34,24 @@
                                 @enderror
                             </div>
                             <div class="input__item">
-                                <input type="password" name="password" placeholder="Password" class="@error('password') is-invalid @enderror">
+                                <input type="password" name="password" placeholder="{{__('messages.passwordplaceholder')}}" class="@error('password') is-invalid @enderror">
                                 <span class="icon_lock"></span>
                                 @error('password')
                                 <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <button type="submit" class="site-btn">{{__('messages.loginnow')}}</button>
                         </form>
                         @if($errors->has('error'))
                             <p style="color: red;">{{ $errors->first('error') }}</p>
                         @endif
-                        <a href="{{ route('password.request') }}" class="forget_pass">Forgot Your Password?</a>
+                        <a href="{{ route('password.request') }}" class="forget_pass">{{__('messages.forgotpassword')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="login__register">
-                        <h3>Don’t Have An Account?</h3>
-                        <a href="{{ route('register') }}" class="primary-btn">Register Now</a>
+                        <h3>{{__('messages.noaccount')}}</h3>
+                        <a href="{{ route('register') }}" class="primary-btn">{{__('messages.registernow')}}</a>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                         <div class="login__social__links">
                             <span>or</span>
                             <ul>
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> Sign in With Facebook</a></li>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> {{__('messages.signinfacebook')}}</a></li>
                             </ul>
                         </div>
                     </div>

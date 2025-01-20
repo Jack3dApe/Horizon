@@ -2,13 +2,13 @@
     <div class="product__sidebar">
         <div class="product__sidebar__view">
             <div class="section-title">
-                <h5>Top Games</h5>
+                <h5>{{__('messages.topgames')}}</h5>
             </div>
             <ul class="filter__controls">
-                <li class="active" data-filter="day">Day</li>
-                <li data-filter="week">Week</li>
-                <li data-filter="month">Month</li>
-                <li data-filter="all_time">All Time</li>
+                <li class="active" data-filter="day">{{__('messages.day')}}</li>
+                <li data-filter="week">{{__('messages.week')}}</li>
+                <li data-filter="month">{{__('messages.month')}}</li>
+                <li data-filter="all_time">{{__('messages.alltime')}}</li>
             </ul>
             <div class="filter__gallery">
                 @foreach ($topGames as $timeframe => $games)

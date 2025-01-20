@@ -1,9 +1,9 @@
 <div class="game-reviews">
     <div class="section-title">
-        <h5>Reviews</h5>
+        <h5>{{__('messages.reviews')}}</h5>
     </div>
     @if($game->reviews->isEmpty())
-        <p>No reviews yet. Be the first to review this game!</p>
+        <p>{{__('messages.noreviews')}}</p>
     @else
         @foreach($game->reviews as $review)
             <div class="anime__review__item" >

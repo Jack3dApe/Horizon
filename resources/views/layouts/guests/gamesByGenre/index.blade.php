@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="{{route('home')}}"><i class="fa fa-home"></i> Home</a>
-                        <a href="{{route('home')}}">Categories</a>
+                        <a href="{{route('home')}}"><i class="fa fa-home"></i> {{__('messages.home')}}</a>
+                        <a href="{{route('home')}}">{{__('messages.categories')}}</a>
                         <span>{{ $genre->name }}</span>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="product__page__filter">
-                                        <p>Order by:</p>
+                                        <p>{{__('messages.orderby')}}</p>
                                         <select>
                                             <option value="">A-Z</option>
                                             <option value="">1-10</option>
@@ -49,7 +49,7 @@
                                     </div>
                                 @endforeach
                             @else
-                                <p>No games found in this genre.</p>
+                                <p>{{__('messages.nogamesgenre')}}</p>
                             @endif
                         </div>
                     </div>
