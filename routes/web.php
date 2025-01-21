@@ -52,8 +52,7 @@ Route::middleware('guest')->group(function () {
 //Rotas para a wishlist
 
 Route::middleware('auth')->group(function () {
-    Route::post('/wishlist/{id_game}/toggle', [WishlistController::class, 'toggleWishlist'])
-        ->name('wishlist.toggle');
+    Route::post('/wishlist/{id_game}/toggle', [WishlistController::class, 'toggleWishlist'])->name('wishlist.toggle');
 });
 
 

@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then(response => response.json())
                     .then(data => {
                         if (data.status === 'added') {
-                            heartIcon.classList.replace('fa-heart-o', 'fa-heart');
-                            wishlistBtn.innerHTML = 'Wishlisted';
-                            gsap.fromTo(heartIcon, { scale: 0.8 }, { scale: 1.2, duration: 0.3 });
+                            heartIcon.classList.replace('fa-heart-o', 'fa-heart'); // Altera ícone para "coração cheio"
+                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart"></i> Wishlisted`;
+                            gsap.fromTo(heartIcon, { scale: 0.8 }, { scale: 1.2, duration: 1 });
                         } else if (data.status === 'removed') {
-                            heartIcon.classList.replace('fa-heart', 'fa-heart-o');
-                            wishlistBtn.innerHTML = 'Add to Wishlist';
-                            gsap.to(heartIcon, { scale: 1, duration: 0.2 });
+                            heartIcon.classList.replace('fa-heart', 'fa-heart-o'); // Altera ícone para "coração vazio"
+                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart-o"></i> Add to Wishlist`;
+                            gsap.to(heartIcon, { scale: 1, duration: 1 });
                         }
                     })
                     .catch(error => console.error('Error toggling wishlist:', error));

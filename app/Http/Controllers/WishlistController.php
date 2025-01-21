@@ -28,8 +28,7 @@ class WishlistController extends Controller
         $wishlist = Wishlist::where('id_user', $id_user)->where('id_game', $id_game)->first();
 
         if ($wishlist) {
-            // Remove o jogo da wishlist
-            $wishlist->delete();
+            Wishlist::where('id_user', $id_user)->where('id_game', $id_game)->delete();
             return response()->json(['status' => 'removed']);
         } else {
             // Adiciona o jogo à wishlist
