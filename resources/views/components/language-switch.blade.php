@@ -87,7 +87,7 @@
 </style>
 -->
 
-<div class="language-switch d-flex align-items-center">
+<div class="language-switch d-flex align-items-center" id="languageSwitch">
     <a href="#" class="dropdown-toggle d-flex align-items-center no-default-arrow">
         @if(app()->getLocale() === 'en')
             <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg" alt="English">
@@ -108,21 +108,6 @@
         </li>
     </ul>
 </div>
-
-<script>
-    document.addEventListener('click', function (event) {
-        const dropdown = document.querySelector('.language-dropdown');
-        const switcher = document.querySelector('.language-switch');
-
-        // Se clicar fora do dropdown e do switcher, esconda
-        if (!switcher.contains(event.target)) {
-            dropdown.style.display = 'none';
-        } else {
-            // Caso contrário, mostre o dropdown
-            dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-        }
-    });
-</script>
 
 <!--
     <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="languageMenu" data-bs-toggle="dropdown" aria-expanded="false">

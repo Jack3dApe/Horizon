@@ -85,5 +85,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //Template
 
+//Language Dropdown
+document.addEventListener('DOMContentLoaded', function () {
+    const languageSwitch = document.getElementById('languageSwitch');
+    const dropdown = languageSwitch.querySelector('.language-dropdown');
+
+    document.addEventListener('click', function (event) {
+        if (!languageSwitch.contains(event.target)) {
+            dropdown.style.display = 'none';
+        } else {
+            dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
+        }
+    });
+});
+
 
 
