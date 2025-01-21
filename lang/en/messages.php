@@ -22,7 +22,8 @@ return [
     'publisher'=>'Publisher:',
     'release'=>'Release Date:',
     'genre'=>'Genre:',
-    'addwishlist'=>'Add to Wishlist:',
+    'addwishlist'=>'Add to Wishlist',
+    'wishlisted'=>'Wishlisted',
     'buynow'=>'Buy Now:',
     'noreviews'=>'No reviews yet. Be the first to review this game!',
 
@@ -73,10 +74,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Carrousel Language Lines
+    | Carrousel/Mainpage Language Lines
     |--------------------------------------------------------------------------
     */
 
     'seedetails'=>'See Details',
+    'newreleases' => 'Newest Releases',
 
 ];

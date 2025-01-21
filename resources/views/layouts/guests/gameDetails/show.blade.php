@@ -36,17 +36,24 @@
                                         {{ $game->rating_percentage }}%
                                     </div>
                                 </div>
-                                <span><x-game-reviews-count :game="$game" /> Reviews</span>
+                                <span><x-game-reviews-count :game="$game" /> {{__('messages.reviews')}}</span>
                             </div>
                             <p>{{ $game ->description }}</p>
                             <div class="anime__details__widget">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Price:</span> {{ $game->price }}$</li>
-                                            <li><span>Publisher:</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
-                                            <li><span>Release Date:</span> {{ $game->release_date->format('d/m/Y') }}</li>
-                                            <li><span>Genre:</span>
+                                            <li>
+                                                <span>{{__('messages.price')}}</span>
+                                                @if(app()->getLocale() == 'en')
+                                                    {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
+                                                @elseif(app()->getLocale() == 'pt')
+                                                    {{ $game->price == 0 ? 'Gratuito' : '€' . number_format($game->price, 2) }}
+                                                @endif
+                                            </li>
+                                            <li><span>{{__('messages.publisher')}}</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
+                                            <li><span>{{__('messages.release')}}</span> {{ $game->release_date->format('d/m/Y') }}</li>
+                                            <li><span>{{__('messages.genre')}}</span>
                                                 <x-game-genres :genres="$game->genres" />
 
                                             </li>
@@ -57,8 +64,7 @@
                             </div>
                             <div class="anime__details__btn">
                                 <x-is-wishlisted :game="$game" />
-
-                                <a href="#" class="follow-btn" style="background-color: green"><i class="fa fa-shopping-cart"></i> Buy Now</a>
+                                <a href="#" class="follow-btn" style="background-color: green"><i class="fa fa-shopping-cart"></i> {{__('messages.buynow')}}</a>
                             </div>
                         </div>
                     </div>
@@ -68,8 +74,41 @@
 
             <div class="row">
                 <x-game-reviews :game="$game" />
+
             </div>
 
+            {{-- Side contentes para depois
+            <div class="col-lg-4 col-md-4">
+                <div class="anime__details__sidebar">
+                    <div class="section-title">
+                        <h5>you might like...</h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
+                        <div class="ep">18 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <h5><a href="#">Boruto: Naruto next generations</a></h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
+                        <div class="ep">18 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
+                        <div class="ep">18 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <h5><a href="#">Sword art online alicization war of underworld</a></h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-4.jpg">
+                        <div class="ep">18 / ?</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
+                    </div>
+                </div>
+
+            </div>
+            --}}
+
+        </div>
         </div>
     </section>
 @endsection

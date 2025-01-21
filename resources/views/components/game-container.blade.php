@@ -6,7 +6,7 @@
                     @if(app()->getLocale() == 'en')
                         {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
                     @elseif(app()->getLocale() == 'pt')
-                        {{ $game->price == 0 ? 'Free to Play' : '€' . number_format($game->price, 2) }}
+                        {{ $game->price == 0 ? 'Gratuito' : '€' . number_format($game->price, 2) }}
                     @endif
                 </div>
                 <div class="comment"><i class="fa fa-comments"></i> <x-game-reviews-count :game="$game" />

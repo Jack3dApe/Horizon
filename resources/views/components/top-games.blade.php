@@ -17,7 +17,11 @@
 
                             <div class="product__sidebar__view__item set-bg mix" style="background-image: url('{{ asset('imgs/banners/' . $game->banner) }}')">
                                 <div class="ep">
-                                    {{ $game->price == 0 ? 'Free to Play' : '€' . number_format($game->price, 2) }}
+                                    @if(app()->getLocale() == 'en')
+                                        {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
+                                    @elseif(app()->getLocale() == 'pt')
+                                        {{ $game->price == 0 ? 'Gratuito' : '€' . number_format($game->price, 2) }}
+                                    @endif
                                 </div>
                                 <h5><a href="{{ route('games.show.mainpage', $game->id_game) }}">{{ $game->name }}</a></h5>
                             </div>

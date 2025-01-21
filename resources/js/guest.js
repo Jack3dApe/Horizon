@@ -66,11 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then(data => {
                         if (data.status === 'added') {
                             heartIcon.classList.replace('fa-heart-o', 'fa-heart'); // Altera ícone para "coração cheio"
-                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart"></i> Wishlisted`;
+                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart"></i> ${translations.wishlisted}`;
                             gsap.fromTo(heartIcon, { scale: 0.8 }, { scale: 1.2, duration: 1 });
                         } else if (data.status === 'removed') {
                             heartIcon.classList.replace('fa-heart', 'fa-heart-o'); // Altera ícone para "coração vazio"
-                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart-o"></i> Add to Wishlist`;
+                            wishlistBtn.innerHTML = `<i id="heart-icon" class="fa fa-heart-o"></i> ${translations.addwishlist}`;
                             gsap.to(heartIcon, { scale: 1, duration: 1 });
                         }
                     })

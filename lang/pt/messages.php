@@ -22,7 +22,8 @@ return [
     'publisher' => 'Editora:',
     'release' => 'Lançamento:',
     'genre' => 'Género:',
-    'addwishlist' => 'Adicionar à Lista de Desejos:',
+    'addwishlist' => 'Adicionar à Lista de Desejos',
+    'wishlisted'=>'Na Lista de Desejos',
     'buynow' => 'Comprar Agora:',
     'noreviews' => 'Ainda não há avaliações. Seja o primeiro a avaliar este jogo!',
 
@@ -63,8 +64,8 @@ return [
     'alreadyaccount' => 'Já tem uma conta?',
     'loginexclpoint' => 'Inicie Sessão!',
     'loginwith' => 'Entrar com:',
-    'passrecovery' => 'Recuperação de Palavra-passe',
-    'requestpassword' => 'Solicitar Palavra-passe',
+    'passrecovery' => 'Recuperar Palavra-passe',
+    'requestpassword' => 'Realizar Recuperação',
     'cancel' => 'Cancelar',
     'resetpassword' => 'Redefinir Palavra-passe',
     'enternewpassword' => 'Insira a Sua Nova Palavra-passe',
@@ -73,10 +74,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Carrousel Language Lines
+    | Carrousel/Mainpage Language Lines
     |--------------------------------------------------------------------------
     */
 
     'seedetails' => 'Ver Detalhes',
+    'newreleases' => 'Novidades',
 
 ];
