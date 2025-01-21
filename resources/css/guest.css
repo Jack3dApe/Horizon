@@ -26,6 +26,7 @@
     pointer-events: none;
 }
 
+
 .language-switch {
     margin-top: -7px;
     position: relative;
@@ -69,3 +70,9 @@
 .language-dropdown .dropdown-item:hover {
     background-color: transparent;
 }
+
+
+
+
+
+
