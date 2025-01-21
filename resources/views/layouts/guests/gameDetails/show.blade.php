@@ -7,7 +7,6 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="anime__details__pic set-bg" style="background-image: url('{{ $game->grid ? asset('imgs/grids/' . $game->grid) : asset('imgs/default-game.jpg') }}');">
-                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>
 
@@ -18,7 +17,7 @@
                                 <h3>{{ $game->name }}</h3>
                             </div>
                             <div class="anime__details__rating">
-                                <div class="progress" style="height: 25px; width: 100%;">
+                                <div class="progress" style="height: 6px; width: 100%;">
                                     <div
                                         class="progress-bar
                                         @if ($game->rating_percentage >= 75)
@@ -33,9 +32,10 @@
                                         aria-valuenow="{{ $game->rating_percentage }}"
                                         aria-valuemin="0"
                                         aria-valuemax="100">
-                                        {{ $game->rating_percentage }}%
+
                                     </div>
                                 </div>
+
                                 <span><x-game-reviews-count :game="$game" /> {{__('messages.reviews')}}</span>
                             </div>
                             <p>{{ $game ->description }}</p>
@@ -76,39 +76,6 @@
                 <x-game-reviews :game="$game" />
 
             </div>
-
-            {{-- Side contentes para depois
-            <div class="col-lg-4 col-md-4">
-                <div class="anime__details__sidebar">
-                    <div class="section-title">
-                        <h5>you might like...</h5>
-                    </div>
-                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-1.jpg">
-                        <div class="ep">18 / ?</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                        <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                    </div>
-                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-2.jpg">
-                        <div class="ep">18 / ?</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                    </div>
-                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-3.jpg">
-                        <div class="ep">18 / ?</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                        <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                    </div>
-                    <div class="product__sidebar__view__item set-bg" data-setbg="img/sidebar/tv-4.jpg">
-                        <div class="ep">18 / ?</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                        <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                    </div>
-                </div>
-
-            </div>
-            --}}
-
-        </div>
         </div>
     </section>
 @endsection
