@@ -11,13 +11,21 @@ use Illuminate\Support\Facades\Auth;
 
 class WishlistController extends Controller
 {
-    public function index()
+    public function index($id_user)
     {
-        $user = auth()->user();
-        $games = $user->wishlist()->with('genres')->get();
+        //Log::info("WishlistController@index called with user ID: {$id_user}");
 
-        return view('wishlist.index', compact('games'));
+        $games = Wishlist::where('id_user', $id_user)
+            ->with('game')
+            ->get();
+
+
+        return view('layouts.clients.wishlist', compact('games'));
     }
+
+
+
+
 
     public function toggleWishlist($id_game)
     {

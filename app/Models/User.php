@@ -83,7 +83,7 @@ class User extends Authenticatable
 
     public function wishlist()
     {
-        return $this->belongsToMany(Game::class, 'wishlists', 'id_user', 'id_game');
+        return $this->hasMany(Wishlist::class, 'id_user', 'id'); // Relacionamento com a tabela 'wishlists'
     }
 
 
