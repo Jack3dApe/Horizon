@@ -94,9 +94,9 @@ class Game extends Model
         return $this->{'description_' . $locale} ?? null;
     }
 
-    public function wishlistedBy()
+    public function wishlist()
     {
-        return $this->belongsToMany(User::class, 'wishlists', 'id_game', 'id_user');
+        return $this->hasMany(Wishlist::class, 'id_game');
     }
 
 
