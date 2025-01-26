@@ -1,0 +1,25 @@
+.badge-visible {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.badge-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-header-notif {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--tblr-card-spacer-y) var(--tblr-card-spacer-x);
+    border-bottom: var(--tblr-card-border-width) solid var(--tblr-card-border-color);
+}
+
+.card-header-notif h1 {
+    margin: 0;
+}
+
+.card-header-notif .btn {
+    margin: 0;
+}

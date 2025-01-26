@@ -51,7 +51,7 @@
 
                     <!-- Admin Overview -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.overview') }}">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}">
                             <span  class="nav-link-icon d-md-none d-lg-inline-block"  >
                                 <i class="ti ti-planet fs-5" style="color: #A6BCBC;"></i>
                             </span>

@@ -11,13 +11,18 @@ class ModelObserver
      */
     public function created($model): void
     {
+        $user = auth()->user();
+        $modelName = class_basename($model);
+        $modelNameField = $this->getModelNameField($model);
+
         ActivityLog::create([
-            'model' => class_basename($model),
+            'model' => $modelName,
             'model_id' => $model->getKey() ?? 'N/A',
             'action' => 'created',
             'changes' => json_encode($model->getAttributes()),
-            'user_id' => auth()->id(),
-            'user_name' => auth()->user()->username ?? 'Guest',
+            'user_id' => $user->id ?? null,
+            'user_name' => $user->username ?? 'Guest',
+            'associated_name' => $model->{$modelNameField} ?? 'N/A',
         ]);
     }
 
@@ -30,13 +35,18 @@ class ModelObserver
             return;
         }
 
+        $user = auth()->user();
+        $modelName = class_basename($model);
+        $modelNameField = $this->getModelNameField($model);
+
         ActivityLog::create([
-            'model' => class_basename($model),
+            'model' => $modelName,
             'model_id' => $model->getKey() ?? 'N/A',
             'action' => 'updated',
             'changes' => json_encode($model->getChanges()),
-            'user_id' => auth()->id(),
-            'user_name' => auth()->user()->username ?? 'Guest',
+            'user_id' => $user->id ?? null,
+            'user_name' => $user->username ?? 'Guest',
+            'associated_name' => $model->{$modelNameField} ?? 'N/A',
         ]);
     }
 
@@ -49,13 +59,18 @@ class ModelObserver
             return;
         }
 
+        $user = auth()->user();
+        $modelName = class_basename($model);
+        $modelNameField = $this->getModelNameField($model);
+
         ActivityLog::create([
-            'model' => class_basename($model),
+            'model' => $modelName,
             'model_id' => $model->getKey() ?? 'N/A',
             'action' => 'deleted',
             'changes' => null,
-            'user_id' => auth()->id(),
-            'user_name' => auth()->user()->username ?? 'Guest',
+            'user_id' => $user->id ?? null,
+            'user_name' => $user->username ?? 'Guest',
+            'associated_name' => $model->{$modelNameField} ?? 'N/A',
         ]);
     }
 
@@ -64,13 +79,18 @@ class ModelObserver
      */
     public function restored($model): void
     {
+        $user = auth()->user();
+        $modelName = class_basename($model);
+        $modelNameField = $this->getModelNameField($model);
+
         ActivityLog::create([
-            'model' => class_basename($model),
+            'model' => $modelName,
             'model_id' => $model->getKey() ?? 'N/A',
             'action' => 'restored',
             'changes' => null,
-            'user_id' => auth()->id(),
-            'user_name' => auth()->user()->username ?? 'Guest',
+            'user_id' => $user->id ?? null,
+            'user_name' => $user->username ?? 'Guest',
+            'associated_name' => $model->{$modelNameField} ?? 'N/A',
         ]);
     }
 
@@ -79,13 +99,32 @@ class ModelObserver
      */
     public function forceDeleted($model): void
     {
+        $user = auth()->user();
+        $modelName = class_basename($model);
+        $modelNameField = $this->getModelNameField($model);
+
         ActivityLog::create([
-            'model' => class_basename($model),
+            'model' => $modelName,
             'model_id' => $model->getKey() ?? 'N/A',
             'action' => 'permanently_deleted',
             'changes' => null,
-            'user_id' => auth()->id(),
-            'user_name' => auth()->user()->username ?? 'Guest',
+            'user_id' => $user->id ?? null,
+            'user_name' => $user->username ?? 'Guest',
+            'associated_name' => $model->{$modelNameField} ?? 'N/A',
         ]);
+    }
+
+    private function getModelNameField($model): string
+    {
+        $nameFields = [
+            'User' => 'username',
+            'Genre' => 'name',
+            'Publisher' => 'name',
+            'Game' => 'title',
+        ];
+
+        $modelName = class_basename($model);
+
+        return $nameFields[$modelName] ?? 'id';
     }
 }

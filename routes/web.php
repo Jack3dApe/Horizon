@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardOverviewController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserControler;
 use \App\Http\Controllers\ReviewController;
@@ -30,18 +31,23 @@ Route::get('/check-auth', function () {
 
 //Route::get('/', [\App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
+/*
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'role:admin'])->name('admin.dashboard');
-
+*/
 
 Route::get('/clients/dashboard', function () {
     return view('clients.dashboard');
 })->middleware('auth')->name('clients.dashboard');
 
-Route::get('/admin/overview', function () {
-    return view('adminoverview.show');
-})->middleware(['auth', 'role:admin'])->name('admin.overview');
+Route::get('/admin/dashboard', [DashboardOverviewController::class, 'overview'])
+    ->middleware(['auth', 'role:admin'])
+    ->name('admin.dashboard');
+
+Route::get('/admin/notifications', function () {
+    return view('adminoverview.show-all-notifications');
+})->middleware(['auth', 'role:admin'])->name('admin.notifications');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
