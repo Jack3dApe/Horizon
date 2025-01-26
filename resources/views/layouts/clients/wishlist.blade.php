@@ -15,14 +15,14 @@
         </div>
     </div>
 
-    <section class="product-page spad">
+    <section class="product-page spad ">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="product__page__content">
+            <div class="row" >
+                <div class="col-lg-8" >
+                    <div class="product__page__content ">
                         <div class="section-title">
                             <h4>Wishlist</h4>
-                        </div>
+                        </div >
                         <x-user-wishlist :user="auth()->user()" />
                     </div>
                 </div>

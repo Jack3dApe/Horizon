@@ -24,7 +24,7 @@ return [
     'genre' => 'Género:',
     'addwishlist' => 'Adicionar à Lista de Desejos',
     'wishlisted'=>'Na Lista de Desejos',
-    'buynow' => 'Comprar Agora:',
+    'buynow' => 'Adicionar ao carrinho',
     'noreviews' => 'Ainda não há avaliações. Seja o primeiro a avaliar este jogo!',
 
     /*

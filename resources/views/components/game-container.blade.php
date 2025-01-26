@@ -1,7 +1,7 @@
 <div>
     <a href="{{ route('games.show.mainpage', ['game' => $game->id_game]) }}" class="game-link">
         <div class="product__item">
-            <div class="product__item__pic set-bg" style="background-image: url('{{ $game->grid ? asset('imgs/grids/' . $game->grid) : asset('imgs/default-game.jpg') }}');">
+            <div class="product__item__pic set-bg" style="background-size:cover; background-position: center;  background-image: url('{{ $game->grid ? asset('imgs/grids/' . $game->grid) : asset('imgs/default-game.jpg') }}');">
                 <div class="ep">
                     @if(app()->getLocale() == 'en')
                         {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}

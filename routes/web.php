@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use App\Models\Game;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -49,8 +50,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
 });
 
-//Rotas para a wishlist
 
+//Rotas para a wishlist
 Route::middleware('auth')->group(function () {
     Route::post('/wishlist/{id_game}/toggle', [WishlistController::class, 'toggleWishlist'])->name('wishlist.toggle');
 });
@@ -59,7 +60,11 @@ Route::get('user/{id_user}/wishlist', [WishlistController::class, 'index'])->nam
 
 
 
-
+//ROtas do carrinho
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/remove/{id_game}', [CartController::class, 'remove'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 

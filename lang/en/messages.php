@@ -24,7 +24,7 @@ return [
     'genre'=>'Genre:',
     'addwishlist'=>'Add to Wishlist',
     'wishlisted'=>'Wishlisted',
-    'buynow'=>'Buy Now:',
+    'buynow'=>'Add to cart',
     'noreviews'=>'No reviews yet. Be the first to review this game!',
 
     /*

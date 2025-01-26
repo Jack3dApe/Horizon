@@ -137,6 +137,9 @@
                     <div class="header__right d-flex align-items-center justify-content-end">
                         <a href="#" class="search-switch"><span class="icon_search" ></span></a>
 
+                        {{-- Butao do carrinho--}}
+                        <a href="#" class="search-switch"><span class="icon_cart_alt" ></span></a>
+
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                                 <span class="avatar avatar-sm" style="color: white;"><i class="fa-regular fa-user"></i></span>

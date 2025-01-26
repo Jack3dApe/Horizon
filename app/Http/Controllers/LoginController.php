@@ -33,6 +33,10 @@ class LoginController extends Controller
             // Credenciais válidas, regenerar a sessão
             $request->session()->regenerate();
 
+
+            //Merge do carrinho do guest com o da conta logged
+            app(CartController::class)->merge();
+
             // Verificar o papel do usuário autenticado
             if (auth()->user()->hasRole('admin')) {
                 return redirect()->route('admin.dashboard');
@@ -53,12 +57,35 @@ class LoginController extends Controller
      */
     public function logout(Request $request): RedirectResponse
     {
+        if (Auth::check()) {
+            $id_user = Auth::id();
+            $cart = session()->get('cart', []);
+
+            // Guardar o cart do user
+            foreach ($cart as $id_game) {
+                // Ve se o jogo n esta no carrinho do user
+                $existingCart = \App\Models\Cart::where('id_user', $id_user)
+                    ->where('id_game', $id_game)
+                    ->first();
+
+                if (!$existingCart) {
+                    \App\Models\Cart::create([
+                        'id_user' => $id_user,
+                        'id_game' => $id_game,
+                    ]);
+                }
+            }
+
+            // Limpar a variável de sessão do carrinho
+            session()->forget('cart');
+        }
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect(route('login'));
     }
+
 
     public function forgotPassword(Request $request): View
     {
