@@ -34,7 +34,7 @@
                         <a style="color: white;" href="#" class="nav-link p-0" data-bs-toggle="dropdown" aria-expanded="false" >
                             <i class="fa-regular fa-user fa-lg text-light " ></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" style="min-width: 200px;">
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-auto-close="outside"  style="min-width: 200px;">
                             @guest
                                 <a href="{{ route('login') }}" class="dropdown-item d-flex align-items-center">
                                     <i class="fa-solid fa-right-to-bracket me-2"></i>
@@ -47,12 +47,16 @@
 
                             @auth
                                 <a href="#" class="dropdown-item d-flex align-items-center">
-                                    <i class="fa-solid fa-user me-2"></i> Profile
+                                    <i class="fa-solid fa-user me-2"></i>
+                                    <span>Profile</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item d-flex align-items-center">
-                                    <i class="fa-solid fa-heart me-2"></i> Wishlist
+                                <a href="{{ route('user.wishlist', auth()->id()) }}" class="dropdown-item d-flex align-items-center">
+                                    <i class="fa-solid fa-heart me-2"></i>
+                                    <span>Wishlist</span>
                                 </a>
+
+
                                 @if(auth()->user()->hasRole('admin'))
                                     <a href="{{ route('admin.dashboard') }}" class="dropdown-item d-flex align-items-center">
                                         <i class="fa-solid fa-chart-line me-2"></i> Dashboard
@@ -155,7 +159,7 @@
                                         <span>Profile</span>
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a href="#" class="dropdown-item d-flex align-items-center" style="color:black;" >
+                                    <a href="{{ route('user.wishlist', auth()->id()) }}" class="dropdown-item d-flex align-items-center" style="color:black;" >
                                         <i class="fa-solid fa-heart me-2" ></i>
                                         <span>Wishlist</span>
                                     </a>

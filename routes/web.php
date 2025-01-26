@@ -61,6 +61,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/wishlist/{id_game}/toggle', [WishlistController::class, 'toggleWishlist'])->name('wishlist.toggle');
 });
 
+Route::get('user/{id_user}/wishlist', [WishlistController::class, 'index'])->name('user.wishlist');
+
+
+
+
+
 
 
 Route::post('/logout', [LoginController::class, 'logout'])
