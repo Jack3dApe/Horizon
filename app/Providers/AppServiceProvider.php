@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Cart;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
 use App\Models\Game;
@@ -35,5 +36,6 @@ class AppServiceProvider extends ServiceProvider
         Genre::observe(ModelObserver::class);
         Publisher::observe(ModelObserver::class);
         Review::observe(ModelObserver::class);
+        Cart::observe(ModelObserver::class);
     }
 }

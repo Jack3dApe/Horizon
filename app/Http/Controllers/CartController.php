@@ -12,93 +12,84 @@ class CartController extends Controller
 {
     public function index()
     {
-        $id_user = Auth::id();
+        $totalPrice = 0;
+        $cart = session()->get('cart', []);
 
-        // Obtem os jogos do carrinho do user logado
-        $cartItems = Cart::where('id_user', $id_user)
-            ->with('game')
-            ->get();
-
-        return view('cart.index', compact('cartItems'));
-    }
-
-    public function add(Request $request)
-    {
-        $request->validate([
-            'id_game' => 'required|exists:games,id_game',
-        ]);
-
-        $id_user = Auth::id();
-        $id_game = $request->input('id_game');
-
-        // Ve se o jogo ja esta no carrinho
-        $existingCartItem = Cart::where('id_user', $id_user)
-            ->where('id_game', $id_game)
-            ->first();
-
-        if ($existingCartItem) {
-            return response()->json(['message' => 'Game already added'], 409);
+        foreach ($cart as $item) {
+            $totalPrice += $item['price'];
         }
 
-        // Cria o carrinho
-        Cart::create([
-            'id_user' => $id_user,
-            'id_game' => $id_game,
-        ]);
-
-
-
-        return response()->json(['message' => 'Game added to cart!'], 201);
+        return view('cart.index', compact('cart', 'totalPrice'));
     }
 
-    public function remove(Request $request, $id_game)
+    public function addToCart(string $id_game)
     {
-        $id_user = Auth::id();
+        $game = Game::find($id_game);
+        $cart = session()->get('cart', []);
 
-        $cartItem = Cart::where('id_user', $id_user)
-            ->where('id_game', $id_game)
-            ->first();
+        if (isset($cart[$id_game])) {
+            return redirect()->back()->with('info', 'Game already in your cart!');
+        } else {
+            $cart[$id_game] = [
+                'name' => $game->name,
+                'price' => $game->price,
+            ];
+            session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Game added to cart successfully!');
+        }
+    }
 
-        if (!$cartItem) {
-            return response()->json(['message' => 'O jogo não está no carrinho.'], 404);
+    public function update(Request $request, $id_game)
+    {
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$id_game])) {
+            unset($cart[$id_game]);
+            session()->put('cart', $cart);
+
+            return redirect()->route('cart.index')->with('success', 'Game removed from cart successfully!');
         }
 
-        $cartItem->delete();
-
-        return response()->json(['message' => 'Jogo removido do carrinho com sucesso.'], 200);
+        return redirect()->route('cart.index')->with('error', 'Game not found!.');
     }
 
-    public function clear()
+    public function remove(string $id_game)
     {
-        $id_user = Auth::id();
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id_game])) {
+            unset($cart[$id_game]);
+        }
 
-        Cart::where('id_user', $id_user)->delete();
-
-        return response()->json(['message' => 'Carrinho esvaziado com sucesso.'], 200);
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Game removed from cart successfully!');
     }
+
+
 
     public function merge()
     {
-        $guestCart = session()->get('cart', []);
-
         if (Auth::check()) {
             $id_user = Auth::id();
+            $cartSession = session()->get('cart', []);
+            $cartDB = Cart::where('id_user', $id_user)->get();
 
-            foreach ($guestCart as $id_game) {
-                $existingCartItem = Cart::where('id_user', $id_user)
-                    ->where('id_game', $id_game)
-                    ->first();
-
-                if (!$existingCartItem) {
-                    Cart::create([
-                        'id_user' => $id_user,
-                        'id_game' => $id_game,
-                    ]);
+            foreach ($cartDB as $item) {
+                if (isset($cartSession[$item->id_game])) {
+                    // Se o jogo já existe na sessão
+                    continue;
+                } else {
+                    $cartSession[$item->id_game] = [
+                        'name' => $item->game->name,
+                        'price' => $item->game->price,
+                    ];
                 }
             }
 
-            // Limpa o carrinho do guest
-            session()->forget('cart');
+            // Atualizar a sessão com os dados merged
+            session()->put('cart', $cartSession);
+
+            // Limpar os itens do carrinho na base de dados
+            Cart::where('id_user', $id_user)->delete();
         }
     }
 

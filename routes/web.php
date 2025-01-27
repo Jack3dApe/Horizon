@@ -68,9 +68,11 @@ Route::get('user/{id_user}/wishlist', [WishlistController::class, 'index'])->nam
 
 //ROtas do carrinho
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/add/{id_game}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id_game}', [CartController::class, 'remove'])->name('cart.remove');
-Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/cart/session', function () {
+    return session()->get('cart', []);
+});
 
 
 

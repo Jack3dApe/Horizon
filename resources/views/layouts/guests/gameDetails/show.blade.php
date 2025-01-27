@@ -64,7 +64,11 @@
                             </div>
                             <div class="anime__details__btn">
                                 <x-is-wishlisted :game="$game" />
-                                <a href="#" class="follow-btn" style="background-color: green"><i class="fa fa-shopping-cart"></i> {{__('messages.buynow')}}</a>
+                                <a href="{{ route('cart.add', ['id_game' => $game->id_game]) }}"
+                                   class="follow-btn"
+                                   style="background-color: green">
+                                    <i class="fa fa-shopping-cart"></i> {{__('messages.buynow')}}
+                                </a>
                             </div>
                         </div>
                     </div>

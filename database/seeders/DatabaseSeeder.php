@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             //SupportTicketSeeder::class,
             GenreSeeder::class,
             GameSeeder::class,
-            ReviewSeeder::class,
+            //ReviewSeeder::class,
         ]);
     }
 }

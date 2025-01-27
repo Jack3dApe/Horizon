@@ -62,8 +62,8 @@ class LoginController extends Controller
             $cart = session()->get('cart', []);
 
             // Guardar o cart do user
-            foreach ($cart as $id_game) {
-                // Ve se o jogo n esta no carrinho do user
+            foreach ($cart as $id_game => $item) { // A chave do array é o id_game
+                // Verificar se o jogo já está no carrinho do usuário
                 $existingCart = \App\Models\Cart::where('id_user', $id_user)
                     ->where('id_game', $id_game)
                     ->first();

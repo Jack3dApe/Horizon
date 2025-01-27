@@ -138,7 +138,16 @@
                         <a href="#" class="search-switch"><span class="icon_search" ></span></a>
 
                         {{-- Butao do carrinho--}}
-                        <a href="#" class="search-switch"><span class="icon_cart_alt" ></span></a>
+                        <a href="{{ route('cart.index') }}" class="search-switch position-relative">
+                            <span class="icon_cart_alt"></span>
+                            @if(session()->has('cart') && count(session('cart')) > 0)
+                                <span
+                                    class="badge-cart position-absolute top-0 start-100 translate-middle bg-danger text-white rounded-circle"
+                                    style="font-size: 12px; padding: 4px 6px;">
+                                    {{ count(session('cart')) }}
+                                </span>
+                            @endif
+                        </a>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">

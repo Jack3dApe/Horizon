@@ -1,8 +1,8 @@
-<div class="me-3">
+<div class="me-3 " >
     @if(auth()->check())
         <!-- Dropdown do Usuário Logado -->
-        <div class="dropdown">
-            <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" >
+        <div class="dropdown"  >
+            <button  class="btn dropdown-toggle d-flex align-items-center" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false" >
                 <!-- Foto de Perfil -->
                 <img
                     src="{{ auth()->user()->profile_pic ? asset(auth()->user()->profile_pic) : asset('imgs/noProfilePic.jpg') }}"
@@ -11,9 +11,9 @@
                     style="width: 32px; height: 32px;"
                 >
                 <!-- Nome do Usuário -->
-                <span>{{ auth()->user()->username }}</span>
+                <span >{{ auth()->user()->username }} </span>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu" >
                 <li>
                     <form action="{{ route('logout') }}" method="POST" class="d-inline">
                         @csrf
