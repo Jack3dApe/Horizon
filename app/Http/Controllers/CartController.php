@@ -33,6 +33,8 @@ class CartController extends Controller
             $cart[$id_game] = [
                 'name' => $game->name,
                 'price' => $game->price,
+                'grid' => $game->grid,
+                'publisher' => $game->publisher->name,
             ];
             session()->put('cart', $cart);
             return redirect()->back()->with('success', 'Game added to cart successfully!');
@@ -81,6 +83,8 @@ class CartController extends Controller
                     $cartSession[$item->id_game] = [
                         'name' => $item->game->name,
                         'price' => $item->game->price,
+                        'publisher' => $item->game->publisher->name,
+                        'grid' => $item->game->grid,
                     ];
                 }
             }
