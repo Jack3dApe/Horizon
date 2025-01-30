@@ -120,7 +120,7 @@ class ModelObserver
             'User' => 'username',
             'Genre' => 'name',
             'Publisher' => 'name',
-            'Game' => 'title',
+            'Game' => 'name',
         ];
 
         $modelName = class_basename($model);

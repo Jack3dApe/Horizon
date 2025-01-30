@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6" style="margin-top: 3vh;">
         <div class="card">
             <div class="card-header-notif">
                 <h1>Activity Log</h1>
