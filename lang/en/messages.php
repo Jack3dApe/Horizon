@@ -81,4 +81,23 @@ return [
     'seedetails'=>'See Details',
     'newreleases' => 'Newest Releases',
 
+    /*
+     |--------------------------------------------------------------------------
+     | Checkout e order lines
+     |--------------------------------------------------------------------------
+     */
+    'payment_title' => 'Payment',
+    'payment_credit_card' => 'Credit Card',
+    'card_number_label' => 'Card Number',
+    'name_on_card_label' => 'Name on Card',
+    'expiry_date_label' => 'Expiry Date',
+    'order_summary_title' => 'Order Summary',
+    'discount_label' => 'Discount',
+    'place_order_button' => 'Place Order',
+    'your_cart_title' => 'Your Cart',
+    'cart_empty_message' => 'Your cart is empty.',
+    'checkout_button' => 'Checkout',
+    'login_to_checkout' => 'Login to Checkout',
+
+
 ];

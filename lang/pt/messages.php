@@ -81,4 +81,26 @@ return [
     'seedetails' => 'Ver Detalhes',
     'newreleases' => 'Novidades',
 
+    /*
+     |--------------------------------------------------------------------------
+     | Checkout e order lines
+     |--------------------------------------------------------------------------
+     */
+
+    'payment_title' => 'Pagamento',
+    'payment_credit_card'=> 'Cartão de Crédito',
+    'card_number_label' => 'Número do Cartão',
+    'name_on_card_label' => 'Nome no Cartão',
+    'expiry_date_label' => 'Data de Validade',
+    'order_summary_title' => 'Resumo do Pedido',
+    'discount_label' => 'Desconto',
+    'place_order_button' => 'Finalizar Pedido',
+    'your_cart_title' => 'O Seu Carrinho',
+    'cart_empty_message' => 'O seu carrinho está vazio.',
+    'checkout_button' => 'Finalizar Compra',
+    'login_to_checkout' => 'Entrar para Finalizar Compra',
+
+
+
+
 ];

@@ -2,8 +2,16 @@
 @section('title', 'Checkout')
 @section('content')
     <div class="container" >
-        <h1 class="h3 mb-5">Payment</h1>
-
+        <h1 class="h3 mb-5">{{ __('messages.checkout.payment_title') }}</h1>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Formulário para o envio do pagamento -->
         <form action="{{ route('orders.place') }}" method="POST">
 
@@ -19,7 +27,7 @@
                             <h2 class="h5 px-4 py-3 accordion-header d-flex justify-content-between align-items-center">
                                 <div class="form-check w-100 collapsed" data-bs-toggle="collapse" data-bs-target="#collapseCC" aria-expanded="false">
                                     <input class="form-check-input" type="radio" name="payment_method" id="payment1" value="credit_card" required>
-                                    <label class="form-check-label pt-1" for="payment1">Credit Card</label>
+                                    <label class="form-check-label pt-1" for="payment1">{{ __('messages.payment_credit_card') }}</label>
                                 </div>
                                 <span>
                                     <!-- Icone de cartão de crédito -->
@@ -33,25 +41,25 @@
                             <div id="collapseCC" class="accordion-collapse collapse show" data-bs-parent="#accordionPayment">
                                 <div class="accordion-body">
                                     <div class="mb-3">
-                                        <label class="form-label" for="card_number">Card Number</label>
+                                        <label class="form-label" for="card_number">{{ __('messages.card_number_label') }}</label>
                                         <input type="text" class="form-control" id="card_number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <label class="form-label" for="name_on_card">Name on card</label>
+                                                <label class="form-label" for="name_on_card">{{ __('messages.name_on_card_label') }}</label>
                                                 <input type="text" class="form-control" id="name_on_card" name="name_on_card" placeholder="Horizon" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="mb-3">
-                                                <label class="form-label" for="expiry_date">Expiry date</label>
+                                                <label class="form-label" for="expiry_date">{{ __('messages.expiry_date_label') }}</label>
                                                 <input type="text" class="form-control" id="expiry_date" name="expiry_date" placeholder="MM/YY" maxlength="5" required>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="mb-3">
-                                                <label class="form-label" for="cvv">CVV Code</label>
+                                                <label class="form-label" for="cvv">CVV</label>
                                                 <input type="password" class="form-control" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
                                             </div>
                                         </div>
@@ -84,7 +92,7 @@
                 <div class="col-lg-3">
                     <div class="card position-sticky top-0">
                         <div class="p-3 bg-light bg-opacity-10">
-                            <h6 class="card-title mb-3">Order Summary</h6>
+                            <h6 class="card-title mb-3">{{ __('messages.order_summary_title') }}</h6>
 
                             <!-- Lista de itens no carrinho -->
                             @php $subtotal = 0; @endphp
@@ -117,7 +125,7 @@
 
                             <!-- Discount -->
                             <div class="d-flex justify-content-between mb-1 small">
-                                <span>Discount</span>
+                                <span>{{ __('messages.discount_label') }}</span>
                                 <span class="text-danger">
                                 @if(app()->getLocale() == 'en')
                                     -£0.00
@@ -145,7 +153,7 @@
                             <!-- Botão para enviar o formulário -->
                             <button type="submit" class="btn btn-primary w-100 mt-2 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 16px; padding: 10px; position: relative; overflow: hidden;background-color: green">
                                 <i class="fa fa-shopping-cart me-2"></i>
-                                Place Order
+                                {{ __('messages.place_order_button') }}
                             </button>
 
                         </div>

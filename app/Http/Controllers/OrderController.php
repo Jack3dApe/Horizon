@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PaymentRequest;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
@@ -22,7 +23,7 @@ class OrderController extends Controller
         return view('orders.show', compact('order'));
     }
 
-    public function placeOrder(Request $request)
+    public function placeOrder(PaymentRequest $request)
     {
         $user = Auth::user();
         $cart = session()->get('cart', []);
@@ -62,7 +63,7 @@ class OrderController extends Controller
         // Verificar resposta do pagamento
         if (!$paymentResponse['success']) {
             DB::rollBack();  // Reverter transação em caso de falha no pagamento
-            return redirect()->route('cart.index')->with('error', 'Payment failed. ' . $paymentResponse['message']);
+            return redirect()->route('/checkout')->with('error', 'Payment failed. ' . $paymentResponse['message']);
         }
 
         // Confirmar a transação após todos os passos

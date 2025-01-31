@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
     <div class="offcanvas-header">
-        <h5 id="offcanvasCartLabel">Your Cart</h5>
+        <h5 id="offcanvasCartLabel">{{ __('messages.your_cart_title') }}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -35,7 +35,7 @@
                 </form>
             </div>
         @empty
-            <p>Your cart is empty.</p>
+            <p>{{ __('messages.cart_empty_message') }}</p>
         @endforelse
     </div>
     <div class="mt-auto text-center">
@@ -43,13 +43,13 @@
             <a href="{{ route('cart.checkout') }}"
                class="btn btn-success d-inline-flex align-items-center justify-content-center mb-3"
                style="width: 95%; max-width: 370px;">
-                <i class="fa-solid fa-cart-shopping me-2"></i> Checkout
+                <i class="fa-solid fa-cart-shopping me-2"></i> {{ __('messages.checkout_button') }}
             </a>
         @else
             <a href="{{ route('login') }}"
                class="btn btn-warning d-inline-flex align-items-center justify-content-center mb-3"
                style="width: 95%; max-width: 370px;">
-                <i class="fa-solid fa-sign-in-alt me-2"></i> Login to Checkout
+                <i class="fa-solid fa-sign-in-alt me-2"></i> {{ __('messages.login_to_checkout') }}
             </a>
         @endif
     </div>
