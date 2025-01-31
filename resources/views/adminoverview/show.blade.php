@@ -64,7 +64,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    {{ $totalUsers }} Users
+                                    {{ $totalUsers }}
+                                </div>
+                                <div class="text-secondary">
+                                    Users
                                 </div>
                             </div>
                         </div>
@@ -88,7 +91,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    {{ $totalGames }} Games
+                                    {{ $totalGames }}
+                                </div>
+                                <div class="text-secondary">
+                                    Games
                                 </div>
                             </div>
                         </div>
@@ -97,7 +103,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6" style="margin-top: 3vh;">
         <div class="card">
             <div class="card-header-notif">
                 <h1>Activity Log</h1>

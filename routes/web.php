@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardOverviewController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserControler;
 use \App\Http\Controllers\ReviewController;
@@ -72,7 +73,6 @@ Route::get('user/{id_user}/wishlist', [WishlistController::class, 'index'])->nam
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/cart/add/{id_game}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id_game}', [CartController::class, 'remove'])->name('cart.remove');
-
 Route::get('/cart/session', function () {
     return session()->get('cart', []);
 });
@@ -159,6 +159,12 @@ Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
 
-
-
-
+//Tickets
+Route::middleware(['auth'])->group(function () {
+    Route::get('/support/create', [TicketController::class, 'create'])->name('support.tickets.create');
+    Route::post('/support/store', [TicketController::class, 'store'])->name('support.tickets.store');
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/admin/support/tickets', [TicketController::class, 'index'])->name('admin.supporttickets.index');
+        Route::get('/admin/support/tickets/{id}', [TicketController::class, 'show'])->name('admin.supporttickets.show');
+    });
+});
