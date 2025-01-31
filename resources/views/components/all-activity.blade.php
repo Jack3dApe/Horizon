@@ -1,5 +1,6 @@
 <div class="divide-y">
     @forelse($logs as $log)
+        @if($log->id) <!-- Verifica se o log tem um ID válido antes de exibi-lo -->
         <div class="log-item" data-log-id="{{ $log->id }}">
             <div class="row align-items-center">
                 <div class="col-auto">
@@ -19,10 +20,12 @@
                 </div>
             </div>
         </div>
+        @endif
     @empty
         <p class="text-center">No recent activities found.</p>
     @endforelse
 </div>
+
 <div class="divide-y">
     <p class="m-0 text-secondary" style="padding-top: 15px;">
         Showing <span>{{ $logs->firstItem() }}</span> to <span>{{ $logs->lastItem() }}</span> of <span>{{ $logs->total() }}</span> records
