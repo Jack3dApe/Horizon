@@ -64,7 +64,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    {{ $totalUsers }} Users
+                                    {{ $totalUsers }}
+                                </div>
+                                <div class="text-secondary">
+                                    Users
                                 </div>
                             </div>
                         </div>
@@ -88,7 +91,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    {{ $totalGames }} Games
+                                    {{ $totalGames }}
+                                </div>
+                                <div class="text-secondary">
+                                    Games
                                 </div>
                             </div>
                         </div>
