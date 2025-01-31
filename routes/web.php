@@ -12,10 +12,12 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PasswordRecoveryController;
 use Carbon\Carbon;
+use App\Http\Controllers\OrderController;
 use App\Models\Game;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -70,9 +72,18 @@ Route::get('user/{id_user}/wishlist', [WishlistController::class, 'index'])->nam
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/cart/add/{id_game}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id_game}', [CartController::class, 'remove'])->name('cart.remove');
+
 Route::get('/cart/session', function () {
     return session()->get('cart', []);
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout', [OrderController::class, 'checkout'])->name('cart.checkout');
+});
+
+
+//Rotas pagamento
+Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
 
 
 
@@ -127,6 +138,14 @@ Route::get('/genres/{genre}/games', [GameController::class, 'gamesByGenre'])->na
 
 Route::get('/games/{game}/mainpage', [GameController::class, 'showGame'])->name('games.show.mainpage');
 
+//Orders
+Route::middleware('auth')->group(function () {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{id_order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::post('/orders/place', [OrderController::class, 'placeOrder'])->name('orders.place');
+    Route::get('/orders/success/{id_order}', [OrderController::class, 'success'])->name('orders.success');
+});
+
 
 
 //Resources
@@ -139,6 +158,7 @@ Route::resource('games', \App\Http\Controllers\GameController::class);
 Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
+
 
 
 

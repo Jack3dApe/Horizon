@@ -151,9 +151,9 @@
 
                         <x-cart-off-canvas />
 
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                                <span class="avatar avatar-sm" style="color: white;"><i class="fa-regular fa-user"></i></span>
+                        <div class="nav-item dropdown" >
+                            <a  href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                                <span style="color: white;" ><i class="fa-regular fa-user" ></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light" style="min-width: 200px;">
                                 @guest

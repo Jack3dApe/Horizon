@@ -16,7 +16,13 @@
                 <div class="ms-3" style="flex-grow: 1;">
                     <h6 class="mb-1" style="text-align: left;">{{ $item['name'] }}</h6>
                     <p class="text-muted mb-1" style="text-align: left; font-size: 0.9rem;">{{ $item['publisher'] }}</p>
-                    <span class="fw-bold d-block" style="text-align: left; margin-top: 5px;">€{{ number_format($item['price'], 2) }}</span>
+                    <span class="fw-bold d-block" style="text-align: left; margin-top: 5px;">
+                    @if(app()->getLocale() == 'en')
+                        {{ $item['price'] == 0 ? 'Free to Play' : '£' . number_format($item['price'] * 0.84, 2) }}
+                    @elseif(app()->getLocale() == 'pt')
+                        {{ $item['price'] == 0 ? 'Gratuito' : '€' . number_format($item['price'], 2) }}
+                    @endif
+                    </span>
                 </div>
 
                 <!-- Botão para remover do carrinho -->
@@ -33,11 +39,19 @@
         @endforelse
     </div>
     <div class="mt-auto text-center">
-        <a {{-- href="{{ route('cart.checkout') }}" --}}
-           class="btn btn-success d-inline-flex align-items-center justify-content-center mb-3"
-           style="width: 95%; max-width: 370px;">
-            <i class="fa-solid fa-cart-shopping me-2"></i> Checkout
-        </a>
+        @if(auth()->check())
+            <a href="{{ route('cart.checkout') }}"
+               class="btn btn-success d-inline-flex align-items-center justify-content-center mb-3"
+               style="width: 95%; max-width: 370px;">
+                <i class="fa-solid fa-cart-shopping me-2"></i> Checkout
+            </a>
+        @else
+            <a href="{{ route('login') }}"
+               class="btn btn-warning d-inline-flex align-items-center justify-content-center mb-3"
+               style="width: 95%; max-width: 370px;">
+                <i class="fa-solid fa-sign-in-alt me-2"></i> Login to Checkout
+            </a>
+        @endif
     </div>
 
 </div>
