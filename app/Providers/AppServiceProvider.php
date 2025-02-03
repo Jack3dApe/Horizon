@@ -10,6 +10,8 @@ use App\Models\Genre;
 use App\Models\Publisher;
 use App\Models\Review;
 use App\Observers\ModelObserver;
+use App\Models\Payment;
+use App\Observers\PaymentObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('genres', Genre::all());
         });
 
+        Payment::observe(PaymentObserver::class);
         User::observe(ModelObserver::class);
         Game::observe(ModelObserver::class);
         Genre::observe(ModelObserver::class);

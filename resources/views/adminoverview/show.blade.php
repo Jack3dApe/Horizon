@@ -18,10 +18,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    XPTO Amount Earned (Monthly)
+                                    €{{ number_format($monthlyEarnings, 2) }} Earned ({{ now()->monthName }})
                                 </div>
                                 <div class="text-secondary">
-                                    XPTO Amount Earned (XPTO2025)
+                                    €{{ number_format($yearlyEarnings, 2) }} Earned ({{ now()->year }})
                                 </div>
                             </div>
                         </div>
@@ -39,10 +39,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    XPTO Sales (Monthly)
+                                    {{ $monthlySales }} Sales ({{ now()->monthName }})
                                 </div>
                                 <div class="text-secondary">
-                                    XPTO Sales (XPTO2025)
+                                    {{ $yearlySales }} Sales ({{ now()->year }})
                                 </div>
                             </div>
                         </div>
@@ -103,14 +103,57 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-6" style="margin-top: 3vh;">
-        <div class="card">
-            <div class="card-header-notif">
-                <h1>Activity Log</h1>
-                <a href="{{ route('admin.notifications') }}" class="btn btn-primary">Show All</a>
+    <div class="row" style="margin-top: 3vh;">
+        <!-- Card Activity Log -->
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header-notif">
+                    <h1>Activity Log</h1>
+                    <a href="{{ route('admin.notifications') }}" class="btn btn-primary">Show All</a>
+                </div>
+                <div class="card-body">
+                    <x-activity-log />
+                </div>
             </div>
-            <div class="card-body">
-                <x-activity-log />
+        </div>
+
+        <!-- Card Top Sales -->
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Top Sales</h3>
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                        <tr>
+                            <th>Games</th>
+                            <th class="text-end">Sales</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($topSales as $sale)
+                            <tr>
+                                <td>
+                                    <div class="progressbg">
+                                        <div class="progress progressbg-progress">
+                                            <div class="progress-bar bg-primary-lt"
+                                                 style="width: {{ number_format($sale->percentage, 2) }}%"
+                                                 role="progressbar"
+                                                 aria-valuenow="{{ number_format($sale->percentage, 2) }}"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100"
+                                                 aria-label="{{ number_format($sale->percentage, 2) }}% Complete">
+                                                <span class="visually-hidden">{{ number_format($sale->percentage, 2) }}% Complete</span>
+                                            </div>
+                                        </div>
+                                        <div class="progressbg-text">{{ $sale->game_name }}</div>
+                                    </div>
+                                </td>
+                                <td class="w-1 fw-bold text-end">{{ $sale->sales_count }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
