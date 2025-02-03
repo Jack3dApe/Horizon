@@ -99,6 +99,11 @@ return [
     'cart_empty_message' => 'O seu carrinho está vazio.',
     'checkout_button' => 'Finalizar Compra',
     'login_to_checkout' => 'Entrar para Finalizar Compra',
+    'print_receipt_button' => 'Imprimir Recibo',
+    'product_column' => 'Produto',
+    'amount_column' => 'Preço',
+    'thank_you_message' => 'Muito obrigado por fazer negócios conosco. Esperamos trabalhar com você novamente!',
+
 
 
 

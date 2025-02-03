@@ -98,6 +98,10 @@ return [
     'cart_empty_message' => 'Your cart is empty.',
     'checkout_button' => 'Checkout',
     'login_to_checkout' => 'Login to Checkout',
+    'print_receipt_button' => 'Print Receipt',
+    'product_column' => 'Product',
+    'amount_column' => 'Price',
+    'thank_you_message' => 'Thank you very much for doing business with us. We look forward to working with you again!',
 
 
 ];
