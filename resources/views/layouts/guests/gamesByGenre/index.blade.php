@@ -54,12 +54,19 @@
                         </div>
                     </div>
                     <div class="product__pagination">
-                        <a href="#" class="current-page">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#"><i class="fa fa-angle-double-right"></i></a>
+                        @if ($games->lastPage() > 1)
+                            @if ($games->currentPage() > 1)
+                                <a href="{{ $games->previousPageUrl() }}"><i class="fa fa-angle-double-left"></i></a>
+                            @endif
+
+                            @for ($i = 1; $i <= $games->lastPage(); $i++)
+                                <a href="{{ $games->url($i) }}" class="{{ $i == $games->currentPage() ? 'current-page' : '' }}">{{ $i }}</a>
+                            @endfor
+
+                            @if ($games->currentPage() < $games->lastPage())
+                                <a href="{{ $games->nextPageUrl() }}"><i class="fa fa-angle-double-right"></i></a>
+                            @endif
+                        @endif
                     </div>
                 </div>
                 <x-top-games/>
