@@ -168,7 +168,7 @@ class GameController extends Controller
     public function gamesByGenre($genreId)
     {
         $genre = Genre::findOrFail($genreId);
-        $games = $genre->games()->paginate(10);
+        $games = $genre->games()->paginate(15);
 
         return view('layouts.guests.gamesByGenre.index', compact('genre', 'games'));
     }
