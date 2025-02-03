@@ -6,9 +6,11 @@ use App\Http\Requests\PaymentRequest;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Library;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\LibraryController;
 
 class OrderController extends Controller
 {
@@ -53,6 +55,12 @@ class OrderController extends Controller
                     'id_order' => $order->id_order,
                     'id_game' => $id_game,
                     'price' => $item['price'],
+                ]);
+
+                Library::create([
+                    'id_user' => $user->id_user,
+                    'id_game' => $id_game,
+                    'id_order' => $order->id_order,
                 ]);
             }
 
@@ -113,6 +121,11 @@ class OrderController extends Controller
                     'id_order' => $order->id_order,
                     'id_game' => $id_game,
                     'price' => $item['price'],
+                ]);
+                Library::create([
+                    'id_user' => $user->id_user,
+                    'id_game' => $id_game,
+                    'id_order' => $order->id_order,
                 ]);
             }
 

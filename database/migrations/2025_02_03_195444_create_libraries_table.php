@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->id('id_library');
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
-            $table->foreignId('id_game')->constrained('games')->onDelete('cascade');
-            $table->foreignId('id_order')->nullable()->constrained('orders')->onDelete('cascade');
+            $table->foreignId('id_user')->references('id_user')->on('users')->onDelete('cascade');
+            $table->foreignId("id_game")->references('id_game')->on('games')->onDelete('cascade');
+            $table->foreignId('id_order')->nullable()->references('id_order')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
     }

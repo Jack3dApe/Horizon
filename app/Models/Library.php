@@ -17,7 +17,6 @@ class Library extends Model
         'id_user',
         'id_game',
         'id_order',
-        'acquired_at',
     ];
 
     public function user()

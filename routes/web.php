@@ -20,6 +20,8 @@ use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\LibraryController;
+
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -149,6 +151,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/orders/place/paypal', [OrderController::class, 'placeOrderPaypal'])->name('orders.place.paypal');
 
     Route::get('/orders/success/{id_order}', [OrderController::class, 'success'])->name('orders.success');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/library', [LibraryController::class, 'index'])->name('library.index');
+    Route::post('/library', [LibraryController::class, 'store'])->name('library.store');
+    Route::get('/library/{id}', [LibraryController::class, 'show'])->name('library.show');
+    Route::delete('/library/{id}', [LibraryController::class, 'destroy'])->name('library.destroy');
 });
 
 
