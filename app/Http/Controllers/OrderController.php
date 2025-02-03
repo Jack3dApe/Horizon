@@ -62,6 +62,9 @@ class OrderController extends Controller
                     'id_game' => $id_game,
                     'id_order' => $order->id_order,
                 ]);
+                \App\Models\Wishlist::where('id_user', $user->id_user)
+                    ->where('id_game', $id_game)
+                    ->delete();
             }
 
             // Processar pagamento com cartão de crédito
@@ -122,11 +125,15 @@ class OrderController extends Controller
                     'id_game' => $id_game,
                     'price' => $item['price'],
                 ]);
+                //Adiciona os jogos a library
                 Library::create([
                     'id_user' => $user->id_user,
                     'id_game' => $id_game,
                     'id_order' => $order->id_order,
                 ]);
+                \App\Models\Wishlist::where('id_user', $user->id_user)
+                    ->where('id_game', $id_game)
+                    ->delete();
             }
 
             // Processar pagamento com Paypal
