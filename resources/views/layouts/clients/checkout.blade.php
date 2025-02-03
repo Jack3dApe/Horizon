@@ -151,11 +151,13 @@
 
                             <input type="hidden" name="amount" value="{{ $subtotal ?? '' }}">
                             <!-- Botão para enviar o formulário -->
-                            <button type="submit" class="btn btn-primary w-100 mt-2 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 16px; padding: 10px; position: relative; overflow: hidden;background-color: green">
+                            <button id="creditCardButton" type="submit" class="btn btn-primary w-100 mt-2 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 16px; padding: 10px;">
                                 <i class="fa fa-shopping-cart me-2"></i>
                                 {{ __('messages.place_order_button') }}
                             </button>
 
+                            <!-- Contêiner para o botão PayPal -->
+                            <div id="paypal-button-container" class="mt-2" style="display: none;"></div>
                         </div>
 
                     </div>
@@ -164,3 +166,79 @@
         </form>
     </div>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const creditCardButton = document.getElementById('creditCardButton');
+        const paypalButtonContainer = document.getElementById('paypal-button-container');
+
+        const paymentMethodRadios = document.querySelectorAll('input[name="payment_method"]');
+
+        // Gerenciar exibição dos botões de pagamento
+        paymentMethodRadios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'paypal') {
+                    creditCardButton.style.display = 'none';
+                    paypalButtonContainer.style.display = 'block';
+                    renderPayPalButton();  // Chamar função para renderizar o botão PayPal
+                } else {
+                    creditCardButton.style.display = 'block';
+                    paypalButtonContainer.style.display = 'none';
+                }
+            });
+        });
+
+        function renderPayPalButton() {
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '{{ $subtotal ?? 0 }}',
+                            },
+                            description: 'Order from Horizon'
+                        }]
+                    }).then(function (orderID) {
+                        console.log('Order ID created by PayPal:', orderID);  // Debug
+                        return orderID;
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        console.log('Order captured by PayPal:', details);  // Debug
+
+                        return fetch("{{ route('orders.place.paypal') }}", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                orderID: data.orderID,
+                                payment_method: 'paypal'
+                            })
+                        }).then(response => response.json())
+                            .then(data => {
+                                console.log('Payment response:', data);
+                                if (data.success) {
+                                    alert('Payment successful!');
+                                    window.location.href = data.redirect_url;
+                                } else {
+                                    alert('Payment validation failed.');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Server error:', error);
+                                alert('Server communication error.');
+                            });
+
+
+                    });
+                },
+            }).render('#paypal-button-container');
+        }
+
+
+
+    });
+</script>
+

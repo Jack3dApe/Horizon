@@ -7,27 +7,24 @@ use App\Http\Requests\PaymentRequest;
 use App\Models\Order;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PaypalController;
 
 class PaymentController extends Controller
 {
     public function processPayment(PaymentRequest $request)
     {
         //dd($request->all());
-        $validated = $request->validate([
-            'payment_method' => 'required|string',
-            'id_order' => 'required|integer|exists:orders,id_order',
-            'amount' => 'required|numeric',
-        ]);
-
-        $payment = Payment::create([
+        Payment::create([
             'id_order' => $request->id_order,
+            'id_user' => $request->id_user,
             'amount' => $request->amount,
-            'payment_method' => $request->payment_method,
+            'payment_method' => 'credit_card',
             'status' => 'paid',
         ]);
 
         return ['success' => true];
     }
+
 
     public function paymentStatus($id_order)
     {

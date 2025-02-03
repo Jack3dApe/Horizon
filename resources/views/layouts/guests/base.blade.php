@@ -34,5 +34,7 @@
 
 <!-- Libs JS -->
 @vite(['resources/js/guest.js'])
+<script src="https://www.sandbox.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}&currency=EUR&intent=capture&commit=true"></script>
+
 </body>
 </html>
