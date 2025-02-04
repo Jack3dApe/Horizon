@@ -86,7 +86,7 @@
                                 @forelse($games as $game)
                                     <div class="col-sm-4">
                                         <div class="gal-detail thumb">
-                                            <a href="#" class="image-popup" title="{{ $game->game->name }}">
+                                            <a href="{{ route('games.show.mainpage', ['game' => $game->id_game]) }}" class="image-popup" title="{{ $game->game->name }}">
                                                 <img src="{{ asset('/imgs/grids/' . $game->game->grid) }}"
                                                      alt="{{ $game->game->name }} Grid Image"
                                                      class="img-fluid rounded mb-3">
