@@ -16,6 +16,25 @@ class DashboardOverviewController extends Controller
         $totalUsers = User::count();
         $totalGames = Game::count();
 
+        // Dados mensais para o gráfico
+        $months = collect(range(0, 5))->map(function ($monthAgo) {
+            return Carbon::now()->subMonths($monthAgo)->format('Y-m');
+        })->reverse()->values();
+
+        //Usuários Criados Por Mês
+        $monthlyUsersGraph = $months->map(function ($month) {
+            return User::whereYear('created_at', substr($month, 0, 4))
+                ->whereMonth('created_at', substr($month, 5, 2))
+                ->count();
+        });
+
+        //Jogos Vendidos Por Mês
+        $monthlySalesGraph = $months->map(function ($month) {
+            return OrderItem::whereYear('created_at', substr($month, 0, 4))
+                ->whereMonth('created_at', substr($month, 5, 2))
+                ->count();
+        });
+
         // Total de vendas mensais
         $monthlySales = Payment::where('status', 'paid')
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
@@ -34,26 +53,37 @@ class DashboardOverviewController extends Controller
             ->whereYear('created_at', Carbon::now()->year)
             ->sum('amount');
 
-        // Obter os 10 jogos mais vendidos
+        // Calcular o total de vendas
+        $totalSalesRaw = OrderItem::count();
+        $totalSales = $this->formatNumber($totalSalesRaw);
+
+        // Obter os 19 jogos mais vendidos
         $topSales = OrderItem::selectRaw('id_game, COUNT(*) as sales_count')
             ->groupBy('id_game')
             ->orderByDesc('sales_count')
-            ->take(10)
+            ->take(19)
             ->get();
 
-        // Calcular o total de vendas
-        $totalSales = $topSales->sum('sales_count');
-
         // Adicionar os nomes dos jogos e a porcentagem de vendas
-        $topSales = $topSales->map(function ($sale) use ($totalSales) {
+        $topSales = $topSales->map(function ($sale) use ($totalSalesRaw) {
             $sale->game_name = Game::find($sale->id_game)->name; // Obter o nome do jogo
-            $sale->percentage = $totalSales > 0 ? ($sale->sales_count / $totalSales) * 100 : 0; // Porcentagem de vendas
+            $sale->percentage = $totalSalesRaw > 0 ? ($sale->sales_count / $totalSalesRaw) * 100 : 0; // Percentagem de vendas
             return $sale;
         });
 
         return view('adminoverview.show', compact(
             'totalUsers', 'totalGames', 'monthlySales', 'yearlySales',
-            'monthlyEarnings', 'yearlyEarnings', 'topSales'
+            'monthlyEarnings', 'yearlyEarnings', 'topSales', 'totalSales', 'monthlyUsersGraph', 'monthlySalesGraph', 'months'
         ));
+    }
+
+    private function formatNumber($number)
+    {
+        if ($number >= 1000000) {
+            return number_format($number / 1000000, 2) . 'M';
+        } elseif ($number >= 1000) {
+            return number_format($number / 1000, 2) . 'K';
+        }
+        return $number;
     }
 }

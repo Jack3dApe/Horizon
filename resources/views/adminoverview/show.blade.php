@@ -39,10 +39,10 @@
                             </div>
                             <div class="col">
                                 <div class="font-weight-medium">
-                                    {{ $monthlySales }} Sales ({{ now()->monthName }})
+                                    {{ $monthlySales }} Orders ({{ now()->monthName }})
                                 </div>
                                 <div class="text-secondary">
-                                    {{ $yearlySales }} Sales ({{ now()->year }})
+                                    {{ $yearlySales }} Orders ({{ now()->year }})
                                 </div>
                             </div>
                         </div>
@@ -103,10 +103,10 @@
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top: 3vh;">
+    <div class="row d-flex align-items-stretch" style="margin-top: 3vh;">
         <!-- Card Activity Log -->
-        <div class="col-lg-6 col-md-12">
-            <div class="card">
+        <div class="col-lg-6 col-md-12 d-flex">
+            <div class="card flex-fill">
                 <div class="card-header-notif">
                     <h1>Activity Log</h1>
                     <a href="{{ route('admin.notifications') }}" class="btn btn-primary">Show All</a>
@@ -118,10 +118,13 @@
         </div>
 
         <!-- Card Top Sales -->
-        <div class="col-lg-6 col-md-12">
-            <div class="card">
+        <div class="col-lg-6 col-md-12 d-flex">
+            <div class="card flex-fill">
+                <div class="card-header-notif">
+                    <h1>Top Sales</h1>
+                    <h1>Total Sales: {{ $totalSales }}</h1>
+                </div>
                 <div class="card-body">
-                    <h3 class="card-title">Top Sales</h3>
                     <table class="table table-sm table-borderless">
                         <thead>
                         <tr>
@@ -157,4 +160,19 @@
             </div>
         </div>
     </div>
+    <div style="margin-top: 3vh;">
+        <div class="col-12">
+            <input type="hidden" id="monthly-users-data" value="{{ json_encode($monthlyUsersGraph) }}">
+            <input type="hidden" id="monthly-sales-data" value="{{ json_encode($monthlySalesGraph) }}">
+            <input type="hidden" id="months-data" value="{{ json_encode($months) }}">
+
+            <div class="card h-100 w-100">
+                <div class="card-body">
+                    <div id="chart-completion-tasks-10" style="width: 100%; height: 100%; min-height: 300px;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 @endsection

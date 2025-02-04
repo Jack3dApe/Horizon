@@ -24,6 +24,7 @@
         "@tabler/core": "^1.0.0-beta21",
         "@tabler/icons": "^3.22.0",
         "@tabler/icons-webfont": "^3.22.0",
+        "apexcharts": "^4.4.0",
         "country-flag-icons": "^1.5.14",
         "elegant-icons": "^0.0.1",
         "gsap": "^3.12.7",
