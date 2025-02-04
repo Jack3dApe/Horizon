@@ -19,21 +19,21 @@
                             <p class="text-muted font-13">
                                 <strong>{{ $wishlistCount }}</strong>
                                 <span class="m-l-15">
-                                <a href="{{ route('user.wishlist', ['id_user' => $user->id_user]) }}" class="text-decoration-none">Games wishlisted</a>
+                                <a href="{{ route('user.wishlist', ['id_user' => $user->id_user]) }}" class="text-decoration-none">{{ __('messages.games_wishlisted_link') }}</a>
                             </span>
                             </p>
 
                             <!-- Jogos owned -->
                             <p class="text-muted font-13">
                                 <strong>{{ $gamesOwnedCount }}</strong>
-                                <span class="m-l-15">Games owned</span>
+                                <span class="m-l-15">{{ __('messages.games_owned_label') }}</span>
                             </p>
                         </div>
                     </div>
                 </div> <!-- end card-box -->
 
                 <div class="card-box">
-                    <h4 style="color:#e53637" class="m-t-0 m-b-20 header-title font-weight-bolder">Favorite genres</h4>
+                    <h4 style="color:#e53637" class="m-t-0 m-b-20 header-title font-weight-bolder">{{ __('messages.favorite_genres_title') }}</h4>
 
                     <div class="p-b-10 mt-3">
                         @forelse($favoriteGenres as $genre)
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         @empty
-                            <p class="text-muted">No favorite genres available.</p>
+                            <p class="text-muted">{{ __('messages.no_favorite_genres_message') }}</p>
                         @endforelse
                     </div>
                 </div>
@@ -61,17 +61,17 @@
 
                             <li class="nav-item " >
                                 <a style="color: white"  class="nav-link active font-weight-bold" href="#library" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                    <i class="fa-solid fa-gamepad"></i> LIBRARY
+                                    <i class="fa-solid fa-gamepad"></i> {{ __('messages.library_label') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a style="color: white" class="nav-link font-weight-bold" href="#settings" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                    <i class="fa fa-cog me-2"></i> SETTINGS
+                                    <i class="fa fa-cog me-2"></i> {{ __('messages.settings_label') }}
                                 </a>
                             </li>
                             <li  class="nav-item">
                                 <a style="color: white" class="nav-link font-weight-bold" href="#tickets" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                    <i class="fa-solid fa-circle-info"></i> TICKETS
+                                    <i class="fa-solid fa-circle-info"></i> {{ __('messages.tickets_label') }}
                                 </a>
                             </li>
 
@@ -95,7 +95,7 @@
                                     </div>
                                 @empty
                                     <div class="col-12 text-center">
-                                        <p class="text-muted">You don't own any games yet.</p>
+                                        <p class="text-muted">{{ __('messages.no_games_owned_message') }}</p>
                                     </div>
                                 @endforelse
                             </div>
@@ -105,34 +105,56 @@
 
                         <!-- SETTINGS Tab -->
                         <div class="tab-pane fade" id="settings" role="tabpanel">
-                            <form role="form" class="text-light">
+                            <!-- Formulário de edição do perfil -->
+                            <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="text-light">
+                                @csrf
+                                @method('PUT')
+
+                                <!-- Upload da imagem -->
                                 <div class="mb-3">
-                                    <label for="FullName" class="form-label">Full Name</label>
-                                    <input type="text" value="John Doe" id="FullName" class="form-control">
+                                    <label for="profilePic" class="form-label">{{ __('messages.profile_picture_label') }}</label>
+                                    <input type="file" name="profile_pic" id="profilePic" class="form-control">
                                 </div>
+
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <label for="Username" class="form-label">{{ __('messages.username_label') }}</label>
+                                    <input type="text" name="username" value="{{ old('username', $user->username) }}" id="Username" class="form-control">
+                                </div>
+
+                                <!-- Email (readonly) -->
                                 <div class="mb-3">
                                     <label for="Email" class="form-label">Email</label>
-                                    <input type="email" value="first.last@example.com" id="Email" class="form-control">
+                                    <input type="email" name="email" value="{{ $user->email }}" id="Email" class="form-control" readonly>
                                 </div>
+
+                                <!-- Password -->
                                 <div class="mb-3">
-                                    <label for="Username" class="form-label">Username</label>
-                                    <input type="text" value="john" id="Username" class="form-control">
+                                    <label for="Password" class="form-label">{{ __('messages.password_label') }}</label>
+                                    <input type="password" name="password" placeholder="{{ __('messages.password_placeholder') }}" id="Password" class="form-control">
                                 </div>
+
+                                <!-- Confirmar Password -->
                                 <div class="mb-3">
-                                    <label for="Password" class="form-label">Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+                                    <label for="RePassword" class="form-label">{{ __('messages.repassword_label') }}</label>
+                                    <input type="password" name="password_confirmation" placeholder="{{ __('messages.repassword_placeholder') }}" id="RePassword" class="form-control">
                                 </div>
+
+                                <!-- Telefone -->
                                 <div class="mb-3">
-                                    <label for="RePassword" class="form-label">Re-Password</label>
-                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+                                    <label for="Phone" class="form-label">{{ __('messages.phone_label') }}</label>
+                                    <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" id="Phone" class="form-control">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="AboutMe" class="form-label">About Me</label>
-                                    <textarea id="AboutMe" class="form-control" style="height: 125px;">Lorem Ipsum dolor sit amet...</textarea>
-                                </div>
-                                <button style="background-color: #560bad;border-color: #560bad" class="btn btn-primary font-weight-bold ml-3" type="submit"><i class="fa-solid fa-floppy-disk mr-1"></i>Save</button>
+
+                                <!-- Botão de submit -->
+                                <button style="background-color: #560bad; border-color: #560bad" class="btn btn-primary font-weight-bold " type="submit">
+                                    <i class="fa-solid fa-floppy-disk mr-1"></i>{{ __('messages.save_button') }}
+                                </button>
                             </form>
                         </div>
+
+
+
 
                         <div class="tab-pane fade" id="tickets" role="tabpanel">
                             <div class="m-t-30">

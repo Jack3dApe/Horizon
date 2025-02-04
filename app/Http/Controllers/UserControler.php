@@ -215,4 +215,37 @@ class UserControler extends Controller
         return view('layouts.clients.profile', compact('user', 'wishlistCount', 'gamesOwnedCount', 'games', 'favoriteGenres'));
     }
 
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+
+        // Validações
+        $request->validate([
+            'username' => 'required|string|max:255|unique:users,username,' . $user->id_user,
+            'password' => 'nullable|string|min:6|confirmed',
+            'profile_pic' => 'nullable|image|max:2048',
+            'phone' => 'nullable|string|max:20',
+        ]);
+
+        // Atualizar os campos
+        $user->username = $request->username;
+        $user->phone = $request->phone;
+
+        // Atualizar a imagem de perfil, se fornecida
+        if ($request->hasFile('profile_pic')) {
+            $path = $request->file('profile_pic')->store('imgs/profile_pics', 'public');
+            $user->profile_pic = $path;
+        }
+
+        // Atualizar a senha, se fornecida
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
+    }
+
+
 }

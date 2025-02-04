@@ -104,6 +104,27 @@ return [
     'amount_column' => 'Preço',
     'thank_you_message' => 'Muito obrigado por fazer negócios conosco. Esperamos trabalhar com você novamente!',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Profile User
+    |--------------------------------------------------------------------------
+    */
+    'profile_picture_label' => 'Foto de Perfil',
+    'username_label' => 'Nome de Utilizador',
+    'password_label' => 'Palavra-passe',
+    'password_placeholder' => '6 - 15 Carateres',
+    'repassword_label' => 'Repetir Palavra-passe',
+    'repassword_placeholder' => '6 - 15 Carateres',
+    'phone_label' => 'Telefone',
+    'games_wishlisted_link' => 'Jogos na Lista de Desejos',
+    'games_owned_label' => 'Jogos na Biblioteca',
+    'favorite_genres_title' => 'Géneros Favoritos',
+    'no_favorite_genres_message' => 'Nenhum género favorito disponível.',
+    'library_label' => 'BIBLIOTECA',
+    'settings_label' => 'CONFIGURAÇÕES',
+    'tickets_label' => 'SUPORTE',
+    'no_games_owned_message' => 'Você ainda não possui nenhum jogo.',
+    'save_button' => 'Guardar',
 
 
 
