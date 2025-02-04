@@ -94,4 +94,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(SupportTicket::class, 'id_user');
     }
+
+    public function libraries()
+    {
+        return $this->hasMany(Library::class, 'id_user');
+    }
+
 }

@@ -46,7 +46,7 @@
                             @endguest
 
                             @auth
-                                <a href="#" class="dropdown-item d-flex align-items-center">
+                                <a href="{{route('profile')}}" class="dropdown-item d-flex align-items-center">
                                     <i class="fa-solid fa-user me-2"></i>
                                     <span>Profile</span>
                                 </a>
@@ -168,7 +168,7 @@
                                 @endguest
 
                                 @auth
-                                    <a href="#" class="dropdown-item d-flex align-items-center" style="color:black;">
+                                    <a href="{{ route('profile') }}" class="dropdown-item d-flex align-items-center" style="color:black;">
                                         <i class="fa-solid fa-user me-2"></i>
                                         <span>Profile</span>
                                     </a>

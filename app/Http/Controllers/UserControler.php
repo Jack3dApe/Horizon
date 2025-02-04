@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 #use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use App\Models\Wishlist;
+use App\Models\Library;
 
 
 class UserControler extends Controller
@@ -167,6 +170,49 @@ class UserControler extends Controller
         $user = User::withTrashed()->findOrFail($id);
         $user->forceDelete();
         return redirect()->route('users.deleted')->with('success', 'User permanently deleted.');
+    }
+
+    public function profile()
+    {
+        $user = Auth::user();
+
+        $wishlistCount = $user->wishlist()->count();
+
+        $gamesOwnedCount = $user->libraries()->count();
+
+        $games = $user->libraries()->with('game')->get();
+
+        $genreCounts = [];
+        foreach ($games as $library) {
+            foreach ($library->game->genres as $genre) {
+                if (!isset($genreCounts[$genre->id_genre])) {
+                    $genreCounts[$genre->id_genre] = [
+                        'name' => $genre->name,
+                        'count' => 0,
+                    ];
+                }
+                $genreCounts[$genre->id_genre]['count']++;
+            }
+        }
+
+        // Ordenar por frequência e calcular percentagem
+        $totalGenres = array_sum(array_column($genreCounts, 'count'));
+        $favoriteGenres = collect($genreCounts)
+            ->sortByDesc('count')
+            ->take(5)
+            ->map(function ($genre) use ($totalGenres) {
+                $percentage = $totalGenres > 0 ? ($genre['count'] / $totalGenres) * 100 : 0;
+                return [
+                    'name' => $genre['name'],
+                    'percentage' => round($percentage),
+                ];
+            })
+            ->values()
+            ->toArray();
+
+
+
+        return view('layouts.clients.profile', compact('user', 'wishlistCount', 'gamesOwnedCount', 'games', 'favoriteGenres'));
     }
 
 }

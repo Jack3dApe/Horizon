@@ -8,12 +8,15 @@ use Illuminate\View\Component;
 
 class GamesOwned extends Component
 {
+    public $games;
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->games = Library::with('game')
+            ->where('id_user', Auth::id())
+            ->get();
     }
 
     /**

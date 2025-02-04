@@ -62,6 +62,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
 });
 
+//Rota para o profile
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserControler::class, 'profile'])->name('profile');
+});
+
 
 //Rotas para a wishlist
 Route::middleware('auth')->group(function () {

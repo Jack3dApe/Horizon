@@ -87,6 +87,22 @@
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
 }
 
+.nav-tabs .nav-item .nav-link {
+    background-color: #070720;          /* Fundo preto para todas as abas */
+    color: white;                    /* Texto branco */
+    border: none;                    /* Remove bordas */
+    transition: background-color 0.3s;
+}
+
+.nav-tabs .nav-item .nav-link:hover {
+    background-color: #333;          /* Fundo mais claro ao passar o mouse */
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: #e53637;       /* Fundo vermelho para a aba ativa */
+    color: white;                    /* Texto branco */
+    font-weight: bold;               /* Texto em negrito */
+}
 
 
 
