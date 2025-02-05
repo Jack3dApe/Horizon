@@ -18,6 +18,11 @@
                         @else
                             <i class="icon_dislike text-danger"></i>
                         @endif
+
+                        @if ($review->user->ownsGame($game->id_game))
+                                <span class="badge ml-2" style="background-color:#e53637">{{ __('messages.owns_game_badge') }}</span>
+                        @endif
+
                     </div>
                     <p>{{ $review->description }}</p>
                 </div>

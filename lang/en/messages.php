@@ -14,6 +14,7 @@ return [
     'search_placeholder' => 'Search here...',
     'search_label' => 'Search',
     'search_results_title' => 'Search Results for',
+    'owns_game_badge' => 'Owns the game',
 
 
     /*

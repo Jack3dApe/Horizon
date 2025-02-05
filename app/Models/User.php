@@ -86,6 +86,10 @@ class User extends Authenticatable
         return $this->hasMany(Wishlist::class, 'id_user', 'id'); // Relacionamento com a tabela 'wishlists'
     }
 
+    public function ownsGame($id_game)
+    {
+        return $this->libraries()->where('id_game', $id_game)->exists();
+    }
 
     /**
      * Relationship: User has many support tickets.

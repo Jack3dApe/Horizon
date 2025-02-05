@@ -36,6 +36,7 @@ return [
     'comment_placeholder' => 'A sua avaliação',
     'submit_review_button' => 'Enviar Avaliação',
     'see_in_library_button' => 'Ver na Biblioteca',
+    'owns_game_badge' => 'Possui o jogo',
 
 
     /*
