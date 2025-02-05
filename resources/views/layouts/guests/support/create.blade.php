@@ -82,8 +82,14 @@
                         <form method="POST" action="{{ route('support.tickets.store') }}">
                             @csrf
 
-                            <!-- Assunto (E-mail do utilizador autenticado) -->
-                            <input type="hidden" name="subject" value="{{ auth()->user()->email }}">
+                            <!-- Email do utilizador (campo oculto) -->
+                            <input type="hidden" name="user_email" value="{{ auth()->user()->email }}">
+
+                            <!-- Assunto do ticket -->
+                            <div class="mb-3">
+                                <label for="subject" class="form-label"><i class="ti ti-heading"></i> Assunto</label>
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Escreve um assunto..." required>
+                            </div>
 
                             <!-- Descrição do problema -->
                             <div class="mb-3">
