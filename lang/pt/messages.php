@@ -26,6 +26,12 @@ return [
     'wishlisted'=>'Na Lista de Desejos',
     'buynow' => 'Adicionar ao carrinho',
     'noreviews' => 'Ainda não há avaliações. Seja o primeiro a avaliar este jogo!',
+    'your_review_title' => 'A Sua Avaliação',
+    'positive_label' => 'Positiva',
+    'negative_label' => 'Negativa',
+    'comment_placeholder' => 'A sua avaliação',
+    'submit_review_button' => 'Enviar Avaliação',
+
 
     /*
     |--------------------------------------------------------------------------

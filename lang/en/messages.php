@@ -26,6 +26,12 @@ return [
     'wishlisted'=>'Wishlisted',
     'buynow'=>'Add to cart',
     'noreviews'=>'No reviews yet. Be the first to review this game!',
+    'your_review_title' => 'Your Review',
+    'positive_label' => 'Positive',
+    'negative_label' => 'Negative',
+    'comment_placeholder' => 'Your Comment',
+    'submit_review_button' => 'Submit Review',
+
 
     /*
     |--------------------------------------------------------------------------

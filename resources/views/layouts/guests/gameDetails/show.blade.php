@@ -63,13 +63,20 @@
                                 </div>
                             </div>
                             <div class="anime__details__btn">
-                                <x-is-wishlisted :game="$game" />
-                                <a href="{{ route('cart.add', ['id_game' => $game->id_game]) }}"
-                                   class="follow-btn"
-                                   style="background-color: green">
-                                    <i class="fa fa-shopping-cart"></i> {{__('messages.buynow')}}
-                                </a>
+                                @if ($gameOwned)
+                                    <!-- Botão "See in Library" -->
+                                    <a href="{{ route('profile') }}" class="follow-btn" style="background-color: #f0ad4e; color: white;">
+                                        <i class="fa-solid fa-share-from-square"></i> See in Library
+                                    </a>
+                                @else
+                                    <!-- Botões de wishlist e compra -->
+                                    <x-is-wishlisted :game="$game" />
+                                    <a href="{{ route('cart.add', ['id_game' => $game->id_game]) }}" class="follow-btn" style="background-color: green">
+                                        <i class="fa fa-shopping-cart"></i> {{ __('messages.buynow') }}
+                                    </a>
+                                @endif
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -82,46 +89,43 @@
             </div>
 
 
-            <div class="anime__details__form mt-5">
-                <div class="section-title">
-                    <h5>Your Review</h5>
-                </div>
-
-                <!-- Formulário para submissão da review -->
-                <form action="{{ route('reviews.store', ['id_game' => $game->id_game]) }}" method="POST">
-                    @csrf
-
-                    <!-- Seleção positiva ou negativa -->
-                    <div class="d-flex mb-3">
-                        <label class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="is_positive" value="1" checked>
-                            <span class="form-check-label text-success">
-                    <i class="fa fa-thumbs-up"></i> Positive
-                </span>
-                        </label>
-
-                        <label class="form-check form-check-inline ml-3">
-                            <input class="form-check-input" type="radio" name="is_positive" value="0">
-                            <span class="form-check-label text-danger">
-                    <i class="fa fa-thumbs-down"></i> Negative
-                </span>
-                        </label>
+            @if (!$reviewExists)
+                <div class="anime__details__form mt-2">
+                    <div class="section-title">
+                        <h5>{{ __('messages.your_review_title') }}</h5>
                     </div>
 
-                    <!-- Campo de comentário -->
-                    <textarea name="description" class="form-control" placeholder="Your Comment" rows="4" required></textarea>
+                    <!-- Formulário para submissão da review -->
+                    <form action="{{ route('reviews.store', ['id_game' => $game->id_game]) }}" method="POST">
+                        @csrf
 
-                    <!-- Botão de submissão -->
-                    <button type="submit" class="btn btn-primary mt-3">
-                        <i class="fa fa-location-arrow"></i> Submit Review
-                    </button>
-                </form>
-            </div>
+                        <!-- Seleção positiva ou negativa -->
+                        <div class="d-flex mb-3" >
+                            <label class="form-check form-check-inline" style="background-color: green; padding: 3px 9px;border-radius: 6px">
+                                <input class="form-check-input" type="radio" name="is_positive" value="1" checked>
+                                <span  class="form-check-label text-light" >
+                                <i class="fa fa-thumbs-up" style="color: white"></i> {{ __('messages.positive_label') }}
+                            </span>
+                            </label>
 
+                            <label class="form-check form-check-inline ml-3" style="background-color: red; padding: 3px 9px;border-radius: 6px">
+                                <input class="form-check-input" type="radio" name="is_positive" value="0">
+                                <span class="form-check-label text-danger text-light">
+                                <i class="fa fa-thumbs-down text-light"></i> {{ __('messages.negative_label') }}
+                                </span>
+                            </label>
+                        </div>
 
+                        <!-- Campo de comentário -->
+                        <textarea name="description" class="form-control" placeholder="{{ __('messages.comment_placeholder') }}" rows="4" required></textarea>
 
-
-
+                        <!-- Botão de submissão -->
+                        <button type="submit" class="btn btn-primary mt-3">
+                            <i class="fa fa-location-arrow"></i> {{ __('messages.submit_review_button') }}
+                        </button>
+                    </form>
+                </div>
+            @endif
 
         </div>
     </section>

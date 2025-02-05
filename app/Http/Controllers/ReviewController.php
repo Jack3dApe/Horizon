@@ -131,7 +131,7 @@ class ReviewController extends Controller
         // Carregar o jogo
         $game = Game::findOrFail($id_game);
 
-        return view('reviews.user', compact('game'));
+        return view('reviews.user', compact('game', 'reviewExists'));
     }
 
     public function storeReview(Request $request, $id_game)

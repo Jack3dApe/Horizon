@@ -6,6 +6,8 @@ use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Wishlist;
+use App\Models\Review;
+use App\Models\Library;
 
 class GameController extends Controller
 {
@@ -176,10 +178,24 @@ class GameController extends Controller
 
     public function showGame(Game $game)
     {
-        $isWishlisted = auth()->check() && Wishlist::where('id_user', auth()->id())->where('id_game', $game->id_game)->exists();
+        $user = auth()->user();
 
-        return view('layouts.guests.gameDetails.show', compact('game'));
+        // Verificar se o utilizador está autenticado e se já fez uma review
+        $reviewExists = $user && Review::where('id_user', $user->id_user)
+                ->where('id_game', $game->id_game)
+                ->exists();
+
+        // Verificar se o jogo está na wishlist
+        $isWishlisted = $user && Wishlist::where('id_user', $user->id_user)
+                ->where('id_game', $game->id_game)
+                ->exists();
+
+        $gameOwned = $user && Library::where('id_game', $game->id_game)->exists();
+
+        // Passar as variáveis para a view
+        return view('layouts.guests.gameDetails.show', compact('game', 'isWishlisted', 'reviewExists', 'gameOwned'));
     }
+
 
 
 
