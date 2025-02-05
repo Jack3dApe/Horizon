@@ -103,5 +103,30 @@ return [
     'amount_column' => 'Price',
     'thank_you_message' => 'Thank you very much for doing business with us. We look forward to working with you again!',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Profile User
+    |--------------------------------------------------------------------------
+    */
+    'profile_picture_label' => 'Profile Picture',
+    'username_label' => 'Username',
+    'password_label' => 'Password',
+    'password_placeholder' => '6 - 15 Characters',
+    'repassword_label' => 'Re-Password',
+    'repassword_placeholder' => '6 - 15 Characters',
+    'phone_label' => 'Phone',
+    'games_wishlisted_link' => 'Games Wishlisted',
+    'games_owned_label' => 'Games Owned',
+    'favorite_genres_title' => 'Favorite Genres',
+    'no_favorite_genres_message' => 'No favorite genres available.',
+    'library_label' => 'LIBRARY',
+    'settings_label' => 'SETTINGS',
+    'tickets_label' => 'TICKETS',
+    'no_games_owned_message' => "You don't own any games yet.",
+    'save_button' => 'Save',
+
+
+
+
 
 ];

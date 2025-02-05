@@ -65,6 +65,7 @@ Route::middleware('guest')->group(function () {
 //Rota para o profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserControler::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [UserControler::class, 'updateProfile'])->name('profile.update');
 });
 
 
