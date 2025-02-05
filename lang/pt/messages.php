@@ -125,7 +125,13 @@ return [
     'tickets_label' => 'SUPORTE',
     'no_games_owned_message' => 'Você ainda não possui nenhum jogo.',
     'save_button' => 'Guardar',
-
+    /*
+    |--------------------------------------------------------------------------
+    | Wishlist
+    |--------------------------------------------------------------------------
+    */
+    'wishlist_label' => 'Lista de Desejos',
+    'no_games_wishlisted_message' => 'Nenhum jogo na lista de desejos.',
 
 
 

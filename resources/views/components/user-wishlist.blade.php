@@ -8,6 +8,6 @@
             @endforeach
         </div>
     @else
-        <p>No games wishlisted</p>
+        <p>{{ __('messages.no_games_wishlisted_message') }}</p>
     @endif
 </div>

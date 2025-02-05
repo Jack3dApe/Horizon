@@ -16,7 +16,7 @@
                             <div class="anime__details__title">
                                 <h3>{{ $game->name }}</h3>
                             </div>
-                            <div class="anime__details__rating">
+                            <div class="anime__details__rating ml">
                                 <div class="progress" style="height: 6px; width: 100%;">
                                     <div
                                         class="progress-bar
@@ -80,6 +80,49 @@
                 <x-game-reviews :game="$game" />
 
             </div>
+
+
+            <div class="anime__details__form mt-5">
+                <div class="section-title">
+                    <h5>Your Review</h5>
+                </div>
+
+                <!-- Formulário para submissão da review -->
+                <form action="{{ route('reviews.store', ['id_game' => $game->id_game]) }}" method="POST">
+                    @csrf
+
+                    <!-- Seleção positiva ou negativa -->
+                    <div class="d-flex mb-3">
+                        <label class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="is_positive" value="1" checked>
+                            <span class="form-check-label text-success">
+                    <i class="fa fa-thumbs-up"></i> Positive
+                </span>
+                        </label>
+
+                        <label class="form-check form-check-inline ml-3">
+                            <input class="form-check-input" type="radio" name="is_positive" value="0">
+                            <span class="form-check-label text-danger">
+                    <i class="fa fa-thumbs-down"></i> Negative
+                </span>
+                        </label>
+                    </div>
+
+                    <!-- Campo de comentário -->
+                    <textarea name="description" class="form-control" placeholder="Your Comment" rows="4" required></textarea>
+
+                    <!-- Botão de submissão -->
+                    <button type="submit" class="btn btn-primary mt-3">
+                        <i class="fa fa-location-arrow"></i> Submit Review
+                    </button>
+                </form>
+            </div>
+
+
+
+
+
+
         </div>
     </section>
 @endsection

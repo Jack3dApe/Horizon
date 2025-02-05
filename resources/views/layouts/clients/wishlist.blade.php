@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="{{ route('home') }}"><i class="fa fa-home"></i> {{ __('messages.home') }}</a>
-                        <span>Wishlist</span>
+                        <span>{{ __('messages.wishlist_label') }}</span>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="col-lg-8" >
                     <div class="product__page__content ">
                         <div class="section-title">
-                            <h4>Wishlist</h4>
+                            <h4>{{ __('messages.wishlist_label') }}</h4>
                         </div >
                         <x-user-wishlist :user="auth()->user()" />
                     </div>

@@ -124,6 +124,13 @@ return [
     'tickets_label' => 'TICKETS',
     'no_games_owned_message' => "You don't own any games yet.",
     'save_button' => 'Save',
+    /*
+   |--------------------------------------------------------------------------
+   | Wishlist
+   |--------------------------------------------------------------------------
+   */
+    'wishlist_label' => 'Wishlist',
+    'no_games_wishlisted_message' => 'No games wishlisted.',
 
 
 

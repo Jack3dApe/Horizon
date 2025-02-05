@@ -24,7 +24,6 @@ class ReviewController extends Controller
         $games = Game::all();
         $users = User::all();
         return view('reviews.create', compact('games', 'users'));
-        return view('reviews.create');
     }
 
     /**
@@ -112,6 +111,52 @@ class ReviewController extends Controller
         $review = Review::withTrashed()->findOrFail($id);
         $review->forceDelete();
         return redirect()->route('reviews.deleted')->with('success', 'Review permanently deleted.');
+    }
+
+
+    public function showReviewForm($id_game)
+    {
+        $user = auth()->user();
+
+        // Verificar se o utilizador já tem uma review para o jogo
+        $reviewExists = Review::where('id_user', $user->id_user)
+            ->where('id_game', $id_game)
+            ->exists();
+
+        // Se a review já existe, redirecionar ou exibir outra informação
+        if ($reviewExists) {
+            return redirect()->route('games.details', ['id_game' => $id_game]);  // Muda conforme tua lógica
+        }
+
+        // Carregar o jogo
+        $game = Game::findOrFail($id_game);
+
+        return view('reviews.user', compact('game'));
+    }
+
+    public function storeReview(Request $request, $id_game)
+    {
+        $validatedData = $request->validate([
+            'is_positive' => 'required|boolean',
+            'description' => 'required|string|max:1000',
+        ]);
+
+        $user = auth()->user();
+
+        // Criar ou atualizar a review
+        Review::updateOrCreate(
+            [
+                'id_user' => $user->id_user,
+                'id_game' => $id_game,
+            ],
+            [
+                'is_positive' => $validatedData['is_positive'],
+                'description' => $validatedData['description'],
+                'review_date' => now(),
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Your review has been submitted successfully.');
     }
 
 }

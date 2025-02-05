@@ -177,6 +177,10 @@ Route::resource('users', \App\Http\Controllers\UserControler::class);
 Route::resource('games', \App\Http\Controllers\GameController::class);
 
 Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reviews/form/{id_game}', [ReviewController::class, 'showReviewForm'])->name('reviews.form');
+    Route::post('/reviews/store/{id_game}', [ReviewController::class, 'storeReview'])->name('reviews.store');
+});
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
 
