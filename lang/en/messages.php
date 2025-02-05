@@ -13,7 +13,7 @@ return [
     'support'=>'Support',
     'search_placeholder' => 'Search here...',
     'search_label' => 'Search',
-    'search_results_title' => 'Search Results for "{{ $query }}"',
+    'search_results_title' => 'Search Results for',
 
 
     /*

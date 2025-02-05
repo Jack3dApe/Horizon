@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-6">
                                     <div class="section-title">
-                                        <h4>{{ __('messages.search_results_title', ['query' => $query]) }}</h4>
+                                        <h4>{{ __('messages.search_results_title')}} "{{ $query }}"</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">

@@ -13,7 +13,7 @@ return [
     'support' => 'Suporte',
     'search_placeholder' => 'Pesquise aqui...',
     'search_label' => 'Pesquisar',
-    'search_results_title' => 'Resultados da Pesquisa por "{{ $query }}"',
+    'search_results_title' => 'Resultados da Pesquisa por',
 
 
     /*
