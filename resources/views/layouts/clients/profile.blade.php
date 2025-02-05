@@ -165,51 +165,46 @@
                                         <thead>
                                         <tr>
                                             <th class="w-1" style="color: white">ID</th>
-                                            <th style="color: white">Subject</th>
-                                            <th style="color: white">Status</th>
-                                            <th style="color: white">Created At</th>
-                                            <th class="text-end" style="color: white">Actions</th>
+                                            <th style="color: white">{{__('messages.supportticketmain')}}</th>
+                                            <th style="color: white">{{__('messages.sticketstatus')}}</th>
+                                            <th style="color: white">{{__('messages.sticketcreatedate')}}</th>
+                                            <th class="text-end" style="color: white">{{__('messages.sticketaction')}}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @forelse ($tickets as $ticket)
+                                            @if($ticket['status'] != 4) <!-- Ignora os tickets com status "Resolved" -->
                                             <tr>
                                                 <td><span class="text-secondary">#{{ $ticket['id'] }}</span></td>
                                                 <td style="color: white">{{ \Illuminate\Support\Str::limit($ticket['subject'], 30) }}</td>
                                                 <td>
                                                     @if($ticket['status'] == 2)
-                                                        <span class="badge bg-warning" style="color: white;">Open</span>
+                                                        <span class="badge bg-warning" style="color: white;">{{__('messages.sticketopen')}}</span>
                                                     @elseif($ticket['status'] == 3)
-                                                        <span class="badge bg-primary" style="color: white;">Pending</span>
-                                                    @elseif($ticket['status'] == 4)
-                                                        <span class="badge bg-success" style="color: white;">Resolved</span>
+                                                        <span class="badge bg-primary" style="color: white;">{{__('messages.sticketpending')}}</span>
                                                     @elseif($ticket['status'] == 5)
-                                                        <span class="badge bg-danger" style="color: white;">Closed</span>
+                                                        <span class="badge bg-danger" style="color: white;">{{__('messages.sticketclosed')}}</span>
                                                     @elseif($ticket['status'] == 6 || $ticket['status'] == 7)
-                                                        <span class="badge bg-secondary" style="color: white;">In Progress</span>
+                                                        <span class="badge bg-secondary" style="color: white;">{{__('messages.sticketinprogress')}}</span>
                                                     @else
-                                                        <span class="badge bg-secondary" style="color: white;">Unknown</span>
+                                                        <span class="badge bg-secondary" style="color: white;">{{__('messages.sticketunknown')}}</span>
                                                     @endif
                                                 </td>
                                                 <td style="color: white">{{ \Carbon\Carbon::parse($ticket['created_at'])->format('d/m/Y H:i') }}</td>
                                                 <td class="text-end">
-                                                    <button class="btn btn-info">
-                                                        <i class="ti ti-eye"></i> View
-                                                    </button>
-                                                    @if($ticket['status'] != 4) <!-- Se o ticket ainda não estiver resolvido -->
                                                     <form action="{{ route('support.tickets.resolve', $ticket['id']) }}" method="POST" style="display:inline;">
                                                         @csrf
                                                         <button type="submit" class="btn btn-success">
-                                                            <i class="ti ti-check"></i> Resolve
+                                                            <i class="ti ti-check"></i> {{__('messages.sticketresolve')}}
                                                         </button>
                                                     </form>
-                                                    @endif
                                                 </td>
                                             </tr>
+                                            @endif
                                         @empty
                                             <tr>
                                                 <td colspan="5" class="text-center text-muted">
-                                                    <i class="ti ti-info-circle"></i> You have no tickets yet.
+                                                    <i class="ti ti-info-circle"></i> {{__('messages.sticketzero')}}
                                                 </td>
                                             </tr>
                                         @endforelse
