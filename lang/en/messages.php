@@ -172,7 +172,25 @@ return [
     'sticketunknown' => 'Unknown',
     'sticketresolve' => 'Resolve',
     'sticketzero' => 'You have no open tickets yet.',
+    /*
+    |--------------------------------------------------------------------------
+    | Error Messages On Signup/Login/Recovery
+    |--------------------------------------------------------------------------
+    */
+    'logsignusernamereq' => 'The username field is required.',
+    'logsignuserminchar' => 'The username must be at least 3 characters.',
+    'logsignemailreq' => 'The email field is required.',
+    'logsignemailexist' => 'This email is already in use.',
+    'logsignpassreq' => 'The password field is required.',
+    'logsignpassminchar' => 'The password must be at least 8 characters.',
+    'logsignpassnotmatch' => 'Passwords do not match.',
 
+    'logsignpassresetlink' => 'Password reset link has been sent.',
+    'logsignpassfaillink' => 'Unable to send password recovery link.',
+    'logsignnoaccountemail' => 'There is no account associated with that email.',
+
+    'logsignwrongcred' => 'The provided credentials do not match our records.',
+    'logsignsuccpassreset' => 'Your password has been reset!',
 
 
 

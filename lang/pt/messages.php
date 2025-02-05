@@ -173,6 +173,25 @@ return [
     'sticketunknown' => 'Desconhecido',
     'sticketresolve' => 'Resolver',
     'sticketzero' => 'Ainda não tens tickets abertos.',
+    /*
+    |--------------------------------------------------------------------------
+    | Error Messages On Signup/Login/Recovery
+    |--------------------------------------------------------------------------
+    */
+    'logsignusernamereq' => 'O campo nome de utilizador é obrigatório.',
+    'logsignuserminchar' => 'O nome de utilizador deve ter pelo menos 3 caracteres.',
+    'logsignemailreq' => 'O campo de e-mail é obrigatório.',
+    'logsignemailexist' => 'Este e-mail já está em uso.',
+    'logsignpassreq' => 'O campo palavra-passe é obrigatório.',
+    'logsignpassminchar' => 'A palavra-passe deve ter pelo menos 8 caracteres.',
+    'logsignpassnotmatch' => 'As palavras-passe não coincidem.',
+
+    'logsignpassresetlink' => 'O link para redefinição da palavra-passe foi enviado.',
+    'logsignpassfaillink' => 'Não foi possível enviar o link de recuperação da palavra-passe.',
+    'logsignnoaccountemail' => 'Não existe uma conta associada a este e-mail.',
+
+    'logsignwrongcred' => 'As credenciais fornecidas não correspondem aos nossos registos.',
+    'logsignsuccpassreset' => 'A tua palavra-passe foi redefinida!',
 
 
 ];
