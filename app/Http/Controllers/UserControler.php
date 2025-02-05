@@ -176,7 +176,7 @@ class UserControler extends Controller
     {
         $user = Auth::user();
 
-        $wishlistCount = $user->wishlist()->count();
+        $wishlistCount = Wishlist::where('id_user', $user->id_user)->count();
 
         $gamesOwnedCount = $user->libraries()->count();
 

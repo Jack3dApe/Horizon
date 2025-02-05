@@ -11,6 +11,8 @@ use App\Models\User;
 class UserWishlist extends Component
 {
     public $user;
+    public $wishlistCount;
+
     /**
      * Create a new component instance.
      */
@@ -29,6 +31,7 @@ class UserWishlist extends Component
             ->with('game')
             ->get();
         //dd($wishlistGames);
+        $this->wishlistCount = \App\Models\Wishlist::where('id_user', $this->user->id_user)->count();
 
         //$wishlistGames = $this->user->wishlist()->with('game')->get();
         return view('components.user-wishlist', compact('wishlistGames'));    }
