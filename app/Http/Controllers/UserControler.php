@@ -21,7 +21,7 @@ class UserControler extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::withCount('orders')->paginate(10);
         return view('users.index', compact('users'));
     }
 
@@ -176,7 +176,7 @@ class UserControler extends Controller
     {
         $user = Auth::user();
 
-        $wishlistCount = $user->wishlist()->count();
+        $wishlistCount = Wishlist::where('id_user', $user->id_user)->count();
 
         $gamesOwnedCount = $user->libraries()->count();
 

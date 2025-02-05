@@ -5,14 +5,6 @@
         <div class="card">
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
-                    <div class="text-secondary">
-                        Show
-                        <div class="mx-2 d-inline-block">
-                            <input type="text" class="form-control form-control-sm" value="10" size="3"
-                                   aria-label="Number of tickets to display">
-                        </div>
-                        Records
-                    </div>
                     <div class="ms-auto text-secondary">
                         Search:
                         <div class="ms-2 d-inline-block">

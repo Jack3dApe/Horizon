@@ -1,10 +1,10 @@
 @extends('layouts.admin.base')
-@section('title','Publishers List')
+@section('title', 'Publishers List')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col mb-3 d-flex justify-content-end">
-                <a href="{{route('publishers.create')}}" class="btn btn-primary">Create New Publisher</a>
+                <a href="{{ route('publishers.create') }}" class="btn btn-primary">Create New Publisher</a>
             </div>
         </div>
 
@@ -12,10 +12,13 @@
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
                     <div class="ms-auto text-secondary">
-                        Search:
-                        <div class="ms-2 d-inline-block">
-                            <input type="text" class="form-control form-control-sm" size="30" aria-label="Search publisher">
-                        </div>
+                        <form action="{{ route('admin.search.publishers') }}" method="GET" class="d-inline-block">
+                            Search:
+                            <div class="ms-2 d-inline-block">
+                                <input type="text" name="query" value="{{ $query ?? '' }}" class="form-control form-control-sm"
+                                       size="30" aria-label="Search publisher">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -33,14 +36,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($publishers as $publisher)
+                    @forelse($publishers as $publisher)
                         <tr>
                             <td><input class="form-check-input m-0 align-middle" type="checkbox"
                                        aria-label="Select publisher"></td>
                             <td><span class="text-secondary">{{ $publisher->id_publisher }}</span></td>
                             <td><a href="{{ route('publishers.show', $publisher->id_publisher) }}" class="text-reset"
                                    tabindex="-1">{{ $publisher->name }}</a></td>
-                            <td>{{ $publisher->numOfGames }}</td>
+                            <td>{{ $publisher->games_count }}</td>
                             <td>{{ $publisher->email }}</td>
                             <td>
                                 @if ($publisher->dateOfEstablishment)
@@ -66,12 +69,16 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center">No publishers found.</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>
             <div class="card-footer d-flex align-items-center">
-                {{$publishers->links('layouts.admin.parts.paginationPublisher',['publishers'=>$publishers])}}
+                {{ $publishers->links('layouts.admin.parts.paginationPublisher', ['publishers' => $publishers]) }}
             </div>
         </div>
     </div>

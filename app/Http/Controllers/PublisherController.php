@@ -10,9 +10,17 @@ class PublisherController extends Controller
 {
     public function index(Request $request)
     {
-        return view('publishers.index', ["publishers" => Publisher::paginate(10)->withQueryString()]);
-    }
+        $query = $request->input('query');
 
+        $publishers = Publisher::when($query, function ($q) use ($query) {
+            $q->where('name', 'like', "%$query%")
+                ->orWhere('email', 'like', "%$query%");})
+            ->withCount('games')
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('publishers.index', compact('publishers', 'query'));
+    }
     public function create()
     {
         // Exibe o formulário para criar um novo publisher
@@ -38,8 +46,10 @@ class PublisherController extends Controller
         return redirect()->route('publishers.index', $publisher);
     }
 
-    public function show(Publisher $publisher)
+    public function show($id)
     {
+        $publisher = Publisher::withCount('games')->findOrFail($id);
+
         return view('publishers.show', compact('publisher'));
     }
 

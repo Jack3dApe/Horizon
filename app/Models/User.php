@@ -62,7 +62,7 @@ class User extends Authenticatable
      */
     public function orders(): HasMany
     {
-        return $this->hasMany(OrderDetail::class, 'id_user');
+        return $this->hasMany(Order::class, 'id_user');
     }
 
     /**
@@ -86,6 +86,10 @@ class User extends Authenticatable
         return $this->hasMany(Wishlist::class, 'id_user', 'id'); // Relacionamento com a tabela 'wishlists'
     }
 
+    public function ownsGame($id_game)
+    {
+        return $this->libraries()->where('id_game', $id_game)->exists();
+    }
 
     /**
      * Relationship: User has many support tickets.

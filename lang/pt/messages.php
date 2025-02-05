@@ -11,6 +11,10 @@ return [
     'genres' => 'Géneros',
     'aboutus' => 'Sobre Nós',
     'support' => 'Suporte',
+    'search_placeholder' => 'Pesquise aqui...',
+    'search_label' => 'Pesquisar',
+    'search_results_title' => 'Resultados da Pesquisa por',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -32,6 +36,7 @@ return [
     'comment_placeholder' => 'A sua avaliação',
     'submit_review_button' => 'Enviar Avaliação',
     'see_in_library_button' => 'Ver na Biblioteca',
+    'owns_game_badge' => 'Possui o jogo',
 
 
     /*

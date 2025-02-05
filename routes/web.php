@@ -174,16 +174,25 @@ Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])-
 Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
 
 Route::resource('users', \App\Http\Controllers\UserControler::class);
+Route::get('/admin/search/users', [\App\Http\Controllers\SearchController::class, 'searchUsers'])->name('admin.search.users');
+
 
 Route::resource('games', \App\Http\Controllers\GameController::class);
+Route::get('/admin/search/games', [\App\Http\Controllers\SearchController::class, 'searchGames'])->name('admin.search.games');
+
 
 Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
+Route::get('/admin/search/reviews', [\App\Http\Controllers\SearchController::class, 'searchReviews'])->name('admin.search.reviews');
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/reviews/form/{id_game}', [ReviewController::class, 'showReviewForm'])->name('reviews.form');
     Route::post('/reviews/store/{id_game}', [ReviewController::class, 'storeReview'])->name('reviews.store');
 });
 
 Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
+Route::get('/admin/search/publishers', [\App\Http\Controllers\SearchController::class, 'searchPublishers'])->name('admin.search.publishers');
+
 
 //Tickets
 Route::middleware(['auth'])->group(function () {
@@ -194,6 +203,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/support/tickets/{id}', [TicketController::class, 'show'])->name('admin.supporttickets.show');
     });
 });
+Route::get('/admin/search/tickets', [\App\Http\Controllers\SearchController::class, 'searchTickets'])->name('admin.search.tickets');
+
 
 Route::middleware(['auth'])->group(function () {
     // Rota para resolver tickets pelo site Horizon

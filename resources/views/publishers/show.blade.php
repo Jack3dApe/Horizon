@@ -19,7 +19,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Number of Games:</label>
-                            <p>{{ $publisher->numOfGames ?? 'N/A' }}</p>
+                            <p>{{ $publisher->games_count ?? 'N/A' }}</p>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email:</label>
