@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
                         <a href="{{ route('home') }}"><i class="fa fa-home"></i> {{ __('messages.home') }}</a>
-                        <span>Search</span>
+                        <span>{{ __('messages.search_label') }}</span>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-6">
                                     <div class="section-title">
-                                        <h4>Search Results for "{{ $query }}"</h4>
+                                        <h4>{{ __('messages.search_results_title', ['query' => $query]) }}</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">
