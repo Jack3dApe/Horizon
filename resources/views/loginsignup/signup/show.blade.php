@@ -21,29 +21,32 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>{{__('messages.signup')}}</h3>
-                        <!-- Alteração para processar os dados -->
+
+                        <!-- Mensagens gerais de erro -->
+                        @if($errors->any())
+                            <div class="alert alert-danger mb-4" style="padding: 10px;">
+                                <ul class="mb-0" style="list-style-type: disc; padding-left: 20px;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <!-- Formulário de registro -->
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="input__item">
-                                <input type="text" name="username" placeholder="{{__('messages.nameplaceholder')}}" value="{{ old('username') }}" class="@error('username') is-invalid @enderror">
+                                <input type="text" name="username" placeholder="{{__('messages.nameplaceholder')}}" value="{{ old('username') }}">
                                 <span class="icon_profile"></span>
-                                @error('username')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
                             <div class="input__item">
-                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
+                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}">
                                 <span class="icon_mail"></span>
-                                @error('email')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
                             <div class="input__item">
-                                <input type="password" name="password" placeholder="{{__('messages.passwordplaceholder')}}" class="@error('password') is-invalid @enderror">
+                                <input type="password" name="password" placeholder="{{__('messages.passwordplaceholder')}}">
                                 <span class="icon_lock"></span>
-                                @error('password')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
                             <div class="input__item">
                                 <input type="password" name="password_confirmation" placeholder="{{__('messages.passwordconfirmplaceholder')}}">
@@ -51,11 +54,6 @@
                             </div>
                             <button type="submit" class="site-btn">{{__('messages.signupnow')}}</button>
                         </form>
-
-                        <!-- Mensagens de erro geral -->
-                        @if($errors->has('error'))
-                            <p style="color: red;">{{ $errors->first('error') }}</p>
-                        @endif
 
                         <h5>{{__('messages.alreadyaccount')}} <a href="{{ route('login') }}">{{__('messages.loginexclpoint')}}</a></h5>
                     </div>

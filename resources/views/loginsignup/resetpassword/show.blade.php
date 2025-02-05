@@ -21,24 +21,31 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>{{__('messages.resetpassword')}}</h3>
+
+                        <!-- Mensagens gerais de erro -->
+                        @if($errors->any())
+                            <div class="alert alert-danger mb-4" style="padding: 10px;">
+                                <ul class="mb-0" style="list-style-type: disc; padding-left: 20px;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <!-- Formulário de redefinição de senha -->
                         <form action="{{ route('password.update') }}" method="POST">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
 
                             <div class="input__item">
-                                <input type="email" name="email" value="{{ old('email') }}" placeholder="{{__('messages.emailplaceholder')}}" class="@error('email') is-invalid @enderror">
+                                <input type="email" name="email" value="{{ old('email') }}" placeholder="{{__('messages.emailplaceholder')}}">
                                 <span><i class="icon_mail"></i></span>
-                                @error('email')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="input__item">
-                                <input type="password" name="password" placeholder="{{__('messages.newpasswordplaceholder')}}" class="@error('password') is-invalid @enderror">
+                                <input type="password" name="password" placeholder="{{__('messages.newpasswordplaceholder')}}">
                                 <span class="icon_lock"></span>
-                                @error('password')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <div class="input__item">

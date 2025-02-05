@@ -16,15 +16,20 @@ class RegisterController extends Controller
     ];
 
     // Mensagens personalizadas
-    protected $messages = [
-        'username.required' => 'The username field is required.',
-        'username.min' => 'The username must be at least 3 characters.',
-        'email.required' => 'The email field is required.',
-        'email.unique' => 'This email is already in use.',
-        'password.required' => 'The password field is required.',
-        'password.min' => 'The password must be at least 8 characters.',
-        'password.confirmed' => 'Passwords do not match.',
-    ];
+    protected $messages;
+
+    public function __construct()
+    {
+        $this->messages = [
+            'username.required' => __('messages.logsignusernamereq'),
+            'username.min' => __('messages.logsignuserminchar'),
+            'email.required' => __('messages.logsignemailreq'),
+            'email.unique' => __('messages.logsignemailexist'),
+            'password.required' => __('messages.logsignpassreq'),
+            'password.min' => __('messages.logsignpassminchar'),
+            'password.confirmed' => __('messages.logsignpassnotmatch'),
+        ];
+    }
 
     /**
      * Show the form for registration.

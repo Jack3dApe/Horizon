@@ -48,7 +48,7 @@ class LoginController extends Controller
 
         // Falha no login
         return redirect()->back()->withErrors([
-            'error' => 'The provided credentials do not match our records.',
+            'error' => __('messages.logsignwrongcred'),
         ])->onlyInput('email');
     }
 
@@ -105,7 +105,7 @@ class LoginController extends Controller
         });
 
         if ($response == Password::PASSWORD_RESET) {
-            return redirect()->route('login')->with('status', 'Your password has been reset!');
+            return redirect()->route('login')->with('status', __('messages.logsignsuccpassreset'));
         }
 
         return back()->withErrors(['email' => trans($response)]);

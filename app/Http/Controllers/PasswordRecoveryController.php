@@ -29,12 +29,12 @@ class PasswordRecoveryController extends Controller
             );
 
             if ($response == Password::RESET_LINK_SENT) {
-                return back()->with('success', 'Password reset link has been sent');
+                return back()->with('success', __('messages.logsignpassresetlink'));
             }
 
-            return back()->withErrors(['error' => 'Unable to send password recovery link']);
+            return back()->withErrors(['error' => __('messages.logsignpassfaillink')]);
         } else {
-            return back()->withErrors(['error' => 'There is no account associated with that email']);
+            return back()->withErrors(['error' => __('messages.logsignnoaccountemail')]);
         }
     }
 }

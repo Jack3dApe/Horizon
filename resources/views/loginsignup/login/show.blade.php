@@ -22,29 +22,33 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>{{__('messages.login')}}</h3>
+
+                        <!-- Mensagens gerais de erro -->
+                        @if($errors->any())
+                            <div class="alert alert-danger mb-4" style="padding: 10px;">
+                                <ul class="mb-0" style="list-style-type: disc; padding-left: 20px;">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form action="{{ route('login') }}" method="POST">
                             @csrf
                             <div class="input__item">
-                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}" class="@error('email') is-invalid @enderror">
+                                <input type="text" name="email" placeholder="{{__('messages.emailplaceholder')}}" value="{{ old('email') }}">
                                 <span>
                                     <i class="icon_mail"></i>
                                 </span>
-                                @error('email')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
                             <div class="input__item">
-                                <input type="password" name="password" placeholder="{{__('messages.passwordplaceholder')}}" class="@error('password') is-invalid @enderror">
+                                <input type="password" name="password" placeholder="{{__('messages.passwordplaceholder')}}">
                                 <span class="icon_lock"></span>
-                                @error('password')
-                                <div class="invalid-feedback" style="color: red;">{{ $message }}</div>
-                                @enderror
                             </div>
                             <button type="submit" class="site-btn">{{__('messages.loginnow')}}</button>
                         </form>
-                        @if($errors->has('error'))
-                            <p style="color: red;">{{ $errors->first('error') }}</p>
-                        @endif
+
                         <a href="{{ route('password.request') }}" class="forget_pass">{{__('messages.forgotpassword')}}</a>
                     </div>
                 </div>
