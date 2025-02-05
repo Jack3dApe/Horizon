@@ -188,3 +188,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/support/tickets/{id}', [TicketController::class, 'show'])->name('admin.supporttickets.show');
     });
 });
+
+Route::middleware(['auth'])->group(function () {
+    // Rota para resolver tickets pelo site Horizon
+    Route::post('/support/tickets/{id}/resolve', [TicketController::class, 'resolve'])->name('support.tickets.resolve');
+});

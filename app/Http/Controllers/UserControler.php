@@ -211,8 +211,12 @@ class UserControler extends Controller
             ->toArray();
 
 
+        // Obter tickets do utilizador (usando o metodo público de TicketController)
+        $ticketController = new TicketController();
+        $tickets = $ticketController->getUserTickets($user->email);
 
-        return view('layouts.clients.profile', compact('user', 'wishlistCount', 'gamesOwnedCount', 'games', 'favoriteGenres'));
+
+        return view('layouts.clients.profile', compact('user', 'wishlistCount', 'gamesOwnedCount', 'games', 'favoriteGenres', 'tickets'));
     }
 
 }

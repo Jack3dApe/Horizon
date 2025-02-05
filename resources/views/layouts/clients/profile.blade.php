@@ -138,14 +138,63 @@
                             <div class="m-t-30">
                                 <h4 class="text-light font-weight-bold">Tickets</h4>
 
-                                <div class="p-t-10">
-                                    <h5 class="text-primary m-b-5">Main text</h5>
-                                    <p>subtext</p>
-                                    <p><b>Text</b></p>
-                                    <p class="text-muted font-13 m-b-0">Altera isto para como quiseres apenas deixei para orientar e n ficar vazio</p>
+                                <div class="table-responsive">
+                                    <table class="table card-table table-vcenter text-nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th class="w-1" style="color: white">ID</th>
+                                            <th style="color: white">Subject</th>
+                                            <th style="color: white">Status</th>
+                                            <th style="color: white">Created At</th>
+                                            <th class="text-end" style="color: white">Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @forelse ($tickets as $ticket)
+                                            <tr>
+                                                <td><span class="text-secondary">#{{ $ticket['id'] }}</span></td>
+                                                <td style="color: white">{{ \Illuminate\Support\Str::limit($ticket['subject'], 30) }}</td>
+                                                <td>
+                                                    @if($ticket['status'] == 2)
+                                                        <span class="badge bg-warning" style="color: white;">Open</span>
+                                                    @elseif($ticket['status'] == 3)
+                                                        <span class="badge bg-primary" style="color: white;">Pending</span>
+                                                    @elseif($ticket['status'] == 4)
+                                                        <span class="badge bg-success" style="color: white;">Resolved</span>
+                                                    @elseif($ticket['status'] == 5)
+                                                        <span class="badge bg-danger" style="color: white;">Closed</span>
+                                                    @elseif($ticket['status'] == 6 || $ticket['status'] == 7)
+                                                        <span class="badge bg-secondary" style="color: white;">In Progress</span>
+                                                    @else
+                                                        <span class="badge bg-secondary" style="color: white;">Unknown</span>
+                                                    @endif
+                                                </td>
+                                                <td style="color: white">{{ \Carbon\Carbon::parse($ticket['created_at'])->format('d/m/Y H:i') }}</td>
+                                                <td class="text-end">
+                                                    <button class="btn btn-info">
+                                                        <i class="ti ti-eye"></i> View
+                                                    </button>
+                                                    @if($ticket['status'] != 4) <!-- Se o ticket ainda não estiver resolvido -->
+                                                    <form action="{{ route('support.tickets.resolve', $ticket['id']) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success">
+                                                            <i class="ti ti-check"></i> Resolve
+                                                        </button>
+                                                    </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="5" class="text-center text-muted">
+                                                    <i class="ti ti-info-circle"></i> You have no tickets yet.
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                        </tbody>
+                                    </table>
                                 </div>
-
-                            <hr>
+                            </div>
                         </div>
                     </div>
                 </div>
