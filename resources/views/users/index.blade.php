@@ -49,7 +49,7 @@
                             <td><a href="{{ route('users.show', $user->id_user) }}" class="text-reset" tabindex="-1">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone ?? 'Not Available' }}</td>
-                            <td>{{ $user->purchases }}</td>
+                            <td>{{ $user->orders->count() }}</td>
                             <td>{{ $user->getRoleNames()->join(', ') }}</td>
                             <td>{{ $user->is_2fa_enabled ? 'Yes' : 'No' }}</td>
                             <td>{{ $user->created_at->format('m/d/Y') }}</td>

@@ -34,6 +34,7 @@ class SearchController extends Controller
 
         $publishers = Publisher::where('name', 'like', "%$query%")
             ->orWhere('email', 'like', "%$query%")
+            ->withCount('games')
             ->paginate(10);
 
         return view('publishers.index', compact('publishers', 'query'));
