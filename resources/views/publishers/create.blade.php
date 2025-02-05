@@ -30,10 +30,6 @@
                                 <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label for="numOfGames" class="form-label">Number of Games</label>
-                                <input type="number" id="numOfGames" name="numOfGames" class="form-control" min="0">
-                            </div>
-                            <div class="mb-3">
                                 <label for="dateOfEstablishment" class="form-label">Date of Establishment</label>
                                 <input type="date" id="dateOfEstablishment" name="dateOfEstablishment" class="form-control">
                             </div>

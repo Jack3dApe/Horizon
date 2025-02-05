@@ -36,13 +36,6 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="numOfGames" class="form-label">Number of Games</label>
-                                <input type="number" id="numOfGames" name="numOfGames" class="form-control @error('numOfGames') is-invalid @enderror" value="{{ old('numOfGames', $publisher->numOfGames) }}">
-                                @error('numOfGames')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
 
                             <div class="mb-3">
                                 <label for="email" class="form-label required">Email</label>
