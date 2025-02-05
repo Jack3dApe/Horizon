@@ -167,6 +167,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/library/{id}', [LibraryController::class, 'destroy'])->name('library.destroy');
 });
 
+Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
 
 
 //Resources

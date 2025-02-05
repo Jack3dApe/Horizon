@@ -99,5 +99,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const searchModel = document.getElementById('search-model');
+    const searchSwitch = document.querySelector('.search-switch');
+    const closeSearch = document.getElementById('close-search');
+
+    // Abrir a barra de pesquisa ao clicar no ícone
+    searchSwitch.addEventListener('click', function (e) {
+        e.preventDefault();
+        searchModel.classList.remove('d-none');
+        searchModel.classList.add('d-flex');
+    });
+
+    // Fechar a barra de pesquisa ao clicar no ícone de fechar
+    closeSearch.addEventListener('click', function () {
+        searchModel.classList.add('d-none');
+        searchModel.classList.remove('d-flex');
+    });
+});
 
 

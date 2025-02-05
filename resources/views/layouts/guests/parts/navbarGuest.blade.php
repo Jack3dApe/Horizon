@@ -138,7 +138,7 @@
                         <a href="#" class="search-switch"><span class="icon_search" ></span></a>
 
                         {{-- Butao do carrinho--}}
-                        <a {{--  href="{{ route('cart.index') }}" --}} class="search-switch position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                        <a  href="{{ route('cart.index') }}" class="search-switch position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                                 <span class="icon_cart_alt"></span>
                                 @if(session()->has('cart') && count(session('cart')) > 0)
                                     <span

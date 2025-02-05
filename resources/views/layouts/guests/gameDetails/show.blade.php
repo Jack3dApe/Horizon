@@ -66,7 +66,7 @@
                                 @if ($gameOwned)
                                     <!-- Botão "See in Library" -->
                                     <a href="{{ route('profile') }}" class="follow-btn" style="background-color: #f0ad4e; color: white;">
-                                        <i class="fa-solid fa-share-from-square"></i> See in Library
+                                        <i class="fa-solid fa-share-from-square"></i> {{ __('messages.see_in_library_button') }}
                                     </a>
                                 @else
                                     <!-- Botões de wishlist e compra -->

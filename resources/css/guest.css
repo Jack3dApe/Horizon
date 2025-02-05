@@ -105,6 +105,43 @@
 }
 
 
+.search-model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.search-model-container {
+    text-align: center;
+}
+
+.search-close-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.search-model-form input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+}
 
 
 
