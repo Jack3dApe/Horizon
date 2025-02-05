@@ -137,7 +137,35 @@ return [
    */
     'wishlist_label' => 'Wishlist',
     'no_games_wishlisted_message' => 'No games wishlisted.',
+    /*
+    |--------------------------------------------------------------------------
+    | Tickets/Support
+    |--------------------------------------------------------------------------
+    */
+    'freqquestions' => 'Frequently Asked Questions',
+    'welcomeserv' => 'Welcome to our service!',
+    'welcomeservmsg' => 'Welcome to our support system! Here you can create a ticket to get quick and effective help.',
+    'whoweare' => 'Who are we?',
+    'whowearemsg' => 'We are a team dedicated to customer support, ensuring speed and efficiency in problem resolution.',
+    'ourvalues' => 'Our values',
+    'ourvaluesmsg' => 'Our values are based on transparency, speed, and quality in customer service.',
+    'createsupportrequest' => 'Create a Support Request',
+    'supportticketmain' => 'Subject',
+    'supportticketmainmsg' => 'Write a subject...',
+    'supportticketdescr' => 'Problem Description',
+    'supportticketdescrmsg' => 'Describe your problem in detail...',
+    'supportticketsendbtn' => 'Send Request',
 
+    'sticketstatus' => 'Status',
+    'sticketcreatedate' => 'Created At',
+    'sticketaction' => 'Actions',
+    'sticketopen' => 'Open',
+    'sticketpending' => 'Pending',
+    'sticketclosed' => 'Closed',
+    'sticketinprogress' => 'In Progress',
+    'sticketunknown' => 'Unknown',
+    'sticketresolve' => 'Resolve',
+    'sticketzero' => 'You have no open tickets yet.',
 
 
 

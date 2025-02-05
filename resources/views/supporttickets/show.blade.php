@@ -40,7 +40,9 @@
                 <p><strong>Last Updated:</strong> {{ \Carbon\Carbon::parse($ticket['updated_at'])->format('d/m/Y H:i') }}</p>
 
                 <p><strong>Description:</strong></p>
-                <p class="bg-light p-3 rounded">{{ $ticket['description'] }}</p>
+                <p class="bg-light p-3 rounded">
+                    {!! nl2br(strip_tags($ticket['description'], '<br>')) !!}
+                </p>
 
                 <div class="mt-4">
                     <a href="{{ route('admin.supporttickets.index') }}" class="btn btn-secondary">

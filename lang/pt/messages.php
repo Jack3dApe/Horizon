@@ -138,7 +138,35 @@ return [
     */
     'wishlist_label' => 'Lista de Desejos',
     'no_games_wishlisted_message' => 'Nenhum jogo na lista de desejos.',
+    /*
+    |--------------------------------------------------------------------------
+    | Tickets/Support
+    |--------------------------------------------------------------------------
+    */
+    'freqquestions' => 'Perguntas Frequentes',
+    'welcomeserv' => 'Bem-vindo ao nosso serviço!',
+    'welcomeservmsg' => 'Bem-vindo ao nosso sistema de suporte! Aqui podes criar um ticket para obter ajuda rápida e eficaz.',
+    'whoweare' => 'Quem somos?',
+    'whowearemsg' => 'Somos uma equipa dedicada ao suporte ao cliente, garantindo rapidez e eficiência na resolução de problemas.',
+    'ourvalues' => 'Os nossos valores',
+    'ourvaluesmsg' => 'Os nossos valores baseiam-se na transparência, rapidez e qualidade no atendimento ao cliente.',
+    'createsupportrequest' => 'Criar um Pedido de Suporte',
+    'supportticketmain' => 'Assunto',
+    'supportticketmainmsg' => 'Escreve um assunto...',
+    'supportticketdescr' => 'Descrição do Problema',
+    'supportticketdescrmsg' => 'Descreve detalhadamente o teu problema...',
+    'supportticketsendbtn' => 'Enviar Pedido',
 
+    'sticketstatus' => 'Estado',
+    'sticketcreatedate' => 'Data de Criação',
+    'sticketaction' => 'Ações',
+    'sticketopen' => 'Aberto',
+    'sticketpending' => 'Pendente',
+    'sticketclosed' => 'Fechado',
+    'sticketinprogress' => 'Em Progresso',
+    'sticketunknown' => 'Desconhecido',
+    'sticketresolve' => 'Resolver',
+    'sticketzero' => 'Ainda não tens tickets abertos.',
 
 
 ];
