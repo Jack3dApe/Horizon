@@ -51,9 +51,12 @@
             <!-- Recent Games -->
             <div class="col-lg-8">
                 <x-recent-games/>
+                <x-trending-games />
+
             </div>
             <x-top-games/>
             <!-- Top Games -->
+
         </div>
     </div>
 @endsection

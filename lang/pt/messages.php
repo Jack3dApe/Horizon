@@ -14,6 +14,8 @@ return [
     'search_placeholder' => 'Pesquise aqui...',
     'search_label' => 'Pesquisar',
     'search_results_title' => 'Resultados da Pesquisa por',
+    'trending_title' => 'Em Alta',
+
 
 
     /*
