@@ -99,7 +99,10 @@ class Game extends Model
         return $this->hasMany(Wishlist::class, 'id_game');
     }
 
-
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'id_game');
+    }
 
 
 }

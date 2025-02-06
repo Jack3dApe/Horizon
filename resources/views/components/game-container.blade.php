@@ -11,7 +11,10 @@
                 </div>
                 <div class="comment"><i class="fa fa-comments"></i> <x-game-reviews-count :game="$game" />
                 </div>
-                <div class="view"><i class="fa fa-eye"></i> {{ $game->views ?? 0 }}</div>
+                <div class="view">
+                    <i class="fa-solid fa-download"></i> <x-game-sales :game="$game" />
+
+                </div>
             </div>
             <div class="product__item__text">
                 <ul>
