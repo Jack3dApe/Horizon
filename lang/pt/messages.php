@@ -47,7 +47,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'home' => 'Início',
-    'categories' => 'Categorias',
+    'categories' => 'Géneros',
     'orderby' => 'Ordenar por:',
     'nogamesgenre' => 'Nenhum jogo encontrado neste género.',
     'nogenre' => 'Géneros Não Definidos',

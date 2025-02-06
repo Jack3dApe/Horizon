@@ -46,7 +46,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'home'=>'Home',
-    'categories'=>'Categories',
+    'categories'=>'Genres',
     'orderby'=>'Order by:',
     'nogamesgenre'=>'No games found in this genre.',
     'nogenre'=>'No Defined Genres',

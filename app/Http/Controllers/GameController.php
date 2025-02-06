@@ -47,24 +47,44 @@ class GameController extends Controller
         ]);
 
         if ($request->hasFile('icon')) {
-            $validated['icon'] = $request->file('icon')->store('icons', 'public');
+            $iconPath = public_path('icons');
+            $filename = $request->file('icon')->getClientOriginalName();
+            $request->file('icon')->move($iconPath, $filename);
+            $validated['icon'] = "$filename";
         }
 
         if ($request->hasFile('banner')) {
-            $validated["banner"] = $request->file('banner')->store('imgs/banners', 'public');
+            $bannerPath = public_path('imgs/banners');
+            $filename = $request->file('banner')->getClientOriginalName();
+            $request->file('banner')->move($bannerPath, $filename);
+            $validated['banner'] = "$filename";
         }
 
         if ($request->hasFile('grid')) {
-            $validated["grid"] = $request->file('grid')->store('imgs/grids', 'public');
+            $gridPath = public_path('imgs/grids');
+            $filename = $request->file('grid')->getClientOriginalName();
+            $request->file('grid')->move($gridPath, $filename);
+            $validated['grid'] = "$filename";
         }
+
+
+        if ($request->hasFile('logo')) {
+            $logoPath = public_path('imgs/logos');
+            $filename = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move($logoPath, $filename);
+            $validated['logo'] = "$filename";
+        }
+
 
 
         for ($i = 1; $i <= 4; $i++) {
             $screenshotField = "screenshot_{$i}";
             if ($request->hasFile($screenshotField)) {
-                $validated->$screenshotField = $request->file($screenshotField)->store('imgs/screenshoots', 'public');
+                $storedPath = $request->file($screenshotField)->store('imgs/screenshoots', 'public');
+                $validated[$screenshotField] = basename($storedPath);
             }
         }
+
 
         $game = Game::create($validated);
 
@@ -98,8 +118,8 @@ class GameController extends Controller
             'rating' => 'nullable|in:Overwhelmingly Positive,Very Positive,Positive,Mostly Positive,Mixed,Mostly Negative,Negative,Very Negative,Overwhelmingly Negative',
             'release_date' => 'required|date',
             'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'grid' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'banner' => '|image|mimes:jpeg,png,jpg,gif',
+            'grid' => '|image|mimes:jpeg,png,jpg,gif|max:2048',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'description_en' => 'nullable|string|max:1000',
             'description_pt' => 'nullable|string|max:1000',
@@ -110,19 +130,31 @@ class GameController extends Controller
         ]);
 
         if ($request->hasFile('icon')) {
-            $validated['icon'] = $request->file('icon')->store('icons', 'public');
+            $iconPath = public_path('icons');
+            $filename = $request->file('icon')->getClientOriginalName();
+            $request->file('icon')->move($iconPath, $filename);
+            $validated['icon'] = "$filename";
         }
 
         if ($request->hasFile('banner')) {
-            $validated["banner"] = $request->file('banner')->store('imgs/banners', 'public');
+            $bannerPath = public_path('imgs/banners');
+            $filename = $request->file('banner')->getClientOriginalName();
+            $request->file('banner')->move($bannerPath, $filename);
+            $validated['banner'] = "$filename";
         }
 
         if ($request->hasFile('grid')) {
-            $validated["grid"] = $request->file('grid')->store('imgs/grids', 'public');
+            $gridPath = public_path('imgs/grids');
+            $filename = $request->file('grid')->getClientOriginalName();
+            $request->file('grid')->move($gridPath, $filename);
+            $validated['grid'] = "$filename";
         }
 
         if ($request->hasFile('logo')) {
-            $validated["logo"] = $request->file('logo')->store('imgs/logos', 'public');
+            $logoPath = public_path('imgs/logos');
+            $filename = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move($logoPath, $filename);
+            $validated['logo'] = "$filename";
         }
 
         for ($i = 1; $i <= 4; $i++) {

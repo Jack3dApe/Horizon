@@ -19,7 +19,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <form action="{{ route('games.update', $game->id_game) }}" method="POST">
+                        <form action="{{ route('games.update', $game->id_game) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
