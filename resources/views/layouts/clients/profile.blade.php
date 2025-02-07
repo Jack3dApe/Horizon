@@ -7,7 +7,7 @@
                 <div class="text-center card-box" >
                     <div class="member-card">
                         <div class="thumb-xl member-thumb m-b-10 center-block">
-                            <img src="{{ $user->profile_pic}}" class="rounded-circle" alt="profile-image">
+                            <img src="{{ $user->profile_pic ? asset($user->profile_pic) : asset('imgs/noProfilePic.jpg') }}" class="rounded-circle" alt="profile-image">
                         </div>
 
                         <div class="mt-3 mb-2">

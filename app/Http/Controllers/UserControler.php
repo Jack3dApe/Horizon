@@ -227,28 +227,37 @@ class UserControler extends Controller
         $user = Auth::user();
 
         // Validações
-        $request->validate([
-            'username' => 'required|string|max:255|unique:users,username,' . $user->id_user,
-            'password' => 'nullable|string|min:6|confirmed',
-            'profile_pic' => 'nullable|image|max:2048',
+        $validated = $request->validate([
+            'username' => 'required|string|max:50',
+            'email' => ['required', 'email', 'max:100',
+                Rule::unique('users', 'email')->ignore($user->id_user, 'id_user')
+            ],
+            'password' => 'nullable|string|min:8|max:255',
             'phone' => 'nullable|string|max:20',
+            'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Atualizar os campos
-        $user->username = $request->username;
-        $user->phone = $request->phone;
+        $user->username = $validated['username'];
+        $user->email = $validated['email'];
 
-        // Atualizar a imagem de perfil, se fornecida
-        if ($request->hasFile('profile_pic')) {
-            $path = $request->file('profile_pic')->store('imgs/profile_pics', 'public');
-            $user->profile_pic = $path;
+        if (!empty($validated['password'])) {
+            $user->password = Hash::make($validated['password']); // encriptar a senha
         }
 
-        // Atualizar a senha, se fornecida
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->password);
+        $user->phone = $validated['phone'] ?? null;
+
+        if (!File::exists(public_path('imgs/user_profile_pics'))) {
+            File::makeDirectory(public_path('imgs/user_profile_pics'), 0755, true);
         }
 
+        if($request->hasFile('profile_pic')) {
+            $file = $request->file('profile_pic');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $destinationPath = public_path('imgs/user_profile_pics');
+            $file->move($destinationPath, $fileName);
+            $user->profile_pic = 'imgs/user_profile_pics/' . $fileName;
+        }
+        #$user->role = $validated['role'];
         $user->save();
 
         return redirect()->route('profile')->with('success', 'Profile updated successfully.');
