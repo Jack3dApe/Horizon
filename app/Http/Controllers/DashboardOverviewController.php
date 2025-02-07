@@ -31,12 +31,11 @@ class DashboardOverviewController extends Controller
 
         // Jogos Vendidos Por Mês
         $monthlySalesGraph = $months->map(function ($month) {
-            return OrderItem::whereHas('order', function ($query) {
-                $query->where('status', 'paid');
-            })
-                ->whereYear('created_at', substr($month, 0, 4))
-                ->whereMonth('created_at', substr($month, 5, 2))
-                ->count();
+            return OrderItem::whereHas('order', function ($query) use ($month) {
+                $query
+                    ->whereYear('created_at', substr($month, 0, 4))
+                    ->whereMonth('created_at', substr($month, 5, 2));
+            })->count();
         });
 
         // Total de vendas mensais
