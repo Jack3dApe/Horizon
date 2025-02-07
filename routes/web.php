@@ -58,7 +58,7 @@ Route::get('/admin/notifications', function () {
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
-    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/login', [LoginController::class, 'login'])->middleware('throttle:5,1');;
     Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
 });
 
@@ -217,3 +217,8 @@ Route::prefix('admindashboard')->middleware(['auth', 'role:admin'])->group(funct
     Route::get('/orders/{id_order}', [OrderController::class, 'showWithPayments'])->name('admindashboard.orders.show');
 });
 Route::get('/admin/search/orders', [\App\Http\Controllers\SearchController::class, 'searchOrders'])->name('admin.search.orders');
+
+//About Us
+Route::get('/about-us', function () {
+    return view('layouts.guests.aboutus.show');
+})->name('aboutus');

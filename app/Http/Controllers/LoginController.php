@@ -30,6 +30,14 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+
+            if (auth()->user()->status === 'Banned') {
+                Auth::logout(); // Fazer logout imediato
+                return redirect()->back()->withErrors([
+                    'error' => __('messages.logsignbanned'),
+                ])->onlyInput('email');
+            }
+
             // Credenciais válidas, regenerar a sessão
             $request->session()->regenerate();
 

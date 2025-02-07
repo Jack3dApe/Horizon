@@ -193,6 +193,7 @@ return [
 
     'logsignwrongcred' => 'The provided credentials do not match our records.',
     'logsignsuccpassreset' => 'Your password has been reset!',
+    'logsignbanned' => 'This account is banned.',
 
 
 
