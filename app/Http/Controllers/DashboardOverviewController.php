@@ -59,16 +59,11 @@ class DashboardOverviewController extends Controller
             ->sum('total_price');
 
         // Calcular o total de vendas
-        $totalSalesRaw = OrderItem::whereHas('order', function ($query) {
-            $query->where('status', 'paid');
-        })->count();
+        $totalSalesRaw = OrderItem::count();
         $totalSales = $this->formatNumber($totalSalesRaw);
 
         // Obter os 19 jogos mais vendidos
         $topSales = OrderItem::selectRaw('id_game, COUNT(*) as sales_count')
-            ->whereHas('order', function ($query) {
-                $query->where('status', 'paid');
-            })
             ->groupBy('id_game')
             ->orderByDesc('sales_count')
             ->take(19)

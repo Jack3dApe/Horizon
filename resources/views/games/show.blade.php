@@ -77,8 +77,12 @@
                                     <p class="text-muted">{{ $game->release_date ? $game->release_date->format('d/m/Y') : 'Not Available' }}</p>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold"><i class="ti ti-file-text"></i> Description:</label>
-                                    <p class="text-muted">{{ $game->description ?? 'No description available.' }}</p>
+                                    <label class="form-label fw-bold"><i class="ti ti-file-text"></i> Description (EN):</label>
+                                    <p class="text-muted">{{ $game->description_en ?? 'No description available.' }}</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold"><i class="ti ti-file-text"></i> Description (PT):</label>
+                                    <p class="text-muted">{{ $game->description_pt ?? 'No description available.' }}</p>
                                 </div>
                             </div>
                         </div>
