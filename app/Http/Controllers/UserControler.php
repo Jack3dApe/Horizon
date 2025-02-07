@@ -21,6 +21,7 @@ class UserControler extends Controller
      */
     public function index()
     {
+        User::updateSuspendedUsers();
         $users = User::withCount('orders')->paginate(10);
         return view('users.index', compact('users'));
     }

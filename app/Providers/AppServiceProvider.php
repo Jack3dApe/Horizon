@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Cart;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
+use App\Observers\UserObserver;
 use App\Models\Game;
 use App\Models\Genre;
 use App\Models\Publisher;
@@ -35,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('genres', Genre::all());
         });
 
+        #User::observe(UserObserver::class);
         Order::observe(OrderObserver::class);
         #Payment::observe(PaymentObserver::class);
         User::observe(ModelObserver::class);

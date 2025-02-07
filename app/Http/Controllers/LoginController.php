@@ -31,11 +31,37 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
 
-            if (auth()->user()->status === 'Banned') {
+            $user = auth()->user();
+
+            if ($user->status === 'Banned') {
                 Auth::logout(); // Fazer logout imediato
                 return redirect()->back()->withErrors([
                     'error' => __('messages.logsignbanned'),
                 ])->onlyInput('email');
+            }
+
+            if ($user->status === 'Suspended') {
+                $suspensionEnd = \Carbon\Carbon::parse($user->suspended_at)->addDays(5);
+                $diff = now()->diff($suspensionEnd);
+
+                // Obtém os termos traduzidos
+                $daysLabel = __('messages.days');
+                $hoursLabel = __('messages.hours');
+                $minutesLabel = __('messages.minutes');
+
+                $timeLeft = sprintf(
+                    "%d %s, %d %s e %d %s",
+                    $diff->d, $daysLabel, // Dias restantes
+                    $diff->h, $hoursLabel, // Horas restantes
+                    $diff->i, $minutesLabel  // Minutos restantes
+                );
+
+                if ($diff->invert === 0) {
+                    Auth::logout(); // Impede o login
+                    return redirect()->back()->withErrors([
+                        'error' => __('messages.logsignsuspended', ['time' => $timeLeft]),
+                    ])->onlyInput('email');
+                }
             }
 
             // Credenciais válidas, regenerar a sessão
