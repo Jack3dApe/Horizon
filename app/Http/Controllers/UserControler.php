@@ -97,6 +97,7 @@ class UserControler extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         $statusOptions = ['Active', 'Suspended', 'Banned'];
 
         $validated = $request->validate([
@@ -121,17 +122,17 @@ class UserControler extends Controller
 
         $user->phone = $validated['phone'] ?? null;
 
-        if ($request->hasFile('profile_pic')) {
-            if ($user->profile_pic && File::exists(public_path($user->profile_pic))) {
-                File::delete(public_path($user->profile_pic));
-            }
+        if (!File::exists(public_path('imgs/user_profile_pics'))) {
+            File::makeDirectory(public_path('imgs/user_profile_pics'), 0755, true);
+        }
+
+        if($request->hasFile('profile_pic')) {
             $file = $request->file('profile_pic');
             $fileName = time() . '_' . $file->getClientOriginalName();
             $destinationPath = public_path('imgs/user_profile_pics');
             $file->move($destinationPath, $fileName);
             $user->profile_pic = 'imgs/user_profile_pics/' . $fileName;
         }
-
         #$user->role = $validated['role'];
         $user->is_2fa_enabled = $validated['is_2fa_enabled'] ?? false;
         $user->status = $validated['status'];

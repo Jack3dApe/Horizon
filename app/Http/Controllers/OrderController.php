@@ -79,6 +79,8 @@ class OrderController extends Controller
                 return redirect()->route('checkout')->with('error', 'Payment failed.');
             }
 
+            $order->update(['status' => 'paid']);
+
             // Confirmar a transação após todos os passos
             DB::commit();
 
@@ -144,6 +146,8 @@ class OrderController extends Controller
                 DB::rollBack();  // Reverter transação em caso de falha no pagamento
                 return redirect()->route('checkout')->with('error', 'Payment failed.');
             }
+
+            $order->update(['status' => 'paid']);
 
             DB::commit();
 

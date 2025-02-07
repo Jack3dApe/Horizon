@@ -24,6 +24,6 @@ class ReviewSeeder extends Seeder
         }*/
 
         // Cria 30 reviews usando a factory
-        Review::factory()->count(100)->create();
+        Review::factory()->count(239)->create() ;
     }
 }

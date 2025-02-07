@@ -576,6 +576,726 @@ class GameSeeder extends Seeder
                 'genres' => ['Survival', 'Horror']
             ],
 
+            [
+                'name' => 'Resident Evil Village',
+                'description_en' => 'Experience survival horror like never before in Resident Evil Village. Uncover dark secrets and face terrifying creatures in a mysterious European village.',
+                'description_pt' => 'Experimente o terror de sobrevivência como nunca antes em Resident Evil Village. Descubra segredos sombrios e enfrente criaturas aterrorizantes em uma misteriosa vila europeia.',
+                'id_publisher' => Publisher::where('name', 'Capcom')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2021-05-07',
+                'icon' => 'resident_evil_village.png',
+                'banner' => 'resident_evil_village.png',
+                'grid' => 'resident_evil_village.png',
+                'logo' => 'resident_evil_village.png',
+                'genres' => ['Horror', 'Survival', 'Action']
+            ],
+
+            [
+                'name' => 'Dragon’s Dogma: Dark Arisen',
+                'description_en' => 'Dragon’s Dogma: Dark Arisen offers a deep, open-world RPG experience with dynamic combat and a vast world to explore.',
+                'description_pt' => 'Dragon’s Dogma: Dark Arisen oferece uma experiência de RPG em mundo aberto com combate dinâmico e um vasto mundo para explorar.',
+                'id_publisher' => Publisher::where('name', 'Capcom')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2013-04-23',
+                'icon' => 'dragons_dogma_dark_arisen.png',
+                'banner' => 'dragons_dogma_dark_arisen.png',
+                'grid' => 'dragons_dogma_dark_arisen.png',
+                'logo' => 'dragons_dogma_dark_arisen.png',
+                'genres' => ['RPG', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'Monster Hunter Generations Ultimate',
+                'description_en' => 'Monster Hunter Generations Ultimate brings an expanded version of the popular Monster Hunter Generations with more monsters, equipment, and quests. Hunt solo or with friends in this ultimate hunting experience.',
+                'description_pt' => 'Monster Hunter Generations Ultimate traz uma versão expandida do popular Monster Hunter Generations com mais monstros, equipamentos e missões. Cace sozinho ou com amigos nesta experiência definitiva de caça.',
+                'id_publisher' => Publisher::where('name', 'Capcom')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2018-08-28',
+                'icon' => 'monster_hunter_generations_ultimate.png',
+                'banner' => 'monster_hunter_generations_ultimate.jpg',
+                'grid' => 'monster_hunter_generations_ultimate.png',
+                'logo' => 'monster_hunter_generations_ultimate.png',
+                'genres' => ['RPG', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'Dark Souls',
+                'description_en' => 'Dark Souls is a critically acclaimed action RPG known for its challenging difficulty, deep lore, and intricate world design. Face formidable enemies and overcome overwhelming odds in this unforgettable journey.',
+                'description_pt' => 'Dark Souls é um RPG de ação aclamado pela crítica, conhecido por sua dificuldade desafiadora, rica história e design de mundo intrincado. Enfrente inimigos formidáveis e supere desafios incríveis nesta jornada inesquecível.',
+                'id_publisher' => Publisher::where('name', 'FromSoftware')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2011-09-22',
+                'icon' => 'dark_souls.png',
+                'banner' => 'dark_souls.png',
+                'grid' => 'dark_souls.png',
+                'logo' => 'dark_souls.png',
+                'genres' => ['RPG', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'The Legend of Zelda: Twilight Princess',
+                'description_en' => 'Embark on a dark and epic journey in The Legend of Zelda: Twilight Princess. Play as Link and transform into a wolf to save the kingdom of Hyrule from an encroaching darkness.',
+                'description_pt' => 'Embarque em uma jornada sombria e épica em The Legend of Zelda: Twilight Princess. Jogue como Link e transforme-se em um lobo para salvar o reino de Hyrule de uma escuridão iminente.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 49.99,
+                'release_date' => '2006-11-19',
+                'icon' => 'zelda_twilight_princess.png',
+                'banner' => 'zelda_twilight_princess.png',
+                'grid' => 'zelda_twilight_princess.png',
+                'logo' => 'zelda_twilight_princess.png',
+                'genres' => ['Adventure', 'Action']
+            ],
+
+            [
+                'name' => 'Super Mario Galaxy',
+                'description_en' => 'Travel across dazzling galaxies in Super Mario Galaxy. Use gravity-defying mechanics to jump between planets and rescue Princess Peach from Bowser’s clutches.',
+                'description_pt' => 'Viaje por galáxias deslumbrantes em Super Mario Galaxy. Use mecânicas que desafiam a gravidade para pular entre planetas e resgatar a Princesa Peach das garras de Bowser.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 49.99,
+                'release_date' => '2007-11-12',
+                'icon' => 'super_mario_galaxy.png',
+                'banner' => 'super_mario_galaxy.png',
+                'grid' => 'super_mario_galaxy.png',
+                'logo' => 'super_mario_galaxy.png',
+                'genres' => ['Platformer', 'Adventure']
+            ],
+
+            [
+                'name' => 'Donkey Kong Country Returns',
+                'description_en' => 'Join Donkey Kong and Diddy Kong on an adventure to reclaim their stolen banana hoard in Donkey Kong Country Returns. Overcome challenging platforming levels and defeat enemies across lush environments.',
+                'description_pt' => 'Junte-se a Donkey Kong e Diddy Kong em uma aventura para recuperar seu estoque de bananas roubado em Donkey Kong Country Returns. Supere níveis desafiadores de plataforma e derrote inimigos em ambientes exuberantes.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2010-11-21',
+                'icon' => 'donkey_kong_country_returns.png',
+                'banner' => 'donkey_kong_country_returns.png',
+                'grid' => 'donkey_kong_country_returns.png',
+                'logo' => 'donkey_kong_country_returns.png',
+                'genres' => ['Platformer', 'Adventure']
+            ],
+
+            [
+                'name' => 'Assassin\'s Creed II',
+                'description_en' => 'Step into the shoes of Ezio Auditore da Firenze in Assassin\'s Creed II. Explore the Italian Renaissance, unravel conspiracies, and master the art of stealth and assassination.',
+                'description_pt' => 'Entre na pele de Ezio Auditore da Firenze em Assassin\'s Creed II. Explore a Renascença Italiana, desvende conspirações e domine a arte do stealth e das assassinas.',
+                'id_publisher' => Publisher::where('name', 'Ubisoft')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2009-11-17',
+                'icon' => 'assassins_creed_ii.png',
+                'banner' => 'assassins_creed_ii.png',
+                'grid' => 'assassins_creed_ii.png',
+                'logo' => 'assassins_creed_ii.png',
+                'genres' => ['Adventure', 'Stealth', 'Action']
+            ],
+
+            [
+                'name' => 'Rayman Legends',
+                'description_en' => 'Rayman Legends delivers fast-paced platforming action with stunning visuals and creative level design. Play solo or with friends in this critically acclaimed adventure.',
+                'description_pt' => 'Rayman Legends oferece ação de plataforma acelerada com visuais impressionantes e design de nível criativo. Jogue sozinho ou com amigos nesta aventura aclamada pela crítica.',
+                'id_publisher' => Publisher::where('name', 'Ubisoft')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2013-09-03',
+                'icon' => 'rayman_legends.png',
+                'banner' => 'rayman_legends.png',
+                'grid' => 'rayman_legends.png',
+                'logo' => 'rayman_legends.png',
+                'genres' => ['Platformer', 'Adventure, Music']
+            ],
+
+            [
+                'name' => 'Far Cry 3',
+                'description_en' => 'Survive a tropical nightmare in Far Cry 3. Explore a dangerous open world, face psychotic enemies, and uncover a gripping story of survival and madness.',
+                'description_pt' => 'Sobreviva a um pesadelo tropical em Far Cry 3. Explore um mundo aberto perigoso, enfrente inimigos psicóticos e descubra uma história envolvente de sobrevivência e loucura.',
+                'id_publisher' => Publisher::where('name', 'Ubisoft')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2012-11-29',
+                'icon' => 'far_cry_3.png',
+                'banner' => 'far_cry_3.png',
+                'grid' => 'far_cry_3.png',
+                'logo' => 'far_cry_3.png',
+                'genres' => ['Action', 'Adventure', 'FPS']
+            ],
+
+            [
+                'name' => 'Titanfall 2',
+                'description_en' => 'Pilot massive Titans and engage in high-speed combat in Titanfall 2. Experience an emotional single-player campaign and intense multiplayer battles.',
+                'description_pt' => 'Pilote Titãs gigantes e participe de combates de alta velocidade em Titanfall 2. Viva uma campanha emocionante para um jogador e batalhas multijogador intensas.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2016-10-28',
+                'icon' => 'titanfall_2.png',
+                'banner' => 'titanfall_2.png',
+                'grid' => 'titanfall_2.png',
+                'logo' => 'titanfall_2.png',
+                'genres' => ['FPS', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'Dead Space',
+                'description_en' => 'Step aboard the abandoned USG Ishimura in Dead Space, where horrifying creatures known as Necromorphs lurk. Survive the terrifying atmosphere and uncover dark secrets in this survival horror classic.',
+                'description_pt' => 'Entre a bordo da abandonada USG Ishimura em Dead Space, onde criaturas horripilantes conhecidas como Necromorphs espreitam. Sobreviva a uma atmosfera aterrorizante e descubra segredos sombrios neste clássico de horror de sobrevivência.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2008-10-14',
+                'icon' => 'dead_space.png',
+                'banner' => 'dead_space.png',
+                'grid' => 'dead_space.png',
+                'logo' => 'dead_space.png',
+                'genres' => ['Horror', 'Survival', 'Action']
+            ],
+
+            [
+                'name' => 'Dragon Age: Inquisition',
+                'description_en' => 'Lead the Inquisition in Dragon Age: Inquisition and decide the fate of Thedas. Recruit allies, make impactful choices, and engage in strategic combat in this epic RPG adventure.',
+                'description_pt' => 'Lidere a Inquisição em Dragon Age: Inquisition e decida o destino de Thedas. Recrute aliados, tome decisões impactantes e participe de combates estratégicos nesta épica aventura de RPG.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2014-11-18',
+                'icon' => 'dragon_age_inquisition.png',
+                'banner' => 'dragon_age_inquisition.png',
+                'grid' => 'dragon_age_inquisition.png',
+                'logo' => 'dragon_age_inquisition.png',
+                'genres' => ['RPG', 'Adventure', 'Strategy']
+            ],
+
+            [
+                'name' => 'Mass Effect 2',
+                'description_en' => 'As Commander Shepard, recruit a diverse team to face a deadly threat in Mass Effect 2. Experience an intense sci-fi RPG with deep character interactions and galaxy-spanning choices.',
+                'description_pt' => 'Como o Comandante Shepard, recrute uma equipe diversificada para enfrentar uma ameaça mortal em Mass Effect 2. Viva um intenso RPG de ficção científica com interações profundas entre personagens e escolhas que afetam a galáxia.',
+                'id_publisher' => Publisher::where('name', 'EA')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2010-01-26',
+                'icon' => 'mass_effect_2.png',
+                'banner' => 'mass_effect_2.png',
+                'grid' => 'mass_effect_2.png',
+                'logo' => 'mass_effect_2.png',
+                'genres' => ['RPG', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'NieR: Automata',
+                'description_en' => 'NieR: Automata tells the story of androids 2B, 9S, and A2 as they fight to reclaim Earth from powerful machines. Experience fast-paced combat and a deeply emotional narrative.',
+                'description_pt' => 'NieR: Automata conta a história dos androides 2B, 9S e A2 enquanto lutam para recuperar a Terra de máquinas poderosas. Experimente combates frenéticos e uma narrativa profundamente emocional.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2017-03-07',
+                'icon' => 'nier_automata.png',
+                'banner' => 'nier_automata.png',
+                'grid' => 'nier_automata.png',
+                'logo' => 'nier_automata.png',
+                'genres' => ['Action', 'RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'NieR Replicant ver.1.22474487139...',
+                'description_en' => 'NieR Replicant is a reimagined prequel to NieR: Automata. Follow a young protagonist’s quest to cure his sister’s deadly illness in a hauntingly beautiful world.',
+                'description_pt' => 'NieR Replicant é um prelúdio reimaginado de NieR: Automata. Siga a jornada de um jovem em busca de curar a doença mortal de sua irmã em um mundo assombrosamente belo.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2021-04-23',
+                'icon' => 'nier_replicant.png',
+                'banner' => 'nier_replicant.png',
+                'grid' => 'nier_replicant.png',
+                'logo' => 'nier_replicant.png',
+                'genres' => ['Action', 'RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'Kingdom Hearts',
+                'description_en' => 'Join Sora, Donald, and Goofy as they travel across Disney worlds to stop the Heartless in Kingdom Hearts. Experience a magical blend of action and storytelling.',
+                'description_pt' => 'Junte-se a Sora, Donald e Pateta enquanto viajam por mundos da Disney para deter os Heartless em Kingdom Hearts. Viva uma mistura mágica de ação e narrativa.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2002-03-28',
+                'icon' => 'kingdom_hearts.png',
+                'banner' => 'kingdom_hearts.png',
+                'grid' => 'kingdom_hearts.png',
+                'logo' => 'kingdom_hearts.png',
+                'genres' => ['RPG', 'Adventure', 'Action']
+            ],
+
+            [
+                'name' => 'Final Fantasy VI',
+                'description_en' => 'Final Fantasy VI is a classic RPG known for its vast cast of characters and groundbreaking story. Fight against the tyrannical Kefka and bring peace to a war-torn world.',
+                'description_pt' => 'Final Fantasy VI é um RPG clássico conhecido por seu vasto elenco de personagens e uma história inovadora. Lute contra o tirânico Kefka e traga paz a um mundo devastado pela guerra.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 14.99,
+                'release_date' => '1994-04-02',
+                'icon' => 'final_fantasy_vi.png',
+                'banner' => 'final_fantasy_vi.jpg',
+                'grid' => 'final_fantasy_vi.png',
+                'logo' => 'final_fantasy_vi.png',
+                'genres' => ['RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'Final Fantasy VII',
+                'description_en' => 'Join Cloud Strife and his allies as they fight against the evil Shinra corporation and the enigmatic Sephiroth in this legendary RPG.',
+                'description_pt' => 'Junte-se a Cloud Strife e seus aliados enquanto lutam contra a corporação maligna Shinra e o enigmático Sephiroth neste lendário RPG.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 15.99,
+                'release_date' => '1997-01-31',
+                'icon' => 'final_fantasy_vii.png',
+                'banner' => 'final_fantasy_vii.png',
+                'grid' => 'final_fantasy_vii.png',
+                'logo' => 'final_fantasy_vii.png',
+                'genres' => ['RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'Final Fantasy IX',
+                'description_en' => 'Embark on an epic journey with Zidane, Garnet, and their friends in Final Fantasy IX. Discover ancient secrets and save the world from an apocalyptic threat.',
+                'description_pt' => 'Embarque em uma jornada épica com Zidane, Garnet e seus amigos em Final Fantasy IX. Descubra segredos antigos e salve o mundo de uma ameaça apocalíptica.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2000-07-07',
+                'icon' => 'final_fantasy_ix.png',
+                'banner' => 'final_fantasy_ix.jpg',
+                'grid' => 'final_fantasy_ix.png',
+                'logo' => 'final_fantasy_ix.png',
+                'genres' => ['RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'Final Fantasy XIII',
+                'description_en' => 'Follow Lightning and her companions as they defy fate in Final Fantasy XIII. Experience fast-paced combat and stunning visuals in this modern RPG.',
+                'description_pt' => 'Siga Lightning e seus companheiros enquanto desafiam o destino em Final Fantasy XIII. Experimente combates acelerados e visuais impressionantes neste RPG moderno.',
+                'id_publisher' => Publisher::where('name', 'Square Enix')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2009-12-17',
+                'icon' => 'final_fantasy_xiii.png',
+                'banner' => 'final_fantasy_xiii.png',
+                'grid' => 'final_fantasy_xiii.png',
+                'logo' => 'final_fantasy_xiii.png',
+                'genres' => ['RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'The Elder Scrolls V: Skyrim',
+                'description_en' => 'Explore the vast world of Skyrim, a land of dragons, magic, and endless adventure. Become the Dragonborn and shape your destiny in this legendary open-world RPG.',
+                'description_pt' => 'Explore o vasto mundo de Skyrim, uma terra de dragões, magia e aventuras infinitas. Torne-se o Dragonborn e molde seu destino neste lendário RPG de mundo aberto.',
+                'id_publisher' => Publisher::where('name', 'Bethesda')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2011-11-11',
+                'icon' => 'skyrim.png',
+                'banner' => 'skyrim.png',
+                'grid' => 'skyrim.png',
+                'logo' => 'skyrim.png',
+                'genres' => ['RPG', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Fallout 3',
+                'description_en' => 'Enter a post-apocalyptic world in Fallout 3. Explore the Wasteland, make choices that shape your future, and battle enemies in this critically acclaimed RPG.',
+                'description_pt' => 'Entre em um mundo pós-apocalíptico em Fallout 3. Explore a Terra Devastada, tome decisões que moldam seu futuro e enfrente inimigos neste RPG aclamado pela crítica.',
+                'id_publisher' => Publisher::where('name', 'Bethesda')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2008-10-28',
+                'icon' => 'fallout_3.png',
+                'banner' => 'fallout_3.png',
+                'grid' => 'fallout_3.png',
+                'logo' => 'fallout_3.png',
+                'genres' => ['RPG', 'Adventure', 'Action']
+            ],
+
+            [
+                'name' => 'Fallout: New Vegas',
+                'description_en' => 'Venture into the Mojave Desert in Fallout: New Vegas. Experience a gripping story full of political intrigue, moral choices, and intense combat.',
+                'description_pt' => 'Aventure-se no Deserto de Mojave em Fallout: New Vegas. Experimente uma história envolvente cheia de intriga política, escolhas morais e combates intensos.',
+                'id_publisher' => Publisher::where('name', 'Bethesda')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2010-10-19',
+                'icon' => 'fallout_new_vegas.png',
+                'banner' => 'fallout_new_vegas.png',
+                'grid' => 'fallout_new_vegas.png',
+                'logo' => 'fallout_new_vegas.png',
+                'genres' => ['RPG', 'Adventure', 'Action']
+            ],
+
+            [
+                'name' => 'DOOM (2016)',
+                'description_en' => 'Rip and tear through hordes of demons in DOOM. Experience fast-paced, brutal combat with devastating weapons and relentless action.',
+                'description_pt' => 'Destrua hordas de demônios em DOOM. Experimente combates brutais e acelerados com armas devastadoras e ação implacável.',
+                'id_publisher' => Publisher::where('name', 'Bethesda')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2016-05-13',
+                'icon' => 'doom_2016.png',
+                'banner' => 'doom_2016.png',
+                'grid' => 'doom_2016.png',
+                'logo' => 'doom_2016.png',
+                'genres' => ['FPS', 'Action']
+            ],
+
+            [
+                'name' => 'Diablo II: Resurrected',
+                'description_en' => 'Relive the classic action RPG in Diablo II: Resurrected. Battle the forces of evil across Sanctuary and collect powerful loot in this remastered adventure.',
+                'description_pt' => 'Reviva o clássico RPG de ação em Diablo II: Resurrected. Lute contra as forças do mal em Santuário e colete itens poderosos nesta aventura remasterizada.',
+                'id_publisher' => Publisher::where('name', 'Blizzard')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2021-09-23',
+                'icon' => 'diablo_ii_resurrected.png',
+                'banner' => 'diablo_ii_resurrected.png',
+                'grid' => 'diablo_ii_resurrected.png',
+                'logo' => 'diablo_ii_resurrected.png',
+                'genres' => ['Action', 'RPG']
+            ],
+
+            [
+                'name' => 'StarCraft II: Wings of Liberty',
+                'description_en' => 'Lead powerful armies of Terran, Zerg, or Protoss in StarCraft II. Experience epic real-time strategy battles and a gripping sci-fi narrative.',
+                'description_pt' => 'Lidere exércitos poderosos de Terranos, Zergs ou Protoss em StarCraft II. Experimente batalhas épicas de estratégia em tempo real e uma narrativa envolvente de ficção científica.',
+                'id_publisher' => Publisher::where('name', 'Blizzard')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2010-07-27',
+                'icon' => 'starcraft_ii.png',
+                'banner' => 'starcraft_ii.jpg',
+                'grid' => 'starcraft_ii.png',
+                'logo' => 'starcraft_ii.png',
+                'genres' => ['Strategy', 'RTS']
+            ],
+
+            [
+                'name' => 'World of Warcraft',
+                'description_en' => 'Embark on an epic journey in World of Warcraft. Join millions of players in this legendary MMORPG, exploring vast continents and battling dangerous foes.',
+                'description_pt' => 'Embarque em uma jornada épica em World of Warcraft. Junte-se a milhões de jogadores neste lendário MMORPG, explorando vastos continentes e enfrentando inimigos perigosos.',
+                'id_publisher' => Publisher::where('name', 'Blizzard')->first()->id_publisher,
+                'price' => 14.99,  // Subscription-based
+                'release_date' => '2004-11-23',
+                'icon' => 'world_of_warcraft.png',
+                'banner' => 'world_of_warcraft.png',
+                'grid' => 'world_of_warcraft.png',
+                'logo' => 'world_of_warcraft.png',
+                'genres' => ['MMO', 'RPG', 'Adventure']
+            ],
+
+            [
+                'name' => 'Overwatch',
+                'description_en' => 'Join the fight for the future in Overwatch. Choose from a diverse roster of heroes and engage in fast-paced team-based combat.',
+                'description_pt' => 'Junte-se à luta pelo futuro em Overwatch. Escolha entre uma variedade de heróis e participe de combates rápidos em equipe.',
+                'id_publisher' => Publisher::where('name', 'Blizzard')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2016-05-24',
+                'icon' => 'overwatch.png',
+                'banner' => 'overwatch.png',
+                'grid' => 'overwatch.png',
+                'logo' => 'overwatch.png',
+                'genres' => ['FPS', 'Multiplayer']
+            ],
+
+            [
+                'name' => 'Warcraft III: Reforged',
+                'description_en' => 'Warcraft III: Reforged is a remaster of the legendary RTS. Command the armies of Azeroth and experience the epic conflict between Humans, Orcs, Night Elves, and the Undead.',
+                'description_pt' => 'Warcraft III: Reforged é uma remasterização do lendário jogo de estratégia em tempo real. Comande os exércitos de Azeroth e vivencie o conflito épico entre Humanos, Orcs, Elfos Noturnos e os Mortos-Vivos.',
+                'id_publisher' => Publisher::where('name', 'Blizzard')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2020-01-28',
+                'icon' => 'warcraft_iii_reforged.png',
+                'banner' => 'warcraft_iii_reforged.png',
+                'grid' => 'warcraft_iii_reforged.png',
+                'logo' => 'warcraft_iii_reforged.png',
+                'genres' => ['Strategy', 'RTS']
+            ],
+
+            [
+                'name' => 'Castlevania: Symphony of the Night',
+                'description_en' => 'Explore the vast, mysterious castle of Dracula in Castlevania: Symphony of the Night. Uncover secrets, defeat powerful enemies, and gain new abilities in this genre-defining action-adventure.',
+                'description_pt' => 'Explore o vasto e misterioso castelo de Drácula em Castlevania: Symphony of the Night. Descubra segredos, derrote inimigos poderosos e adquira novas habilidades neste jogo de ação e aventura que definiu um gênero.',
+                'id_publisher' => Publisher::where('name', 'Konami')->first()->id_publisher,
+                'price' => 14.99,
+                'release_date' => '1997-10-02',
+                'icon' => 'castlevania_symphony_of_the_night.png',
+                'banner' => 'castlevania_symphony_of_the_night.png',
+                'grid' => 'castlevania_symphony_of_the_night.png',
+                'logo' => 'castlevania_symphony_of_the_night.png',
+                'genres' => ['Action', 'Adventure', 'Platformer']
+            ],
+
+            [
+                'name' => 'Silent Hill 2',
+                'description_en' => 'Silent Hill 2 is a psychological horror masterpiece. Follow James Sunderland as he uncovers terrifying truths in the fog-covered town of Silent Hill.',
+                'description_pt' => 'Silent Hill 2 é uma obra-prima do horror psicológico. Acompanhe James Sunderland enquanto ele descobre verdades aterrorizantes na cidade coberta de névoa de Silent Hill.',
+                'id_publisher' => Publisher::where('name', 'Konami')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2001-09-24',
+                'icon' => 'silent_hill_2.png',
+                'banner' => 'silent_hill_2.png',
+                'grid' => 'silent_hill_2.png',
+                'logo' => 'silent_hill_2.png',
+                'genres' => ['Horror', 'Survival', 'Adventure']
+            ],
+
+            [
+                'name' => 'Metal Gear Solid 3: Snake Eater',
+                'description_en' => 'Experience tactical espionage action in Metal Gear Solid 3: Snake Eater. Control Naked Snake as he infiltrates the jungle to stop a nuclear threat during the Cold War.',
+                'description_pt' => 'Experimente a ação de espionagem tática em Metal Gear Solid 3: Snake Eater. Controle Naked Snake enquanto ele se infiltra na selva para impedir uma ameaça nuclear durante a Guerra Fria.',
+                'id_publisher' => Publisher::where('name', 'Konami')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2004-11-17',
+                'icon' => 'metal_gear_solid_3_snake_eater.png',
+                'banner' => 'metal_gear_solid_3_snake_eater.png',
+                'grid' => 'metal_gear_solid_3_snake_eater.png',
+                'logo' => 'metal_gear_solid_3_snake_eater.png',
+                'genres' => ['Stealth', 'Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'The Witcher 3: Wild Hunt',
+                'description_en' => 'Step into the shoes of Geralt of Rivia, a monster hunter navigating a war-torn world. Experience a richly detailed RPG with deep storytelling, unforgettable quests, and dangerous creatures to hunt.',
+                'description_pt' => 'Entre na pele de Geralt de Rivia, um caçador de monstros em um mundo devastado pela guerra. Experimente um RPG ricamente detalhado com narrativa profunda, missões inesquecíveis e criaturas perigosas para caçar.',
+                'id_publisher' => Publisher::where('name', 'CD Projekt Red')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2015-05-19',
+                'icon' => 'witcher_3_wild_hunt.png',
+                'banner' => 'witcher_3_wild_hunt.png',
+                'grid' => 'witcher_3_wild_hunt.png',
+                'logo' => 'witcher_3_wild_hunt.png',
+                'genres' => ['RPG', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Cyberpunk 2077',
+                'description_en' => 'Enter the neon-lit streets of Night City in Cyberpunk 2077. Play as V, a mercenary in a dystopian future, and shape your story through choices, cybernetic enhancements, and intense combat.',
+                'description_pt' => 'Entre nas ruas iluminadas por neon de Night City em Cyberpunk 2077. Jogue como V, um mercenário em um futuro distópico, e molde sua história por meio de escolhas, aprimoramentos cibernéticos e combates intensos.',
+                'id_publisher' => Publisher::where('name', 'CD Projekt Red')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2020-12-10',
+                'icon' => 'cyberpunk_2077.png',
+                'banner' => 'cyberpunk_2077.png',
+                'grid' => 'cyberpunk_2077.png',
+                'logo' => 'cyberpunk_2077.png',
+                'genres' => ['RPG', 'Action', 'Open World']
+            ],
+
+            [
+                'name' => 'God of War',
+                'description_en' => 'Embark on a brutal quest for revenge as Kratos, a Spartan warrior, in God of War. Face mythological creatures and gods in this critically acclaimed action-adventure game.',
+                'description_pt' => 'Embarque em uma jornada brutal de vingança como Kratos, um guerreiro espartano, em God of War. Enfrente criaturas mitológicas e deuses neste aclamado jogo de ação e aventura.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2005-03-22',
+                'icon' => 'god_of_war_1.png',
+                'banner' => 'god_of_war_1.png',
+                'grid' => 'god_of_war_1.png',
+                'logo' => 'god_of_war_1.png',
+                'genres' => ['Action', 'Adventure', 'Hack and Slash']
+            ],
+
+            [
+                'name' => 'God of War II',
+                'description_en' => 'Continue the saga of Kratos in God of War II. Fight your way through gods and titans in a quest for vengeance and ultimate power.',
+                'description_pt' => 'Continue a saga de Kratos em God of War II. Lute contra deuses e titãs em uma busca por vingança e poder supremo.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2007-03-13',
+                'icon' => 'god_of_war_2.png',
+                'banner' => 'god_of_war_2.png',
+                'grid' => 'god_of_war_2.png',
+                'logo' => 'god_of_war_2.png',
+                'genres' => ['Action', 'Adventure', 'Hack and Slash']
+            ],
+
+            [
+                'name' => 'God of War III',
+                'description_en' => 'Witness the epic conclusion to Kratos’ journey in God of War III. Scale Mount Olympus, defeat the gods, and unleash your fury in this legendary action-adventure.',
+                'description_pt' => 'Assista à conclusão épica da jornada de Kratos em God of War III. Escale o Monte Olimpo, derrote os deuses e libere sua fúria neste lendário jogo de ação e aventura.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2010-03-16',
+                'icon' => 'god_of_war_3.png',
+                'banner' => 'god_of_war_3.png',
+                'grid' => 'god_of_war_3.png',
+                'logo' => 'god_of_war_3.png',
+                'genres' => ['Action', 'Adventure', 'Hack and Slash']
+            ],
+
+            [
+                'name' => 'Horizon Zero Dawn',
+                'description_en' => 'Explore a post-apocalyptic world overrun by robotic creatures in Horizon Zero Dawn. Play as Aloy and uncover the mysteries of her world while battling mechanical beasts.',
+                'description_pt' => 'Explore um mundo pós-apocalíptico dominado por criaturas robóticas em Horizon Zero Dawn. Jogue como Aloy e desvende os mistérios de seu mundo enquanto enfrenta feras mecânicas.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 49.99,
+                'release_date' => '2017-02-28',
+                'icon' => 'horizon_zero_dawn.png',
+                'banner' => 'horizon_zero_dawn.png',
+                'grid' => 'horizon_zero_dawn.png',
+                'logo' => 'horizon_zero_dawn.png',
+                'genres' => ['RPG', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Shadow of the Colossus',
+                'description_en' => 'Embark on a quest to defeat towering colossi in Shadow of the Colossus. Experience a hauntingly beautiful world with epic battles and a mysterious story.',
+                'description_pt' => 'Embarque em uma missão para derrotar colossos gigantes em Shadow of the Colossus. Experimente um mundo assombrosamente belo com batalhas épicas e uma história misteriosa.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2005-10-18',
+                'icon' => 'shadow_of_the_colossus.png',
+                'banner' => 'shadow_of_the_colossus.png',
+                'grid' => 'shadow_of_the_colossus.png',
+                'logo' => 'shadow_of_the_colossus.png',
+                'genres' => ['Adventure', 'Action']
+            ],
+
+            [
+                'name' => 'inFAMOUS: Second Son',
+                'description_en' => 'Take control of superpowered protagonist Delsin Rowe in inFAMOUS: Second Son. Choose your path and wield powerful abilities in a city under oppressive control.',
+                'description_pt' => 'Assuma o controle de Delsin Rowe, um protagonista com superpoderes, em inFAMOUS: Second Son. Escolha seu caminho e utilize habilidades poderosas em uma cidade sob controle opressor.',
+                'id_publisher' => Publisher::where('name', 'Sony Interactive')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2014-03-21',
+                'icon' => 'infamous_second_son.png',
+                'banner' => 'infamous_second_son.png',
+                'grid' => 'infamous_second_son.png',
+                'logo' => 'infamous_second_son.png',
+                'genres' => ['Action', 'Adventure']
+            ],
+
+            [
+                'name' => 'Team Fortress 2',
+                'description_en' => 'Team Fortress 2 is a team-based multiplayer shooter with unique classes, fast-paced gameplay, and a wide variety of game modes and hats!',
+                'description_pt' => 'Team Fortress 2 é um jogo de tiro multijogador baseado em equipes com classes únicas, jogabilidade acelerada e uma grande variedade de modos de jogo e chapéus!',
+                'id_publisher' => Publisher::where('name', 'Valve')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2007-10-10',
+                'icon' => 'team_fortress_2.png',
+                'banner' => 'team_fortress_2.png',
+                'grid' => 'team_fortress_2.png',
+                'logo' => 'team_fortress_2.png',
+                'genres' => ['FPS', 'Multiplayer']
+            ],
+
+            [
+                'name' => 'Dota 2',
+                'description_en' => 'Dota 2 is a competitive MOBA where two teams of five players battle to destroy the enemy’s Ancient. Master a vast roster of heroes and strategic play in this legendary eSports title.',
+                'description_pt' => 'Dota 2 é um MOBA competitivo onde duas equipes de cinco jogadores batalham para destruir o Ancião inimigo. Domine uma vasta lista de heróis e estratégias neste lendário título de eSports.',
+                'id_publisher' => Publisher::where('name', 'Valve')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2013-07-09',
+                'icon' => 'dota_2.png',
+                'banner' => 'dota_2.png',
+                'grid' => 'dota_2.png',
+                'logo' => 'dota_2.png',
+                'genres' => ['Strategy', 'MOBA']
+            ],
+
+            [
+                'name' => 'Counter-Strike: Global Offensive',
+                'description_en' => 'Counter-Strike: Global Offensive (CS:GO) is a tactical FPS where teams of Terrorists and Counter-Terrorists face off in objective-based battles.',
+                'description_pt' => 'Counter-Strike: Global Offensive (CS:GO) é um FPS tático onde equipes de Terroristas e Contra-Terroristas se enfrentam em batalhas baseadas em objetivos.',
+                'id_publisher' => Publisher::where('name', 'Valve')->first()->id_publisher,
+                'price' => 0.00,
+                'release_date' => '2012-08-21',
+                'icon' => 'cs_go.png',
+                'banner' => 'cs_go.png',
+                'grid' => 'cs_go.png',
+                'logo' => 'cs_go.png',
+                'genres' => ['FPS', 'Multiplayer']
+            ],
+
+            [
+                'name' => 'Ori and the Blind Forest',
+                'description_en' => 'Experience a touching story and breathtaking visuals in Ori and the Blind Forest. Guide Ori through a beautifully crafted world filled with platforming challenges and emotional moments.',
+                'description_pt' => 'Experimente uma história comovente e visuais deslumbrantes em Ori and the Blind Forest. Guie Ori por um mundo belamente criado, repleto de desafios de plataforma e momentos emocionantes.',
+                'id_publisher' => Publisher::where('name', 'Microsoft')->first()->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2015-03-11',
+                'icon' => 'ori_and_the_blind_forest.png',
+                'banner' => 'ori_and_the_blind_forest.png',
+                'grid' => 'ori_and_the_blind_forest.png',
+                'logo' => 'ori_and_the_blind_forest.png',
+                'genres' => ['Platformer', 'Adventure']
+            ],
+
+            [
+                'name' => 'Halo: Reach',
+                'description_en' => 'Relive the legendary battle for Reach in Halo: Reach. Experience intense FPS combat, a gripping story, and iconic multiplayer modes in this critically acclaimed installment of the Halo series.',
+                'description_pt' => 'Reviva a lendária batalha por Reach em Halo: Reach. Experimente combates FPS intensos, uma história envolvente e modos multijogador icônicos nesta aclamada edição da série Halo.',
+                'id_publisher' => Publisher::where('name', 'Microsoft')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2010-09-14',
+                'icon' => 'halo_reach.png',
+                'banner' => 'halo_reach.png',
+                'grid' => 'halo_reach.png',
+                'logo' => 'halo_reach.png',
+                'genres' => ['FPS', 'Action', 'Sci-Fi']
+            ],
+
+            [
+                'name' => 'Minecraft',
+                'description_en' => 'Unleash your creativity in Minecraft, a sandbox game where you can build, explore, and survive in a blocky, procedurally generated world.',
+                'description_pt' => 'Libere sua criatividade em Minecraft, um jogo sandbox onde você pode construir, explorar e sobreviver em um mundo gerado proceduralmente com blocos.',
+                'id_publisher' => Publisher::where('name', 'Microsoft')->first()->id_publisher,
+                'price' => 26.95,
+                'release_date' => '2011-11-18',
+                'icon' => 'minecraft.png',
+                'banner' => 'minecraft.png',
+                'grid' => 'minecraft.png',
+                'logo' => 'minecraft.png',
+                'genres' => ['Adventure', 'Simulation', 'Sandbox']
+            ],
+
+            [
+                'name' => 'Persona 3',
+                'description_en' => 'Join the Specialized Extracurricular Execution Squad (SEES) in Persona 3. Face the mysterious Dark Hour, summon powerful Personas, and balance high school life with battling dangerous shadows.',
+                'description_pt' => 'Junte-se ao Esquadrão Especializado de Execução Extracurricular (SEES) em Persona 3. Enfrente a misteriosa Dark Hour, invoque Personas poderosas e equilibre a vida escolar com combates contra sombras perigosas.',
+                'id_publisher' => Publisher::where('name', 'Atlus')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2006-07-13',
+                'icon' => 'persona_3.png',
+                'banner' => 'persona_3.png',
+                'grid' => 'persona_3.png',
+                'logo' => 'persona_3.png',
+                'genres' => ['RPG', 'Adventure', 'Turn-Based']
+            ],
+
+            [
+                'name' => 'Dragon Ball FighterZ',
+                'description_en' => 'Dragon Ball FighterZ delivers intense 3v3 fighting action with stunning anime visuals. Choose from a wide roster of iconic Dragon Ball characters and unleash powerful combos and special moves.',
+                'description_pt' => 'Dragon Ball FighterZ oferece ação intensa de luta 3v3 com visuais impressionantes em estilo anime. Escolha entre uma ampla lista de personagens icônicos de Dragon Ball e desencadeie combos poderosos e golpes especiais.',
+                'id_publisher' => Publisher::where('name', 'Arc System Works')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2018-01-26',
+                'icon' => 'dragon_ball_fighterz.png',
+                'banner' => 'dragon_ball_fighterz.png',
+                'grid' => 'dragon_ball_fighterz.png',
+                'logo' => 'dragon_ball_fighterz.png',
+                'genres' => ['Fighting', 'Action']
+            ],
+
+            [
+                'name' => 'Mortal Kombat (2011)',
+                'description_en' => 'Mortal Kombat (MK9) is a brutal and fast-paced fighting game that reboots the iconic series. Experience an epic story mode, visceral fatalities, and intense 1v1 combat.',
+                'description_pt' => 'Mortal Kombat (MK9) é um jogo de luta brutal e acelerado que reinicia a icônica série. Experimente um modo história épico, fatalities viscerais e combates intensos 1v1.',
+                'id_publisher' => Publisher::where('name', 'NetherRealm Studios')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2011-04-19',
+                'icon' => 'mortal_kombat_9.png',
+                'banner' => 'mortal_kombat_9.png',
+                'grid' => 'mortal_kombat_9.png',
+                'logo' => 'mortal_kombat_9.png',
+                'genres' => ['Fighting', 'Action']
+            ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
