@@ -1,21 +1,19 @@
 <?php
-//O OrderObserver.php é o novo observer usado (para que os seeders corram, este está (em principio) a não ser utilizado)
+
 namespace App\Observers;
 
-use App\Models\Payment;
 use App\Models\Order;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
 
-class PaymentObserver
+class OrderObserver
 {
     /**
-     * Disparado quando um pagamento é criado.
+     * Disparado quando um pedido é marcado como "paid".
      */
-    public function created(Payment $payment)
+    public function updated(Order $order)
     {
-        // Apenas processa se o status for "paid"
-        if ($payment->status === 'paid') {
+        if ($order->isDirty('status') && $order->status === 'paid') {
             $this->updateSalesData();
         }
     }
@@ -29,22 +27,22 @@ class PaymentObserver
         $monthStart = Carbon::now()->startOfMonth();
 
         // Total de vendas e receita desde o início do ano
-        $yearlySales = Payment::where('status', 'paid')
+        $yearlySales = Order::where('status', 'paid')
             ->where('created_at', '>=', $yearStart)
             ->count();
 
-        $yearlyRevenue = Payment::where('status', 'paid')
+        $yearlyRevenue = Order::where('status', 'paid')
             ->where('created_at', '>=', $yearStart)
-            ->sum('amount');
+            ->sum('total_price');
 
         // Total de vendas e receita desde o início do mês
-        $monthlySales = Payment::where('status', 'paid')
+        $monthlySales = Order::where('status', 'paid')
             ->where('created_at', '>=', $monthStart)
             ->count();
 
-        $monthlyRevenue = Payment::where('status', 'paid')
+        $monthlyRevenue = Order::where('status', 'paid')
             ->where('created_at', '>=', $monthStart)
-            ->sum('amount');
+            ->sum('total_price');
 
         // Cache para melhorar performance (opcional)
         Cache::put('yearly_sales', $yearlySales, 3600);

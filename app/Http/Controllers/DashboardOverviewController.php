@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Order;
 use App\Models\User;
 use App\Models\Payment;
 use App\Models\OrderItem;
@@ -21,44 +22,53 @@ class DashboardOverviewController extends Controller
             return Carbon::now()->subMonths($monthAgo)->format('Y-m');
         })->reverse()->values();
 
-        //Usuários Criados Por Mês
+        // Usuários Criados Por Mês
         $monthlyUsersGraph = $months->map(function ($month) {
             return User::whereYear('created_at', substr($month, 0, 4))
                 ->whereMonth('created_at', substr($month, 5, 2))
                 ->count();
         });
 
-        //Jogos Vendidos Por Mês
+        // Jogos Vendidos Por Mês
         $monthlySalesGraph = $months->map(function ($month) {
-            return OrderItem::whereYear('created_at', substr($month, 0, 4))
+            return OrderItem::whereHas('order', function ($query) {
+                $query->where('status', 'paid');
+            })
+                ->whereYear('created_at', substr($month, 0, 4))
                 ->whereMonth('created_at', substr($month, 5, 2))
                 ->count();
         });
 
         // Total de vendas mensais
-        $monthlySales = Payment::where('status', 'paid')
+        $monthlySales = Order::where('status', 'paid')
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
             ->count();
 
         // Total de vendas anuais
-        $yearlySales = Payment::where('status', 'paid')
+        $yearlySales = Order::where('status', 'paid')
             ->whereYear('created_at', Carbon::now()->year)
             ->count();
 
-        $monthlyEarnings = Payment::where('status', 'paid')
+        // Receita mensal e anual
+        $monthlyEarnings = Order::where('status', 'paid')
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
-            ->sum('amount');
+            ->sum('total_price');
 
-        $yearlyEarnings = Payment::where('status', 'paid')
+        $yearlyEarnings = Order::where('status', 'paid')
             ->whereYear('created_at', Carbon::now()->year)
-            ->sum('amount');
+            ->sum('total_price');
 
         // Calcular o total de vendas
-        $totalSalesRaw = OrderItem::count();
+        $totalSalesRaw = OrderItem::whereHas('order', function ($query) {
+            $query->where('status', 'paid');
+        })->count();
         $totalSales = $this->formatNumber($totalSalesRaw);
 
         // Obter os 19 jogos mais vendidos
         $topSales = OrderItem::selectRaw('id_game, COUNT(*) as sales_count')
+            ->whereHas('order', function ($query) {
+                $query->where('status', 'paid');
+            })
             ->groupBy('id_game')
             ->orderByDesc('sales_count')
             ->take(19)
