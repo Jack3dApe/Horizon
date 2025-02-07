@@ -184,5 +184,17 @@ class OrderController extends Controller
         return view('layouts.clients.sucess', compact('order'));
     }
 
+    public function indexPaginated()
+    {
+        $orders = Order::where('id_user', Auth::id())->latest()->paginate(10); // Paginação ativada aqui
+        return view('orders.index', compact('orders'));
+    }
+
+    public function showWithPayments($id_order)
+    {
+        $order = Order::with('orderItems.game', 'payments')->findOrFail($id_order);
+        return view('orders.show', compact('order'));
+    }
+
 
 }

@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-shopping-cart"></i> Number of Purchases:</label>
-                                    <p class="text-muted">{{ $user->purchases }}</p>
+                                    <p class="text-muted">{{ $purchasesCount }}</p>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-id"></i> Role:</label>

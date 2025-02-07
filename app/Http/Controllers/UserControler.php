@@ -81,7 +81,9 @@ class UserControler extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        $purchasesCount = $user->libraries()->count();
+
+        return view('users.show', compact('user', 'purchasesCount'));
     }
 
     /**

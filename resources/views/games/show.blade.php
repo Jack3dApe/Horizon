@@ -45,6 +45,10 @@
 
                             <div class="col-md-8">
                                 <div class="mb-3">
+                                    <label class="form-label fw-bold"><i class="ti ti-key"></i> Game ID:</label>
+                                    <p class="text-muted">{{ $game->id_game }}</p>
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-device-gamepad"></i> Game Name:</label>
                                     <p class="text-muted">{{ $game->name }}</p>
                                 </div>
@@ -61,8 +65,8 @@
                                     @endif
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold"><i class="ti ti-currency-dollar"></i> Price:</label>
-                                    <p class="text-muted">${{ number_format($game->price, 2) }}</p>
+                                    <label class="form-label fw-bold"><i class="ti ti-currency-euro"></i> Price:</label>
+                                    <p class="text-muted">{{ number_format($game->price, 2) }}€</p>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-star"></i> Rating:</label>

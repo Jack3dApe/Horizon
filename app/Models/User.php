@@ -104,4 +104,9 @@ class User extends Authenticatable
         return $this->hasMany(Library::class, 'id_user');
     }
 
+    public function getPurchasesCount()
+    {
+        return $this->libraries()->count();
+    }
+
 }

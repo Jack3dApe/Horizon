@@ -95,6 +95,7 @@
                             <a class="dropdown-item active" href="{{route('users.index')}}">Accounts</a>
                             <a class="dropdown-item active" href="{{route('reviews.index')}}">Reviews</a>
                             <a class="dropdown-item active" href="{{route('admin.supporttickets.index')}}">Tickets</a>
+                            <a class="dropdown-item active" href="{{ route('admindashboard.orders.index') }}">Orders</a>
                         </div>
                     </li>
                     <!-- Restore Section -->
