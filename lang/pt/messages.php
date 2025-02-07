@@ -94,6 +94,7 @@ return [
 
     'seedetails' => 'Ver Detalhes',
     'newreleases' => 'Novidades',
+    'nogames' => 'Nenhum jogo em alta.',
 
     /*
      |--------------------------------------------------------------------------

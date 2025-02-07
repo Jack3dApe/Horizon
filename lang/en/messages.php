@@ -93,6 +93,7 @@ return [
 
     'seedetails'=>'See Details',
     'newreleases' => 'Newest Releases',
+    'nogames' => 'No trending games found.',
 
     /*
      |--------------------------------------------------------------------------

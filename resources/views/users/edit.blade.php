@@ -25,7 +25,7 @@
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label" style="color: var(--tblr-body-color);">Username</label>
                                 <input type="text" id="username" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username', $user->username) }}" required>
                                 @error('username')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label" style="color: var(--tblr-body-color);">Email</label>
                                 <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required>
                                 @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -41,7 +41,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Phone</label>
+                                <label for="phone" class="form-label" style="color: var(--tblr-body-color);">Phone</label>
                                 <input type="text" id="phone" name="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ old('phone', $user->phone) }}">
                                 @error('phone')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -49,7 +49,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="role" class="form-label">Role</label>
+                                <label for="role" class="form-label" style="color: var(--tblr-body-color);">Role</label>
                                 <select id="role" name="role" class="form-control @error('role') is-invalid @enderror">
                                     <option value="clients" {{ $user->hasRole('clients') ? 'selected' : '' }}>Client</option>
                                     <option value="admin" {{ $user->hasRole('admin') ? 'selected' : '' }}>Admin</option>
@@ -61,7 +61,7 @@
 
 
                             <div class="mb-3">
-                                <label for="is_2fa_enabled" class="form-label">2FA Enabled</label>
+                                <label for="is_2fa_enabled" class="form-label" style="color: var(--tblr-body-color);">2FA Enabled</label>
                                 <select id="is_2fa_enabled" name="is_2fa_enabled" class="form-control @error('is_2fa_enabled') is-invalid @enderror">
                                     <option value="0" {{ !$user->is_2fa_enabled ? 'selected' : '' }}>No</option>
                                     <option value="1" {{ $user->is_2fa_enabled ? 'selected' : '' }}>Yes</option>
@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label" style="color: var(--tblr-body-color);">Status</label>
                                 <select id="status" name="status" class="form-control @error('status') is-invalid @enderror">
                                     <option value="Active" {{ $user->status === 'Active' ? 'selected' : '' }}>Active</option>
                                     <option value="Suspended" {{ $user->status === 'Suspended' ? 'selected' : '' }}>Suspended</option>
@@ -83,7 +83,7 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="color: var(--tblr-body-color);">
                                 <label for="profile_pic" class="form-label">Profile Picture</label>
                                 <input type="file" id="profile_pic" name="profile_pic" class="form-control @error('profile_pic') is-invalid @enderror">
                                 @if($user->profile_pic)

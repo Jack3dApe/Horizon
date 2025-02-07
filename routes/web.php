@@ -210,3 +210,10 @@ Route::middleware(['auth'])->group(function () {
     // Rota para resolver tickets pelo site Horizon
     Route::post('/support/tickets/{id}/resolve', [TicketController::class, 'resolve'])->name('support.tickets.resolve');
 });
+
+//Orders (Dashboard)
+Route::prefix('admindashboard')->middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/orders', [OrderController::class, 'indexPaginated'])->name('admindashboard.orders.index');
+    Route::get('/orders/{id_order}', [OrderController::class, 'showWithPayments'])->name('admindashboard.orders.show');
+});
+Route::get('/admin/search/orders', [\App\Http\Controllers\SearchController::class, 'searchOrders'])->name('admin.search.orders');

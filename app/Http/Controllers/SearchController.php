@@ -96,4 +96,20 @@ class SearchController extends Controller
 
         return view('admin.supporttickets.index', compact('tickets', 'query'));
     }
+
+    public function searchOrders(Request $request)
+    {
+        $query = $request->input('query');
+
+        $orders = \App\Models\Order::with(['user', 'orderItems'])
+            ->where('id_order', 'like', "%$query%")
+            ->orWhere('id_user', 'like', "%$query%")
+            ->orWhereHas('user', function ($q) use ($query) {
+                $q->where('email', 'like', "%$query%")
+                    ->orWhere('username', 'like', "%$query%");
+            })
+            ->paginate(10);
+
+        return view('orders.index', compact('orders', 'query'));
+    }
 }
