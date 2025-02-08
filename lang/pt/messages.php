@@ -15,6 +15,13 @@ return [
     'search_label' => 'Pesquisar',
     'search_results_title' => 'Resultados da Pesquisa por',
     'trending_title' => 'Em Alta',
+    'ai_search_placeholder' => 'Descreve o teu jogo...',
+    'no_game_found_message' => 'Nenhum jogo encontrado com esta descrição.',
+    'ai_search_label' => 'Pesquisa por IA',
+    'ai_search_results_title' => 'Resultados da Pesquisa por IA',
+    'dont_know_what_to_play_title' => 'Não sabe o que jogar?',
+    'find_perfect_game_title' => 'Encontre o jogo perfeito com IA',
+    'try_now_button' => 'Experimente agora',
 
 
 

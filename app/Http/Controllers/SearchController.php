@@ -8,6 +8,7 @@ use App\Models\Publisher;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\SupportTicket;
+use App\Services\OpenAIService;
 
 class SearchController extends Controller
 {
@@ -112,4 +113,39 @@ class SearchController extends Controller
 
         return view('orders.index', compact('orders', 'query'));
     }
+
+    public function aiSearch(Request $request, OpenAIService $openAIService)
+    {
+        // Validar a entrada do usuário
+        $validated = $request->validate([
+            'query' => 'required|string|max:255'
+        ]);
+
+        // Obter recomendações da IA
+        $aiResponse = $openAIService->getGameRecommendations($validated['query']);
+
+        // Interpretar a resposta da IA e buscar na base de dados
+        $gameNames = $this->extractGameNames($aiResponse);
+
+        // Buscar jogos na base de dados
+        $games = Game::whereIn('name', $gameNames)->get();
+
+        return view('layouts.guests.search.ai', compact('games'));
+    }
+
+    private function extractGameNames($responseText)
+    {
+        //dd($responseText);
+        $cleanText = preg_replace('/[\x00-\x1F\x7F]/u', '', $responseText);
+
+        // Testar separação mantendo o conteúdo limpo e sem aspas
+        $games = explode('"', $cleanText);
+
+        // Remover entradas vazias e limpar os nomes
+        $gameNames = array_filter($games, fn($value) => trim($value) !== '');
+        //dd($cleanText, $games);
+        // Remover espaços extras
+        return array_map('trim', $gameNames);
+    }
+
 }

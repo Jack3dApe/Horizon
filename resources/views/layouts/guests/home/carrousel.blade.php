@@ -56,9 +56,25 @@
             </div>
             <x-top-games/>
             <!-- Top Games -->
-
         </div>
     </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+            <div class="blog__details__title">
+                <h2 class="font-weight-bold">{{ __('messages.dont_know_what_to_play_title') }}</h2>
+                <h2 style="margin-top: -5vh" class="font-weight-bold">{{ __('messages.find_perfect_game_title') }}</h2>
+                <div class="blog__details__social">
+                    <a href="#" class="pinterest font-weight-bold"><i class="icon_search"></i> {{ __('messages.try_now_button') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <x-ai-search />
+
+
+
+
 @endsection
 
 

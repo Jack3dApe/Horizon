@@ -7,7 +7,10 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="anime__details__pic set-bg" style="background-image: url('{{ $game->grid ? asset('imgs/grids/' . $game->grid) : asset('imgs/default-game.jpg') }}');">
-                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                            <div class="view">
+                                <i class="fa-solid fa-download"></i> <x-game-sales :game="$game" />
+
+                            </div>
                         </div>
 
                     </div>

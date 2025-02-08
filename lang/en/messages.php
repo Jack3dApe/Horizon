@@ -16,6 +16,14 @@ return [
     'search_results_title' => 'Search Results for',
     'owns_game_badge' => 'Owns the game',
     'trending_title' => 'Trending',
+    'ai_search_placeholder' => 'Describe your game...',
+    'no_game_found_message' => 'No game found with this description.',
+    'ai_search_label' => 'AI Search',
+    'ai_search_results_title' => 'AI Search Results',
+    'dont_know_what_to_play_title' => "Don't know what to play?",
+    'find_perfect_game_title' => 'Find the perfect game with AI',
+    'try_now_button' => 'Try now',
+
 
 
     /*

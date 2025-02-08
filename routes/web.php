@@ -168,6 +168,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
+Route::get('/ai-search', [\App\Http\Controllers\SearchController::class, 'aiSearch'])->name('search.ai');
 
 
 //Resources

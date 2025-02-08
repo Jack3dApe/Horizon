@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+//Sear bar normal
 document.addEventListener('DOMContentLoaded', function () {
     const searchModel = document.getElementById('search-model');
     const searchSwitch = document.querySelector('.search-switch');
@@ -118,4 +120,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+//search bar com AI
+document.addEventListener('DOMContentLoaded', function () {
+    const aiSearchModel = document.getElementById('ai-search-model');
+    const openSearchBtn = document.querySelector('.blog__details__social a');
+    const closeSearchBtn = document.getElementById('close-ai-search');
 
+    // Abrir o AI Search
+    openSearchBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        aiSearchModel.classList.remove('hidden');
+    });
+
+    // Fechar o AI Search
+    closeSearchBtn.addEventListener('click', function () {
+        aiSearchModel.classList.add('hidden');
+    });
+});

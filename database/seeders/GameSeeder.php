@@ -1235,7 +1235,7 @@ class GameSeeder extends Seeder
             ],
 
             [
-                'name' => 'Persona 3',
+                'name' => 'Persona 3 Reload',
                 'description_en' => 'Join the Specialized Extracurricular Execution Squad (SEES) in Persona 3. Face the mysterious Dark Hour, summon powerful Personas, and balance high school life with battling dangerous shadows.',
                 'description_pt' => 'Junte-se ao Esquadrão Especializado de Execução Extracurricular (SEES) em Persona 3. Enfrente a misteriosa Dark Hour, invoque Personas poderosas e equilibre a vida escolar com combates contra sombras perigosas.',
                 'id_publisher' => Publisher::where('name', 'Atlus')->first()->id_publisher,
@@ -1263,7 +1263,7 @@ class GameSeeder extends Seeder
             ],
 
             [
-                'name' => 'Mortal Kombat (2011)',
+                'name' => 'Mortal Kombat',
                 'description_en' => 'Mortal Kombat (MK9) is a brutal and fast-paced fighting game that reboots the iconic series. Experience an epic story mode, visceral fatalities, and intense 1v1 combat.',
                 'description_pt' => 'Mortal Kombat (MK9) é um jogo de luta brutal e acelerado que reinicia a icônica série. Experimente um modo história épico, fatalities viscerais e combates intensos 1v1.',
                 'id_publisher' => Publisher::where('name', 'NetherRealm Studios')->first()->id_publisher,
@@ -1276,6 +1276,137 @@ class GameSeeder extends Seeder
                 'genres' => ['Fighting', 'Action']
             ],
 
+            [
+                'name' => 'Grand Theft Auto V',
+                'description_en' => 'Explore the vast, dynamic world of Los Santos in GTA V. Switch between three protagonists, complete daring heists, and engage in endless open-world activities.',
+                'description_pt' => 'Explore o vasto e dinâmico mundo de Los Santos em GTA V. Alterne entre três protagonistas, realize assaltos ousados e participe de atividades infinitas em mundo aberto.',
+                'id_publisher' => Publisher::where('name', 'Rockstar Games')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2013-09-17',
+                'icon' => 'gta_v.png',
+                'banner' => 'gta_v.png',
+                'grid' => 'gta_v.png',
+                'logo' => 'gta_v.png',
+                'genres' => ['Action', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Red Dead Redemption 2',
+                'description_en' => 'Immerse yourself in the Wild West with Red Dead Redemption 2. Follow Arthur Morgan’s journey through a world of outlaws, lawmen, and survival.',
+                'description_pt' => 'Mergulhe no Velho Oeste com Red Dead Redemption 2. Acompanhe a jornada de Arthur Morgan em um mundo de foras da lei, autoridades e sobrevivência.',
+                'id_publisher' => Publisher::where('name', 'Rockstar Games')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2018-10-26',
+                'icon' => 'red_dead_redemption_2.png',
+                'banner' => 'red_dead_redemption_2.png',
+                'grid' => 'red_dead_redemption_2.png',
+                'logo' => 'red_dead_redemption_2.png',
+                'genres' => ['Action', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Grand Theft Auto: San Andreas',
+                'description_en' => 'Join CJ in a quest to save his family and reclaim control of the streets in GTA: San Andreas. Explore a massive open world filled with gang wars, crime, and secrets.',
+                'description_pt' => 'Junte-se a CJ em uma missão para salvar sua família e retomar o controle das ruas em GTA: San Andreas. Explore um enorme mundo aberto cheio de guerras de gangues, crimes e segredos.',
+                'id_publisher' => Publisher::where('name', 'Rockstar Games')->first()->id_publisher,
+                'price' => 14.99,
+                'release_date' => '2004-10-26',
+                'icon' => 'gta_san_andreas.png',
+                'banner' => 'gta_san_andreas.png',
+                'grid' => 'gta_san_andreas.png',
+                'logo' => 'gta_san_andreas.png',
+                'genres' => ['Action', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Grand Theft Auto: Vice City',
+                'description_en' => 'Relive the neon-drenched 80s in GTA: Vice City. Follow Tommy Vercetti’s rise to power in a city inspired by Miami, filled with crime, music, and nostalgia.',
+                'description_pt' => 'Reviva os anos 80 cheios de neon em GTA: Vice City. Acompanhe a ascensão de Tommy Vercetti ao poder em uma cidade inspirada em Miami, repleta de crimes, música e nostalgia.',
+                'id_publisher' => Publisher::where('name', 'Rockstar Games')->first()->id_publisher,
+                'price' => 14.99,
+                'release_date' => '2002-10-29',
+                'icon' => 'gta_vice_city.png',
+                'banner' => 'gta_vice_city.png',
+                'grid' => 'gta_vice_city.png',
+                'logo' => 'gta_vice_city.png',
+                'genres' => ['Action', 'Adventure', 'Open World']
+            ],
+
+            [
+                'name' => 'Hades',
+                'description_en' => 'Battle your way out of the Underworld in Hades, a rogue-like dungeon crawler. Wield powerful weapons, forge relationships with gods, and discover a rich, ever-changing story.',
+                'description_pt' => 'Lute para escapar do Submundo em Hades, um rogue-like dungeon crawler. Empunhe armas poderosas, construa relacionamentos com os deuses e descubra uma história rica e em constante evolução.',
+                'id_publisher' => Publisher::firstOrCreate(
+                    ['name' => 'Supergiant Games'],
+                    ['email' => 'support@supergiantgames.com']
+                )->id_publisher,
+                'price' => 24.99,
+                'release_date' => '2020-09-17',
+                'icon' => 'hades.png',
+                'banner' => 'hades.png',
+                'grid' => 'hades.png',
+                'logo' => 'hades.png',
+                'genres' => ['Action', 'Roguelike', 'Indie']
+            ],
+
+            [
+                'name' => 'Cuphead',
+                'description_en' => 'Cuphead is a run-and-gun action game with a unique 1930s cartoon art style. Face off against challenging bosses, dodge deadly attacks, and perfect your timing in this beautifully animated classic.',
+                'description_pt' => 'Cuphead é um jogo de ação run-and-gun com um estilo de arte único inspirado nos desenhos animados dos anos 1930. Enfrente chefes desafiadores, desvie de ataques mortais e aperfeiçoe seu tempo neste clássico animado.',
+                'id_publisher' => Publisher::firstOrCreate(
+                    ['name' => 'Studio MDHR'],
+                    ['email' => 'contact@studiomdhr.com']
+                )->id_publisher,
+                'price' => 19.99,
+                'release_date' => '2017-09-29',
+                'icon' => 'cuphead.png',
+                'banner' => 'cuphead.png',
+                'grid' => 'cuphead.png',
+                'logo' => 'cuphead.png',
+                'genres' => ['Platformer', 'Action', 'Indie']
+            ],
+
+            [
+                'name' => 'Metal Gear Rising: Revengeance',
+                'description_en' => 'Metal Gear Rising: Revengeance delivers fast-paced hack and slash combat. Play as Raiden, a cyborg ninja, and take down powerful enemies in a high-octane, action-packed story.',
+                'description_pt' => 'Metal Gear Rising: Revengeance oferece combates rápidos de hack and slash. Jogue como Raiden, um ninja ciborgue, e derrote inimigos poderosos em uma história cheia de ação e adrenalina.',
+                'id_publisher' => Publisher::where('name', 'Konami')->first()->id_publisher,
+                'price' => 29.99,
+                'release_date' => '2013-02-19',
+                'icon' => 'metal_gear_rising.png',
+                'banner' => 'metal_gear_rising.png',
+                'grid' => 'metal_gear_rising.png',
+                'logo' => 'metal_gear_rising.png',
+                'genres' => ['Action', 'Hack and Slash', 'Adventure']
+            ],
+
+            [
+                'name' => 'Mario Kart 8',
+                'description_en' => 'Race through gravity-defying tracks in Mario Kart 8. Use powerful items, master sharp drifts, and compete with friends in chaotic multiplayer races.',
+                'description_pt' => 'Corra por pistas que desafiam a gravidade em Mario Kart 8. Use itens poderosos, domine curvas fechadas e compita com amigos em corridas multijogador caóticas.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2014-05-30',
+                'icon' => 'mario_kart_8.png',
+                'banner' => 'mario_kart_8.png',
+                'grid' => 'mario_kart_8.png',
+                'logo' => 'mario_kart_8.png',
+                'genres' => ['Racing', 'Sports']
+            ],
+
+            [
+                'name' => 'The Legend of Zelda: Majora\'s Mask',
+                'description_en' => 'Relive the dark, time-bending adventure of Link in The Legend of Zelda: Majora\'s Mask. Save the world of Termina from destruction in just three in-game days.',
+                'description_pt' => 'Reviva a sombria e misteriosa aventura de Link em The Legend of Zelda: Majora\'s Mask. Salve o mundo de Termina da destruição em apenas três dias no jogo.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 39.99,
+                'release_date' => '2000-10-26',
+                'icon' => 'zelda_majoras_mask.png',
+                'banner' => 'zelda_majoras_mask.png',
+                'grid' => 'zelda_majoras_mask.png',
+                'logo' => 'zelda_majoras_mask.png',
+                'genres' => ['Adventure', 'RPG']
+            ],
 
 
 
