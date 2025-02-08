@@ -146,6 +146,15 @@ return [
     'tickets_label' => 'TICKETS',
     'no_games_owned_message' => "You don't own any games yet.",
     'save_button' => 'Save',
+
+    'active' => 'Active',
+    'inactive' => 'Inactive',
+    'activate_email' => 'Activate Email',
+    'activation_email_subject' => 'Email Activation',
+    'activation_email_sent' => 'Activation email sent successfully!',
+    'activation_success' => 'Your email has been activated!',
+    'activation_failed' => 'Invalid activation link!',
+    'already_active' => 'Your email is already active.',
     /*
    |--------------------------------------------------------------------------
    | Wishlist

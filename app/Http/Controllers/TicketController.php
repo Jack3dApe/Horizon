@@ -39,6 +39,7 @@ class TicketController extends Controller
         $user = Auth::user();
         $userEmail = $request->input('user_email'); // Obtém o email do campo oculto
         $today = \Carbon\Carbon::today();
+        $this->ensureContactExists($user->email, $user->name);
 
         // Se o utilizador for admin, pode criar quantos tickets quiser
         if ($user->hasRole('admin')) {
@@ -191,6 +192,28 @@ class TicketController extends Controller
             return json_decode($response->getBody(), true);
         } catch (\Exception $e) {
             return []; // Retorna um array vazio se houver erro
+        }
+    }
+
+    private function ensureContactExists($email, $name)
+    {
+        try {
+            $response = $this->client->get('contacts', [
+                'query' => ['email' => $email],
+            ]);
+
+            $contactData = json_decode($response->getBody(), true);
+
+            if (empty($contactData)) {
+                $this->client->post('contacts', [
+                    'json' => [
+                        'email' => $email,
+                        'name' => $name,
+                    ],
+                ]);
+            }
+        } catch (\Exception $e) {
+            throw new \Exception('Erro ao garantir o contacto: ' . $e->getMessage());
         }
     }
 }

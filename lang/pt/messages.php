@@ -147,6 +147,15 @@ return [
     'tickets_label' => 'SUPORTE',
     'no_games_owned_message' => 'Você ainda não possui nenhum jogo.',
     'save_button' => 'Guardar',
+
+    'active' => 'Ativo',
+    'inactive' => 'Inativo',
+    'activate_email' => 'Ativar Email',
+    'activation_email_subject' => 'Ativação de Email',
+    'activation_email_sent' => 'Email de ativação enviado com sucesso!',
+    'activation_success' => 'Seu email foi ativado com sucesso!',
+    'activation_failed' => 'Link de ativação inválido!',
+    'already_active' => 'Seu email já está ativado.',
     /*
     |--------------------------------------------------------------------------
     | Wishlist

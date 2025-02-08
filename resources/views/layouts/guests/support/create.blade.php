@@ -54,6 +54,23 @@
                         </form>
                     </div>
                 </div>
+                <div class="card mt-3 shadow-lg" style="background-color: #070720; border: none;">
+                    <div class="card-body text-center">
+                        <h4 class="mb-3 text-white"><i class="ti ti-bolt"></i> Faster Response Times With Verified Accounts</h4>
+                        @if(auth()->user()->is_2fa_enabled)
+                            <button class="btn btn-lg btn-success" disabled>
+                                <i class="ti ti-check"></i> {{ __('Activated') }}
+                            </button>
+                        @else
+                            <form method="POST" action="{{ route('support.email.send') }}">
+                                @csrf
+                                <button type="submit" class="btn btn-lg btn-warning">
+                                    <i class="ti ti-send"></i> {{ __('Activate Now') }}
+                                </button>
+                            </form>
+                        @endif
+                    </div>
+                </div>
             </div>
             <div class="col-12 col-lg-6 mb-5">
                 <img src="{{ asset('imgs/frontend/sonictechsupport.png') }}" alt="img-sonic" style="padding-bottom: 80px;">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardOverviewController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserControler;
@@ -67,6 +68,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserControler::class, 'profile'])->name('profile');
     Route::put('/profile/update', [UserControler::class, 'updateProfile'])->name('profile.update');
 });
+
+Route::post('/support/email/send-activation', [ProfileController::class, 'sendActivationEmail'])->name('support.email.send');
+Route::get('/support/email/activate/{user}/{token}', [ProfileController::class, 'activateEmail'])->name('support.email.activate');
 
 
 //Rotas para a wishlist
