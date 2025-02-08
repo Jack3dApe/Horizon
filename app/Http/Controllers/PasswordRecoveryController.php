@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
+use App\Models\User;
 
 class PasswordRecoveryController extends Controller
 {
@@ -15,26 +17,27 @@ class PasswordRecoveryController extends Controller
             'email' => 'required|email',
         ]);
 
-        $user = DB::table('users')->where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
         if ($user) {
-            //$password = $user->password;
+            // Gera o token de redefinição de senha
+            $token = Password::createToken($user);
 
-            //Mail::raw("Your password is: $password", function ($message) use ($user) {
-                //$message->to($user->email)
-                    //->subject('Password Recovery');
-            //});
-            $response = Password::sendResetLink(
-                $request->only('email')
-            );
+            // Gera o link de redefinição
+            $resetLink = URL::route('password.reset', ['token' => $token, 'email' => $user->email]);
 
-            if ($response == Password::RESET_LINK_SENT) {
-                return back()->with('success', __('messages.logsignpassresetlink'));
-            }
+            // Define o idioma atual
+            $lang = app()->getLocale();
 
-            return back()->withErrors(['error' => __('messages.logsignpassfaillink')]);
-        } else {
-            return back()->withErrors(['error' => __('messages.logsignnoaccountemail')]);
+            // Envia o email com base no idioma
+            Mail::send("emails.password_reset_{$lang}", ['link' => $resetLink], function ($message) use ($user) {
+                $message->to($user->email)
+                    ->subject(__('messages.logsignpassresetlink'));
+            });
+
+            return back()->with('success', __('messages.logsignpassresetlink'));
         }
+
+        return back()->withErrors(['error' => __('messages.logsignnoaccountemail')]);
     }
 }
