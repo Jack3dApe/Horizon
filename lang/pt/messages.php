@@ -202,6 +202,11 @@ return [
 
     'logsignwrongcred' => 'As credenciais fornecidas não correspondem aos nossos registos.',
     'logsignsuccpassreset' => 'A tua palavra-passe foi redefinida!',
+    'logsignbanned' => 'Esta conta está banida.',
+    'logsignsuspended' => 'Esta conta está suspensa por :time.',
+    'days' => 'dias',
+    'hours' => 'horas',
+    'minutes' => 'minutos',
 
 
 ];

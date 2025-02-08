@@ -201,6 +201,11 @@ return [
 
     'logsignwrongcred' => 'The provided credentials do not match our records.',
     'logsignsuccpassreset' => 'Your password has been reset!',
+    'logsignbanned' => 'This account is banned.',
+    'logsignsuspended' => 'This account is suspended for :time.',
+    'days' => 'days',
+    'hours' => 'hours',
+    'minutes' => 'minutes',
 
 
 

@@ -14,7 +14,7 @@
                 <div class="footer__nav">
                     <ul>
                         <li class="active"><a href="{{ route('home') }}">{{__('messages.homepage')}}</a></li>
-                        <li><a href="#">{{__('messages.aboutus')}}</a></li>
+                        <li><a href="{{ route('aboutus') }}">{{__('messages.aboutus')}}</a></li>
                         <li><a href="{{ route('support.tickets.create') }}">{{__('messages.support')}}</a></li>
                     </ul>
                 </div>

@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Models\ActivityLog;
+use App\Models\User;
+use Carbon\Carbon;
 
 class ModelObserver
 {
@@ -33,6 +35,10 @@ class ModelObserver
     {
         if ($model->wasRecentlyRestored) {
             return;
+        }
+
+        if ($model instanceof User) {
+            $this->handleUserSuspension($model);
         }
 
         $user = auth()->user();
@@ -126,5 +132,29 @@ class ModelObserver
         $modelName = class_basename($model);
 
         return $nameFields[$modelName] ?? 'id';
+    }
+
+    /**
+     * Função para lidar com a suspensão automática de usuários
+     */
+    private function handleUserSuspension(User $user): void
+    {
+        // Se o status mudou para "Suspended", registra a data da suspensão
+        if ($user->isDirty('status') && $user->status === 'Suspended') {
+            $user->suspended_at = now();
+            $user->saveQuietly();
+        }
+
+        // Se o usuário está suspenso, verifica se já passaram 5 dias
+        if ($user->status === 'Suspended' && $user->suspended_at) {
+            $suspensionEnd = Carbon::parse($user->suspended_at)->addDays(5);
+
+            if (now()->greaterThanOrEqualTo($suspensionEnd)) {
+                // Reativar a conta automaticamente
+                $user->status = 'Active';
+                $user->suspended_at = null;
+                $user->saveQuietly();
+            }
+        }
     }
 }

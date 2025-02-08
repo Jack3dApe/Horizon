@@ -17,7 +17,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="#" class="dropdown-item">{{ __('messages.aboutus') }}</a></li>
+                        <li><a href="{{ route('aboutus') }}" class="dropdown-item">{{ __('messages.aboutus') }}</a></li>
                         <li><a href="{{ route('support.tickets.create') }}" class="dropdown-item">{{ __('messages.support') }}</a></li>
                     </ul>
                 </div>
@@ -117,7 +117,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">{{__('messages.aboutus')}}</a></li>
+                                <li><a href="{{ route('aboutus') }}">{{__('messages.aboutus')}}</a></li>
                                 <li><a href="{{ route('support.tickets.create') }}">{{__('messages.support')}}</a></li>
                             </ul>
                         </nav>

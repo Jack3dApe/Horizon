@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -107,6 +108,16 @@ class User extends Authenticatable
     public function getPurchasesCount()
     {
         return $this->libraries()->count();
+    }
+
+    public static function updateSuspendedUsers()
+    {
+        self::where('status', 'Suspended')
+            ->where('suspended_at', '<=', Carbon::now()->subDays(5))
+            ->update([
+                'status' => 'Active',
+                'suspended_at' => null
+            ]);
     }
 
 }
