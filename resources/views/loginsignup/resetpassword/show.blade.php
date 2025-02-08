@@ -38,10 +38,7 @@
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="input__item">
-                                <input type="email" name="email" value="{{ old('email') }}" placeholder="{{__('messages.emailplaceholder')}}">
-                                <span><i class="icon_mail"></i></span>
-                            </div>
+                            <input type="hidden" name="email" value="{{ request()->get('email') }}">
 
                             <div class="input__item">
                                 <input type="password" name="password" placeholder="{{__('messages.newpasswordplaceholder')}}">
@@ -60,6 +57,7 @@
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>{{__('messages.welcomeback')}}</h3>
+                        <p style="font-size: 16px; font-weight: bold; color: #ffffff;">{{ request()->get('email') }}</p>
                     </div>
                 </div>
             </div>
