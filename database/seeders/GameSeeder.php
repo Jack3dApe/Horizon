@@ -1408,6 +1408,21 @@ class GameSeeder extends Seeder
                 'genres' => ['Adventure', 'RPG']
             ],
 
+            [
+                'name' => 'Xenoblade Chronicles X',
+                'description_en' => 'Explore a vast alien world in Xenoblade Chronicles X. Pilot powerful mechs, embark on epic quests, and uncover the secrets of the planet Mira.',
+                'description_pt' => 'Explore um vasto mundo alienígena em Xenoblade Chronicles X. Pilote mechas poderosos, embarque em missões épicas e desvende os segredos do planeta Mira.',
+                'id_publisher' => Publisher::where('name', 'Nintendo')->first()->id_publisher,
+                'price' => 59.99,
+                'release_date' => '2015-12-04',
+                'icon' => 'xenoblade_chronicles_x.png',
+                'banner' => 'xenoblade_chronicles_x.png',
+                'grid' => 'xenoblade_chronicles_x.png',
+                'logo' => 'xenoblade_chronicles_x.png',
+                'genres' => ['RPG', 'Adventure', 'Open World']
+            ],
+
+
 
 
 
