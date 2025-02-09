@@ -67,6 +67,10 @@ Route::middleware('guest')->group(function () {
 Route::get('/auth/github', [SocialAuthController::class, 'redirectToGitHub'])->name('auth.github');
 Route::get('/auth/github/callback', [SocialAuthController::class, 'handleGitHubCallback']);
 
+Route::get('/auth/google/redirect', [SocialAuthController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback']);
+
+
 //Rota para o profile
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserControler::class, 'profile'])->name('profile');

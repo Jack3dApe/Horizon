@@ -65,8 +65,18 @@
                         <div class="login__social__links">
                             <span>or</span>
                             <ul>
-                                <li><a href="{{ route('auth.github') }}" class="github"><i class="fa fa-github"></i> Sign in with GitHub</a></li>
+                                <li>
+                                    <a href="{{ route('auth.github') }}" class="github" style="background-color: rgb(75 85 99)">
+                                        <i class="fa fa-github"></i> {{ __('messages.sign_in_with_github') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('google.redirect') }}" class="google">
+                                        <i class="fa fa-google"></i> {{ __('messages.sign_in_with_google') }}
+                                    </a>
+                                </li>
                             </ul>
+
                         </div>
                     </div>
                 </div>

@@ -92,6 +92,9 @@ return [
     'enternewpassword'=>'Enter Your New Password',
     'newpasswordplaceholder'=>'New Password',
     'welcomeback'=>'Welcome Back',
+    'sign_in_with_github' => 'Sign in with GitHub',
+    'sign_in_with_google' => 'Sign in with Google',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -146,6 +149,10 @@ return [
     'tickets_label' => 'TICKETS',
     'no_games_owned_message' => "You don't own any games yet.",
     'save_button' => 'Save',
+    'badges_label' => 'Badges',
+    'activate_account_message' => 'Activate your account to unlock badges.',
+
+
 
     'active' => 'Active',
     'inactive' => 'Inactive',

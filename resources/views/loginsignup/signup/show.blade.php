@@ -62,7 +62,9 @@
                     <div class="login__social__links">
                         <h3>{{__('messages.loginwith')}}</h3>
                         <ul>
-                            <li><a href="{{ route('auth.github') }}" class="" style="background-color: #110D0E"><i class="fa fa-github"></i> Sign in with GitHub</a></li>
+                            <li><a href="{{ route('auth.github') }}" class="" style="background-color: rgb(75 85 99)"><i class="fa-brands fa-github"></i> {{ __('messages.sign_in_with_github') }}</a></li>
+                            <li><a href="{{ route('google.redirect') }}" class="google"><i class="fa fa-google"></i> {{ __('messages.sign_in_with_google') }}</a></li>
+
                         </ul>
                     </div>
                 </div>
