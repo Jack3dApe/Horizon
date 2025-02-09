@@ -22,7 +22,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\LibraryController;
-
+use App\Http\Controllers\SocialAuthController;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -61,7 +61,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->middleware('throttle:5,1');;
     Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->name('forgot-password');
+
 });
+
+Route::get('/auth/github', [SocialAuthController::class, 'redirectToGitHub'])->name('auth.github');
+Route::get('/auth/github/callback', [SocialAuthController::class, 'handleGitHubCallback']);
 
 //Rota para o profile
 Route::middleware(['auth'])->group(function () {

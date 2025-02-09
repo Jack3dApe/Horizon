@@ -65,7 +65,7 @@
                         <div class="login__social__links">
                             <span>or</span>
                             <ul>
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> {{__('messages.signinfacebook')}}</a></li>
+                                <li><a href="{{ route('auth.github') }}" class="github"><i class="fa fa-github"></i> Sign in with GitHub</a></li>
                             </ul>
                         </div>
                     </div>

@@ -62,7 +62,7 @@
                     <div class="login__social__links">
                         <h3>{{__('messages.loginwith')}}</h3>
                         <ul>
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i> {{__('messages.signinfacebook')}}</a></li>
+                            <li><a href="{{ route('auth.github') }}" class="" style="background-color: #110D0E"><i class="fa fa-github"></i> Sign in with GitHub</a></li>
                         </ul>
                     </div>
                 </div>
