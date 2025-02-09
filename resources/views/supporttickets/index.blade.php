@@ -11,6 +11,7 @@
                         <th class="w-1">ID</th>
                         <th>Subject</th>
                         <th>Status</th>
+                        <th>Priority</th>
                         <th>Created At</th>
                         <th class="text-end">Actions</th>
                     </tr>
@@ -36,6 +37,19 @@
                                     <span class="badge bg-secondary" style="color: white;">Unknown</span>
                                 @endif
                             </td>
+                            <td>
+                                @if($ticket['priority'] == 1)
+                                    <span class="badge bg-success text-white">Low</span>
+                                @elseif($ticket['priority'] == 2)
+                                    <span class="badge bg-primary text-white">Medium</span>
+                                @elseif($ticket['priority'] == 3)
+                                    <span class="badge text-white" style="background-color: #FFD700;">High</span>
+                                @elseif($ticket['priority'] == 4)
+                                    <span class="badge bg-danger text-white">Urgent</span>
+                                @else
+                                    <span class="badge bg-light text-dark">Unknown</span>
+                                @endif
+                            </td>
                             <td>{{ \Carbon\Carbon::parse($ticket['created_at'])->format('d/m/Y H:i') }}</td>
                             <td class="text-end">
                                 <a href="{{ route('admin.supporttickets.show', $ticket['id']) }}" class="btn btn-info">
@@ -46,6 +60,9 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="card-footer d-flex align-items-center">
+                {{ $tickets->links('layouts.admin.parts.paginationTicket', ['tickets' => $tickets]) }}
             </div>
         </div>
     </div>

@@ -207,6 +207,7 @@ Route::get('/admin/search/publishers', [\App\Http\Controllers\SearchController::
 Route::middleware(['auth'])->group(function () {
     Route::get('/support/create', [TicketController::class, 'create'])->name('support.tickets.create');
     Route::post('/support/store', [TicketController::class, 'store'])->name('support.tickets.store');
+    Route::get('/support/tickets', [TicketController::class, 'userTickets'])->name('support.tickets.index');
     Route::middleware(['role:admin'])->group(function () {
         Route::get('/admin/support/tickets', [TicketController::class, 'index'])->name('admin.supporttickets.index');
         Route::get('/admin/support/tickets/{id}', [TicketController::class, 'show'])->name('admin.supporttickets.show');

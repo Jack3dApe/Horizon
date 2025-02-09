@@ -38,6 +38,7 @@ class TicketController extends Controller
     {
         $user = Auth::user();
         $userEmail = $request->input('user_email'); // Obtém o email do campo oculto
+        $is2FAEnabled = $user->is_2fa_enabled ? '(Confirmed)' : '(Unconfirmed)';
         $today = \Carbon\Carbon::today();
         $this->ensureContactExists($user->email, $user->name);
 
@@ -45,7 +46,7 @@ class TicketController extends Controller
         if ($user->hasRole('admin')) {
             // Formatar a descrição antes de enviar
             $request->merge([
-                'description' => "Email: {$userEmail}<br>Description: {$request->description}"
+                'description' => "Email: {$userEmail} {$is2FAEnabled}<br>Description: {$request->description}"
             ]);
             return $this->createTicket($request, $userEmail);
         }
@@ -64,12 +65,12 @@ class TicketController extends Controller
 
             // Verificar se já atingiu o limite de 5 tickets por dia
             if ($todayTickets->count() >= 5) {
-                return back()->withErrors(['error' => 'Já atingiste o limite diário de 5 tickets. Tenta novamente amanhã.']);
+                return back()->withErrors(['error' => __('messages.maxclientticket')]);
             }
 
             // Formatar a descrição antes de enviar
             $request->merge([
-                'description' => "Email: {$userEmail}<br>Description: {$request->description}"
+                'description' => "Email: {$userEmail} {$is2FAEnabled}<br>Description: {$request->description}"
             ]);
 
             // Criar o ticket
@@ -110,20 +111,49 @@ class TicketController extends Controller
     /**
      * Lista todos os tickets (admins veem todos, utilizadores normais veem os seus próprios)
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
 
         try {
-            // Se for admin, busca TODOS os tickets
             if ($user->hasRole('admin')) {
                 $response = $this->client->get('tickets');
+                $ticketsData = json_decode($response->getBody(), true);
+
+                // Aplicar paginação manualmente
+                $perPage = 10; // Número de tickets por página
+                $page = $request->get('page', 1); // Página atual
+                $offset = ($page - 1) * $perPage;
+
+                $tickets = new \Illuminate\Pagination\LengthAwarePaginator(
+                    collect($ticketsData)->slice($offset, $perPage)->values(),
+                    count($ticketsData),
+                    $perPage,
+                    $page,
+                    ['path' => $request->url(), 'query' => $request->query()]
+                );
             } else {
-                // Se for utilizador normal, busca apenas os seus próprios tickets
-                $response = $this->client->get('tickets', [
-                    'query' => ['email' => $user->email]
-                ]);
+                return back()->withErrors(['error' => 'Acesso não autorizado.']);
             }
+
+            return view('supporttickets.index', compact('tickets'));
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Ocorreu um erro ao obter os tickets: ' . $e->getMessage()]);
+        }
+    }
+
+    /**
+     * Tickets (Site)
+     */
+    public function userTickets()
+    {
+        $user = Auth::user();
+
+        try {
+            // Buscar apenas os tickets do utilizador autenticado
+            $response = $this->client->get('tickets', [
+                'query' => ['email' => $user->email]
+            ]);
 
             $tickets = json_decode($response->getBody(), true);
 

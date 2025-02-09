@@ -191,6 +191,11 @@ return [
     'sticketunknown' => 'Unknown',
     'sticketresolve' => 'Resolve',
     'sticketzero' => 'You have no open tickets yet.',
+
+    'maxclientticket' => 'You have reached the daily limit of 5 tickets. Please try again tomorrow.',
+    'fastresponsetickets' => 'Faster Response Times With Verified Accounts',
+    'activateaccountnow' => 'Activate Now',
+    'activatedaccount' => 'Activated',
     /*
     |--------------------------------------------------------------------------
     | Error Messages On Signup/Login/Recovery

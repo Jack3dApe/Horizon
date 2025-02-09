@@ -155,7 +155,7 @@
 
 
 
-
+                        <!-- TICKETS Tab -->
                         <div class="tab-pane fade" id="tickets" role="tabpanel">
                             <div class="m-t-30">
                                 <h4 class="text-light font-weight-bold">Tickets</h4>

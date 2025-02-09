@@ -192,6 +192,11 @@ return [
     'sticketunknown' => 'Desconhecido',
     'sticketresolve' => 'Resolver',
     'sticketzero' => 'Ainda não tens tickets abertos.',
+
+    'maxclientticket' => 'Já atingiste o limite diário de 5 tickets. Tenta novamente amanhã.',
+    'fastresponsetickets' => 'Respostas mais rápidas com contas verificadas',
+    'activateaccountnow' => 'Ativar Agora',
+    'activatedaccount' => 'Ativado',
     /*
     |--------------------------------------------------------------------------
     | Error Messages On Signup/Login/Recovery

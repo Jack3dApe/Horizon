@@ -56,16 +56,16 @@
                 </div>
                 <div class="card mt-3 shadow-lg" style="background-color: #070720; border: none;">
                     <div class="card-body text-center">
-                        <h4 class="mb-3 text-white"><i class="ti ti-bolt"></i> Faster Response Times With Verified Accounts</h4>
+                        <h4 class="mb-3 text-white"><i class="ti ti-bolt"></i> {{ __('messages.fastresponsetickets') }}</h4>
                         @if(auth()->user()->is_2fa_enabled)
                             <button class="btn btn-lg btn-success" disabled>
-                                <i class="ti ti-check"></i> {{ __('Activated') }}
+                                <i class="ti ti-check"></i> {{ __('messages.activatedaccount') }}
                             </button>
                         @else
                             <form method="POST" action="{{ route('support.email.send') }}">
                                 @csrf
                                 <button type="submit" class="btn btn-lg btn-warning">
-                                    <i class="ti ti-send"></i> {{ __('Activate Now') }}
+                                    <i class="ti ti-send"></i> {{ __('messages.activateaccountnow') }}
                                 </button>
                             </form>
                         @endif
