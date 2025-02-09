@@ -170,8 +170,17 @@
     document.addEventListener('DOMContentLoaded', function () {
         const creditCardButton = document.getElementById('creditCardButton');
         const paypalButtonContainer = document.getElementById('paypal-button-container');
-
         const paymentMethodRadios = document.querySelectorAll('input[name="payment_method"]');
+
+        let paypalButtonRendered = false;  // Flag para verificar se o botão já foi renderizado
+
+        // Função para renderizar o botão PayPal apenas uma vez
+        function renderPayPalButtonOnce() {
+            if (!paypalButtonRendered) {
+                paypalButtonRendered = true;  // Atualiza a flag para indicar que já foi renderizado
+                renderPayPalButton();         // Chama a função que cria o botão PayPal
+            }
+        }
 
         // Gerenciar exibição dos botões de pagamento
         paymentMethodRadios.forEach(radio => {
@@ -179,7 +188,7 @@
                 if (this.value === 'paypal') {
                     creditCardButton.style.display = 'none';
                     paypalButtonContainer.style.display = 'block';
-                    renderPayPalButton();  // Chamar função para renderizar o botão PayPal
+                    renderPayPalButtonOnce();  // Certifica-se de chamar a função apenas uma vez
                 } else {
                     creditCardButton.style.display = 'block';
                     paypalButtonContainer.style.display = 'none';

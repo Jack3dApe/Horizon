@@ -26,6 +26,8 @@ class ReviewSeeder extends Seeder
             'updated_at' => function ($attributes) {
                 return $attributes['created_at'];
             },
+            'profile_pic' => 'imgs/user_profile_pics/default.jpg',
+
         ]);
 
         Review::factory()->count(239)->create([
