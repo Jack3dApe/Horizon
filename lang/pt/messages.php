@@ -22,6 +22,8 @@ return [
     'dont_know_what_to_play_title' => 'Não sabe o que jogar?',
     'find_perfect_game_title' => 'Encontre o jogo perfeito com IA',
     'try_now_button' => 'Experimente agora',
+    'sign_in_with_github' => 'Entrar com GitHub',
+    'sign_in_with_google' => 'Entrar com Google',
 
 
 
@@ -147,6 +149,9 @@ return [
     'tickets_label' => 'SUPORTE',
     'no_games_owned_message' => 'Você ainda não possui nenhum jogo.',
     'save_button' => 'Guardar',
+    'activate_account_message' => 'Ative a sua conta para desbloquear distintivos.',
+    'badges_label' => 'Distintivos',
+
 
     'active' => 'Ativo',
     'inactive' => 'Inativo',

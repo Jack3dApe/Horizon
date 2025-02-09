@@ -48,8 +48,35 @@
                         @empty
                             <p class="text-muted">{{ __('messages.no_favorite_genres_message') }}</p>
                         @endforelse
+
                     </div>
+
                 </div>
+                @if($user->is_2fa_enabled)
+                    <div class="text-left m-t-40 mt-3">
+                        <!-- Badges Header -->
+                        <p class="text-muted font-13">
+                            <strong>{{ $gamesOwnedCount }}</strong>
+                            <span class="m-l-15">{{ __('messages.badges_label') }}</span>
+                        </p>
+
+                        <!-- Grid de badges -->
+                        <div class="row mt-3">
+                            @foreach($games as $game)
+                                <div class="col-lg-4 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+                                    <img src="{{ asset('/icons/' . $game->game->icon) }}" alt="{{ $game->game->name }} Icon"
+                                         class="img-fluid mb-2" style="height: 60px; width: 60px;">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @else
+                    <!-- Mensagem caso 2FA não esteja ativado -->
+                    <p class="text-warning font-weight-bold mt-3">
+                        {{ __('messages.activate_account_message') }}
+                    </p>
+
+                @endif
 
             </div> <!-- end col -->
 
