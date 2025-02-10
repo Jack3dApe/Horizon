@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Review;
+use Spatie\Permission\Models\Role;
 
 class ReviewSeeder extends Seeder
 {
@@ -19,7 +20,10 @@ class ReviewSeeder extends Seeder
 
     public function run(): void
     {
-        User::factory()->count(50)->create([
+        if (!Role::where('name', 'clients')->exists()) {
+            Role::create(['name' => 'clients']);
+        };
+        $clientUsers = User::factory()->count(50)->create([
             'created_at' => function () {
                 return Carbon::now()->subDays(rand(0, 90))->format('Y-m-d H:i:s');
             },
@@ -29,6 +33,9 @@ class ReviewSeeder extends Seeder
             'profile_pic' => 'imgs/user_profile_pics/default.jpg',
 
         ]);
+        $clientUsers->each(function ($user) {
+            $user->assignRole('clients');
+        });
 
         Review::factory()->count(239)->create([
             'review_date' => function () {

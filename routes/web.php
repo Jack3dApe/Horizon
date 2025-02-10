@@ -184,27 +184,30 @@ Route::get('/ai-search', [\App\Http\Controllers\SearchController::class, 'aiSear
 
 
 //Resources
-Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
 
-Route::resource('users', \App\Http\Controllers\UserControler::class);
-Route::get('/admin/search/users', [\App\Http\Controllers\SearchController::class, 'searchUsers'])->name('admin.search.users');
-
-
-Route::resource('games', \App\Http\Controllers\GameController::class);
-Route::get('/admin/search/games', [\App\Http\Controllers\SearchController::class, 'searchGames'])->name('admin.search.games');
+    Route::resource('users', \App\Http\Controllers\UserControler::class);
+    Route::get('/admin/search/users', [\App\Http\Controllers\SearchController::class, 'searchUsers'])->name('admin.search.users');
 
 
-Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
-Route::get('/admin/search/reviews', [\App\Http\Controllers\SearchController::class, 'searchReviews'])->name('admin.search.reviews');
+    Route::resource('games', \App\Http\Controllers\GameController::class);
+    Route::get('/admin/search/games', [\App\Http\Controllers\SearchController::class, 'searchGames'])->name('admin.search.games');
 
+
+    Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
+    Route::get('/admin/search/reviews', [\App\Http\Controllers\SearchController::class, 'searchReviews'])->name('admin.search.reviews');
+
+    Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
+    Route::get('/admin/search/publishers', [\App\Http\Controllers\SearchController::class, 'searchPublishers'])->name('admin.search.publishers');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/reviews/form/{id_game}', [ReviewController::class, 'showReviewForm'])->name('reviews.form');
     Route::post('/reviews/store/{id_game}', [ReviewController::class, 'storeReview'])->name('reviews.store');
 });
 
-Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
-Route::get('/admin/search/publishers', [\App\Http\Controllers\SearchController::class, 'searchPublishers'])->name('admin.search.publishers');
+
 
 
 //Tickets
