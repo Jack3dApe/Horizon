@@ -148,12 +148,12 @@
 
                                     <div class="mb-3">
                                         <label for="description_en" class="form-label">Description (English)</label>
-                                        <textarea id="description_en" name="description_en" class="form-control" rows="5" placeholder="Enter game description in English"></textarea>
+                                        <textarea id="description_en" name="description_en" class="form-control" rows="5" placeholder="Enter game description in English">{{ old('description_en', $game->description_en) }}</textarea>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="description_pt" class="form-label">Description (Portuguese)</label>
-                                        <textarea id="description_pt" name="description_pt" class="form-control" rows="5" placeholder="Enter game description in Portuguese"></textarea>
+                                        <textarea id="description_pt" name="description_pt" class="form-control" rows="5" placeholder="Enter game description in Portuguese">{{ old('description_pt', $game->description_pt) }}</textarea>
                                     </div>
 
                                     <div class="mb-3">

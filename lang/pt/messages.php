@@ -158,9 +158,9 @@ return [
     'activate_email' => 'Ativar Email',
     'activation_email_subject' => 'Ativação de Email',
     'activation_email_sent' => 'Email de ativação enviado com sucesso!',
-    'activation_success' => 'Seu email foi ativado com sucesso!',
+    'activation_success' => 'O seu email foi ativado com sucesso!',
     'activation_failed' => 'Link de ativação inválido!',
-    'already_active' => 'Seu email já está ativado.',
+    'already_active' => 'O seu email já está ativado.',
     /*
     |--------------------------------------------------------------------------
     | Wishlist
