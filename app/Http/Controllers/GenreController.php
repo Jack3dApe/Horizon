@@ -84,7 +84,7 @@ class GenreController extends Controller
             $genre->update($validated);
             $genre->save();
             //session()->put(['success'=>5]);
-            return redirect(route('genres.show',$genre))->with(['success','Genre Altered Successfully']);//session()->flash('')
+            return redirect(route('genres.index'))->with('success','Genre Altered Successfully');//session()->flash('')
 
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error'=>"Error altering data! MSG:{$e->getMessage()}"])->withInput();
