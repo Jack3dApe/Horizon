@@ -138,7 +138,7 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
 
     //Rotas Restore
     Route::post('/users/{id}/restore', [UserControler::class, 'restore'])->name('users.restore');
-    Route::post('/reviews/{id}/restore', [ReviewController::class, 'restore'])->name('reviews.restore');
+    Route::post('/reviews/{id_review}/restore', [ReviewController::class, 'restore'])->name('reviews.restore');
     Route::post('/support-tickets/{id}/restore', [SupportTicketController::class, 'restore'])->name('support_tickets.restore');
     Route::post('/publishers/{id}/restore', [PublisherController::class, 'restore'])->name('publishers.restore');
     Route::post('/games/{id}/restore', [GameController::class, 'restore'])->name('games.restore');
@@ -146,7 +146,7 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
 
     //Rotas Permanent Delete
     Route::delete('/users/{id}/force-delete', [UserControler::class, 'forceDelete'])->name('users.forceDelete');
-    Route::delete('/reviews/{id}/force-delete', [ReviewController::class, 'forceDelete'])->name('reviews.forceDelete');
+    Route::delete('/reviews/{id_review}/force-delete', [ReviewController::class, 'forceDelete'])->name('reviews.forceDelete');
     Route::delete('/support-tickets/{id}/force-delete', [SupportTicketController::class, 'forceDelete'])->name('support_tickets.forceDelete');
     Route::delete('/publishers/{id}/force-delete', [PublisherController::class, 'forceDelete'])->name('publishers.forceDelete');
     Route::delete('/games/{id}/force-delete', [GameController::class, 'forceDelete'])->name('games.forceDelete');

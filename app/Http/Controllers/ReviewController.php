@@ -99,16 +99,16 @@ class ReviewController extends Controller
         return view('softdeletes.reviews.deleted', compact('reviews'));
     }
 
-    public function restore($id)
+    public function restore($id_review)
     {
-        $review = Review::withTrashed()->findOrFail($id);
+        $review = Review::withTrashed()->where('id_review', $id_review)->firstOrFail();
         $review->restore();
         return redirect()->route('reviews.deleted')->with('success', 'Review restored successfully.');
     }
 
-    public function forceDelete($id)
+    public function forceDelete($id_review)
     {
-        $review = Review::withTrashed()->findOrFail($id);
+        $review = Review::withTrashed()->where('id_review', $id_review)->firstOrFail();
         $review->forceDelete();
         return redirect()->route('reviews.deleted')->with('success', 'Review permanently deleted.');
     }

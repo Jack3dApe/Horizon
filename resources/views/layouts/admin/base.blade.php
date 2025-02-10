@@ -112,7 +112,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item active" href="{{route('users.deleted')}}">Accounts</a>
                             <a class="dropdown-item active" href="{{route('reviews.deleted')}}">Reviews</a>
-                            <a class="dropdown-item active" href="{{route('support_tickets.deleted')}}">Support Tickets</a>
+                            <!--<a class="dropdown-item active" href="{{route('support_tickets.deleted')}}">Support Tickets</a>-->
                             <a class="dropdown-item active" href="{{route('publishers.deleted')}}">Publishers</a>
                             <a class="dropdown-item active" href="{{route('games.deleted')}}">Games</a>
                             <a class="dropdown-item active" href="{{route('genres.deleted')}}">Genres</a>
