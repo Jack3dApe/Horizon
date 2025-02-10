@@ -104,5 +104,12 @@ class Game extends Model
         return $this->hasMany(OrderItem::class, 'id_game');
     }
 
+    public function discount()
+    {
+        return $this->hasOne(Discount::class, 'id_game', 'id_game')
+            ->where('start_date', '<=', now())
+            ->where('end_date', '>=', now());
+    }
+
 
 }

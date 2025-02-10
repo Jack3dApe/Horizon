@@ -17,12 +17,35 @@
 
                             <div class="product__sidebar__view__item set-bg mix" style="background-image: url('{{ asset('imgs/banners/' . $game->banner) }}')">
                                 <div class="ep">
+                                    @php
+                                        $discountedPrice = $game->discount ? $game->price - ($game->price * ($game->discount->discount_percentage / 100)) : $game->price;
+                                    @endphp
+
                                     @if(app()->getLocale() == 'en')
-                                        {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
+                                        @if($game->price == 0)
+                                            Free to Play
+                                        @else
+                                            @if($game->discount)
+                                                <span class="text-muted text-decoration-line-through">£{{ number_format($game->price * 0.84, 2) }}</span>
+                                                <span class="text-light ms-2">£{{ number_format($discountedPrice * 0.84, 2) }}</span>
+                                            @else
+                                                £{{ number_format($game->price * 0.84, 2) }}
+                                            @endif
+                                        @endif
                                     @elseif(app()->getLocale() == 'pt')
-                                        {{ $game->price == 0 ? 'Gratuito' : '€' . number_format($game->price, 2) }}
+                                        @if($game->price == 0)
+                                            Gratuito
+                                        @else
+                                            @if($game->discount)
+                                                <span class="text-muted text-decoration-line-through">€{{ number_format($game->price, 2) }}</span>
+                                                <span class="text-light ms-2">€{{ number_format($discountedPrice, 2) }}</span>
+                                            @else
+                                                €{{ number_format($game->price, 2) }}
+                                            @endif
+                                        @endif
                                     @endif
                                 </div>
+
                                 <h5><a href="{{ route('games.show.mainpage', $game->id_game) }}">{{ $game->name }}</a></h5>
                             </div>
                         @endforeach

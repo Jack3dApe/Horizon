@@ -95,61 +95,90 @@
                             <h6 class="card-title mb-3">{{ __('messages.order_summary_title') }}</h6>
 
                             <!-- Lista de itens no carrinho -->
-                            @php $subtotal = 0; @endphp
+                            @php
+                                $originalSubtotal = 0;
+                                $discountedSubtotal = 0;
+                                $totalDiscount = 0;
+                            @endphp
 
                             @foreach($cartItems as $item)
+                                @php
+                                    $originalPrice = $item['price'];
+                                    $discountedPrice = isset($item['discount_percentage'])
+                                        ? $item['price'] - ($item['price'] * ($item['discount_percentage'] / 100))
+                                        : $item['price'];
+
+                                    $originalSubtotal += $originalPrice;
+                                    $discountedSubtotal += $discountedPrice;
+
+                                    if (isset($item['discount_percentage'])) {
+                                        $totalDiscount += $originalPrice - $discountedPrice;
+                                    }
+                                @endphp
+
+                                    <!-- Render Item -->
                                 <div class="d-flex justify-content-between mb-2 small">
                                     <span>{{ $item['name'] }}</span>
                                     <span>
-                                    @if(app()->getLocale() == 'en')
-                                    {{ $item['price'] == 0 ? 'Free to Play' : '£' . number_format($item['price'] * 0.84, 2) }}
-                                @elseif(app()->getLocale() == 'pt')
-                                    {{ $item['price'] == 0 ? 'Gratuito' : '€' . number_format($item['price'], 2) }}
-                                @endif
-                                </span>
+            @if(app()->getLocale() == 'en')
+                                            £{{ number_format($originalPrice * 0.84, 2) }}
+                                        @elseif(app()->getLocale() == 'pt')
+                                            €{{ number_format($originalPrice, 2) }}
+                                        @endif
+        </span>
                                 </div>
-                                @php $subtotal += $item['price']; @endphp
                             @endforeach
 
                             <!-- Subtotal -->
                             <div class="d-flex justify-content-between mb-1 small">
                                 <span>Subtotal</span>
                                 <span>
-                                @if(app()->getLocale() == 'en')
-                                        £{{ number_format($subtotal * 0.84, 2) }}
+        @if(app()->getLocale() == 'en')
+                                        £{{ number_format($originalSubtotal * 0.84, 2) }}
                                     @elseif(app()->getLocale() == 'pt')
-                                        €{{ number_format($subtotal, 2) }}
+                                        €{{ number_format($originalSubtotal, 2) }}
                                     @endif
-                                    </span>
+    </span>
                             </div>
 
                             <!-- Discount -->
                             <div class="d-flex justify-content-between mb-1 small">
                                 <span>{{ __('messages.discount_label') }}</span>
                                 <span class="text-danger">
-                                @if(app()->getLocale() == 'en')
-                                    -£0.00
-                                @elseif(app()->getLocale() == 'pt')
-                                    -€0.00
-                                @endif
-                            </span>
+        @if($totalDiscount > 0)
+                                        @if(app()->getLocale() == 'en')
+                                            -£{{ number_format($totalDiscount * 0.84, 2) }}
+                                        @elseif(app()->getLocale() == 'pt')
+                                            -€{{ number_format($totalDiscount, 2) }}
+                                        @endif
+                                    @else
+                                        @if(app()->getLocale() == 'en')
+                                            £0.00
+                                        @elseif(app()->getLocale() == 'pt')
+                                            €0.00
+                                        @endif
+                                    @endif
+    </span>
                             </div>
-
                             <hr>
-
                             <!-- Total -->
                             <div class="d-flex justify-content-between mb-4 small">
                                 <span>TOTAL</span>
                                 <strong class="text-dark">
                                     @if(app()->getLocale() == 'en')
-                                        £{{ number_format($subtotal * 0.84, 2) }}
+                                        £{{ number_format($discountedSubtotal * 0.84, 2) }}
                                     @elseif(app()->getLocale() == 'pt')
-                                        €{{ number_format($subtotal, 2) }}
+                                        €{{ number_format($discountedSubtotal, 2) }}
                                     @endif
                                 </strong>
                             </div>
 
-                            <input type="hidden" name="amount" value="{{ $subtotal ?? '' }}">
+                            <!-- Hidden Input for Total Amount -->
+                            <input type="hidden" name="amount" value="{{ number_format($discountedSubtotal, 2, '.', '') }}">
+
+
+
+
                             <!-- Botão para enviar o formulário -->
                             <button id="creditCardButton" type="submit" class="btn btn-primary w-100 mt-2 d-flex align-items-center justify-content-center" style="font-weight: bold; font-size: 16px; padding: 10px;">
                                 <i class="fa fa-shopping-cart me-2"></i>
@@ -197,12 +226,13 @@
         });
 
         function renderPayPalButton() {
+
             paypal.Buttons({
                 createOrder: function (data, actions) {
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                value: '{{ $subtotal ?? 0 }}',
+                                value: '{{ number_format($discountedSubtotal, 2, '.', '') }}'
                             },
                             description: 'Order from Horizon'
                         }]

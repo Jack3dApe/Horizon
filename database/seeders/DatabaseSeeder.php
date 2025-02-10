@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
             //SupportTicketSeeder::class,
             GenreSeeder::class,
             GameSeeder::class,
-            ReviewSeeder::class,
-            OrderSeeder::class,
-            OrderItemSeeder::class,
+            //ReviewSeeder::class,
+            //OrderSeeder::class,
+            //OrderItemSeeder::class,
 
         ]);
     }

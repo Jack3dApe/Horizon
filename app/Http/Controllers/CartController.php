@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Game;
+use App\Models\Discount;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -24,22 +25,36 @@ class CartController extends Controller
 
     public function addToCart(string $id_game)
     {
-        $game = Game::find($id_game);
+        $game = Game::with('discount')->find($id_game);
         $cart = session()->get('cart', []);
 
+        // Verificar se o jogo já está no carrinho
         if (isset($cart[$id_game])) {
             return redirect()->back()->with('info', 'Game already in your cart!');
-        } else {
-            $cart[$id_game] = [
-                'name' => $game->name,
-                'price' => $game->price,
-                'grid' => $game->grid,
-                'publisher' => $game->publisher->name,
-            ];
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Game added to cart successfully!');
         }
+
+        // Calcular o preço com desconto, se existir
+        $discountedPrice = $game->price;
+        if ($game->discount && now()->between($game->discount->start_date, $game->discount->end_date)) {
+            $discountedPrice = $game->price - ($game->price * ($game->discount->discount_percentage / 100));
+        }
+
+        // Adicionar o jogo ao carrinho
+        $cart[$id_game] = [
+            'name' => $game->name,
+            'price' => $game->price,
+            'discounted_price' => $discountedPrice,
+            'discount_percentage' => $game->discount->discount_percentage ?? 0,
+            'grid' => $game->grid,
+            'publisher' => $game->publisher->name ?? 'Unknown',
+        ];
+
+        // Atualizar a sessão
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Game added to cart successfully!');
     }
+
 
     public function update(Request $request, $id_game)
     {
