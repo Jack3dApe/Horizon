@@ -46,7 +46,6 @@ return [
     'comment_placeholder' => 'Your Comment',
     'submit_review_button' => 'Submit Review',
     'see_in_library_button' => 'See in Library',
-    'discount_label_sucess' => 'Discount',
 
 
 

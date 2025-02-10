@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center" style="margin-right: 0px;margin-left: 0px">
         <div class="col-lg-8">
             <div class="blog__details__title">
                 <h2 class="font-weight-bold">{{ __('messages.dont_know_what_to_play_title') }}</h2>
@@ -71,6 +71,7 @@
         </div>
     </div>
     <x-ai-search />
+
 
 
 

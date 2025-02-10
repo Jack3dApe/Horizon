@@ -47,13 +47,36 @@
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
                                             <li>
-                                                <span>{{__('messages.price')}}</span>
+                                                <span>{{ __('messages.price') }}</span>
+                                                @php
+                                                    $discountedPrice = isset($game->discount) ? $game->price - ($game->price * ($game->discount->discount_percentage / 100)) : $game->price;
+                                                @endphp
+
                                                 @if(app()->getLocale() == 'en')
-                                                    {{ $game->price == 0 ? 'Free to Play' : '£' . number_format($game->price * 0.84, 2) }}
+                                                    @if($game->price == 0)
+                                                        Free to Play
+                                                    @else
+                                                        @if(isset($game->discount))
+                                                            <span class="text-muted text-decoration-line-through">£{{ number_format($game->price * 0.84, 2) }}</span>
+                                                            <span class="text-danger ms-2">£{{ number_format($discountedPrice * 0.84, 2) }}</span>
+                                                        @else
+                                                            £{{ number_format($game->price * 0.84, 2) }}
+                                                        @endif
+                                                    @endif
                                                 @elseif(app()->getLocale() == 'pt')
-                                                    {{ $game->price == 0 ? 'Gratuito' : '€' . number_format($game->price, 2) }}
+                                                    @if($game->price == 0)
+                                                        Gratuito
+                                                    @else
+                                                        @if(isset($game->discount))
+                                                            <span class="text-muted text-decoration-line-through" style="width:45px">€{{ number_format($game->price, 2) }}</span>
+                                                            <span class="text-danger ms-2">€{{ number_format($discountedPrice, 2) }}</span>
+                                                        @else
+                                                            €{{ number_format($game->price, 2) }}
+                                                        @endif
+                                                    @endif
                                                 @endif
                                             </li>
+
                                             <li><span>{{__('messages.publisher')}}</span> {{ $game->publisher->name ?? 'Unknown' }}</li>
                                             <li><span>{{__('messages.release')}}</span> {{ $game->release_date->format('d/m/Y') }}</li>
                                             <li><span>{{__('messages.genre')}}</span>
