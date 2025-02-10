@@ -125,13 +125,12 @@
 
 
                                     <!-- Discount Period Inputs -->
-                                    <!-- Discount Period Inputs -->
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="discount_start_date" class="form-label">Discount Start Date</label>
                                                 <input type="date" id="discount_start_date" name="discount_start_date" class="form-control"
-                                                       value="{{ old('discount_start_date', isset($game->discount) && $game->discount->start_date instanceof \Carbon\Carbon ? $game->discount->start_date->format('Y-m-d') : $game->discount->start_date) }}">
+                                                       value="{{ old('discount_start_date', $game->discount->start_date ?? '') }}">
                                             </div>
                                         </div>
 
@@ -139,7 +138,7 @@
                                             <div class="mb-3">
                                                 <label for="discount_end_date" class="form-label">Discount End Date</label>
                                                 <input type="date" id="discount_end_date" name="discount_end_date" class="form-control"
-                                                       value="{{ old('discount_end_date', isset($game->discount) && $game->discount->end_date instanceof \Carbon\Carbon ? $game->discount->end_date->format('Y-m-d') : $game->discount->end_date) }}">
+                                                       value="{{ old('discount_end_date', $game->discount->end_date ?? '') }}">
                                             </div>
                                         </div>
                                     </div>
