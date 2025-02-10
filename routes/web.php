@@ -153,6 +153,14 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
     Route::delete('/genres/{id}/force-delete', [GenreController::class, 'forceDelete'])->name('genres.forceDelete');
 });
 
+Route::middleware(['auth', 'role:admin'])->prefix('deleted')->group(function () {
+    Route::get('/users/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedUsers'])->name('deleted.users.search');
+    Route::get('/reviews/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedReviews'])->name('deleted.reviews.search');
+    Route::get('/publishers/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedPublishers'])->name('deleted.publishers.search');
+    Route::get('/games/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedGames'])->name('deleted.games.search');
+    Route::get('/genres/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedGenres'])->name('deleted.genres.search');
+});
+
 Route::get('/genres/all', [GenreController::class, 'listAllGenres'])->name('genres.listAll');
 
 

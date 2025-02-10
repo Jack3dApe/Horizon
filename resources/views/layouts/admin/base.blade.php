@@ -103,7 +103,7 @@
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
                            data-bs-auto-close="false" role="button" aria-expanded="false">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-users" style="color: #A6BCBC;"></i>
+                                <i class="ti ti-trash" style="color: #A6BCBC;"></i>
                             </span>
                             <span class="nav-link-title">
                                Restore/Final-Delete

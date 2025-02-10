@@ -114,6 +114,86 @@ class SearchController extends Controller
         return view('orders.index', compact('orders', 'query'));
     }
 
+    public function searchDeletedUsers(Request $request)
+    {
+        $query = $request->input('query');
+
+        $users = User::onlyTrashed()
+            ->when($query, function ($q) use ($query) {
+                $q->where('username', 'like', "%$query%")
+                    ->orWhere('email', 'like', "%$query%");
+            })
+            ->paginate(10);
+
+        return view('softdeletes.users.deleted', compact('users', 'query'));
+    }
+
+    public function searchDeletedReviews(Request $request)
+    {
+        $query = $request->input('query');
+
+        $reviews = Review::onlyTrashed()
+            ->when($query, function ($q) use ($query) {
+                $q->where('description', 'like', "%$query%")
+                    ->orWhereHas('user', function ($q) use ($query) {
+                        $q->where('username', 'like', "%$query%");
+                    })
+                    ->orWhereHas('game', function ($q) use ($query) {
+                        $q->where('name', 'like', "%$query%");
+                    });
+            })
+            ->paginate(10);
+
+        return view('softdeletes.reviews.deleted', compact('reviews', 'query'));
+    }
+
+    public function searchDeletedPublishers(Request $request)
+    {
+        $query = $request->input('query');
+
+        $publishers = Publisher::onlyTrashed()
+            ->when($query, function ($q) use ($query) {
+                $q->where('name', 'like', "%$query%")
+                    ->orWhere('email', 'like', "%$query%");
+            })
+            ->paginate(10);
+
+        return view('softdeletes.publishers.deleted', compact('publishers', 'query'));
+    }
+
+    public function searchDeletedGames(Request $request)
+    {
+        $query = $request->input('query');
+
+        $games = Game::onlyTrashed()
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'like', "%$query%")
+                    ->orWhereHas('publisher', function ($q) use ($query) {
+                        $q->where('name', 'like', "%$query%");
+                    })
+                    ->orWhere('description_en', 'like', "%$query%")
+                    ->orWhere('description_pt', 'like', "%$query%");
+            })
+            ->with(['publisher', 'genres'])
+            ->paginate(10);
+
+        return view('softdeletes.games.deleted', compact('games', 'query'));
+    }
+
+    public function searchDeletedGenres(Request $request)
+    {
+        $query = $request->input('query');
+
+        $genres = Genre::onlyTrashed()
+            ->when($query, function ($q) use ($query) {
+                $q->where('name', 'like', "%$query%");
+            })
+            ->paginate(10);
+
+        return view('softdeletes.genres.deleted', compact('genres', 'query'));
+    }
+
+
     public function aiSearch(Request $request, OpenAIService $openAIService)
     {
         // Validar a entrada do usuário

@@ -36,8 +36,8 @@
                     @forelse($reviews as $review)
                         <tr>
                             <td><span class="text-secondary">{{ $review->id_review }}</span></td>
-                            <td>{{ $review->user->username }}</td>
-                            <td>{{ $review->game->name }}</td>
+                            <td>{{ $review->user->username ?? 'Deleted User' }}</td>
+                            <td>{{ $review->game->name ?? 'Deleted Game' }}</td>
                             <td class="{{ $review->is_positive ? 'text-success' : 'text-danger' }}">
                                 {{ $review->is_positive ? 'Positive' : 'Negative' }}
                             </td>

@@ -5,8 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col mb-3 d-flex justify-content-between">
-                <h1>Deleted Publishers</h1>
+            <div class="col mb-3 d-flex justify-content-end">
                 <a href="{{ route('publishers.index') }}" class="btn btn-primary">Back to Publishers</a>
             </div>
         </div>
@@ -15,10 +14,14 @@
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
                     <div class="ms-auto text-secondary">
-                        Search:
-                        <div class="ms-2 d-inline-block">
-                            <input type="text" class="form-control form-control-sm" size="30" aria-label="Search publishers">
-                        </div>
+                        <!-- Formulário de pesquisa -->
+                        <form action="{{ route('deleted.publishers.search') }}" method="GET" class="d-inline-block">
+                            Search:
+                            <div class="ms-2 d-inline-block">
+                                <input type="text" name="query" value="{{ $query ?? '' }}" class="form-control form-control-sm"
+                                       size="30" aria-label="Search deleted publishers">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -37,28 +40,30 @@
                     </thead>
                     <tbody>
                     @foreach($publishers as $publisher)
-                        <tr>
-                            <td><input class="form-check-input m-0 align-middle" type="checkbox"
-                                       aria-label="Select publisher"></td>
-                            <td>{{ $publisher->id }}</td>
-                            <td>{{ $publisher->name }}</td>
-                            <td>{{ $publisher->email ?? 'N/A' }}</td>
-                            <td>{{ $publisher->deleted_at->format('m/d/Y') }}</td>
-                            <td class="text-end">
-                                {{-- Restore Button --}}
-                                <form action="{{ route('publishers.restore', $publisher->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success">Restore</button>
-                                </form>
+                        @if ($publisher->deleted_at)
+                            <tr>
+                                <td><input class="form-check-input m-0 align-middle" type="checkbox"
+                                           aria-label="Select publisher"></td>
+                                <td>{{ $publisher->id_publisher }}</td>
+                                <td>{{ $publisher->name }}</td>
+                                <td>{{ $publisher->email ?? 'N/A' }}</td>
+                                <td>{{ $publisher->deleted_at ? $publisher->deleted_at->format('m/d/Y') : 'N/A' }}</td>
+                                <td class="text-end">
+                                    {{-- Restore Button --}}
+                                    <form action="{{ route('publishers.restore', $publisher->id_publisher) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Restore</button>
+                                    </form>
 
-                                {{-- Force Delete Button --}}
-                                <form action="{{ route('publishers.forceDelete', $publisher->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Permanently delete this publisher?')">Force Delete</button>
-                                </form>
-                            </td>
-                        </tr>
+                                    {{-- Force Delete Button --}}
+                                    <form action="{{ route('publishers.forceDelete', $publisher->id_publisher) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Permanently delete this publisher?')">Force Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
