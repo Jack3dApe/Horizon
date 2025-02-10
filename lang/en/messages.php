@@ -188,7 +188,7 @@ return [
     'paymentmethodscreditpaypalmsg' => 'We accept credit cards and PayPal.',
     'whatemailactivatedo' => 'Benefits of email confirmation',
     'whatemailactivatedomsg' => 'Confirmed emails increase the chance of quick resolution by enabling direct communication.',
-    'howandwhatmedal' => 'How to obtain medals/badges?',
+    'howandwhatmedal' => 'How to obtain badges?',
     'howandwhatmedalmsg' => 'Activating your account unlocks medals, which are awarded upon purchasing games.',
     'currentlanguagespten' => 'Currently supported languages',
     'currentlanguagesptenmsg' => 'The supported languages are Portuguese and English.',

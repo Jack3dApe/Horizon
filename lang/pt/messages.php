@@ -186,7 +186,7 @@ return [
     'paymentmethodscreditpaypalmsg' => 'Aceitamos cartão de crédito e PayPal.',
     'whatemailactivatedo' => 'Vantagens de confirmar o email',
     'whatemailactivatedomsg' => 'Emails confirmados aumentam a chance de resolução rápida, pois permitem comunicação direta.',
-    'howandwhatmedal' => 'Como conseguir medalhas/badges?',
+    'howandwhatmedal' => 'Como conseguir distintivos?',
     'howandwhatmedalmsg' => 'Ativar a sua conta desbloqueia medalhas, que podem ser obtidas ao comprar jogos.',
     'currentlanguagespten' => 'Idiomas atualmente suportados',
     'currentlanguagesptenmsg' => 'Os idiomas suportados são Português e Inglês.',
