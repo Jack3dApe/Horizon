@@ -100,6 +100,7 @@ class GameController extends Controller
 
     public function edit(Game $game)
     {
+        $discounts = \App\Models\Discount::all();
         $publishers = \App\Models\Publisher::all();
         $genres = \App\Models\Genre::all();
 
@@ -123,6 +124,9 @@ class GameController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'description_en' => 'nullable|string|max:1000',
             'description_pt' => 'nullable|string|max:1000',
+            'discount_percentage' => 'nullable|numeric|min:0|max:100',
+            'discount_start_date' => 'nullable|date',
+            'discount_end_date' => 'nullable|date|after_or_equal:discount_start_date',
             //'screenshot_1' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_2' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             //'screenshot_3' => 'nullable|image|mimes:jpeg,png,jpg,gif',
@@ -167,6 +171,19 @@ class GameController extends Controller
         $game->update($validated);
 
         $game->genres()->sync($request->input('genres'));
+
+        if (!empty($validated['discount_percentage']) && $validated['discount_percentage'] > 0) {
+            $game->discount()->updateOrCreate(
+                ['id_game' => $game->id_game],
+                [
+                    'discount_percentage' => $validated['discount_percentage'] ?? 0,
+                    'start_date' => $validated['discount_start_date'] ?? null,
+                    'end_date' => $validated['discount_end_date'] ?? null,
+                ]
+            );
+        } else {
+            $game->discount()->delete();
+        }
 
         return redirect()->route('games.index')->with('success', 'Game updated successfully.');
     }

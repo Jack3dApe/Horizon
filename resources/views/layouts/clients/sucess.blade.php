@@ -26,15 +26,30 @@
                     <table class="table table-transparent table-responsive" style="color: #B7B7B7;">
                         <thead>
                         <tr>
-                            <th  class="text-center" style="width: 1% ; color: #e53637"></th>
+                            <th class="text-center" style="width: 1%; color: #e53637"></th>
                             <th style="color: #e53637">{{ __('messages.product_column') }}</th>
                             <th class="text-end" style="width: 1%; color: #e53637">{{ __('messages.amount_column') }}</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @php $total = 0; @endphp
+                        @php
+                            $subtotal = 0;
+                            $totalDiscount = 0;
+                        @endphp
 
                         @foreach($order->orderItems as $index => $item)
+                            @php
+                                // Cálculo do preço com e sem desconto
+                                $originalPrice = $item->price;
+                                $discountPercentage = $item->game->discount->discount_percentage ?? 0;
+                                $discountAmount = $originalPrice * ($discountPercentage / 100);
+                                $finalPrice = $originalPrice - $discountAmount;
+
+                                // Atualizar valores totais
+                                $subtotal += $originalPrice;
+                                $totalDiscount += $discountAmount;
+                            @endphp
+
                             <tr>
                                 <td class="text-center" style="color: white; font-weight: bold;">{{ $index + 1 }}</td>
                                 <td>
@@ -43,30 +58,46 @@
                                 </td>
                                 <td class="text-end" style="color: white; font-size: 16px;">
                                     @if(app()->getLocale() == 'en')
-                                        {{ $item->price == 0 ? 'Free to Play' : '£' . number_format($item->price * 0.84, 2) }}
+                                        £{{ number_format($originalPrice * 0.84, 2) }}
                                     @elseif(app()->getLocale() == 'pt')
-                                        {{ $item->price == 0 ? 'Gratuito' : '€' . number_format($item->price, 2) }}
+                                        €{{ number_format($originalPrice, 2) }}
                                     @endif
                                 </td>
                             </tr>
                         @endforeach
 
+                        <!-- Discount row -->
+                        <tr>
+                            <td colspan="2" class="font-weight-bold text-end" style="color:#757575; font-size: 18px; font-weight: bold;">
+                                {{ __('messages.discount_label') }}
+                            </td>
+                            <td class="text-end" style="color: red; font-size: 16px; font-weight: normal;">
+                                @if(app()->getLocale() == 'en')
+                                    -£{{ number_format($totalDiscount * 0.84, 2) }}
+                                @elseif(app()->getLocale() == 'pt')
+                                    -€{{ number_format($totalDiscount, 2) }}
+                                @endif
+                            </td>
+                        </tr>
+
                         <!-- Total row -->
                         <tr>
                             <td colspan="2" class="font-weight-bold text-end" style="color:#757575; font-size: 18px; font-weight: bold;">Total</td>
                             <td class="text-end" style="color: white; font-size: 18px; font-weight: bold;">
+                                @php
+                                    $totalAmount = $subtotal - $totalDiscount;
+                                @endphp
                                 @if(app()->getLocale() == 'en')
-                                    £{{ number_format($order->total_price * 0.84, 2) }}
+                                    £{{ number_format($totalAmount * 0.84, 2) }}
                                 @elseif(app()->getLocale() == 'pt')
-                                    €{{ number_format($order->total_price, 2) }}
+                                    €{{ number_format($totalAmount, 2) }}
                                 @endif
                             </td>
                         </tr>
 
                         </tbody>
-
-
                     </table>
+
                     <p class="text-center mt-5" style="color: white">{{ __('messages.thank_you_message') }}</p>
 
                 </div>

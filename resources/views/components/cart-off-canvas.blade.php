@@ -17,12 +17,35 @@
                     <h6 class="mb-1" style="text-align: left;">{{ $item['name'] }}</h6>
                     <p class="text-muted mb-1" style="text-align: left; font-size: 0.9rem;">{{ $item['publisher'] }}</p>
                     <span class="fw-bold d-block" style="text-align: left; margin-top: 5px;">
-                    @if(app()->getLocale() == 'en')
-                        {{ $item['price'] == 0 ? 'Free to Play' : '£' . number_format($item['price'] * 0.84, 2) }}
-                    @elseif(app()->getLocale() == 'pt')
-                        {{ $item['price'] == 0 ? 'Gratuito' : '€' . number_format($item['price'], 2) }}
-                    @endif
+                    @php
+                        $hasDiscount = isset($item['discounted_price']) && $item['discounted_price'] < $item['price'];
+                    @endphp
+
+                        @if(app()->getLocale() == 'en')
+                            @if($item['price'] == 0)
+                                Free to Play
+                            @else
+                                @if($hasDiscount)
+                                    <span class="text-muted text-decoration-line-through">£{{ number_format($item['price'] * 0.84, 2) }}</span>
+                                    <span class="text-danger ms-2">£{{ number_format($item['discounted_price'] * 0.84, 2) }}</span>
+                                @else
+                                    £{{ number_format($item['price'] * 0.84, 2) }}
+                                @endif
+                            @endif
+                        @elseif(app()->getLocale() == 'pt')
+                            @if($item['price'] == 0)
+                                Gratuito
+                            @else
+                                @if($hasDiscount)
+                                    <span class="text-muted text-decoration-line-through">€{{ number_format($item['price'], 2) }}</span>
+                                    <span class="text-danger ms-2">€{{ number_format($item['discounted_price'], 2) }}</span>
+                                @else
+                                    €{{ number_format($item['price'], 2) }}
+                                @endif
+                            @endif
+                        @endif
                     </span>
+
                 </div>
 
                 <!-- Botão para remover do carrinho -->

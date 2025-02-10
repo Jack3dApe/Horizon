@@ -5,6 +5,8 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Library;
 
 class GamesOwned extends Component
 {
@@ -14,10 +16,15 @@ class GamesOwned extends Component
      */
     public function __construct()
     {
-        $this->games = Library::with('game')
-            ->where('id_user', Auth::id())
-            ->get();
+        $this->games = Library::where('id_user', Auth::id())->pluck('id_game')->toArray();
+
     }
+
+    public function hasGame($id_game): bool
+    {
+        return in_array($id_game, $this->games);
+    }
+
 
     /**
      * Get the view / contents that represent the component.

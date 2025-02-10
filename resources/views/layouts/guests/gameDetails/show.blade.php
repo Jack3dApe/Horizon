@@ -66,6 +66,13 @@
                                 </div>
                             </div>
                             <div class="anime__details__btn">
+                                @php
+                                    // Verifica se o usuário está logado e se o jogo está na biblioteca do usuário
+                                    $gameOwned = auth()->check() && \App\Models\Library::where('id_user', auth()->id())
+                                        ->where('id_game', $game->id_game)
+                                        ->exists();
+                                @endphp
+
                                 @if ($gameOwned)
                                     <!-- Botão "See in Library" -->
                                     <a href="{{ route('profile') }}" class="follow-btn" style="background-color: #f0ad4e; color: white;">
@@ -79,6 +86,7 @@
                                     </a>
                                 @endif
                             </div>
+
 
                         </div>
                     </div>
