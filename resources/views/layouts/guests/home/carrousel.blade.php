@@ -50,11 +50,11 @@
         <div class="row">
             <!-- Recent Games -->
             <div class="col-lg-8">
-                <x-recent-games/>
-                <x-trending-games />
+                <x-game.recent-games/>
+                <x-game.trending-games />
 
             </div>
-            <x-top-games/>
+            <x-game.top-games/>
             <!-- Top Games -->
         </div>
     </div>
@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-    <x-ai-search />
+    <x-ui.ai-search />
 
 
 

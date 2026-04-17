@@ -1,28 +1,28 @@
 <?php
 
-use App\Http\Controllers\DashboardOverviewController;
+use App\Http\Controllers\Admin\DashboardOverviewController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TicketController;
+use App\Http\Controllers\Admin\TicketController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\UserControler;
-use \App\Http\Controllers\ReviewController;
-use \App\Http\Controllers\SupportTicketController;
-use \App\Http\Controllers\PublisherController;
-use \App\Http\Controllers\GameController;
-use App\Http\Controllers\GenreController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\PasswordRecoveryController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\SupportTicketController;
+use App\Http\Controllers\Admin\PublisherController;
+use App\Http\Controllers\Admin\GameController;
+use App\Http\Controllers\Admin\GenreController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\PasswordRecoveryController;
 use Carbon\Carbon;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Store\OrderController;
 use App\Models\Game;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\PaypalController;
-use App\Http\Controllers\LibraryController;
-use App\Http\Controllers\SocialAuthController;
+use App\Http\Controllers\Store\WishlistController;
+use App\Http\Controllers\Store\CartController;
+use App\Http\Controllers\Store\PaymentController;
+use App\Http\Controllers\Store\PaypalController;
+use App\Http\Controllers\Store\LibraryController;
+use App\Http\Controllers\Auth\SocialAuthController;
 
 Route::get('/', function () {
     // Pega 10 jogos alearoios
@@ -46,7 +46,7 @@ Route::get('/admin/dashboard', function () {
 */
 
 Route::get('/clients/dashboard', function () {
-    return view('clients.dashboard');
+    return view('client.dashboard');
 })->middleware('auth')->name('clients.dashboard');
 
 Route::get('/admin/dashboard', [DashboardOverviewController::class, 'overview'])
@@ -54,7 +54,7 @@ Route::get('/admin/dashboard', [DashboardOverviewController::class, 'overview'])
     ->name('admin.dashboard');
 
 Route::get('/admin/notifications', function () {
-    return view('adminoverview.show-all-notifications');
+    return view('admin.overview.show-all-notifications');
 })->middleware(['auth', 'role:admin'])->name('admin.notifications');
 
 Route::middleware('guest')->group(function () {
@@ -73,8 +73,8 @@ Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleC
 
 //Rota para o profile
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [UserControler::class, 'profile'])->name('profile');
-    Route::put('/profile/update', [UserControler::class, 'updateProfile'])->name('profile.update');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::put('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
 });
 
 Route::post('/support/email/send-activation', [ProfileController::class, 'sendActivationEmail'])->name('support.email.send');
@@ -129,7 +129,7 @@ Route::post('password/reset', [LoginController::class, 'resetPassword'])->name('
 
 
 Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
-    Route::get('/users', [UserControler::class, 'deleted'])->name('users.deleted');
+    Route::get('/users', [UserController::class, 'deleted'])->name('users.deleted');
     Route::get('/reviews', [ReviewController::class, 'deleted'])->name('reviews.deleted');
     Route::get('/support-tickets', [SupportTicketController::class, 'deleted'])->name('support_tickets.deleted');
     Route::get('/publishers', [PublisherController::class, 'deleted'])->name('publishers.deleted');
@@ -137,7 +137,7 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
     Route::get('/genres', [GenreController::class, 'deleted'])->name('genres.deleted');
 
     //Rotas Restore
-    Route::post('/users/{id}/restore', [UserControler::class, 'restore'])->name('users.restore');
+    Route::post('/users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
     Route::post('/reviews/{id_review}/restore', [ReviewController::class, 'restore'])->name('reviews.restore');
     Route::post('/support-tickets/{id}/restore', [SupportTicketController::class, 'restore'])->name('support_tickets.restore');
     Route::post('/publishers/{id}/restore', [PublisherController::class, 'restore'])->name('publishers.restore');
@@ -145,7 +145,7 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
     Route::post('/genres/{id}/restore', [GenreController::class, 'restore'])->name('genres.restore');
 
     //Rotas Permanent Delete
-    Route::delete('/users/{id}/force-delete', [UserControler::class, 'forceDelete'])->name('users.forceDelete');
+    Route::delete('/users/{id}/force-delete', [UserController::class, 'forceDelete'])->name('users.forceDelete');
     Route::delete('/reviews/{id_review}/force-delete', [ReviewController::class, 'forceDelete'])->name('reviews.forceDelete');
     Route::delete('/support-tickets/{id}/force-delete', [SupportTicketController::class, 'forceDelete'])->name('support_tickets.forceDelete');
     Route::delete('/publishers/{id}/force-delete', [PublisherController::class, 'forceDelete'])->name('publishers.forceDelete');
@@ -154,11 +154,11 @@ Route::prefix('deleted')->middleware(['auth', 'role:admin'])->group(function (){
 });
 
 Route::middleware(['auth', 'role:admin'])->prefix('deleted')->group(function () {
-    Route::get('/users/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedUsers'])->name('deleted.users.search');
-    Route::get('/reviews/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedReviews'])->name('deleted.reviews.search');
-    Route::get('/publishers/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedPublishers'])->name('deleted.publishers.search');
-    Route::get('/games/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedGames'])->name('deleted.games.search');
-    Route::get('/genres/search', [\App\Http\Controllers\SearchController::class, 'searchDeletedGenres'])->name('deleted.genres.search');
+    Route::get('/users/search', [\App\Http\Controllers\Admin\SearchController::class, 'searchDeletedUsers'])->name('deleted.users.search');
+    Route::get('/reviews/search', [\App\Http\Controllers\Admin\SearchController::class, 'searchDeletedReviews'])->name('deleted.reviews.search');
+    Route::get('/publishers/search', [\App\Http\Controllers\Admin\SearchController::class, 'searchDeletedPublishers'])->name('deleted.publishers.search');
+    Route::get('/games/search', [\App\Http\Controllers\Admin\SearchController::class, 'searchDeletedGames'])->name('deleted.games.search');
+    Route::get('/genres/search', [\App\Http\Controllers\Admin\SearchController::class, 'searchDeletedGenres'])->name('deleted.genres.search');
 });
 
 Route::get('/genres/all', [GenreController::class, 'listAllGenres'])->name('genres.listAll');
@@ -187,27 +187,27 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/library/{id}', [LibraryController::class, 'destroy'])->name('library.destroy');
 });
 
-Route::get('/search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
-Route::get('/ai-search', [\App\Http\Controllers\SearchController::class, 'aiSearch'])->name('search.ai');
+Route::get('/search', [\App\Http\Controllers\Admin\SearchController::class, 'index'])->name('search');
+Route::get('/ai-search', [\App\Http\Controllers\Admin\SearchController::class, 'aiSearch'])->name('search.ai');
 
 
 //Resources
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::resource('genres', \App\Http\Controllers\GenreController::class);//->except(['show']);
+    Route::resource('genres', \App\Http\Controllers\Admin\GenreController::class);//->except(['show']);
 
-    Route::resource('users', \App\Http\Controllers\UserControler::class);
-    Route::get('/admin/search/users', [\App\Http\Controllers\SearchController::class, 'searchUsers'])->name('admin.search.users');
-
-
-    Route::resource('games', \App\Http\Controllers\GameController::class);
-    Route::get('/admin/search/games', [\App\Http\Controllers\SearchController::class, 'searchGames'])->name('admin.search.games');
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+    Route::get('/admin/search/users', [\App\Http\Controllers\Admin\SearchController::class, 'searchUsers'])->name('admin.search.users');
 
 
-    Route::resource('reviews', \App\Http\Controllers\ReviewController::class);
-    Route::get('/admin/search/reviews', [\App\Http\Controllers\SearchController::class, 'searchReviews'])->name('admin.search.reviews');
+    Route::resource('games', \App\Http\Controllers\Admin\GameController::class);
+    Route::get('/admin/search/games', [\App\Http\Controllers\Admin\SearchController::class, 'searchGames'])->name('admin.search.games');
 
-    Route::resource('publishers', \App\Http\Controllers\PublisherController::class);
-    Route::get('/admin/search/publishers', [\App\Http\Controllers\SearchController::class, 'searchPublishers'])->name('admin.search.publishers');
+
+    Route::resource('reviews', \App\Http\Controllers\Admin\ReviewController::class);
+    Route::get('/admin/search/reviews', [\App\Http\Controllers\Admin\SearchController::class, 'searchReviews'])->name('admin.search.reviews');
+
+    Route::resource('publishers', \App\Http\Controllers\Admin\PublisherController::class);
+    Route::get('/admin/search/publishers', [\App\Http\Controllers\Admin\SearchController::class, 'searchPublishers'])->name('admin.search.publishers');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -228,7 +228,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/support/tickets/{id}', [TicketController::class, 'show'])->name('admin.supporttickets.show');
     });
 });
-Route::get('/admin/search/tickets', [\App\Http\Controllers\SearchController::class, 'searchTickets'])->name('admin.search.tickets');
+Route::get('/admin/search/tickets', [\App\Http\Controllers\Admin\SearchController::class, 'searchTickets'])->name('admin.search.tickets');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -241,7 +241,7 @@ Route::prefix('admindashboard')->middleware(['auth', 'role:admin'])->group(funct
     Route::get('/orders', [OrderController::class, 'indexPaginated'])->name('admindashboard.orders.index');
     Route::get('/orders/{id_order}', [OrderController::class, 'showWithPayments'])->name('admindashboard.orders.show');
 });
-Route::get('/admin/search/orders', [\App\Http\Controllers\SearchController::class, 'searchOrders'])->name('admin.search.orders');
+Route::get('/admin/search/orders', [\App\Http\Controllers\Admin\SearchController::class, 'searchOrders'])->name('admin.search.orders');
 
 //About Us
 Route::get('/about-us', function () {

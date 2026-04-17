@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-star"></i> Rating:</label>
-                                    <p><x-game-rating :game="$game" /></p>
+                                    <p><x-game.rating :game="$game" /></p>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fw-bold"><i class="ti ti-calendar"></i> Release Date:</label>

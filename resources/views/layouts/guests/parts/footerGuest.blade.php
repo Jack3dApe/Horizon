@@ -25,6 +25,6 @@
         </div>
     </div>
 </footer>
-<x-search-bar />
+<x-ui.search-bar />
 
 

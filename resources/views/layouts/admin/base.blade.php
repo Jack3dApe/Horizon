@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-                <x-user-profile-dropdown />
+                <x-user.profile-dropdown />
             </div>
 
         </div>

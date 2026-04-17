@@ -74,7 +74,7 @@
                     </div>
 
                     <!-- Language Switch -->
-                    <x-language-switch />
+                    <x-ui.language-switch />
                 </div>
             </div>
 
@@ -149,7 +149,7 @@
                                 @endif
                         </a>
 
-                        <x-cart-off-canvas />
+                        <x-ui.cart-off-canvas />
 
                         <div class="nav-item dropdown" >
                             <a  href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
@@ -195,7 +195,7 @@
                             </div>
                         </div>
 
-                        <x-language-switch />
+                        <x-ui.language-switch />
                     </div>
                 </div>
             </div>

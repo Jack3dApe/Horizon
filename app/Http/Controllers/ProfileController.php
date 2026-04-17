@@ -14,7 +14,7 @@ class ProfileController extends Controller
     public function show()
     {
         $user = auth()->user();
-        return view('layouts.clients.profile', compact('user'));
+        return view('client.profile', compact('user'));
     }
 
     // Enviar email de ativação
