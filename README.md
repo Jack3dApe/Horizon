@@ -5,9 +5,7 @@ Horizon is a full-stack web application for buying and managing video games. Bui
 ---
 
 ## Homepage
-
-<!-- Add a screenshot of the homepage here -->
-![Homepage]()
+<img width="1842" height="850" alt="image 2" src="https://github.com/user-attachments/assets/86351bb1-d63f-4530-8347-d44414332ad0" />
 
 ---
 
